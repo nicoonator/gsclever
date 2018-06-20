@@ -40,13 +40,9 @@ public specialEvent enterCross( int fieldId ) {
 }
 
 
-<<<<<<< HEAD
 public boolean getFox() {
 	// TODO Auto-generated method stub
 	return false;
 }
 
-=======
->>>>>>> branch 'master' of https://github.com/nicoonator/gsclever.git
-	
 }
