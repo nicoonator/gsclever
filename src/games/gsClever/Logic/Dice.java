@@ -8,12 +8,12 @@ public class Dice {
 	private boolean onTray;
 	private int field;
 	
-	public Dice(String color, int value, boolean onTray, int field) {
+	public Dice(String color ) {
 		
 		this.color= color;
-		this.value = value;
-		this.onTray= onTray;
-		this.field = field;
+		value = 1;
+		onTray= false;
+		field = -1;
 	}
 
 	public String getColor() {
