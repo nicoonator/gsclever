@@ -38,6 +38,11 @@ fieldCount++;
 		return null;
 		
 	}
+
+	public boolean getFox() {
+		// TODO Auto-generated method stub
+		return false;
+	}
 		
 		
 	}

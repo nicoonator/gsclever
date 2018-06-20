@@ -1,6 +1,6 @@
 package games.gsClever.Logic;
 
-import java.util.List;
+import java.util.*;
 
 public class Game {
 
@@ -43,16 +43,26 @@ public class Game {
 	
 	public List<Dice> rollDices(List<Dice> dices) {
 		
-		//TODO
+		Random random = new Random();
+		Iterator<Dice> iter = dices.iterator();
+		
+		for(int i = 0; i < dices.size(); i++) {
+			
+			dices.get(i).setValue(random.nextInt(6) + 1);
+		}
 		
 		return dices;
 	}
 	
-	public int investigateWinner() {
+	public List<Integer> investigateWinner() {
 		
 		//TODO
 		
-		return 0;
+//		List<Integer> winners;
+		
+		
+		
+		return null;
 	}
 	
 	public void clearTray() {

@@ -25,5 +25,11 @@ public void enterCross( int fieldId ) {
 	
 }
 
+
+public boolean getFox() {
+	// TODO Auto-generated method stub
+	return false;
+}
+
 	
 }
