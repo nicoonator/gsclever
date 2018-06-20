@@ -13,7 +13,7 @@ public class CannotUseAdditionalDiceException extends Exception {
 		
 	@Override
 	public String getMessage(){
-		return "Cannot use dice repeat!";
+		return "Cannot use additional dice!";
 	}
 		
 	@Override
