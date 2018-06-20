@@ -1,22 +1,23 @@
 #grid{
-		background-image: url("/TicTacToe/images/grid.png");
-		width:491px;
-		height:499px;
-		border-right : solid;
+		background-image: url("/Spielplan.png");
+		
+		background-repeat:no-repeat;
+		/*border-right : solid;
 		border-bottom : solid;
-		border-color : black;
+		border-color : black;*/
 	}
 #TicTacToe{
 		max-width: 800px;
-		max-height: 600px;
+		max-height: 999px;
 	}
 
 #Game{
-		min-height:590px;
-		min-width:800px;
+		min-height:400px;
+		min-width:300px;
 		width: 100%;
 	}
 #Player{
+		position:relative;
 		background-color: yellow;
 		margin-top :25px;
 		height : 37px;
@@ -40,4 +41,44 @@
 	left : 513px;
 	top : 538px;
 	visibility:hidden;
+}
+
+#Spielfeld{
+	top: 250px;
+	left: 100px;
+	max-height:600px;
+	position: absolute;
+}
+
+#Würfelfeld1{
+	max-height:44px;
+	position:absolute;
+	top:267px;
+	left:117px;
+}
+
+#Würfelfeld2{
+	max-height:44px;
+	position:absolute;
+	top:332px;
+	left:118px;
+}
+
+#Würfelfeld3{
+	max-height:44px;
+	position:absolute;
+	top:397px;
+	left:117px;
+}
+
+
+
+
+
+button {
+	background: transparent
+	
+}
+.col-md-8{
+	margin-left:0px;
 }
