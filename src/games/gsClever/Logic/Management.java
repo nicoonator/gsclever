@@ -68,4 +68,12 @@ public class Management {
 		else
 			throw new CannotUseAdditionalDiceException();
 	}
+	
+	public void isClickable() {
+		//TODO
+	}
+	
+	public void enterCrossOrNumber() {
+		//TODO
+	}
 }
