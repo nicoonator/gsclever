@@ -1,5 +1,5 @@
 package games.gsClever.Logic;
 
-public class dummyLogic {
+public class Game {
 
 }
