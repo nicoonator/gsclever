@@ -51,7 +51,6 @@ public class Game {
 	public List<Dice> rollDices(List<Dice> dices) {
 		
 		Random random = new Random();
-		Iterator<Dice> iter = dices.iterator();
 		
 		for(int i = 0; i < dices.size(); i++) {
 			
@@ -74,7 +73,7 @@ public class Game {
 				highestPoints = points[i];
 		}
 		
-		List<Integer> winners = null;
+		List<Integer> winners = new ArrayList<Integer>();
 		for(int i = 0; i < playerCount; i++) {
 			
 			if(points[i] == highestPoints)
