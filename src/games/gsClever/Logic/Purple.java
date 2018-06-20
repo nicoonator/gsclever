@@ -48,8 +48,17 @@ fieldCount++;
 	}
 
 	public boolean getFox() {
-		// TODO Auto-generated method stub
+		if (fields[6]!= 0) {
+			return true;
+			
+		}else
 		return false;
+	}
+
+
+	public int determinePoints() {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 		
 		

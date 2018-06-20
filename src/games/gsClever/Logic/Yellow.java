@@ -43,8 +43,17 @@ public specialEvent enterCross( int fieldId ) {
 
 
 public boolean getFox() {
-	// TODO Auto-generated method stub
+	if (fields[9]== true &&fields[10]==true&& fields[11]==true) {
+		return true;
+		}
+	else
 	return false;
+}
+
+
+public int determinePoints() {
+	// TODO Auto-generated method stub
+	return 0;
 }
 
 }

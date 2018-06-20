@@ -51,7 +51,9 @@ public class Blue {
 
 
 	public boolean getFox() {
-		// TODO Auto-generated method stub
+		if (fields[7]== true &&fields[8]==true&& fields[9]==true&& fields[10]==true) {
+			return true;
+		}else
 		return false;
 	}
 public void isClickable(){
@@ -59,5 +61,11 @@ public void isClickable(){
 		// TODO
 		
 	}
+
+
+public int determinePoints() {
+	// TODO Auto-generated method stub
+	return 0;
+}
 		
 }
