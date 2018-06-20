@@ -24,21 +24,19 @@ public class Management {
 	
 	public int determinePoints() {
 		
-		int pointsYellow = yellow.determinePoints();
-		int pointsBlue = blue.determinePoints();
-		int pointsGreen = green.determinePoints();
-		int pointsOrange = orange.determinePoints();
-		int pointsPurple = purple.determinePoints();
+		int[] points = new int[5];
+		points[0] = yellow.determinePoints();
+		points[1] = blue.determinePoints();
+		points[2] = green.determinePoints();
+		points[3] = orange.determinePoints();
+		points[4] = purple.determinePoints();
 		
-		int lowestPoints = pointsYellow;
-		if(pointsBlue < lowestPoints)
-			lowestPoints = pointsBlue;
-		if(pointsGreen < lowestPoints)
-			lowestPoints = pointsGreen;
-		if(pointsOrange < lowestPoints)
-			lowestPoints = pointsOrange;
-		if(pointsPurple < lowestPoints)
-			lowestPoints = pointsPurple;
+		int lowestPoints = points[0];
+		for(int i = 1; i < 5; i++) {
+			
+			if(points[i] < lowestPoints)
+				lowestPoints = points[i];
+		}
 		
 		int foxes = 0;
 		if(yellow.getFox() == true)
@@ -52,7 +50,7 @@ public class Management {
 		if(purple.getFox() == true)
 			foxes++;
 		
-		return pointsYellow + pointsBlue + pointsGreen + pointsOrange + pointsPurple + (foxes * lowestPoints);
+		return points[0] + points[1] + points[2] + points[3] + points[4] + (foxes * lowestPoints);
 	}
 	
 	public void useDiceRepeat() throws CannotUseDiceRepeatException {
