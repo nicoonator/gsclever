@@ -14,6 +14,14 @@ public class Management {
 	Orange orange = new Orange();
 	Purple purple = new Purple();
 	
+	public Management() {
+		
+		diceRepeatCount = 0;
+		diceRepeatUsed = 0;
+		additionalDiceCount = 0;
+		additionalDiceUsed = 0;
+	}
+	
 	public int determinePoints() {
 		
 		int pointsYellow = yellow.determinePoints();
