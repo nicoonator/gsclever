@@ -24,8 +24,11 @@ public class Management {
 			throw new CannotUseDiceRepeatException();
 	}
 	
-	public void useAdditionalDice() {
+	public void useAdditionalDice() throws CannotUseAdditionalDiceException {
 		
-		additionalDiceUsed++;
+		if(additionalDiceUsed < additionalDiceCount)
+			additionalDiceUsed++;
+		else
+			throw new CannotUseAdditionalDiceException();
 	}
 }
