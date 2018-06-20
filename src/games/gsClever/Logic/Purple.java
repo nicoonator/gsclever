@@ -58,7 +58,12 @@ fieldCount++;
 
 	public int determinePoints() {
 		// TODO Auto-generated method stub
-		return 0;
+		int summe =0;
+		for(int i=0;i>=fieldCount;i++) {
+			summe = summe+ fields[i];
+		}
+		return summe;
+		
 	}
 		
 		

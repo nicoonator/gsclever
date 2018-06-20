@@ -65,6 +65,7 @@ public void isClickable(){
 
 public int determinePoints() {
 	// TODO Auto-generated method stub
+	
 	return 0;
 }
 		

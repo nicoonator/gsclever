@@ -53,7 +53,18 @@ public boolean getFox() {
 
 public int determinePoints() {
 	// TODO Auto-generated method stub
-	
+	if ( fields[0]==true&&fields[3]==true&&fields[6]==true) {
+		return 10;
+	}
+	if ( fields[1]==true&&fields[4]==true&&fields[9]==true) {
+		return 14;
+	}
+	if ( fields[2]==true&&fields[7]==true&&fields[10]==true) {
+		return 16;
+	}
+	if ( fields[5]==true&&fields[8]==true&&fields[11]==true) {
+		return 20;
+	}
 	return 0;
 }
 

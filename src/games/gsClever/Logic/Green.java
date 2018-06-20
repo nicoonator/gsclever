@@ -53,6 +53,32 @@ fieldCount++;
 
 	public int determinePoints() {
 		// TODO Auto-generated method stub
+		int a =0;
+		switch(fieldCount) {
+		
+		case 1: a= 1;
+				return 1;
+		case 2: a =3;
+				return 3;
+		case 3: a=6;
+				return 6;
+		case 4: a=10;
+				return 10;
+		case 5: a=15;
+				return 15;
+		case 6: a = 21;
+				return 21;
+		case 7: a=28;
+				return 28;
+		case 8: a=36;
+				return 36;
+		case 9: a =45;
+				return 45;
+		case 10:a= 55;
+				return 55;
+		case 11:a = 66; 
+				return 66;
+		}
 		return 0;
 	}
 		
