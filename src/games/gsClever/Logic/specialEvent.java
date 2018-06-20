@@ -5,6 +5,11 @@ public enum specialEvent {
 	diceRepeat,
 	additionalDice,
 	enterCrossYellow,
-	enterCrossBlue
+	enterCrossBlue,
+	enterCrossGreen,
+	enterOrange4,
+	enterOrange5,
+	enterOrange6,
+	enterPurple6
 }
 
