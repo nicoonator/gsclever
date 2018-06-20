@@ -55,6 +55,30 @@
 	position:absolute;
 	top:267px;
 	left:117px;
+
+/* von würfeld1 zu Runde 1 -1 px top und +67px left */
+
+/* von Runde 1 zu Runde 2 +68px left */
+
+/* von Runde 2 zu Runde 3 +68px left */
+
+/* von Runde 3 zu Runde 4 +68px left */
+
+/* von Runde 4 zu Runde 5 +68px left */
+
+/* von Runde 5 zu Runde 6 +68px left */
+
+
+/* von Würfelfeld 1 zu nachwürfeln 1 +111px left und +73px top*/
+
+/* Abstand nachwürfeln +40px left */
+
+/* Abstand nachwürfeln1 zu zusatzwürfel1 +65px top*/
+
+/* Abstand zusatzwürfeln +40px left */
+/*
+//TODO NILS: GELB BLAU RUNDEN;
+//TODO NICO: ORANGE GRUEN LILA SONDERWUERFE + IMAGES; */
 }
 
 #Würfelfeld2{
@@ -69,6 +93,78 @@
 	position:absolute;
 	top:397px;
 	left:117px;
+	
+	/**/
+	
+	
+	
+	
+}
+#yellowfield1 {
+	
+	max-height:25px;
+	position:absolute;
+	top:466px;
+	left:124px;
+	//+36px
+	
+/* Abstand yellowfield1 zu grün1 +31 px left, 207px top*/	
+	
+}
+#yellowfield2 {
+	
+	max-height:25px;
+	position:absolute;
+	top:466px;
+	left:160px;
+	
+	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#bluefield2{
+	
+	max-height:25px;
+	position:absolute;
+	top:505px;
+	left:364px;
+	/* Abstand oben und unten +36px*/
+	
+	/* Abstand grün zu grün +32px */
+	
+	/* Abstand grün zu orange +60px*/
+	
+	/* Abstand orange zu orange +32px*/
+	
+	/* Abstand Orange zu lila +60px*/
+	
+	
+	
+	/* Abstand lila zu lila +32px*/
+	
+	
 }
 
 
