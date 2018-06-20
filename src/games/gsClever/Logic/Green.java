@@ -6,7 +6,7 @@ public class Green {
 	private int fields;
 	private int fieldCount =0 ;
 	
-	public void enterCross(int number) {
+	public specialEvent enterCross(int number) {
 		
 fieldCount++;
 		
@@ -18,24 +18,24 @@ fieldCount++;
 		case 2: fields = number;	
 				break;
 		case 3: fields = number;
-				break;
+		return specialEvent.additionalDice;
 		case 4: fields = number;
 				break;	
 		case 5: fields = number;
-				break;
+		return specialEvent.enterCrossBlue;
 		case 6: fields= number;
 				break;
 		case 7: fields = number;
 				break;
 		case 8 : fields = number;
-				break;
+		return specialEvent.enterPurple6;
 		case 9: fields = number;
-				
+		return specialEvent.diceRepeat;
 		case 10: fields = number;
 				break;
 				
 		}
-		return;
+		return null;
 		
 	}
 		

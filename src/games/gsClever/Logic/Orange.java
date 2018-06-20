@@ -14,14 +14,13 @@ public class Orange {
 		case 1: fields[1] = number;
 				break;
 		case 2: fields[2] = number;
-				
-				break;
+		return specialEvent.diceRepeat;
 		case 3: fields[3] = number*2;
 				break;
 		case 4: fields[4] = number;
-				return specialEvent.diceRepeat;	
+				return specialEvent.enterCrossYellow;	
 		case 5: fields[5] = number;
-				return specialEvent.enterCrossYellow;
+				return specialEvent.additionalDice;
 		case 6: fields[6]= number*2;
 				break;
 		case 7: fields[7] = number;
@@ -29,6 +28,7 @@ public class Orange {
 		case 8 : fields[8] = number*2;
 				break;
 		case 9: fields[9] = number;
+		return specialEvent.enterPurple6;
 				
 		case 10: fields[10] = number*3;
 				break;
