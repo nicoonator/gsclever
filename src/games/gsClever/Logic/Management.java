@@ -1,5 +1,7 @@
 package games.gsClever.Logic;
 
+import games.gsClever.Exceptions.*;
+
 public class Management {
 
 	private int diceRepeatCount;
@@ -14,13 +16,16 @@ public class Management {
 		return 0;
 	}
 	
-	public void useDiceRepeat() {
+	public void useDiceRepeat() throws CannotUseDiceRepeatException {
 		
-		//TODO
+		if(diceRepeatUsed < diceRepeatCount)
+			diceRepeatUsed++;
+		else
+			throw new CannotUseDiceRepeatException();
 	}
 	
 	public void useAdditionalDice() {
 		
-		//TODO
+		additionalDiceUsed++;
 	}
 }
