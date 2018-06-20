@@ -5,6 +5,8 @@ public class Player {
 	private int id;
 	private String name;
 	
+	Management management= new Management();
+	
 	public Player(int id, String name) {
 		
 		this.id = id;
@@ -25,6 +27,10 @@ public class Player {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+	
+	public Management getManagement() {
+		return management;
 	}
 	
 	

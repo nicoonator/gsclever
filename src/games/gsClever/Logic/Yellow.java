@@ -53,6 +53,7 @@ public boolean getFox() {
 
 public int determinePoints() {
 	// TODO Auto-generated method stub
+	
 	return 0;
 }
 
