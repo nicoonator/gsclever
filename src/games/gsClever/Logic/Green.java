@@ -6,6 +6,11 @@ public class Green {
 	private int fields;
 	private int fieldCount =0 ;
 	
+	public Green() {
+	fieldCount =0 ;
+		
+	}
+	
 	public specialEvent enterCross(int number) {
 		
 fieldCount++;

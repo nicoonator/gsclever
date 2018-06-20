@@ -6,6 +6,13 @@ public class Purple {
 	private int [] fields = new int [11];
 	private int fieldCount =0 ;
 	
+	public Purple() {
+		for (int i=0;i<12;i++) {
+			fields [i]=0;
+		}
+	}
+
+	
 	public specialEvent enterNumbers(int number) {
 		////Switch
 fieldCount++;

@@ -4,9 +4,13 @@ public class Blue {
 	private	boolean [] fields = new boolean [12];
 
 
-	public Blue (boolean[] fields) {
+	public Blue () {
 		
-		this.fields= fields;
+	for (int i=0;i<12;i++) {
+		
+		fields [i]=false;
+		
+	}
 	}
 
 
@@ -50,6 +54,10 @@ public class Blue {
 		// TODO Auto-generated method stub
 		return false;
 	}
-
+public void isClickable(){
+		
+		// TODO
+		
+	}
 		
 }

@@ -5,9 +5,11 @@ public class Yellow {
 private	boolean [] fields = new boolean [12];
 
 
-public Yellow (boolean[] fields) {
+public Yellow () {
 	
-	this.fields= fields;
+for (int i=0;i<12;i++) {
+	fields [i]=false;
+}
 }
 
 

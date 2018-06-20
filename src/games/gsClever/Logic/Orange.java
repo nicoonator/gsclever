@@ -1,9 +1,17 @@
 package games.gsClever.Logic;
 
 public class Orange {
-
+	
+	
 	private int [] fields = new int [11];
 	private int fieldCount =0 ;
+	
+	public Orange() {
+		for (int i=0;i<12;i++) {
+			fields [i]=0;
+		}
+	}
+
 	public specialEvent  enterNumbers(int number) {
 		////Switch
 		fieldCount++;
