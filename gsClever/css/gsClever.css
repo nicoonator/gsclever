@@ -50,13 +50,13 @@
 	position: absolute;
 }
 
-#Würfelfeld1{
+#Wuerfelfeld1{
 	max-height:44px;
 	position:absolute;
 	top:267px;
 	left:117px;
 
-/* von würfeld1 zu Runde 1 -1 px top und +67px left */
+/* von wuerfeld1 zu Runde 1 -1 px top und +67px left */
 
 /* von Runde 1 zu Runde 2 +68px left */
 
@@ -69,26 +69,26 @@
 /* von Runde 5 zu Runde 6 +68px left */
 
 
-/* von Würfelfeld 1 zu nachwürfeln 1 +111px left und +73px top*/
+/* von Wuerfelfeld 1 zu nachwuerfeln 1 +111px left und +73px top*/
 
-/* Abstand nachwürfeln +40px left */
+/* Abstand nachwuerfeln +40px left */
 
-/* Abstand nachwürfeln1 zu zusatzwürfel1 +65px top*/
+/* Abstand nachwuerfeln1 zu zusatzwuerfel1 +65px top*/
 
-/* Abstand zusatzwürfeln +40px left */
+/* Abstand zusatzwuerfeln +40px left */
 /*
 //TODO NILS: GELB BLAU RUNDEN;
 //TODO NICO: ORANGE GRUEN LILA SONDERWUERFE + IMAGES; */
 }
 
-#Würfelfeld2{
+#Wuerfelfeld2{
 	max-height:44px;
 	position:absolute;
 	top:332px;
 	left:118px;
 }
 
-#Würfelfeld3{
+#Wuerfelfeld3{
 	max-height:44px;
 	position:absolute;
 	top:397px;
@@ -108,7 +108,7 @@
 	left:124px;
 	//+36px
 	
-/* Abstand yellowfield1 zu grün1 +31 px left, 207px top*/	
+/* Abstand yellowfield1 zu gruen1 +31 px left, 207px top*/	
 	
 }
 #yellowfield2 {
@@ -152,9 +152,9 @@
 	left:364px;
 	/* Abstand oben und unten +36px*/
 	
-	/* Abstand grün zu grün +32px */
+	/* Abstand gruen zu gruen +32px */
 	
-	/* Abstand grün zu orange +60px*/
+	/* Abstand gruen zu orange +60px*/
 	
 	/* Abstand orange zu orange +32px*/
 	
