@@ -23,22 +23,18 @@ public class Management {
 	}
 	
 	public int getDiceRepeatCount() {
-		
 		return diceRepeatCount;
 	}
 	
 	public int getDiceRepeatUsed() {
-		
 		return diceRepeatUsed;
 	}
 	
 	public int getAdditionalDiceCount() {
-		
 		return additionalDiceCount;
 	}
 	
 	public int getAdditionalDiceUsed() {
-		
 		return additionalDiceUsed;
 	}
 	
@@ -100,6 +96,35 @@ public class Management {
 	}
 	
 	public void isClickable() {
+		
+		IsClickable clickable = new IsClickable();
+		
+		boolean[] diceRepeat = new boolean[7];
+		for(int i = 0; i < 7; i++) {
+			
+			if(diceRepeatCount > i && diceRepeatUsed <= i)
+				diceRepeat[i] = true;
+			else
+				diceRepeat[i] = false;
+		}
+		clickable.setDiceRepeat(diceRepeat);
+		
+		boolean[] additionalDice = new boolean[7];
+		for(int i = 0; i < 7; i++) {
+			
+			if(additionalDiceCount > i && additionalDiceUsed <= i)
+				additionalDice[i] = true;
+			else
+				additionalDice[i] = false;
+		}
+		clickable.setAdditionalDice(additionalDice);
+		
+		clickable.setYellow(yellow.isClickable());
+		clickable.setBlue(blue.isClickable());
+		clickable.setGreen(green.isClickable());
+		clickable.setOrange(orange.isClickable());
+		clickable.setPurple(purple.isClickable());
+		
 		//TODO
 	}
 	

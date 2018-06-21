@@ -30,17 +30,14 @@ public class Game {
 	}
 	
 	public int getRound() {
-		
 		return round;
 	}
 	
 	public int getPlayerCount() {
-
 		return playerCount;
 	}
 	
 	public void setPlayerCount(int playerCount) {
-		
 		this.playerCount = playerCount;
 	}
 	
