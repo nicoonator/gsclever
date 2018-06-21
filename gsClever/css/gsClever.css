@@ -1,11 +1,11 @@
 #grid{
 		background-image: url("/Spielplan.png");
-		
 		background-repeat:no-repeat;
 		/*border-right : solid;
 		border-bottom : solid;
 		border-color : black;*/
 	}
+	
 #TicTacToe{
 		max-width: 800px;
 		max-height: 999px;
@@ -16,6 +16,7 @@
 		min-width:300px;
 		width: 100%;
 	}
+	
 #Player{
 		position:relative;
 		background-color: yellow;
@@ -26,6 +27,7 @@
 		border-color : black;
 		color : black;
 	}
+	
 #restartButton{
 	height : 39px;
 	width : 90px;
@@ -34,6 +36,7 @@
 	top : 538px;
 	visibility:hidden;
 }
+
 #closeButton{
 	height : 39px;
 	width : 90px;
@@ -48,6 +51,92 @@
 	left: 100px;
 	max-height:600px;
 	position: absolute;
+}
+
+#Nachwuerfeln1{
+	max-height:38px;
+	position:absolute;
+	top:335px;
+	left:224px;
+}
+#Nachwuerfeln2{
+	max-height:38px;
+	position:absolute;
+	top:335px;
+	left:264px;
+}
+#Nachwuerfeln3{
+	max-height:38px;
+	position:absolute;
+	top:335px;
+	left:304px;
+}
+#Nachwuerfeln4{
+	max-height:38px;
+	position:absolute;
+	top:335px;
+	left:344px;
+}
+#Nachwuerfeln5{
+	max-height:38px;
+	position:absolute;
+	top:335px;
+	left:384px;
+}
+#Nachwuerfeln6{
+	max-height:38px;
+	position:absolute;
+	top:335px;
+	left:424px;
+}
+#Nachwuerfeln7{
+	max-height:38px;
+	position:absolute;
+	top:335px;
+	left:464px;
+}
+
+#Zusatzwuerfeln1{
+	max-height:38px;
+	position:absolute;
+	top:400px;
+	left:224px;
+}
+#Zusatzwuerfeln2{
+	max-height:38px;
+	position:absolute;
+	top:400px;
+	left:264px;
+}
+#Zusatzwuerfeln3{
+	max-height:38px;
+	position:absolute;
+	top:400px;
+	left:304px;
+}
+#Zusatzwuerfeln4{
+	max-height:38px;
+	position:absolute;
+	top:400px;
+	left:344px;
+}
+#Zusatzwuerfeln5{
+	max-height:38px;
+	position:absolute;
+	top:400px;
+	left:384px;
+}
+#Zusatzwuerfeln6{
+	max-height:38px;
+	position:absolute;
+	top:400px;
+	left:424px;
+}
+#Zusatzwuerfeln7{
+	max-height:38px;
+	position:absolute;
+	top:400px;
+	left:464px;
 }
 
 #Wuerfelfeld1{
@@ -67,18 +156,7 @@
 /* von Runde 4 zu Runde 5 +68px left */
 
 /* von Runde 5 zu Runde 6 +68px left */
-
-
-/* von Wuerfelfeld 1 zu nachwuerfeln 1 +111px left und +73px top*/
-
-/* Abstand nachwuerfeln +40px left */
-
-/* Abstand nachwuerfeln1 zu zusatzwuerfel1 +65px top*/
-
-/* Abstand zusatzwuerfeln +40px left */
-/*
-//TODO NILS: GELB BLAU RUNDEN;
-//TODO NICO: ORANGE GRUEN LILA SONDERWUERFE + IMAGES; */
+/* TODO NILS: GELB BLAU RUNDEN; */
 }
 
 #Wuerfelfeld2{
@@ -93,88 +171,233 @@
 	position:absolute;
 	top:397px;
 	left:117px;
-	
-	/**/
-	
-	
-	
-	
 }
-#yellowfield1 {
-	
+
+#yellowfield1 {	
 	max-height:25px;
 	position:absolute;
 	top:466px;
 	left:124px;
-	//+36px
-	
-/* Abstand yellowfield1 zu gruen1 +31 px left, 207px top*/	
-	
+	//+36px		
 }
 #yellowfield2 {
-	
 	max-height:25px;
 	position:absolute;
 	top:466px;
-	left:160px;
-	
-	
+	left:160px;	
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 #bluefield2{
-	
 	max-height:25px;
 	position:absolute;
 	top:505px;
 	left:364px;
 	/* Abstand oben und unten +36px*/
-	
-	/* Abstand gruen zu gruen +32px */
-	
-	/* Abstand gruen zu orange +60px*/
-	
-	/* Abstand orange zu orange +32px*/
-	
-	/* Abstand Orange zu lila +60px*/
-	
-	
-	
-	/* Abstand lila zu lila +32px*/
-	
-	
 }
 
+#greenfield1{
+	max-height:25px;
+	position:absolute;
+	top:673px;
+	left:157px;
+}
+#greenfield2{
+	max-height:25px;
+	position:absolute;
+	top:673px;
+	left:189px;
+}
+#greenfield3{
+	max-height:25px;
+	position:absolute;
+	top:673px;
+	left:221px;
+}
+#greenfield4{
+	max-height:25px;
+	position:absolute;
+	top:673px;
+	left:253px;
+}
+#greenfield5{
+	max-height:25px;
+	position:absolute;
+	top:673px;
+	left:285px;
+}
+#greenfield6{
+	max-height:25px;
+	position:absolute;
+	top:673px;
+	left:317px;
+}
+#greenfield7{
+	max-height:25px;
+	position:absolute;
+	top:673px;
+	left:349px;
+}
+#greenfield8{
+	max-height:25px;
+	position:absolute;
+	top:673px;
+	left:381px;
+}
+#greenfield9{
+	max-height:25px;
+	position:absolute;
+	top:673px;
+	left:413px;
+}
+#greenfield10{
+	max-height:25px;
+	position:absolute;
+	top:673px;
+	left:445px;
+}
+#greenfield11{
+	max-height:25px;
+	position:absolute;
+	top:673px;
+	left:477px;
+}
 
+#orangefield1{
+	max-height:25px;
+	position:absolute;
+	top:733px;
+	left:157px;
+}
+#orangefield2{
+	max-height:25px;
+	position:absolute;
+	top:733px;
+	left:189px;
+}
+#orangefield3{
+	max-height:25px;
+	position:absolute;
+	top:733px;
+	left:221px;
+}
+#orangefield4{
+	max-height:25px;
+	position:absolute;
+	top:733px;
+	left:253px;
+}
+#orangefield5{
+	max-height:25px;
+	position:absolute;
+	top:733px;
+	left:285px;
+}
+#orangefield6{
+	max-height:25px;
+	position:absolute;
+	top:733px;
+	left:317px;
+}
+#orangefield7{
+	max-height:25px;
+	position:absolute;
+	top:733px;
+	left:349px;
+}
+#orangefield8{
+	max-height:25px;
+	position:absolute;
+	top:733px;
+	left:381px;
+}
+#orangefield9{
+	max-height:25px;
+	position:absolute;
+	top:733px;
+	left:413px;
+}
+#orangefield10{
+	max-height:25px;
+	position:absolute;
+	top:733px;
+	left:445px;
+}
+#orangefield11{
+	max-height:25px;
+	position:absolute;
+	top:733px;
+	left:477px;
+}
+
+#purplefield1{
+	max-height:25px;
+	position:absolute;
+	top:793px;
+	left:157px;
+}
+#purplefield2{
+	max-height:25px;
+	position:absolute;
+	top:793px;
+	left:189px;
+}
+#purplefield3{
+	max-height:25px;
+	position:absolute;
+	top:793px;
+	left:221px;
+}
+#purplefield4{
+	max-height:25px;
+	position:absolute;
+	top:793px;
+	left:253px;
+}
+#purplefield5{
+	max-height:25px;
+	position:absolute;
+	top:793px;
+	left:285px;
+}
+#purplefield6{
+	max-height:25px;
+	position:absolute;
+	top:793px;
+	left:317px;
+}
+#purplefield7{
+	max-height:25px;
+	position:absolute;
+	top:793px;
+	left:349px;
+}
+#purplefield8{
+	max-height:25px;
+	position:absolute;
+	top:793px;
+	left:381px;
+}
+#purplefield9{
+	max-height:25px;
+	position:absolute;
+	top:793px;
+	left:413px;
+}
+#purplefield10{
+	max-height:25px;
+	position:absolute;
+	top:793px;
+	left:445px;
+}
+#purplefield11{
+	max-height:25px;
+	position:absolute;
+	top:793px;
+	left:477px;
+}
 
 
 
 button {
 	background: transparent
-	
-}
-.col-md-8{
-	margin-left:0px;
 }
