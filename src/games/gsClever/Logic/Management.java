@@ -95,7 +95,7 @@ public class Management {
 			throw new CannotUseAdditionalDiceException();
 	}
 	
-	public void isClickable() {
+	public IsClickable isClickable() {
 		
 		IsClickable clickable = new IsClickable();
 		
@@ -125,7 +125,7 @@ public class Management {
 		clickable.setOrange(orange.isClickable());
 		clickable.setPurple(purple.isClickable());
 		
-		//TODO
+		return clickable;
 	}
 	
 	public void enterCrossOrNumber() {
