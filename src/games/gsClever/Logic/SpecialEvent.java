@@ -1,6 +1,6 @@
 package games.gsClever.Logic;
 
-public enum specialEvent {
+public enum SpecialEvent {
 	
 	diceRepeat,
 	additionalDice,

@@ -22,6 +22,36 @@ public class Management {
 		additionalDiceUsed = 0;
 	}
 	
+	public int getDiceRepeatCount() {
+		
+		return diceRepeatCount;
+	}
+	
+	public int getDiceRepeatUsed() {
+		
+		return diceRepeatUsed;
+	}
+	
+	public int getAdditionalDiceCount() {
+		
+		return additionalDiceCount;
+	}
+	
+	public int getAdditionalDiceUsed() {
+		
+		return additionalDiceUsed;
+	}
+	
+	public void incrementDiceRepeatCount() {
+		
+		diceRepeatCount++;
+	}
+	
+	public void incrementAdditionalDiceCount() {
+		
+		additionalDiceCount++;
+	}
+	
 	public int determinePoints() {
 		
 		int[] points = new int[5];

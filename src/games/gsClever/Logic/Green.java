@@ -11,7 +11,7 @@ public class Green {
 		
 	}
 	
-	public specialEvent enterCross(int number) {
+	public SpecialEvent enterCross(int number) {
 		
 fieldCount++;
 		
@@ -23,19 +23,19 @@ fieldCount++;
 		case 2: fields = number;	
 				break;
 		case 3: fields = number;
-		return specialEvent.additionalDice;
+		return SpecialEvent.additionalDice;
 		case 4: fields = number;
 				break;	
 		case 5: fields = number;
-		return specialEvent.enterCrossBlue;
+		return SpecialEvent.enterCrossBlue;
 		case 6: fields= number;
 				break;
 		case 7: fields = number;
 				break;
 		case 8 : fields = number;
-		return specialEvent.enterPurple6;
+		return SpecialEvent.enterPurple6;
 		case 9: fields = number;
-		return specialEvent.diceRepeat;
+		return SpecialEvent.diceRepeat;
 		case 10: fields = number;
 				break;
 				

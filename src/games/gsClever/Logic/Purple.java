@@ -13,7 +13,7 @@ public class Purple {
 	}
 
 	
-	public specialEvent enterNumbers(int number) {
+	public SpecialEvent enterNumbers(int number) {
 		////Switch
 fieldCount++;
 		
@@ -23,25 +23,25 @@ fieldCount++;
 		case 1: fields[1] = number;
 				break;
 		case 2: fields[2] = number;
-			return specialEvent.diceRepeat;		
+			return SpecialEvent.diceRepeat;		
 		case 3: fields[3] = number;
-			return specialEvent.enterCrossBlue;
+			return SpecialEvent.enterCrossBlue;
 		case 4: fields[4] = number;
-			return specialEvent.additionalDice;	
+			return SpecialEvent.additionalDice;	
 		case 5: fields[5] = number;
-			return specialEvent.enterCrossYellow;
+			return SpecialEvent.enterCrossYellow;
 		case 6: fields[6]= number;
 		break;
 		case 7: fields[7] = number;
-			return specialEvent.diceRepeat;
+			return SpecialEvent.diceRepeat;
 		case 8 : fields[8] = number;
-			return specialEvent.enterCrossGreen;
+			return SpecialEvent.enterCrossGreen;
 		
 		case 9: fields[9] = number;
-			return specialEvent.enterOrange6;
+			return SpecialEvent.enterOrange6;
 				
 		case 10: fields[10] = number;
-			return specialEvent.additionalDice;
+			return SpecialEvent.additionalDice;
 		}
 		return null;
 		

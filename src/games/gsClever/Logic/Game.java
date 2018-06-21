@@ -30,18 +30,56 @@ public class Game {
 	}
 	
 	public int getRound() {
+		
 		return round;
 	}
 	
 	public int getPlayerCount() {
+
 		return playerCount;
 	}
 	
 	public void setPlayerCount(int playerCount) {
+		
 		this.playerCount = playerCount;
 	}
 	
 	public boolean startRound() {
+		
+		round++;
+		
+		switch(round) {
+		case 1:
+			
+			for(int i = 0; i < playerCount; i++) {
+				
+				players[i].getManagement().incrementDiceRepeatCount();
+			}
+			
+			break;
+			
+		case 2:
+			
+			for(int i = 0; i < playerCount; i++) {
+				
+				players[i].getManagement().incrementAdditionalDiceCount();
+			}
+			
+			break;
+			
+		case 3:
+			
+			for(int i = 0; i < playerCount; i++) {
+				
+				players[i].getManagement().incrementDiceRepeatCount();
+			}
+			
+			break;
+			
+			//TODO
+		}
+		
+		
 		
 		//TODO
 		
