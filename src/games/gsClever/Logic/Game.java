@@ -45,6 +45,9 @@ public class Game {
 	
 	public boolean startRound() {
 		
+		clearTray();
+		clearDiceFields();
+		
 		round++;
 		
 		switch(round) {
@@ -125,6 +128,14 @@ public class Game {
 		for(int i = 0; i < 6; i++) {
 			
 			dices[i].setOnTray(false);
+		}
+	}
+	
+	public void clearDiceFields() {
+		
+		for(int i = 0; i < 6; i++) {
+			
+			dices[i].setField(-1);
 		}
 	}
 }
