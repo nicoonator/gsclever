@@ -76,6 +76,4 @@ public class IsClickable {
 	public void setPurple(boolean[] purple) {
 		this.purple = purple;
 	}
-
-	
 }

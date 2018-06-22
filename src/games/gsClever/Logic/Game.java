@@ -6,6 +6,7 @@ public class Game {
 
 	private int round;
 	private int playerCount;
+	private int currentPlayer;
 	private Dice[] dices;
 	private Player[] players;
 	
@@ -13,6 +14,7 @@ public class Game {
 		
 		round = 0;
 		this.playerCount = playerCount;
+		currentPlayer = 0;
 		
 		dices = new Dice[6];
 		dices[0] = new Dice("Yellow");
