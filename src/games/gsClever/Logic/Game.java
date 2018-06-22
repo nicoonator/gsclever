@@ -22,7 +22,7 @@ public class Game {
 		dices[0] = new Dice("White");
 		dices[0] = new Dice("Green");
 		dices[0] = new Dice("Orange");
-		dices[0] = new Dice("purple");
+		dices[0] = new Dice("Purple");
 		
 		players = new Player[playerCount];
 		for(int i = 0; i < playerCount; i++) {
