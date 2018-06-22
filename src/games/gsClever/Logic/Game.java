@@ -141,6 +141,46 @@ public class Game {
 	
 	public Return click(Area area, int fieldId) {
 		
+		switch(area) {
+		case dices:
+			
+			//TODO
+			
+			break;
+			
+		case diceRepeat:
+			
+			players[currentPlayer].getManagement().useDiceRepeat();
+			
+			break;
+			
+		case additionalDice:
+			
+			players[currentPlayer].getManagement().useAdditionalDice();
+			
+			break;
+			
+		case yellow:
+			
+			break;
+			
+		case blue:
+			
+			break;
+			
+		case green:
+			
+			break;
+			
+		case orange:
+			
+			break;
+			
+		case purple:
+			
+			break;
+		}
+		
 		//TODO
 		
 		return null;
