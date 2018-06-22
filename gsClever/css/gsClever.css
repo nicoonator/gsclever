@@ -163,7 +163,7 @@
 /* von Runde 4 zu Runde 5 +68px left */
 
 /* von Runde 5 zu Runde 6 +68px left */
-/* TODO NILS: GELB BLAU RUNDEN; */
+
 }
 
 #Wuerfelfeld2{
@@ -180,6 +180,56 @@
 	left:117px;
 }
 
+#Rundefeld1{
+	max-height:44px;
+	position:absolute;
+	top:261px;
+	left:184px;
+
+}
+#Rundefeld2{
+	max-height:44px;
+	position:absolute;
+	top:261px;
+	left:241px;
+
+}
+
+#Rundefeld3{
+	max-height:44px;
+	position:absolute;
+	top:261px;
+	left:298px;
+
+}
+#Rundefeld4{
+	max-height:44px;
+	position:absolute;
+	top:261px;
+	left:355px;
+
+}
+
+#Rundefeld5{
+	max-height:44px;
+	position:absolute;
+	top:259px;
+	left:412px;
+
+}
+
+#Rundefeld6{
+	max-height:44px;
+	position:absolute;
+	top:256px;
+	left:469px;
+
+}
+
+
+
+
+
 #yellowfield1 {	
 	max-height:25px;
 	position:absolute;
@@ -194,12 +244,154 @@
 	left:160px;	
 }
 
+#yellowfield3 {
+	max-height:25px;
+	position:absolute;
+	top:466px;
+	left:196px;	
+}
+#yellowfield4 {
+	max-height:25px;
+	position:absolute;
+	top:502px;
+	left:124px;	
+}
+
+#yellowfield5 {
+	max-height:25px;
+	position:absolute;
+	top:502px;
+	left:160px;	
+}
+
+#yellowfield6 {
+	max-height:25px;
+	position:absolute;
+	top:502px;
+	left:232px;	
+}
+
+#yellowfield7 {
+	max-height:25px;
+	position:absolute;
+	top:538px;
+	left:124px;	
+}
+#yellowfield8 {
+	max-height:25px;
+	position:absolute;
+	top:538px;
+	left:196px;	
+}
+#yellowfield9 {
+	max-height:25px;
+	position:absolute;
+	top:538px;
+	left:232px;	
+}
+
+#yellowfield10 {
+	max-height:25px;
+	position:absolute;
+	top:571px;
+	left:162px;	
+}
+
+#yellowfield11 {
+	max-height:25px;
+	position:absolute;
+	top:571px;
+	left:198px;	
+}
+#yellowfield12 {
+	max-height:25px;
+	position:absolute;
+	top:571px;
+	left:234px;	
+}
+
+
 #bluefield2{
 	max-height:25px;
 	position:absolute;
 	top:505px;
 	left:364px;
 	/* Abstand oben und unten +36px*/
+}
+
+#bluefield3{
+	max-height:25px;
+	position:absolute;
+	top:505px;
+	left:400px;
+	/* Abstand oben und unten +36px*/
+}
+#bluefield4{
+	max-height:25px;
+	position:absolute;
+	top:505px;
+	left:439px;
+	/* Abstand oben und unten +36px*/
+}
+
+#bluefield5{
+	max-height:25px;
+	position:absolute;
+	top:541px;
+	left:328px;
+	/* Abstand oben und unten +36px*/
+}
+
+#bluefield6{
+	max-height:25px;
+	position:absolute;
+	top:541px;
+	left:364px;
+	/* Abstand oben und unten +36px*/
+}
+
+#bluefield7{
+	max-height:25px;
+	position:absolute;
+	top:541px;
+	left:400px;
+	/* Abstand oben und unten +36px*/
+}
+
+#bluefield8{
+	max-height:25px;
+	position:absolute;
+	top:541px;
+	left:439px;
+	/* Abstand oben und unten +36px*/
+}
+#bluefield9{
+	max-height:25px;
+	position:absolute;
+	top:577px;
+	left:328px;
+	/* Abstand oben und unten +36px*/
+}
+#bluefield10{
+	max-height:25px;
+	position:absolute;
+	top:577px;
+	left:364px;
+	
+}
+#bluefield11{
+	max-height:25px;
+	position:absolute;
+	top:577px;
+	left:400px;
+
+}
+#bluefield12{
+	max-height:25px;
+	position:absolute;
+	top:577px;
+	left:439px;
+
 }
 
 #greenfield1{
