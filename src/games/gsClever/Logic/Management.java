@@ -82,6 +82,8 @@ public class Management {
 			diceRepeatUsed++;
 		else
 			throw new CannotUseDiceRepeatException();
+		
+		//TODO
 	}
 	
 	public void useAdditionalDice() throws CannotUseAdditionalDiceException {
@@ -90,6 +92,8 @@ public class Management {
 			additionalDiceUsed++;
 		else
 			throw new CannotUseAdditionalDiceException();
+		
+		//TODO
 	}
 	
 	public IsClickable isClickable() {
