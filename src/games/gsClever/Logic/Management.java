@@ -128,11 +128,4 @@ public class Management {
 	public void enterCrossOrNumber() {
 		//TODO
 	}
-	
-	public Return click(Area area, int fieldId) {
-		
-		//TODO
-		
-		return null;
-	}
 }

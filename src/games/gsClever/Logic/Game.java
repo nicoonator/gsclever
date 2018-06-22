@@ -138,4 +138,11 @@ public class Game {
 			dices[i].setField(-1);
 		}
 	}
+	
+	public Return click(Area area, int fieldId) {
+		
+		//TODO
+		
+		return null;
+	}
 }
