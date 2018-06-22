@@ -2,6 +2,7 @@ package games.gsClever.Logic;
 
 public class IsClickable {
 
+	private boolean[] dices;
 	private boolean[] diceRepeat;
 	private boolean[] additionalDice;
 	private boolean[] yellow;
@@ -12,6 +13,7 @@ public class IsClickable {
 	
 	public IsClickable() {
 		
+		dices = new boolean[6];
 		diceRepeat = new boolean[7];
 		additionalDice = new boolean[7];
 		yellow = new boolean[12];
@@ -21,6 +23,14 @@ public class IsClickable {
 		purple = new boolean[11];
 	}
 	
+	public boolean[] getDices() {
+		return dices;
+	}
+
+	public void setDices(boolean[] dices) {
+		this.dices = dices;
+	}
+
 	public boolean[] getDiceRepeat() {
 		return diceRepeat;
 	}
