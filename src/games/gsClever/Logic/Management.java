@@ -116,11 +116,11 @@ public class Management {
 		}
 		clickable.setAdditionalDice(additionalDice);
 		
-		clickable.setYellow(yellow.isClickable());
-		clickable.setBlue(blue.isClickable());
-		clickable.setGreen(green.isClickable());
-		clickable.setOrange(orange.isClickable());
-		clickable.setPurple(purple.isClickable());
+		clickable.setYellow(colorAreas[0].isClickable());
+		clickable.setBlue(colorAreas[1].isClickable());
+		clickable.setGreen(colorAreas[2].isClickable());
+		clickable.setOrange(colorAreas[3].isClickable());
+		clickable.setPurple(colorAreas[4].isClickable());
 		
 		return clickable;
 	}
