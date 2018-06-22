@@ -8,11 +8,7 @@ public class Management {
 	private int diceRepeatUsed;
 	private int additionalDiceCount;
 	private int additionalDiceUsed;
-	Yellow yellow = new Yellow();
-	Blue blue = new Blue();
-	Green green = new Green();
-	Orange orange = new Orange();
-	Purple purple = new Purple();
+	ColorArea[] colorAreas;
 	
 	public Management() {
 		
@@ -20,6 +16,13 @@ public class Management {
 		diceRepeatUsed = 0;
 		additionalDiceCount = 0;
 		additionalDiceUsed = 0;
+		
+		colorAreas = new ColorArea[5];
+		colorAreas[0] = new Yellow();
+		colorAreas[1] = new Blue();
+		colorAreas[2] = new Green();
+		colorAreas[3] = new Orange();
+		colorAreas[4] = new Purple();
 	}
 	
 	public int getDiceRepeatCount() {
@@ -51,11 +54,10 @@ public class Management {
 	public int determinePoints() {
 		
 		int[] points = new int[5];
-		points[0] = yellow.determinePoints();
-		points[1] = blue.determinePoints();
-		points[2] = green.determinePoints();
-		points[3] = orange.determinePoints();
-		points[4] = purple.determinePoints();
+		for(int i = 0; i < 5; i++) {
+			
+			points[i] = colorAreas[i].determinePoints();
+		}
 		
 		int lowestPoints = points[0];
 		for(int i = 1; i < 5; i++) {
@@ -65,16 +67,11 @@ public class Management {
 		}
 		
 		int foxes = 0;
-		if(yellow.getFox() == true)
-			foxes++;
-		if(blue.getFox() == true)
-			foxes++;
-		if(green.getFox() == true)
-			foxes++;
-		if(orange.getFox() == true)
-			foxes++;
-		if(purple.getFox() == true)
-			foxes++;
+		for(int i = 0; i < 5; i++) {
+			
+			if(colorAreas[i].getFox() == true)
+				foxes++;
+		}
 		
 		return points[0] + points[1] + points[2] + points[3] + points[4] + (foxes * lowestPoints);
 	}
