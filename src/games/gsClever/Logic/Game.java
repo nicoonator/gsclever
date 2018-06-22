@@ -92,9 +92,9 @@ public class Game {
 		
 		Random random = new Random();
 		
-		for(int i = 0; i < dices.size(); i++) {
+		for(Dice dice : dices) {
 			
-			dices.get(i).setValue(random.nextInt(6) + 1);
+			dice.setValue(random.nextInt(6) + 1);
 		}
 		
 		return dices;
