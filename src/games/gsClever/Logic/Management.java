@@ -46,6 +46,26 @@ public class Management {
 		diceRepeatCount++;
 	}
 	
+	public Yellow getYellow() {
+		return colorAreas[0];
+	}
+	
+	public Blue getBlue() {
+		return colorAreas[1];
+	}
+	
+	public Green getGreen() {
+		return colorAreas[2];
+	}
+	
+	public Orange getOrange() {
+		return colorAreas[3];
+	}
+	
+	public Purple getPurple() {
+		return colorAreas[4];
+	}
+	
 	public void incrementAdditionalDiceCount() {
 		
 		additionalDiceCount++;
