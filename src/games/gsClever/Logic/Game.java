@@ -2,6 +2,8 @@ package games.gsClever.Logic;
 
 import java.util.*;
 
+import games.gsClever.Exceptions.CannotUseDiceRepeatException;
+
 public class Game {
 
 	private int round;
@@ -27,7 +29,7 @@ public class Game {
 		players = new Player[playerCount];
 		for(int i = 0; i < playerCount; i++) {
 			
-			players[i] = new Player(i, "xyz" + i);
+			players[i] = new Player(i, "player_" + String.valueOf(i));
 		}
 	}
 	
@@ -139,7 +141,10 @@ public class Game {
 		}
 	}
 	
-	public Return click(Area area, int fieldId) {
+	public Return click(int playerId, Area area, int fieldId) throws Exception {
+		
+		int clickableCount = 1;//TODO
+		IsClickable clickable;
 		
 		switch(area) {
 		case dices:
@@ -150,39 +155,51 @@ public class Game {
 			
 		case diceRepeat:
 			
-			players[currentPlayer].getManagement().useDiceRepeat();
+			players[playerId].getManagement().useDiceRepeat();
 			
 			break;
 			
 		case additionalDice:
 			
-			players[currentPlayer].getManagement().useAdditionalDice();
+			players[playerId].getManagement().useAdditionalDice();
 			
 			break;
 			
-		case yellow:
+		case yellow://TODO vereinfachen
+			
+			clickable = players[playerId].getManagement().enterCrossOrNumber(area, fieldId);
 			
 			break;
 			
 		case blue:
 			
+			clickable = players[playerId].getManagement().enterCrossOrNumber(area, fieldId);
+			
 			break;
 			
 		case green:
+			
+			clickable = players[playerId].getManagement().enterCrossOrNumber(area, fieldId);
 			
 			break;
 			
 		case orange:
 			
+			clickable = players[playerId].getManagement().enterCrossOrNumber(area, fieldId);
+			
 			break;
 			
 		case purple:
 			
+			clickable = players[playerId].getManagement().enterCrossOrNumber(area, fieldId);
+			
 			break;
 		}
 		
+		Return returnBack = new Return(currentPlayer, clickableCount, playerCount);
+		
 		//TODO
 		
-		return null;
+		return returnBack;
 	}
 }
