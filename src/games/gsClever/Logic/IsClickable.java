@@ -14,6 +14,7 @@ public class IsClickable {
 	
 	public IsClickable() {
 		
+		playerId = -1;
 		dices = new boolean[6];
 		diceRepeat = new boolean[7];
 		additionalDice = new boolean[7];
