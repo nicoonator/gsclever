@@ -46,26 +46,6 @@ public class Management {
 		diceRepeatCount++;
 	}
 	
-	public Yellow getYellow() {
-		return colorAreas[0];
-	}
-	
-	public Blue getBlue() {
-		return colorAreas[1];
-	}
-	
-	public Green getGreen() {
-		return colorAreas[2];
-	}
-	
-	public Orange getOrange() {
-		return colorAreas[3];
-	}
-	
-	public Purple getPurple() {
-		return colorAreas[4];
-	}
-	
 	public void incrementAdditionalDiceCount() {
 		
 		additionalDiceCount++;
@@ -149,7 +129,76 @@ public class Management {
 		return clickable;
 	}
 	
-	public void enterCrossOrNumber() {
-		//TODO
+	public IsClickable enterCrossOrNumber(Area area, int fieldId) {
+		
+		SpecialEvent specialEvent;
+		
+		switch(area) {
+		case yellow:
+			
+			specialEvent = colorArea[0].enterCross(fieldId);
+			
+			break;
+			
+			//TODO
+		}
+		
+		switch(specialEvent) {
+		case diceRepeat:
+			
+			diceRepeatCount++;
+			
+			break;
+			
+		case additionalDice:
+			
+			additionalDiceCount++;
+			
+			break;
+			
+		case enterCrossYellow:
+			
+			//TODO
+			
+			break;
+			
+		case enterCrossBlue:
+			
+			//TODO
+			
+			break;
+			
+		case enterCrossGreen:
+			
+			colorArea[2].enterCross();
+			
+			break;
+			
+		case enterOrange4:
+			
+			colorArea[3].enterNumber(4);
+			
+			break;
+			
+		case enterOrange5:
+			
+			colorArea[3].enterNumber(5);
+			
+			break;
+			
+		case enterOrange6:
+			
+			colorArea[3].enterNumber(6);
+			
+			break;
+			
+		case enterPurple6:
+			
+			colorArea[4].enterNumber(6);
+			
+			break;
+		}
+		
+		return null;
 	}
 }
