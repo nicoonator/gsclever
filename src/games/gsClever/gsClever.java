@@ -53,7 +53,9 @@ public class gsClever extends Game {
 
 	@Override
 	public String getJavaScript() {
-		return "<script src=\"javascript/gsClever.js\"></script>";
+		return "<link rel=\"stylesheet\"\r\n" + 
+				"	href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css\">"
+				+ "<script src=\"javascript/gsClever.js\"></script>";
 	}
 
 	@Override
@@ -85,7 +87,7 @@ public class gsClever extends Game {
 		}
 		
 		if (gsonString.equals("RESTART")) {
-			if (playerList.size() != 2) return;
+			if (playerList.size() == 0 || playerList.size() > 4) return;
 			setGameStatus(new int[131]);
 			this.gState = GameState.RUNNING;
 			sendGameDataToClients("standardEvent");
@@ -96,28 +98,31 @@ public class gsClever extends Game {
 		if (!user.equals(playerTurn)) {
 			return;
 		}
+		
 		String[] strArray = gsonString.split(",");
-		int[] receivedArray = new int[9];
-		for (int i = 0; i < 9; i++) {
+		int[] receivedArray = new int[131];
+		for (int i = 0; i < 131; i++) {
 			receivedArray[i] = Integer.parseInt(strArray[i]);
 		}
 		int[] gameStatus = getGameStatus();
 		boolean changed = false;
-		for (int i = 0; i < 9; i++) {
+		for (int i = 0; i < 132; i++) {
 			if (gameStatus[i] == 0 && receivedArray[i] != 0) {
-				gameStatus[i] = playerList.indexOf(user) + 1;
 				changed = true;
 				break;
 			}
 		}
 		if (changed == true) {
-			for (User u : playerList) {
-				if (!u.equals(playerTurn)) {
-					playerTurn = u;
-					break;
-				}
-			}
+			//TODO
+			
+			/*
+			 * gameStatus[2] gibt den aktuellen Spieler an. Der nächste Spieler ist dran.
+			 */
+			if(gameStatus[2]<getCurrentPlayerAmount()) gameStatus[2]++;
+			else gameStatus[2]=1;
 			setGameStatus(gameStatus);
+			
+			//TODO
 			sendGameDataToClients("standardEvent");
 		}
 		
@@ -125,44 +130,99 @@ public class gsClever extends Game {
 
 	@Override
 	public ArrayList<User> getPlayerList() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.playerList;
 	}
 
 	@Override
 	public ArrayList<User> getSpectatorList() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.spectatorList;
 	}
 
 	@Override
 	public String getGameData(String eventName, User user) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		//TODO
+		String gameData = "";
+		if(eventName.equals("PLAYERLEFT")){
+			return playerLeft + " hat das Spiel verlassen!";
+		}
+		if(eventName.equals("CLOSE")){
+			return "CLOSE";
+		}
+		
+		int[] grid = getGameStatus();
+
+		for (int i = 0; i < grid.length; i++) {
+			gameData += String.valueOf(grid[i]);
+			gameData += ',';
+		}
+		
+		if(playerList.size()<2){
+			gameData += "Warte Auf 2ten Spieler...";
+			gameData += isHost(user);
+			return gameData;
+		}
+
+		if (this.gState == GameState.FINISHED) {
+			//TODO
+		}
+
+		else if (playerTurn.equals(user)) {
+			gameData += "Du bist dran!";
+		} else
+			gameData += playerTurn.getName() + " ist dran!";
+
+		if (playerList.indexOf(user) == 0)
+			gameData += " (x)";
+		else
+			gameData += " (o)";
+		
+		gameData += isHost(user);
+
+		return gameData;
 	}
 
 	@Override
 	public void addUser(User user) {
-		// TODO Auto-generated method stub
 		
+				if (playerList.size() < 4 && !playerList.contains(user)) {
+					playerList.add(user);
+
+					if (playerTurn == null) {
+						playerTurn = user;
+					}
+					sendGameDataToClients("START");
+				}
+				if (playerList.size() == 4) {
+					this.gState = GameState.RUNNING;
+					sendGameDataToClients("START");
+				}
 	}
 
 	@Override
 	public void addSpectator(User user) {
-		// TODO Auto-generated method stub
-		
+		this.spectatorList.add(user); 
 	}
 
 	@Override
 	public boolean isJoinable() {
-		// TODO Auto-generated method stub
-		return false;
+		if (playerList.size() < 4) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 
 	@Override
 	public void playerLeft(User user) {
-		// TODO Auto-generated method stub
-		
+		playerList.remove(user);
+		playerLeft = user.getName();
+		sendGameDataToClients("PLAYERLEFT");	
+	}
+	
+	private String isHost(User user) {
+		if(user==creator) return ",HOST";
+		else return ",NOTTHEHOST";
 	}
 
 	@Override
