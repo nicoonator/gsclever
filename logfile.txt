@@ -37,3 +37,7 @@
 [2018-06-19 12:31:48.808] [IP: /141.99.208.80] [REGISTER] Registering user "nico" succeeded
 [2018-06-19 12:31:55.39] [IP: /141.99.208.80] [LOGIN] Logging in user "nico" succeeded
 [2018-06-19 12:31:56.374] [IP: /141.99.208.84] [LOGIN] Logging in user "daman" succeeded
+[2018-06-24 15:53:56.488] [IP: /192.168.178.29] [LOGIN] Logging in user "nico" failed
+[2018-06-24 15:54:03.386] [IP: /192.168.178.29] [REGISTER] Registering user "admin" succeeded
+[2018-06-24 15:54:09.012] [IP: /192.168.178.29] [LOGIN] Logging in user "admin" succeeded
+[2018-06-24 15:59:09.165] [IP: /192.168.178.29] [LOGIN] Logging in user "admin" succeeded
