@@ -283,7 +283,7 @@ public class Game {
 			break;
 		}
 		
-		Return returnBack = new Return(currentPlayer, clickableCount, playerCount);
+		Return returnBack = new Return(currentPlayer, round, clickableCount, playerCount);
 		
 		//TODO
 		
