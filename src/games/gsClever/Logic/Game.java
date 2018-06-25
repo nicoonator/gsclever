@@ -9,6 +9,8 @@ public class Game {
 	private int round;
 	private int playerCount;
 	private int currentPlayer;
+	private int[] currentFieldId;
+	private Area[] currentArea;
 	private Dice[] dices;
 	private Player[] players;
 	
@@ -18,13 +20,16 @@ public class Game {
 		this.playerCount = playerCount;
 		currentPlayer = 0;
 		
+		currentFieldId = new int[playerCount];
+		currentArea = new Area[playerCount];
+		
 		dices = new Dice[6];
-		dices[0] = new Dice("Yellow");
-		dices[0] = new Dice("Blue");
-		dices[0] = new Dice("White");
-		dices[0] = new Dice("Green");
-		dices[0] = new Dice("Orange");
-		dices[0] = new Dice("Purple");
+		dices[0] = new Dice(Color.yellow);
+		dices[1] = new Dice(Color.blue);
+		dices[2] = new Dice(Color.white);
+		dices[3] = new Dice(Color.green);
+		dices[4] = new Dice(Color.orange);
+		dices[5] = new Dice(Color.purple);
 		
 		players = new Player[playerCount];
 		for(int i = 0; i < playerCount; i++) {
@@ -45,10 +50,23 @@ public class Game {
 		this.playerCount = playerCount;
 	}
 	
-	public boolean startRound() {
+	public void gameMove() {
 		
 		clearTray();
 		clearDiceFields();
+		
+		if(currentPlayer == 0)
+			startRound();
+		
+		//TODO
+		
+		if(currentPlayer < playerCount - 1)
+			currentPlayer++;
+		else
+			currentPlayer = 0;
+	}
+	
+	public boolean startRound() {
 		
 		round++;
 		
@@ -60,7 +78,7 @@ public class Game {
 				players[i].getManagement().incrementDiceRepeatCount();
 			}
 			
-			break;
+			return true;
 			
 		case 2:
 			
@@ -69,7 +87,7 @@ public class Game {
 				players[i].getManagement().incrementAdditionalDiceCount();
 			}
 			
-			break;
+			return true;
 			
 		case 3:
 			
@@ -78,12 +96,10 @@ public class Game {
 				players[i].getManagement().incrementDiceRepeatCount();
 			}
 			
-			break;
+			return true;
 			
 			//TODO
 		}
-		
-		
 		
 		//TODO
 		
@@ -149,6 +165,73 @@ public class Game {
 		switch(area) {
 		case dices:
 			
+			int diceField = 0;
+			for(Dice dice : dices) {
+				
+				if(dice.getField() >= diceField)
+					diceField = dice.getField() + 1;
+			}
+			
+			dices[fieldId].setField(diceField);
+			
+			for(Dice dice : dices) {
+				
+				if(dice.getField() == -1 && dice.getValue() < dices[fieldId].getValue())
+					dice.setOnTray(true);
+			}
+			
+			switch(dices[fieldId].getColor()) {
+			case yellow:
+				
+				players[playerId].getManagement().enterCrossOrNumber(Area.yellow, 
+						currentFieldId, dices[Color.yellow.ordinal()].getValue());
+				
+				break;
+				
+			case blue:
+				
+				players[playerId].getManagement().enterCrossOrNumber(Area.blue, 
+						currentFieldId, dices[Color.blue.ordinal()].getValue() + 
+						dices[Color.white.ordinal()].getValue());
+				
+				break;
+				
+			case white:
+				
+				if(currentArea[playerId] == Area.blue) {
+					players[playerId].getManagement().enterCrossOrNumber(currentArea, 
+							currentFieldId, dices[Color.white.ordinal()].getValue() + 
+							dices[Color.blue.ordinal()].getValue());
+				}
+				else {
+					players[playerId].getManagement().enterCrossOrNumber(currentArea, 
+							currentFieldId, dices[Color.white.ordinal()].getValue());
+				}
+				
+				break;
+				
+			case green:
+				
+				players[playerId].getManagement().enterCrossOrNumber(Area.green, 
+						currentFieldId, dices[Color.green.ordinal()].getValue());
+				
+				break;
+				
+			case orange:
+				
+				players[playerId].getManagement().enterCrossOrNumber(Area.orange, 
+						currentFieldId, dices[Color.orange.ordinal()].getValue());
+				
+				break;
+				
+			case purple:
+				
+				players[playerId].getManagement().enterCrossOrNumber(Area.purple, 
+						currentFieldId, dices[Color.purple.ordinal()].getValue());
+				
+				break;
+			}
+			
 			//TODO
 			
 			break;
@@ -157,41 +240,45 @@ public class Game {
 			
 			players[playerId].getManagement().useDiceRepeat();
 			
+			//TODO
+			
 			break;
 			
 		case additionalDice:
 			
 			players[playerId].getManagement().useAdditionalDice();
 			
+			//TODO
+			
 			break;
 			
-		case yellow://TODO vereinfachen
+		case yellow:
 			
-			clickable = players[playerId].getManagement().enterCrossOrNumber(area, fieldId);
+			//TODO
 			
 			break;
 			
 		case blue:
 			
-			clickable = players[playerId].getManagement().enterCrossOrNumber(area, fieldId);
+			//TODO
 			
 			break;
 			
 		case green:
 			
-			clickable = players[playerId].getManagement().enterCrossOrNumber(area, fieldId);
+			//TODO
 			
 			break;
 			
 		case orange:
 			
-			clickable = players[playerId].getManagement().enterCrossOrNumber(area, fieldId);
+			//TODO
 			
 			break;
 			
 		case purple:
 			
-			clickable = players[playerId].getManagement().enterCrossOrNumber(area, fieldId);
+			//TODO
 			
 			break;
 		}
