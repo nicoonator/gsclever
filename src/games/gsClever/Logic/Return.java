@@ -3,12 +3,14 @@ package games.gsClever.Logic;
 public class Return {
 
 	private int currentPlayer;
+	private int round;
 	private IsClickable[] clickable;
 	private Matchfield[] matchfield;
 	
-	public Return(int currentPlayer, int clickableCount, int playerCount) {
+	public Return(int currentPlayer, int round, int clickableCount, int playerCount) {
 		
 		this.currentPlayer = currentPlayer;
+		this.round = round;
 		
 		clickable = new IsClickable[clickableCount];
 		matchfield = new Matchfield[playerCount];
@@ -16,6 +18,10 @@ public class Return {
 	
 	public int getCurrentPlayer() {
 		return currentPlayer;
+	}
+	
+	public int getRound() {
+		return round;
 	}
 
 	public Matchfield getMatchfield(int index) {
