@@ -129,7 +129,71 @@ public class Management {
 		return clickable;
 	}
 	
-	public IsClickable enterCrossOrNumber(Area area, int fieldId) {
+	public void specialEventRecursive(SpecialEvent specialEvent) {
+		
+		switch(specialEvent) {
+		case diceRepeat:
+			
+			diceRepeatCount++;
+			specialEvent = null;
+			
+			break;
+			
+		case additionalDice:
+			
+			additionalDiceCount++;
+			specialEvent = null;
+			
+			break;
+			
+		case enterCrossYellow:
+			
+			specialEvent = null;//TODO
+			
+			break;
+			
+		case enterCrossBlue:
+			
+			specialEvent = null;//TODO
+			
+			break;
+			
+		case enterCrossGreen:
+			
+			specialEvent = colorArea[2].enterCross();
+			
+			break;
+			
+		case enterOrange4:
+			
+			specialEvent = colorArea[3].enterNumber(4);
+			
+			break;
+			
+		case enterOrange5:
+			
+			specialEvent = colorArea[3].enterNumber(5);
+			
+			break;
+			
+		case enterOrange6:
+			
+			specialEvent = colorArea[3].enterNumber(6);
+			
+			break;
+			
+		case enterPurple6:
+			
+			specialEvent = colorArea[4].enterNumber(6);
+			
+			break;
+		}
+		
+		if(specialEvent != null)
+			specialEventRecursive(specialEvent);
+	}
+	
+	public void enterCrossOrNumber(Area area, int fieldId, int number) {
 		
 		SpecialEvent specialEvent;
 		
@@ -140,65 +204,32 @@ public class Management {
 			
 			break;
 			
-			//TODO
-		}
-		
-		switch(specialEvent) {
-		case diceRepeat:
+		case blue:
 			
-			diceRepeatCount++;
+			specialEvent = colorArea[1].enterCross(fieldId);
 			
 			break;
 			
-		case additionalDice:
+		case green:
 			
-			additionalDiceCount++;
-			
-			break;
-			
-		case enterCrossYellow:
-			
-			//TODO
+			specialEvent = colorArea[2].enterCross();
 			
 			break;
 			
-		case enterCrossBlue:
+		case orange:
 			
-			//TODO
-			
-			break;
-			
-		case enterCrossGreen:
-			
-			colorArea[2].enterCross();
+			specialEvent = colorArea[3].enterNumber(number);
 			
 			break;
 			
-		case enterOrange4:
+		case purple:
 			
-			colorArea[3].enterNumber(4);
-			
-			break;
-			
-		case enterOrange5:
-			
-			colorArea[3].enterNumber(5);
-			
-			break;
-			
-		case enterOrange6:
-			
-			colorArea[3].enterNumber(6);
-			
-			break;
-			
-		case enterPurple6:
-			
-			colorArea[4].enterNumber(6);
+			specialEvent = colorArea[4].enterNumber(number);
 			
 			break;
 		}
 		
-		return null;
+		if(specialEvent != null)
+			specialEventRecursive(specialEvent);
 	}
 }
