@@ -1,6 +1,6 @@
 package games.gsClever.Logic;
 
-public class Orange {
+public class Orange extends ColorArea{
 	
 	
 	private int [] fields = new int [11];
