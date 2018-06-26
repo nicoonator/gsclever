@@ -56,7 +56,8 @@ public class Blue extends ColorArea {
 		}else
 		return false;
 	}
-public void isClickable(){
+public boolean[] isClickable(){
+	return fields;
 		
 		// TODO
 		
