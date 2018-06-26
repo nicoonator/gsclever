@@ -1,587 +1,875 @@
-#grid{
-		background-image: url("/Spielplan.png");
-		background-repeat:no-repeat;
-		/*border-right : solid;
+#grid {
+	background-image: url("/Spielplan.png");
+	background-repeat: no-repeat;
+	/*border-right : solid;
 		border-bottom : solid;
 		border-color : black;*/
-	}
-	
-#TicTacToe{
-		max-width: 800px;
-		max-height: 999px;
-	}
-
-#Game{
-		min-height:400px;
-		min-width:300px;
-		width: 100%;
-	}
-	
-#Player{
-		position:relative;
-		background-color: yellow;
-		margin-top :25px;
-		height : 37px;
-		width : 589px;
-		border-style : solid;
-		border-color : black;
-		color : black;
-	}
-	
-#restartButton{
-	height : 39px;
-	width : 90px;
-	position : absolute;
-	left : 413px;
-	top : 538px;
-	visibility:hidden;
 }
 
-#closeButton{
-	height : 39px;
-	width : 90px;
-	position : absolute;
-	left : 513px;
-	top : 538px;
-	visibility:hidden;
+#TicTacToe {
+	max-width: 800px;
+	max-height: 999px;
 }
 
-#Silberplatte{
-	top: 20px;
-	left: 100px;
-	height:180px;
-	min-width:180px;
+#Game {
+	min-height: 400px;
+	min-width: 300px;
+	width: 100%;
+}
+
+#Player {
+	position: relative;
+	background-color: yellow;
+	margin-top: 25px;
+	height: 37px;
+	width: 589px;
+	border-style: solid;
+	border-color: black;
+	color: black;
+}
+
+#restartButton {
+	height: 39px;
+	width: 90px;
 	position: absolute;
+	left: 413px;
+	top: 538px;
+	visibility: hidden;
 }
 
-#Spielfeld{
+#closeButton {
+	height: 39px;
+	width: 90px;
+	position: absolute;
+	left: 513px;
+	top: 538px;
+	visibility: hidden;
+}
+
+#Silberplatte {
 	top: 250px;
 	left: 100px;
-	height:600px;
+	height: 180px;
+	min-width: 180px;
 	position: absolute;
 }
 
-#Nachwuerfeln1{
-	height:38px;
-	min-width:38px;
-	position:absolute;
-	top:335px;
-	left:224px;
-}
-#Nachwuerfeln2{
-	height:38px;
-	position:absolute; min-width:38px;
-	top:335px;
-	left:264px;
-}
-#Nachwuerfeln3{
-	height:38px;
-	position:absolute; min-width:38px;
-	top:335px;
-	left:304px;
-}
-#Nachwuerfeln4{
-	height:38px;
-	position:absolute; min-width:38px;
-	top:335px;
-	left:344px;
-}
-#Nachwuerfeln5{
-	height:38px;
-	position:absolute; min-width:38px;
-	top:335px;
-	left:384px;
-}
-#Nachwuerfeln6{
-	height:38px;
-	position:absolute; min-width:38px;
-	top:335px;
-	left:424px;
-}
-#Nachwuerfeln7{
-	height:38px;
-	position:absolute; min-width:38px;
-	top:335px;
-	left:464px;
+#Spielfeld {
+	top: 250px;
+	left: 100px;
+	height: 600px;
+	position: absolute;
 }
 
-#Zusatzwuerfeln1{
-	height:38px;
-	position:absolute; min-width:38px;
-	top:400px;
-	left:224px;
-}
-#Zusatzwuerfeln2{
-	height:38px;
-	position:absolute; min-width:38px;
-	top:400px;
-	left:264px;
-}
-#Zusatzwuerfeln3{
-	height:38px;
-	position:absolute; min-width:38px;
-	top:400px;
-	left:304px;
-}
-#Zusatzwuerfeln4{
-	height:38px;
-	position:absolute; min-width:38px;
-	top:400px;
-	left:344px;
-}
-#Zusatzwuerfeln5{
-	height:38px;
-	position:absolute; min-width:38px;
-	top:400px;
-	left:384px;
-}
-#Zusatzwuerfeln6{
-	height:38px;
-	position:absolute; min-width:38px;
-	top:400px;
-	left:424px;
-}
-#Zusatzwuerfeln7{
-	height:38px;
-	position:absolute; min-width:38px;
-	top:400px;
-	left:464px;
+#Nachwuerfeln1 {
+	height: 38px;
+	min-width: 38px;
+	position: absolute;
+	top: 335px;
+	left: 224px;
 }
 
-#Wuerfelfeld1{
-	height:44px;
-	position:absolute; min-width:44px;
-	top:267px;
-	left:117px;
+#Nachwuerfeln2 {
+	height: 38px;
+	position: absolute;
+	min-width: 38px;
+	top: 335px;
+	left: 264px;
 }
 
-#Wuerfelfeld2{
-	height:44px;
-	position:absolute; min-width:44px;
-	top:332px;
-	left:118px;
+#Nachwuerfeln3 {
+	height: 38px;
+	position: absolute;
+	min-width: 38px;
+	top: 335px;
+	left: 304px;
 }
 
-#Wuerfelfeld3{
-	height:44px;
-	position:absolute; min-width:44px;
-	top:397px;
-	left:117px;
+#Nachwuerfeln4 {
+	height: 38px;
+	position: absolute;
+	min-width: 38px;
+	top: 335px;
+	left: 344px;
 }
 
-#Rundefeld1{
-	height:44px;
-	position:absolute; min-width:38px;
-	top:261px;
-	left:184px;
-
-}
-#Rundefeld2{
-	height:44px;
-	position:absolute; min-width:38px;
-	top:261px;
-	left:241px;
-
+#Nachwuerfeln5 {
+	height: 38px;
+	position: absolute;
+	min-width: 38px;
+	top: 335px;
+	left: 384px;
 }
 
-#Rundefeld3{
-	height:44px;
-	position:absolute; min-width:38px;
-	top:261px;
-	left:298px;
-
-}
-#Rundefeld4{
-	height:44px;
-	position:absolute; min-width:38px;
-	top:261px;
-	left:355px;
-
+#Nachwuerfeln6 {
+	height: 38px;
+	position: absolute;
+	min-width: 38px;
+	top: 335px;
+	left: 424px;
 }
 
-#Rundefeld5{
-	height:44px;
-	position:absolute; min-width:38px;
-	top:259px;
-	left:412px;
-
+#Nachwuerfeln7 {
+	height: 38px;
+	position: absolute;
+	min-width: 38px;
+	top: 335px;
+	left: 464px;
 }
 
-#Rundefeld6{
-	height:44px;
-	position:absolute; min-width:38px;
-	top:256px;
-	left:469px;
-
+#Zusatzwuerfeln1 {
+	height: 38px;
+	position: absolute;
+	min-width: 38px;
+	top: 400px;
+	left: 224px;
 }
 
-#yellowfield1 {	
-	height:25px;
-	position:absolute; min-width:25px;
-	top:466px;
-	left:124px;
-	//+36px		
+#Zusatzwuerfeln2 {
+	height: 38px;
+	position: absolute;
+	min-width: 38px;
+	top: 400px;
+	left: 264px;
 }
+
+#Zusatzwuerfeln3 {
+	height: 38px;
+	position: absolute;
+	min-width: 38px;
+	top: 400px;
+	left: 304px;
+}
+
+#Zusatzwuerfeln4 {
+	height: 38px;
+	position: absolute;
+	min-width: 38px;
+	top: 400px;
+	left: 344px;
+}
+
+#Zusatzwuerfeln5 {
+	height: 38px;
+	position: absolute;
+	min-width: 38px;
+	top: 400px;
+	left: 384px;
+}
+
+#Zusatzwuerfeln6 {
+	height: 38px;
+	position: absolute;
+	min-width: 38px;
+	top: 400px;
+	left: 424px;
+}
+
+#Zusatzwuerfeln7 {
+	height: 38px;
+	position: absolute;
+	min-width: 38px;
+	top: 400px;
+	left: 464px;
+}
+
+#Wuerfelfeld1 {
+	height: 44px;
+	position: absolute;
+	min-width: 44px;
+	top: 267px;
+	left: 117px;
+}
+
+#Wuerfelfeld2 {
+	height: 44px;
+	position: absolute;
+	min-width: 44px;
+	top: 332px;
+	left: 118px;
+}
+
+#Wuerfelfeld3 {
+	height: 44px;
+	position: absolute;
+	min-width: 44px;
+	top: 397px;
+	left: 117px;
+}
+
+#Rundefeld1 {
+	height: 44px;
+	position: absolute;
+	min-width: 38px;
+	top: 261px;
+	left: 184px;
+}
+
+#Rundefeld2 {
+	height: 44px;
+	position: absolute;
+	min-width: 38px;
+	top: 261px;
+	left: 241px;
+}
+
+#Rundefeld3 {
+	height: 44px;
+	position: absolute;
+	min-width: 38px;
+	top: 261px;
+	left: 298px;
+}
+
+#Rundefeld4 {
+	height: 44px;
+	position: absolute;
+	min-width: 38px;
+	top: 261px;
+	left: 355px;
+}
+
+#Rundefeld5 {
+	height: 44px;
+	position: absolute;
+	min-width: 38px;
+	top: 259px;
+	left: 412px;
+}
+
+#Rundefeld6 {
+	height: 44px;
+	position: absolute;
+	min-width: 38px;
+	top: 256px;
+	left: 469px;
+}
+
+#yellowfield1 {
+	height: 25px;
+	position: absolute;
+	min-width: 25px;
+	top: 466px;
+	left: 124px;
+	//+36
+	px
+}
+
 #yellowfield2 {
-	height:25px;
-	position:absolute; min-width:25px;
-	top:466px;
-	left:160px;	
+	height: 25px;
+	position: absolute;
+	min-width: 25px;
+	top: 466px;
+	left: 160px;
 }
 
 #yellowfield3 {
-	height:25px;
-	position:absolute; min-width:25px;
-	top:466px;
-	left:196px;	
+	height: 25px;
+	position: absolute;
+	min-width: 25px;
+	top: 466px;
+	left: 196px;
 }
+
 #yellowfield4 {
-	height:25px;
-	position:absolute; min-width:25px;
-	top:502px;
-	left:124px;	
+	height: 25px;
+	position: absolute;
+	min-width: 25px;
+	top: 502px;
+	left: 124px;
 }
 
 #yellowfield5 {
-	height:25px;
-	position:absolute; min-width:25px;
-	top:502px;
-	left:160px;	
+	height: 25px;
+	position: absolute;
+	min-width: 25px;
+	top: 502px;
+	left: 160px;
 }
 
 #yellowfield6 {
-	height:25px;
-	position:absolute; min-width:25px;
-	top:502px;
-	left:232px;	
+	height: 25px;
+	position: absolute;
+	min-width: 25px;
+	top: 502px;
+	left: 232px;
 }
 
 #yellowfield7 {
-	height:25px;
-	position:absolute; min-width:25px;
-	top:538px;
-	left:124px;	
+	height: 25px;
+	position: absolute;
+	min-width: 25px;
+	top: 538px;
+	left: 124px;
 }
+
 #yellowfield8 {
-	height:25px;
-	position:absolute; min-width:25px;
-	top:538px;
-	left:196px;	
+	height: 25px;
+	position: absolute;
+	min-width: 25px;
+	top: 538px;
+	left: 196px;
 }
+
 #yellowfield9 {
-	height:25px;
-	position:absolute; min-width:25px;
-	top:538px;
-	left:232px;	
+	height: 25px;
+	position: absolute;
+	min-width: 25px;
+	top: 538px;
+	left: 232px;
 }
 
 #yellowfield10 {
-	height:25px;
-	position:absolute; min-width:25px;
-	top:571px;
-	left:162px;	
+	height: 25px;
+	position: absolute;
+	min-width: 25px;
+	top: 571px;
+	left: 162px;
 }
 
 #yellowfield11 {
-	height:25px;
-	position:absolute; min-width:25px;
-	top:571px;
-	left:198px;	
+	height: 25px;
+	position: absolute;
+	min-width: 25px;
+	top: 571px;
+	left: 198px;
 }
+
 #yellowfield12 {
-	height:25px;
-	position:absolute; min-width:25px;
-	top:571px;
-	left:234px;	
+	height: 25px;
+	position: absolute;
+	min-width: 25px;
+	top: 571px;
+	left: 234px;
 }
 
-
-#bluefield2{
-	height:25px;
-	position:absolute; min-width:25px;
-	top:505px;
-	left:364px;
-	/* Abstand oben und unten +36px*/
-}
-
-#bluefield3{
-	height:25px;
-	position:absolute; min-width:25px;
-	top:505px;
-	left:400px;
-	/* Abstand oben und unten +36px*/
-}
-#bluefield4{
-	height:25px;
-	position:absolute; min-width:25px;
-	top:505px;
-	left:439px;
+#bluefield2 {
+	height: 25px;
+	position: absolute;
+	min-width: 25px;
+	top: 505px;
+	left: 364px;
 	/* Abstand oben und unten +36px*/
 }
 
-#bluefield5{
-	height:25px;
-	position:absolute; min-width:25px;
-	top:541px;
-	left:328px;
+#bluefield3 {
+	height: 25px;
+	position: absolute;
+	min-width: 25px;
+	top: 505px;
+	left: 400px;
 	/* Abstand oben und unten +36px*/
 }
 
-#bluefield6{
-	height:25px;
-	position:absolute; min-width:25px;
-	top:541px;
-	left:364px;
+#bluefield4 {
+	height: 25px;
+	position: absolute;
+	min-width: 25px;
+	top: 505px;
+	left: 439px;
 	/* Abstand oben und unten +36px*/
 }
 
-#bluefield7{
-	height:25px;
-	position:absolute; min-width:25px;
-	top:541px;
-	left:400px;
+#bluefield5 {
+	height: 25px;
+	position: absolute;
+	min-width: 25px;
+	top: 541px;
+	left: 328px;
 	/* Abstand oben und unten +36px*/
 }
 
-#bluefield8{
-	height:25px;
-	position:absolute; min-width:25px;
-	top:541px;
-	left:439px;
+#bluefield6 {
+	height: 25px;
+	position: absolute;
+	min-width: 25px;
+	top: 541px;
+	left: 364px;
 	/* Abstand oben und unten +36px*/
 }
-#bluefield9{
-	height:25px;
-	position:absolute; min-width:25px;
-	top:577px;
-	left:328px;
+
+#bluefield7 {
+	height: 25px;
+	position: absolute;
+	min-width: 25px;
+	top: 541px;
+	left: 400px;
 	/* Abstand oben und unten +36px*/
 }
-#bluefield10{
-	height:25px;
-	position:absolute; min-width:25px;
-	top:577px;
-	left:364px;
+
+#bluefield8 {
+	height: 25px;
+	position: absolute;
+	min-width: 25px;
+	top: 541px;
+	left: 439px;
+	/* Abstand oben und unten +36px*/
+}
+
+#bluefield9 {
+	height: 25px;
+	position: absolute;
+	min-width: 25px;
+	top: 577px;
+	left: 328px;
+	/* Abstand oben und unten +36px*/
+}
+
+#bluefield10 {
+	height: 25px;
+	position: absolute;
+	min-width: 25px;
+	top: 577px;
+	left: 364px;
+}
+
+#bluefield11 {
+	height: 25px;
+	position: absolute;
+	min-width: 25px;
+	top: 577px;
+	left: 400px;
+}
+
+#bluefield12 {
+	height: 25px;
+	position: absolute;
+	min-width: 25px;
+	top: 577px;
+	left: 439px;
+}
+
+#greenfield1 {
+	height: 25px;
+	position: absolute;
+	min-width: 25px;
+	top: 673px;
+	left: 157px;
+}
+
+#greenfield2 {
+	height: 25px;
+	position: absolute;
+	min-width: 25px;
+	top: 673px;
+	left: 189px;
+}
+
+#greenfield3 {
+	height: 25px;
+	position: absolute;
+	min-width: 25px;
+	top: 673px;
+	left: 221px;
+}
+
+#greenfield4 {
+	height: 25px;
+	position: absolute;
+	min-width: 25px;
+	top: 673px;
+	left: 253px;
+}
+
+#greenfield5 {
+	height: 25px;
+	position: absolute;
+	min-width: 25px;
+	top: 673px;
+	left: 285px;
+}
+
+#greenfield6 {
+	height: 25px;
+	position: absolute;
+	min-width: 25px;
+	top: 673px;
+	left: 317px;
+}
+
+#greenfield7 {
+	height: 25px;
+	position: absolute;
+	min-width: 25px;
+	top: 673px;
+	left: 349px;
+}
+
+#greenfield8 {
+	height: 25px;
+	position: absolute;
+	min-width: 25px;
+	top: 673px;
+	left: 381px;
+}
+
+#greenfield9 {
+	height: 25px;
+	position: absolute;
+	min-width: 25px;
+	top: 673px;
+	left: 413px;
+}
+
+#greenfield10 {
+	height: 25px;
+	position: absolute;
+	min-width: 25px;
+	top: 673px;
+	left: 445px;
+}
+
+#greenfield11 {
+	height: 25px;
+	position: absolute;
+	min-width: 25px;
+	top: 673px;
+	left: 477px;
+}
+
+#orangefield1 {
+	height: 25px;
+	position: absolute;
+	min-width: 25px;
+	top: 733px;
+	left: 157px;
+}
+
+#orangefield2 {
+	height: 25px;
+	position: absolute;
+	min-width: 25px;
+	top: 733px;
+	left: 189px;
+}
+
+#orangefield3 {
+	height: 25px;
+	position: absolute;
+	min-width: 25px;
+	top: 733px;
+	left: 221px;
+}
+
+#orangefield4 {
+	height: 25px;
+	position: absolute;
+	min-width: 25px;
+	top: 733px;
+	left: 253px;
+}
+
+#orangefield5 {
+	height: 25px;
+	position: absolute;
+	min-width: 25px;
+	top: 733px;
+	left: 285px;
+}
+
+#orangefield6 {
+	height: 25px;
+	position: absolute;
+	min-width: 25px;
+	top: 733px;
+	left: 317px;
+}
+
+#orangefield7 {
+	height: 25px;
+	position: absolute;
+	min-width: 25px;
+	top: 733px;
+	left: 349px;
+}
+
+#orangefield8 {
+	height: 25px;
+	position: absolute;
+	min-width: 25px;
+	top: 733px;
+	left: 381px;
+}
+
+#orangefield9 {
+	height: 25px;
+	position: absolute;
+	min-width: 25px;
+	top: 733px;
+	left: 413px;
+}
+
+#orangefield10 {
+	height: 25px;
+	position: absolute;
+	min-width: 25px;
+	top: 733px;
+	left: 445px;
+}
+
+#orangefield11 {
+	height: 25px;
+	position: absolute;
+	min-width: 25px;
+	top: 733px;
+	left: 477px;
+}
+
+#purplefield1 {
+	height: 25px;
+	position: absolute;
+	min-width: 25px;
+	top: 793px;
+	left: 157px;
+}
+
+#purplefield2 {
+	height: 25px;
+	position: absolute;
+	min-width: 25px;
+	top: 793px;
+	left: 189px;
+}
+
+#purplefield3 {
+	height: 25px;
+	position: absolute;
+	min-width: 25px;
+	top: 793px;
+	left: 221px;
+}
+
+#purplefield4 {
+	height: 25px;
+	position: absolute;
+	min-width: 25px;
+	top: 793px;
+	left: 253px;
+}
+
+#purplefield5 {
+	height: 25px;
+	position: absolute;
+	min-width: 25px;
+	top: 793px;
+	left: 285px;
+}
+
+#purplefield6 {
+	height: 25px;
+	position: absolute;
+	min-width: 25px;
+	top: 793px;
+	left: 317px;
+}
+
+#purplefield7 {
+	height: 25px;
+	position: absolute;
+	min-width: 25px;
+	top: 793px;
+	left: 349px;
+}
+
+#purplefield8 {
+	height: 25px;
+	position: absolute;
+	min-width: 25px;
+	top: 793px;
+	left: 381px;
+}
+
+#purplefield9 {
+	height: 25px;
+	position: absolute;
+	min-width: 25px;
+	top: 793px;
+	left: 413px;
+}
+
+#purplefield10 {
+	height: 25px;
+	position: absolute;
+	min-width: 25px;
+	top: 793px;
+	left: 445px;
+}
+
+#purplefield11 {
+	height: 25px;
+	position: absolute;
+	min-width: 25px;
+	top: 793px;
+	left: 477px;
+}
+
+#wuerfelfeldsilber1 {
+	top: 294px;
+	left: 129px;
+	height: 44px;
+	position: absolute;
+	min-width: 44px;
+	background: white;
+}
+
+#wuerfelfeldsilber2 {
+	top: 294px;
+	left: 180px;
+	height: 44px;
+	position: absolute;
+	min-width: 44px;
+	background: yellow;
+}
+
+#wuerfelfeldsilber3 {
+	top: 294px;
+	left: 231px;
+	height: 44px;
+	position: absolute;
+	min-width: 44px;
+	background: blue;
+}
+
+#wuerfelfeldsilber4 {
+	top: 353px;
+	left: 129px;
+	height: 44px;
+	position: absolute;
+	min-width: 44px;
+	background: orange;
+}
+
+#wuerfelfeldsilber5 {
+	top: 353px;
+	left: 231px;
+	height: 44px;
+	position: absolute;
+	min-width: 44px;
+	background: purple;
+}
+
+
+#wuerfelfeldEntscheider1 {
+
+	top: 530px;
+	left: 100px;
+	height: 44px;
+	position: absolute;
+	min-width: 44px;
+	background: purple;	
+	
+	
+	
+	
 	
 }
-#bluefield11{
-	height:25px;
-	position:absolute; min-width:25px;
-	top:577px;
-	left:400px;
 
-}
-#bluefield12{
-	height:25px;
-	position:absolute; min-width:25px;
-	top:577px;
-	left:439px;
-
-}
-
-#greenfield1{
-	height:25px;
-	position:absolute; min-width:25px;
-	top:673px;
-	left:157px;
-}
-#greenfield2{
-	height:25px;
-	position:absolute; min-width:25px;
-	top:673px;
-	left:189px;
-}
-#greenfield3{
-	height:25px;
-	position:absolute; min-width:25px;
-	top:673px;
-	left:221px;
-}
-#greenfield4{
-	height:25px;
-	position:absolute; min-width:25px;
-	top:673px;
-	left:253px;
-}
-#greenfield5{
-	height:25px;
-	position:absolute; min-width:25px;
-	top:673px;
-	left:285px;
-}
-#greenfield6{
-	height:25px;
-	position:absolute; min-width:25px;
-	top:673px;
-	left:317px;
-}
-#greenfield7{
-	height:25px;
-	position:absolute; min-width:25px;
-	top:673px;
-	left:349px;
-}
-#greenfield8{
-	height:25px;
-	position:absolute; min-width:25px;
-	top:673px;
-	left:381px;
-}
-#greenfield9{
-	height:25px;
-	position:absolute; min-width:25px;
-	top:673px;
-	left:413px;
-}
-#greenfield10{
-	height:25px;
-	position:absolute; min-width:25px;
-	top:673px;
-	left:445px;
-}
-#greenfield11{
-	height:25px;
-	position:absolute; min-width:25px;
-	top:673px;
-	left:477px;
-}
-
-#orangefield1{
-	height:25px;
-	position:absolute; min-width:25px;
-	top:733px;
-	left:157px;
-}
-#orangefield2{
-	height:25px;
-	position:absolute; min-width:25px;
-	top:733px;
-	left:189px;
-}
-#orangefield3{
-	height:25px;
-	position:absolute; min-width:25px;
-	top:733px;
-	left:221px;
-}
-#orangefield4{
-	height:25px;
-	position:absolute; min-width:25px;
-	top:733px;
-	left:253px;
-}
-#orangefield5{
-	height:25px;
-	position:absolute; min-width:25px;
-	top:733px;
-	left:285px;
-}
-#orangefield6{
-	height:25px;
-	position:absolute; min-width:25px;
-	top:733px;
-	left:317px;
-}
-#orangefield7{
-	height:25px;
-	position:absolute; min-width:25px;
-	top:733px;
-	left:349px;
-}
-#orangefield8{
-	height:25px;
-	position:absolute; min-width:25px;
-	top:733px;
-	left:381px;
-}
-#orangefield9{
-	height:25px;
-	position:absolute; min-width:25px;
-	top:733px;
-	left:413px;
-}
-#orangefield10{
-	height:25px;
-	position:absolute; min-width:25px;
-	top:733px;
-	left:445px;
-}
-#orangefield11{
-	height:25px;
-	position:absolute; min-width:25px;
-	top:733px;
-	left:477px;
-}
-
-#purplefield1{
-	height:25px;
-	position:absolute; min-width:25px;
-	top:793px;
-	left:157px;
-}
-#purplefield2{
-	height:25px;
-	position:absolute; min-width:25px;
-	top:793px;
-	left:189px;
-}
-#purplefield3{
-	height:25px;
-	position:absolute; min-width:25px;
-	top:793px;
-	left:221px;
-}
-#purplefield4{
-	height:25px;
-	position:absolute; min-width:25px;
-	top:793px;
-	left:253px;
-}
-#purplefield5{
-	height:25px;
-	position:absolute; min-width:25px;
-	top:793px;
-	left:285px;
-}
-#purplefield6{
-	height:25px;
-	position:absolute; min-width:25px;
-	top:793px;
-	left:317px;
-}
-#purplefield7{
-	height:25px;
-	position:absolute; min-width:25px;
-	top:793px;
-	left:349px;
-}
-#purplefield8{
-	height:25px;
-	position:absolute; min-width:25px;
-	top:793px;
-	left:381px;
-}
-#purplefield9{
-	height:25px;
-	position:absolute; min-width:25px;
-	top:793px;
-	left:413px;
-}
-#purplefield10{
-	height:25px;
-	position:absolute; min-width:25px;
-	top:793px;
-	left:445px;
-}
-#purplefield11{
-	height:25px;
-	position:absolute; min-width:25px;
-	top:793px;
-	left:477px;
+#wuerfelfeldEntscheider2 {
+	
+	top: 530px;
+	left: 156px;
+	height: 44px;
+	position: absolute;
+	min-width: 44px;
+	background: blue;	
+	
+	
+	
+	
+	
 }
 
 
 
-button {
-	background: transparent
+
+
+
+.buttonwurf {
+	top: 435px;
+	left: 100px;
+	height: 44px;
+	min-width: 44px;
+	position: absolute;
+	background: white;
 }
+
+.buttonNachwurf {
+	top: 435px;
+	left: 180px;
+	height: 44px;
+	min-width: 44px;
+	position: absolute;
+	background: white;
+}
+
+.buttonZusatzWuerfel {
+	
+	top: 480px;
+	left: 100px;
+	height: 44px;
+	min-width: 44px;
+	position: absolute;
+	background: white;
+	
+	
+}
+
+.buttonSpieler2 {
+	
+	top: 250px;
+	left: 325px;
+	height: 44px;
+	min-width: 44px;
+	position: absolute;
+	background: white;
+	
+	
+}
+
+.buttonSpieler3 {
+	
+	top: 294px;
+	left: 325px;
+	height: 44px;
+	min-width: 44px;
+	position: absolute;
+	background: white;
+	
+	
+}
+
+.buttonSpieler4 {
+	
+	top: 338px;
+	left: 325px;
+	height: 44px;
+	min-width: 44px;
+	position: absolute;
+	background: white;
+	
+	
+}
+.buttonUeberspringen {
+
+	top: 480px;
+	left: 210px;
+	height: 44px;
+	min-width: 44px;
+	position: absolute;
+	background: white;
+	
+	
+	
+	
+	
+	
+}
+
+
+
+
+
+
+
+
+
