@@ -20,12 +20,12 @@ public class gsClever extends Game {
 	 * game Status 1x Spielerzahl + 1x rundenzaehler + 1x aktueller Spieler + 5x
 	 * Wuefelflaechen+3x genommener wuerfel
 	 * +4xSpielfeld:(2xNachwuerfeln(Freigeschaltet +
-	 * genutzt)+2xZusatzwuerfel+12Gelb+11Blau+1Gruen+1Orange+1Lila) Wuerfel: 1-30
+	 * genutzt)+2xZusatzwuerfel+12Gelb+11Blau+1Gruen+11Orange+11Lila) Wuerfel: 1-30
 	 * ([Blau, Gelb, Gruen, Lila, Orange, Weiss] 1: 1blau 7: 1Gelb 30: 6Weiss
 	 *
 	 *
 	 */
-	private int[] gameStatus = new int[131];
+	private int[] gameStatus = new int[211];
 	private User playerTurn = null;
 	private ArrayList<User> playerList = new ArrayList<User>();
 	private ArrayList<User> spectatorList = new ArrayList<User>();
@@ -102,7 +102,7 @@ public class gsClever extends Game {
 		}
 
 		String[] strArray = gsonString.split(",");
-		int[] receivedArray = new int[131];
+		int[] receivedArray = new int[211];
 		for (int i = 0; i < 131; i++) {
 			receivedArray[i] = Integer.parseInt(strArray[i]);
 		}
@@ -153,8 +153,7 @@ public class gsClever extends Game {
 		if (eventName.equals("CLOSE")) {
 			return "CLOSE";
 		}
-
-		int[] grid = getGameStatus();
+		/*int[] grid = getGameStatus();
 
 		for (int i = 0; i < grid.length; i++) {
 			gameData += String.valueOf(grid[i]);
@@ -180,15 +179,18 @@ public class gsClever extends Game {
 			gameData += " (x)";
 		else
 			gameData += " (o)";
-
+		 */
 		gameData += isHost(user);
 
 		return gameData;
+		
 	}
 
 	@Override
 	public void addUser(User user) {
 
+		this.gState = GameState.SETUP;
+		
 		if (playerList.size() < 4 && !playerList.contains(user)) {
 			playerList.add(user);
 
@@ -233,8 +235,7 @@ public class gsClever extends Game {
 
 	@Override
 	public GameState getGameState() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.gState;
 	}
 
 }
