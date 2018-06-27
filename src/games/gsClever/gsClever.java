@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import gameClasses.Game;
 import gameClasses.GameState;
+import games.gsClever.Logic.KI;
 import global.FileHelper;
 import userManagement.User;
 
@@ -153,44 +154,32 @@ public class gsClever extends Game {
 		if (eventName.equals("CLOSE")) {
 			return "CLOSE";
 		}
-		/*int[] grid = getGameStatus();
-
-		for (int i = 0; i < grid.length; i++) {
-			gameData += String.valueOf(grid[i]);
-			gameData += ',';
-		}
-
-		if (playerList.size() < 2) {
-			gameData += "Warte Auf 2ten Spieler...";
-			gameData += isHost(user);
-			return gameData;
-		}
-
-		if (this.gState == GameState.FINISHED) {
-			// TODO
-		}
-
-		else if (playerTurn.equals(user)) {
-			gameData += "Du bist dran!";
-		} else
-			gameData += playerTurn.getName() + " ist dran!";
-
-		if (playerList.indexOf(user) == 0)
-			gameData += " (x)";
-		else
-			gameData += " (o)";
+		/*
+		 * int[] grid = getGameStatus();
+		 * 
+		 * for (int i = 0; i < grid.length; i++) { gameData += String.valueOf(grid[i]);
+		 * gameData += ','; }
+		 * 
+		 * if (playerList.size() < 2) { gameData += "Warte Auf 2ten Spieler...";
+		 * gameData += isHost(user); return gameData; }
+		 * 
+		 * if (this.gState == GameState.FINISHED) { // TODO }
+		 * 
+		 * else if (playerTurn.equals(user)) { gameData += "Du bist dran!"; } else
+		 * gameData += playerTurn.getName() + " ist dran!";
+		 * 
+		 * if (playerList.indexOf(user) == 0) gameData += " (x)"; else gameData +=
+		 * " (o)";
 		 */
 		gameData += isHost(user);
 
 		return gameData;
-		
+
 	}
 
 	@Override
 	public void addUser(User user) {
 
-		this.gState = GameState.SETUP;
-		
 		if (playerList.size() < 4 && !playerList.contains(user)) {
 			playerList.add(user);
 
@@ -202,6 +191,13 @@ public class gsClever extends Game {
 		if (playerList.size() == 4) {
 			this.gState = GameState.RUNNING;
 			sendGameDataToClients("START");
+		}
+	}
+
+	public void addKI(KI ki) {
+		if (playerList.size() < 4 && !playerList.contains(ki)) {
+			this.addUser(ki);
+			;
 		}
 	}
 
