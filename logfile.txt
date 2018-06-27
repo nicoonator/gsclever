@@ -41,3 +41,11 @@
 [2018-06-24 15:54:03.386] [IP: /192.168.178.29] [REGISTER] Registering user "admin" succeeded
 [2018-06-24 15:54:09.012] [IP: /192.168.178.29] [LOGIN] Logging in user "admin" succeeded
 [2018-06-24 15:59:09.165] [IP: /192.168.178.29] [LOGIN] Logging in user "admin" succeeded
+[2018-06-24 16:43:53.914] [IP: /192.168.178.29] [LOGIN] Logging in user "admin" succeeded
+[2018-06-24 16:45:03.322] [IP: /192.168.178.21] [LOGIN] Logging in user "nico" failed
+[2018-06-24 16:45:12.327] [IP: /192.168.178.21] [LOGIN] Logging in user "nico" failed
+[2018-06-24 16:45:20.184] [IP: /192.168.178.21] [LOGIN] Logging in user "nico" failed
+[2018-06-24 16:46:45.722] [IP: /192.168.178.21] [LOGIN] Logging in user "nico" succeeded
+[2018-06-24 16:49:25.21] [IP: /192.168.178.29] [LOGIN] Logging in user "admin" succeeded
+[2018-06-24 16:49:43.853] [IP: /192.168.178.21] [LOGIN] Logging in user "nico" succeeded
+[2018-06-25 20:09:44.599] [IP: /192.168.178.29] [LOGIN] Logging in user "admin" succeeded
