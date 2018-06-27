@@ -75,3 +75,6 @@
 [2018-06-27 12:09:50.992] [IP: /192.168.178.29] [LOGIN] Logging in user "admin" succeeded
 [2018-06-27 12:10:44.819] [IP: /192.168.178.29] [REGISTER] Registering user "nico1" succeeded
 [2018-06-27 12:10:52.091] [IP: /192.168.178.29] [LOGIN] Logging in user "nico1" succeeded
+[2018-06-27 19:17:48.685] [IP: /192.168.178.29] [LOGIN] Logging in user "nico" succeeded
+[2018-06-27 19:23:53.186] [IP: /192.168.178.29] [LOGIN] Logging in user "nico" succeeded
+[2018-06-27 19:25:30.495] [IP: /192.168.178.29] [LOGIN] Logging in user "nico" succeeded
