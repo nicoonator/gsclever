@@ -4,7 +4,7 @@ import java.util.*;
 
 import games.gsClever.Exceptions.CannotUseDiceRepeatException;
 
-public class Game {
+public class MainLogic {
 
 	private int round;
 	private int playerCount;
@@ -16,7 +16,7 @@ public class Game {
 	private Dice[] dices;
 	private Player[] players;
 	
-	public Game(int playerCount) {
+	public MainLogic(int playerCount) {
 		
 		round = 0;
 		this.playerCount = playerCount;
