@@ -748,41 +748,27 @@
 	background: purple;
 }
 
-
 #wuerfelfeldEntscheider1 {
-
 	top: 530px;
 	left: 100px;
 	height: 44px;
 	position: absolute;
 	min-width: 44px;
-	background: purple;	
-	
-	
-	
-	
-	
+	background: purple;
 }
 
 #wuerfelfeldEntscheider2 {
-	
 	top: 530px;
 	left: 156px;
 	height: 44px;
 	position: absolute;
 	min-width: 44px;
-	background: blue;	
-	
-	
-	
-	
-	
+	background: blue;
 }
 
-
-
-
-
+input {
+	color: black;
+}
 
 .buttonwurf {
 	top: 435px;
@@ -803,73 +789,46 @@
 }
 
 .buttonZusatzWuerfel {
-	
 	top: 480px;
 	left: 100px;
 	height: 44px;
 	min-width: 44px;
 	position: absolute;
 	background: white;
-	
-	
 }
 
 .buttonSpieler2 {
-	
 	top: 250px;
 	left: 325px;
 	height: 44px;
 	min-width: 44px;
 	position: absolute;
 	background: white;
-	
-	
 }
 
 .buttonSpieler3 {
-	
 	top: 294px;
 	left: 325px;
 	height: 44px;
 	min-width: 44px;
 	position: absolute;
 	background: white;
-	
-	
 }
 
 .buttonSpieler4 {
-	
 	top: 338px;
 	left: 325px;
 	height: 44px;
 	min-width: 44px;
 	position: absolute;
 	background: white;
-	
-	
 }
-.buttonUeberspringen {
 
+.buttonUeberspringen {
 	top: 480px;
 	left: 210px;
 	height: 44px;
 	min-width: 44px;
 	position: absolute;
 	background: white;
-	
-	
-	
-	
-	
-	
 }
-
-
-
-
-
-
-
-
-
