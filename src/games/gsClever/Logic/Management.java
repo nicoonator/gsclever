@@ -25,6 +25,14 @@ public class Management {
 		colorAreas[4] = new Purple();
 	}
 	
+	public Yellow getYellow() {
+		return colorAreas[Color.yellow.ordinal()];
+	}
+
+	public void setColorAreas(ColorArea[] colorAreas) {
+		this.colorAreas = colorAreas;
+	}
+
 	public int getDiceRepeatCount() {
 		return diceRepeatCount;
 	}
@@ -100,26 +108,6 @@ public class Management {
 		
 		IsClickable clickable = new IsClickable();
 		
-		boolean[] diceRepeat = new boolean[7];
-		for(int i = 0; i < 7; i++) {
-			
-			if(diceRepeatCount > i && diceRepeatUsed <= i)
-				diceRepeat[i] = true;
-			else
-				diceRepeat[i] = false;
-		}
-		clickable.setDiceRepeat(diceRepeat);
-		
-		boolean[] additionalDice = new boolean[7];
-		for(int i = 0; i < 7; i++) {
-			
-			if(additionalDiceCount > i && additionalDiceUsed <= i)
-				additionalDice[i] = true;
-			else
-				additionalDice[i] = false;
-		}
-		clickable.setAdditionalDice(additionalDice);
-		
 		clickable.setYellow(colorAreas[0].isClickable());
 		clickable.setBlue(colorAreas[1].isClickable());
 		clickable.setGreen(colorAreas[2].isClickable());
@@ -160,31 +148,31 @@ public class Management {
 			
 		case enterCrossGreen:
 			
-			specialEvent = colorArea[2].enterCross();
+			specialEvent = colorAreas[2].enterCross();
 			
 			break;
 			
 		case enterOrange4:
 			
-			specialEvent = colorArea[3].enterNumber(4);
+			specialEvent = colorAreas[3].enterNumber(4);
 			
 			break;
 			
 		case enterOrange5:
 			
-			specialEvent = colorArea[3].enterNumber(5);
+			specialEvent = colorAreas[3].enterNumber(5);
 			
 			break;
 			
 		case enterOrange6:
 			
-			specialEvent = colorArea[3].enterNumber(6);
+			specialEvent = colorAreas[3].enterNumber(6);
 			
 			break;
 			
 		case enterPurple6:
 			
-			specialEvent = colorArea[4].enterNumber(6);
+			specialEvent = colorAreas[4].enterNumber(6);
 			
 			break;
 		}
@@ -200,31 +188,31 @@ public class Management {
 		switch(area) {
 		case yellow:
 			
-			specialEvent = colorArea[0].enterCross(fieldId);
+			specialEvent = colorAreas[0].enterCross(fieldId);
 			
 			break;
 			
 		case blue:
 			
-			specialEvent = colorArea[1].enterCross(fieldId);
+			specialEvent = colorAreas[1].enterCross(fieldId);
 			
 			break;
 			
 		case green:
 			
-			specialEvent = colorArea[2].enterCross();
+			specialEvent = colorAreas[2].enterCross();
 			
 			break;
 			
 		case orange:
 			
-			specialEvent = colorArea[3].enterNumber(number);
+			specialEvent = colorAreas[3].enterNumber(number);
 			
 			break;
 			
 		case purple:
 			
-			specialEvent = colorArea[4].enterNumber(number);
+			specialEvent = colorAreas[4].enterNumber(number);
 			
 			break;
 		}
