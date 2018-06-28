@@ -55,7 +55,30 @@ fieldCount++;
 		return false;
 	}
 
-
+	public boolean[] isClickable(int valueDicePurple, int valueDiceWhite){
+		
+		boolean [] field = new boolean [11];
+		int p=0;
+		for(int i=0; i<11; i++) {
+			field[i] = false;
+		}
+		
+		for (int m=0; m<11; m++) {
+			if(fields[m]==0) {
+				 p = m;
+				 break;
+			}
+			
+		}
+		if(p ==0 || fields[p-1] == 6) {
+			field[0] = true;
+		}else {
+			if(fields[p-1] < valueDicePurple || fields[p-1] < valueDiceWhite) 
+			field[p]= true; 
+		
+		}
+		 return field;
+	}
 	public int determinePoints() {
 		// TODO Auto-generated method stub
 		int summe =0;
