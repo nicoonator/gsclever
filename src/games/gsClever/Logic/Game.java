@@ -11,6 +11,8 @@ public class Game {
 	private int currentPlayer;
 	private int[] currentFieldId;
 	private Area[] currentArea;
+	private SpecialEvent[] currentSpecialEvent;
+	private boolean[] ready;
 	private Dice[] dices;
 	private Player[] players;
 	
@@ -22,6 +24,8 @@ public class Game {
 		
 		currentFieldId = new int[playerCount];
 		currentArea = new Area[playerCount];
+		currentSpecialEvent = new SpecialEvent[playerCount];
+		ready = new boolean[playerCount];
 		
 		dices = new Dice[6];
 		dices[0] = new Dice(Color.yellow);
@@ -161,6 +165,7 @@ public class Game {
 		
 		int clickableCount = 1;//TODO
 		IsClickable clickable;
+		Return returnBack = new Return(currentPlayer, round, clickableCount, playerCount);
 		
 		switch(area) {
 		case dices:
@@ -184,14 +189,14 @@ public class Game {
 			case yellow:
 				
 				players[playerId].getManagement().enterCrossOrNumber(Area.yellow, 
-						currentFieldId, dices[Color.yellow.ordinal()].getValue());
+						currentFieldId[playerId], dices[Color.yellow.ordinal()].getValue());
 				
 				break;
 				
 			case blue:
 				
 				players[playerId].getManagement().enterCrossOrNumber(Area.blue, 
-						currentFieldId, dices[Color.blue.ordinal()].getValue() + 
+						currentFieldId[playerId], dices[Color.blue.ordinal()].getValue() + 
 						dices[Color.white.ordinal()].getValue());
 				
 				break;
@@ -199,13 +204,13 @@ public class Game {
 			case white:
 				
 				if(currentArea[playerId] == Area.blue) {
-					players[playerId].getManagement().enterCrossOrNumber(currentArea, 
-							currentFieldId, dices[Color.white.ordinal()].getValue() + 
+					players[playerId].getManagement().enterCrossOrNumber(currentArea[playerId], 
+							currentFieldId[playerId], dices[Color.white.ordinal()].getValue() + 
 							dices[Color.blue.ordinal()].getValue());
 				}
 				else {
-					players[playerId].getManagement().enterCrossOrNumber(currentArea, 
-							currentFieldId, dices[Color.white.ordinal()].getValue());
+					players[playerId].getManagement().enterCrossOrNumber(currentArea[playerId], 
+							currentFieldId[playerId], dices[Color.white.ordinal()].getValue());
 				}
 				
 				break;
@@ -213,21 +218,21 @@ public class Game {
 			case green:
 				
 				players[playerId].getManagement().enterCrossOrNumber(Area.green, 
-						currentFieldId, dices[Color.green.ordinal()].getValue());
+						currentFieldId[playerId], dices[Color.green.ordinal()].getValue());
 				
 				break;
 				
 			case orange:
 				
 				players[playerId].getManagement().enterCrossOrNumber(Area.orange, 
-						currentFieldId, dices[Color.orange.ordinal()].getValue());
+						currentFieldId[playerId], dices[Color.orange.ordinal()].getValue());
 				
 				break;
 				
 			case purple:
 				
 				players[playerId].getManagement().enterCrossOrNumber(Area.purple, 
-						currentFieldId, dices[Color.purple.ordinal()].getValue());
+						currentFieldId[playerId], dices[Color.purple.ordinal()].getValue());
 				
 				break;
 			}
@@ -282,8 +287,6 @@ public class Game {
 			
 			break;
 		}
-		
-		Return returnBack = new Return(currentPlayer, round, clickableCount, playerCount);
 		
 		//TODO
 		
