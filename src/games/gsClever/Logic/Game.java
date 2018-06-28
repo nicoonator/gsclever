@@ -163,9 +163,7 @@ public class Game {
 	
 	public Return click(int playerId, Area area, int fieldId) throws Exception {
 		
-		int clickableCount = 1;//TODO
-		IsClickable clickable;
-		Return returnBack = new Return(currentPlayer, round, clickableCount, playerCount);
+		Return returnBack = new Return(currentPlayer, round, playerCount);
 		
 		switch(area) {
 		case dices:
@@ -297,9 +295,22 @@ public class Game {
 		for(int i = 0; i < playerCount; i++) {
 		
 			returnBack.setClickable(players[i].getManagement().isClickable(), i);
+			returnBack.getClickable(i).setPlayerId(i);
+			returnBack.getClickable(i).setRollDices(false);//TODO
 			
 			Matchfield matchfield = new Matchfield();
-			matchfield.setYellow(players[i].getManagement().getColorAreas()[Color.yellow.ordinal()].);
+			
+			matchfield.setYellow(players[i].getManagement().getYellow().getFields());
+			matchfield.setBlue(players[i].getManagement().getBlue().getFields());
+			matchfield.setGreen(players[i].getManagement().getGreen().getFields());
+			matchfield.setOrange(players[i].getManagement().getOrange().getFields());
+			matchfield.setPurple(players[i].getManagement().getPurple().getFields());
+			
+			matchfield.setDiceRepeatCount(players[i].getManagement().getDiceRepeatCount());
+			matchfield.setDiceRepeatUsed(players[i].getManagement().getDiceRepeatUsed());
+			matchfield.setAdditionalDiceCount(players[i].getManagement().getAdditionalDiceCount());
+			matchfield.setAdditionalDiceUsed(players[i].getManagement().getAdditionalDiceUsed());
+			
 			returnBack.setMatchfield(matchfield, i);
 		}
 		
