@@ -1,7 +1,7 @@
 addListener('standardEvent', function(event) {
 		var stringFromServer = event.data;
 		var arr = stringFromServer.split(',');
-		//console.log(arr);
+		// console.log(arr);
 		
 		if(arr.length==11){
 			for(var i=0; i<9; i++) { arrFields[i] = +arr[i]; }
@@ -38,8 +38,9 @@ addListener('CLOSE', function(event){
 });
 
 	playerMessage = "";
-	var emptyImg = "/TicTacToe/images/empty.png";
-	var xImg = "/TicTacToe/images/x.jpg";
+	var 1Blau = "/gsClever/images/dice/1Blau.png"
+var 1Blau = "/gsClever/images/dice/1Blau.png"
+var 1Blau = "/gsClever/images/dice/1Blau.png"
 	var oImg = "/TicTacToe/images/o2.png";
 	var statusWait = true;
 
@@ -51,45 +52,32 @@ addListener('CLOSE', function(event){
 		sentFields[x]=1;
 	}
 
-	function getImg(x){
+	function getDiceImg(x){
+		switch(x){
+            case 0: return 1Blua;
+            case 1: return;
+            case 2: return;
+        }
+	}
+    function getImg(x){
+		if(x==1) return xImg;
+		else if(x==2) return oImg;
+		return emptyImg
+	}
+    function getNumberImg(x){
 		if(x==1) return xImg;
 		else if(x==2) return oImg;
 		return emptyImg
 	}
 	
-	function initFields(){
-		var parent = document.getElementById("grid");
-		for(var i=0; i<9; i++){
-			var img = document.createElement("img");
-			img.id = "img"+i;
-			img.src = emptyImg;
-			img.width = "148";
-			img.height = "153";
-			img.style.position = "absolute";
-			img.style.top = (Math.floor((i/3))*172+11)+"px";
-			img.style.left = ((i%3)*170+11)+"px";
-			img.onclick = function(){
-				if(arrFields[this.id[3]]==0 && statusWait==false){
-					setField(this.id[3]);
-					updateGameState();
-					}
-				};
-			parent.appendChild(img);
-		}
-	}
-	
-	window.onload = initFields;
+        
+    (window).on('load',function () {
+        // TODO: Code goes here
+    }
 
 	function updateGameState(){
 		statusWait = true;
 		sendDataToServer(sentFields);
-	}
-
-	function redraw(){
-		for(var i=0;i<9; i++){
-			var img = document.getElementById('img'+i);
-			img.src = getImg(arrFields[i]);
-		}
 	}
 	
 	function restart(){
