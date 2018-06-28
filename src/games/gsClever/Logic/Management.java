@@ -26,11 +26,23 @@ public class Management {
 	}
 	
 	public Yellow getYellow() {
-		return colorAreas[Color.yellow.ordinal()];
+		return (Yellow)colorAreas[Color.yellow.ordinal()];
 	}
 
-	public void setColorAreas(ColorArea[] colorAreas) {
-		this.colorAreas = colorAreas;
+	public Blue getBlue() {
+		return (Blue)colorAreas[Color.blue.ordinal()];
+	}
+
+	public Green getGreen() {
+		return (Green)colorAreas[Color.green.ordinal()];
+	}
+
+	public Orange getOrange() {
+		return (Orange)colorAreas[Color.orange.ordinal()];
+	}
+
+	public Purple getPurple() {
+		return (Purple)colorAreas[Color.purple.ordinal()];
 	}
 
 	public int getDiceRepeatCount() {
