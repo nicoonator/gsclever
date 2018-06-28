@@ -79,3 +79,6 @@
 [2018-06-27 19:23:53.186] [IP: /192.168.178.29] [LOGIN] Logging in user "nico" succeeded
 [2018-06-27 19:25:30.495] [IP: /192.168.178.29] [LOGIN] Logging in user "nico" succeeded
 [2018-06-28 08:22:29.605] [IP: /192.168.178.21] [LOGIN] Logging in user "admin" succeeded
+[2018-06-28 08:24:08.077] [IP: /192.168.178.21] [LOGIN] Logging in user "admin" succeeded
+[2018-06-28 09:56:12.234] [IP: /10.7.85.171] [LOGIN] Logging in user "nico" succeeded
+[2018-06-28 11:15:16.135] [IP: /10.7.85.171] [LOGIN] Logging in user "nico" succeeded
