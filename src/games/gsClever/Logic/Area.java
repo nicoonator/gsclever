@@ -5,6 +5,7 @@ public enum Area {
 	dices,
 	diceRepeat,
 	additionalDice,
+	specialEvent,
 	yellow,
 	blue,
 	green,
