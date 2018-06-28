@@ -56,8 +56,19 @@ public class Blue extends ColorArea {
 		}else
 		return false;
 	}
-public boolean[] isClickable(){
-	return fields;
+public boolean[] isClickable(int valueDiceBlue, int valueDiceWhite){
+	
+	int sum = valueDiceBlue + valueDiceWhite;
+	
+	boolean [] field = new boolean [12];
+	
+	for(int i=0; i<12; i++) {
+		field[i] = false;
+	}
+	if(field[sum -2 ]== false) {
+			field[sum -2]= true; }
+			
+	return field;
 		
 		// TODO
 		
