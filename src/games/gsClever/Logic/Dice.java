@@ -3,12 +3,12 @@ package games.gsClever.Logic;
 public class Dice {
 
 	
-	private String color;
+	private Color color;
 	private int value;
 	private boolean onTray;
 	private int field;
 	
-	public Dice(String color ) {
+	public Dice(Color color ) {
 		
 		this.color= color;
 		value = 1;
@@ -16,11 +16,11 @@ public class Dice {
 		field = -1;
 	}
 
-	public String getColor() {
+	public Color getColor() {
 		return color;
 	}
 
-	public void setColor(String color) {
+	public void setColor(Color color) {
 		this.color = color;
 	}
 

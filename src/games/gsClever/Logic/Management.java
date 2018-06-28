@@ -18,13 +18,33 @@ public class Management {
 		additionalDiceUsed = 0;
 		
 		colorAreas = new ColorArea[5];
-		colorAreas[0] = new Yellow();
-		colorAreas[1] = new Blue();
-		colorAreas[2] = new Green();
-		colorAreas[3] = new Orange();
-		colorAreas[4] = new Purple();
+		colorAreas[Color.yellow.ordinal()] = new Yellow();
+		colorAreas[Color.blue.ordinal()] = new Blue();
+		colorAreas[Color.green.ordinal()] = new Green();
+		colorAreas[Color.orange.ordinal()] = new Orange();
+		colorAreas[Color.purple.ordinal()] = new Purple();
 	}
 	
+	public Yellow getYellow() {
+		return (Yellow)colorAreas[Color.yellow.ordinal()];
+	}
+
+	public Blue getBlue() {
+		return (Blue)colorAreas[Color.blue.ordinal()];
+	}
+
+	public Green getGreen() {
+		return (Green)colorAreas[Color.green.ordinal()];
+	}
+
+	public Orange getOrange() {
+		return (Orange)colorAreas[Color.orange.ordinal()];
+	}
+
+	public Purple getPurple() {
+		return (Purple)colorAreas[Color.purple.ordinal()];
+	}
+
 	public int getDiceRepeatCount() {
 		return diceRepeatCount;
 	}
@@ -100,31 +120,11 @@ public class Management {
 		
 		IsClickable clickable = new IsClickable();
 		
-		boolean[] diceRepeat = new boolean[7];
-		for(int i = 0; i < 7; i++) {
-			
-			if(diceRepeatCount > i && diceRepeatUsed <= i)
-				diceRepeat[i] = true;
-			else
-				diceRepeat[i] = false;
-		}
-		clickable.setDiceRepeat(diceRepeat);
-		
-		boolean[] additionalDice = new boolean[7];
-		for(int i = 0; i < 7; i++) {
-			
-			if(additionalDiceCount > i && additionalDiceUsed <= i)
-				additionalDice[i] = true;
-			else
-				additionalDice[i] = false;
-		}
-		clickable.setAdditionalDice(additionalDice);
-		
-		clickable.setYellow(colorAreas[0].isClickable());
-		clickable.setBlue(colorAreas[1].isClickable());
-		clickable.setGreen(colorAreas[2].isClickable());
-		clickable.setOrange(colorAreas[3].isClickable());
-		clickable.setPurple(colorAreas[4].isClickable());
+		clickable.setYellow(colorAreas[Color.yellow.ordinal()].isClickable());
+		clickable.setBlue(colorAreas[Color.blue.ordinal()].isClickable());
+		clickable.setGreen(colorAreas[Color.green.ordinal()].isClickable());
+		clickable.setOrange(colorAreas[Color.orange.ordinal()].isClickable());
+		clickable.setPurple(colorAreas[Color.purple.ordinal()].isClickable());
 		
 		return clickable;
 	}
@@ -160,31 +160,31 @@ public class Management {
 			
 		case enterCrossGreen:
 			
-			specialEvent = colorArea[2].enterCross();
+			specialEvent = colorAreas[Color.green.ordinal()].enterCross();
 			
 			break;
 			
 		case enterOrange4:
 			
-			specialEvent = colorArea[3].enterNumber(4);
+			specialEvent = colorAreas[Color.orange.ordinal()].enterNumber(4);
 			
 			break;
 			
 		case enterOrange5:
 			
-			specialEvent = colorArea[3].enterNumber(5);
+			specialEvent = colorAreas[Color.orange.ordinal()].enterNumber(5);
 			
 			break;
 			
 		case enterOrange6:
 			
-			specialEvent = colorArea[3].enterNumber(6);
+			specialEvent = colorAreas[Color.orange.ordinal()].enterNumber(6);
 			
 			break;
 			
 		case enterPurple6:
 			
-			specialEvent = colorArea[4].enterNumber(6);
+			specialEvent = colorAreas[Color.orange.ordinal()].enterNumber(6);
 			
 			break;
 		}
@@ -193,43 +193,45 @@ public class Management {
 			specialEventRecursive(specialEvent);
 	}
 	
-	public void enterCrossOrNumber(Area area, int fieldId, int number) {
+	public SpecialEvent enterCrossOrNumber(Area area, int fieldId, int number) {
 		
 		SpecialEvent specialEvent;
 		
 		switch(area) {
 		case yellow:
 			
-			specialEvent = colorArea[0].enterCross(fieldId);
+			specialEvent = colorAreas[Color.yellow.ordinal()].enterCross(fieldId);
 			
 			break;
 			
 		case blue:
 			
-			specialEvent = colorArea[1].enterCross(fieldId);
+			specialEvent = colorAreas[Color.blue.ordinal()].enterCross(fieldId);
 			
 			break;
 			
 		case green:
 			
-			specialEvent = colorArea[2].enterCross();
+			specialEvent = colorAreas[Color.green.ordinal()].enterCross();
 			
 			break;
 			
 		case orange:
 			
-			specialEvent = colorArea[3].enterNumber(number);
+			specialEvent = colorAreas[Color.orange.ordinal()].enterNumber(number);
 			
 			break;
 			
 		case purple:
 			
-			specialEvent = colorArea[4].enterNumber(number);
+			specialEvent = colorAreas[Color.purple.ordinal()].enterNumber(number);
 			
 			break;
 		}
 		
 		if(specialEvent != null)
 			specialEventRecursive(specialEvent);
+		
+		return null;//TODO
 	}
 }

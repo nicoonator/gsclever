@@ -56,7 +56,19 @@ public class Blue extends ColorArea {
 		}else
 		return false;
 	}
-public void isClickable(){
+public boolean[] isClickable(int valueDiceBlue, int valueDiceWhite){
+	
+	int sum = valueDiceBlue + valueDiceWhite;
+	
+	boolean [] field = new boolean [12];
+	
+	for(int i=0; i<12; i++) {
+		field[i] = false;
+	}
+	if(field[sum -2 ]== false) {
+			field[sum -2]= true; }
+			
+	return field;
 		
 		// TODO
 		
@@ -66,7 +78,28 @@ public void isClickable(){
 public int determinePoints() {
 	// TODO Auto-generated method stub
 	
+	int sum = 0;
+	for( int i = 0; i<11; i++) {
+		if(fields[i]==true) {
+			sum = sum+1;
+		}
+	}
+	switch(sum) {
+	
+	case 1: return 1;
+	case 2: return 2;
+	case 3: return 4;
+	case 4: return 7;
+	case 5: return 11;
+	case 6: return 16;
+	case 7: return 22;
+	case 8: return 29;
+	case 9: return 37;
+	case 10: return 46;
+	case 11: return 56;
+	}
 	return 0;
+
 }
 		
 }

@@ -3,9 +3,8 @@ package games.gsClever.Logic;
 public class IsClickable {
 
 	private int playerId;
+	private boolean rollDices;
 	private boolean[] dices;
-	private boolean[] diceRepeat;
-	private boolean[] additionalDice;
 	private boolean[] yellow;
 	private boolean[] blue;
 	private boolean[] green;
@@ -15,9 +14,8 @@ public class IsClickable {
 	public IsClickable() {
 		
 		playerId = -1;
+		rollDices = false;
 		dices = new boolean[6];
-		diceRepeat = new boolean[7];
-		additionalDice = new boolean[7];
 		yellow = new boolean[12];
 		blue = new boolean[11];
 		green = new boolean[11];
@@ -31,22 +29,6 @@ public class IsClickable {
 
 	public void setDices(boolean[] dices) {
 		this.dices = dices;
-	}
-
-	public boolean[] getDiceRepeat() {
-		return diceRepeat;
-	}
-
-	public void setDiceRepeat(boolean[] diceRepeat) {
-		this.diceRepeat = diceRepeat;
-	}
-
-	public boolean[] getAdditionalDice() {
-		return additionalDice;
-	}
-
-	public void setAdditionalDice(boolean[] additionalDice) {
-		this.additionalDice = additionalDice;
 	}
 
 	public boolean[] getYellow() {
@@ -95,5 +77,13 @@ public class IsClickable {
 
 	public void setPlayerId(int playerId) {
 		this.playerId = playerId;
+	}
+
+	public boolean isRollDices() {
+		return rollDices;
+	}
+
+	public void setRollDices(boolean rollDices) {
+		this.rollDices = rollDices;
 	}
 }

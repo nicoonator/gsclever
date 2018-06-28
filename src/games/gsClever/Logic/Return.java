@@ -7,12 +7,12 @@ public class Return {
 	private IsClickable[] clickable;
 	private Matchfield[] matchfield;
 	
-	public Return(int currentPlayer, int round, int clickableCount, int playerCount) {
+	public Return(int currentPlayer, int round, int playerCount) {
 		
 		this.currentPlayer = currentPlayer;
 		this.round = round;
 		
-		clickable = new IsClickable[clickableCount];
+		clickable = new IsClickable[playerCount];
 		matchfield = new Matchfield[playerCount];
 	}
 	
