@@ -18,15 +18,14 @@ import userManagement.User;
 public class gsClever extends Game {
 
 	/*
-	 * game Status 1x Spielerzahl + 1x rundenzaehler + 1x aktueller Spieler + 5x
+ 		game Status 1x Spielerzahl + 1x rundenzaehler + 1x aktueller Spieler + 6x
 	 * Wuefelflaechen+3x genommener wuerfel
-	 * +4xSpielfeld:(2xNachwuerfeln(Freigeschaltet +
-	 * genutzt)+2xZusatzwuerfel+12Gelb+11Blau+1Gruen+11Orange+11Lila) Wuerfel: 1-30
+	 * +4xSpielfeld:
+		(2xNachwuerfeln(Freigeschaltet + genutzt)+2x Zusatzwuerfel+12Gelb+11Blau+1Gruen+11Orange+11Lila) 
+		Wuerfel: 0-36
 	 * ([Blau, Gelb, Gruen, Lila, Orange, Weiss] 1: 1blau 7: 1Gelb 30: 6Weiss
-	 *
-	 *
 	 */
-	private int[] gameStatus = new int[211];
+	private int[] gameStatus = new int[212];
 	private User playerTurn = null;
 	private ArrayList<User> playerList = new ArrayList<User>();
 	private ArrayList<User> spectatorList = new ArrayList<User>();
@@ -89,9 +88,9 @@ public class gsClever extends Game {
 		}
 
 		if (gsonString.equals("RESTART")) {
-			if (playerList.size() == 0 || playerList.size() > 4)
+			if (playerList.size() == 0)
 				return;
-			setGameStatus(new int[131]);
+			setGameStatus(new int[132]);
 			this.gState = GameState.RUNNING;
 			sendGameDataToClients("standardEvent");
 			return;
@@ -119,7 +118,7 @@ public class gsClever extends Game {
 			// TODO
 
 			/*
-			 * gameStatus[2] gibt den aktuellen Spieler an. Der nächste Spieler ist dran.
+			 * gameStatus[2] gibt den aktuellen Spieler an. Der nï¿½chste Spieler ist dran.
 			 */
 			if (gameStatus[2] < getCurrentPlayerAmount())
 				gameStatus[2]++;
