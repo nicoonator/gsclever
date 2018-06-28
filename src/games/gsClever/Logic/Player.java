@@ -1,17 +1,17 @@
 package games.gsClever.Logic;
 
-public class Player {
+import userManagement.User;
+
+public class Player extends User {
+
+	public Player(String name, String pw, int id) {
+		super(name, pw);
+		this.id = id;
+	}
 
 	private int id;
-	private String name;
-	
-	Management management= new Management();
-	
-	public Player(int id, String name) {
-		
-		this.id = id;
-		this.name = name;
-	}
+
+	Management management = new Management();
 
 	public int getId() {
 		return id;
@@ -21,18 +21,8 @@ public class Player {
 		this.id = id;
 	}
 
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-	
 	public Management getManagement() {
 		return management;
 	}
-	
-	
-	
+
 }
