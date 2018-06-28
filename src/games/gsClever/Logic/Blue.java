@@ -1,6 +1,6 @@
 package games.gsClever.Logic;
 
-public class Blue {
+public class Blue extends ColorArea {
 	private	boolean [] fields = new boolean [12];
 
 
