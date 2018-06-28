@@ -67,7 +67,28 @@ public boolean[] isClickable(){
 public int determinePoints() {
 	// TODO Auto-generated method stub
 	
+	int sum = 0;
+	for( int i = 0; i<11; i++) {
+		if(fields[i]==true) {
+			sum = sum+1;
+		}
+	}
+	switch(sum) {
+	
+	case 1: return 1;
+	case 2: return 2;
+	case 3: return 4;
+	case 4: return 7;
+	case 5: return 11;
+	case 6: return 16;
+	case 7: return 22;
+	case 8: return 29;
+	case 9: return 37;
+	case 10: return 46;
+	case 11: return 56;
+	}
 	return 0;
+
 }
 		
 }
