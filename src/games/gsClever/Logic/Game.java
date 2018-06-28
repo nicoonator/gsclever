@@ -257,6 +257,12 @@ public class Game {
 			
 			break;
 			
+		case specialEvent:
+			
+			//TODO
+			
+			break;
+			
 		case yellow:
 			
 			//TODO
@@ -286,6 +292,15 @@ public class Game {
 			//TODO
 			
 			break;
+		}
+		
+		for(int i = 0; i < playerCount; i++) {
+		
+			returnBack.setClickable(players[i].getManagement().isClickable(), i);
+			
+			Matchfield matchfield = new Matchfield();
+			matchfield.setYellow(players[i].getManagement().getColorAreas()[Color.yellow.ordinal()].);
+			returnBack.setMatchfield(matchfield, i);
 		}
 		
 		//TODO
