@@ -4,10 +4,6 @@ public class IsClickable {
 
 	private int playerId;
 	private boolean[] dices;
-	private int diceRepeatCount;
-	private int diceRepeatUsed;
-	private int additionalDiceCount;
-	private int additionalDiceUsed;
 	private boolean[] yellow;
 	private boolean[] blue;
 	private boolean[] green;
@@ -18,10 +14,6 @@ public class IsClickable {
 		
 		playerId = -1;
 		dices = new boolean[6];
-		setDiceRepeatCount(0);
-		setDiceRepeatUsed(0);
-		setAdditionalDiceCount(0);
-		setAdditionalDiceUsed(0);
 		yellow = new boolean[12];
 		blue = new boolean[11];
 		green = new boolean[11];
@@ -83,37 +75,5 @@ public class IsClickable {
 
 	public void setPlayerId(int playerId) {
 		this.playerId = playerId;
-	}
-
-	public int getDiceRepeatCount() {
-		return diceRepeatCount;
-	}
-
-	public void setDiceRepeatCount(int diceRepeatCount) {
-		this.diceRepeatCount = diceRepeatCount;
-	}
-
-	public int getDiceRepeatUsed() {
-		return diceRepeatUsed;
-	}
-
-	public void setDiceRepeatUsed(int diceRepeatUsed) {
-		this.diceRepeatUsed = diceRepeatUsed;
-	}
-
-	public int getAdditionalDiceCount() {
-		return additionalDiceCount;
-	}
-
-	public void setAdditionalDiceCount(int additionalDiceCount) {
-		this.additionalDiceCount = additionalDiceCount;
-	}
-
-	public int getAdditionalDiceUsed() {
-		return additionalDiceUsed;
-	}
-
-	public void setAdditionalDiceUsed(int additionalDiceUsed) {
-		this.additionalDiceUsed = additionalDiceUsed;
 	}
 }
