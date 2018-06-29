@@ -18,12 +18,11 @@ import userManagement.User;
 public class gsClever extends Game {
 
 	/*
- 		game Status 1x Spielerzahl + 1x rundenzaehler + 1x aktueller Spieler + 6x
-	 * Wuefelflaechen+3x genommener wuerfel
-	 * +4xSpielfeld:
-		(2xNachwuerfeln(Freigeschaltet + genutzt)+2x Zusatzwuerfel+12Gelb+11Blau+1Gruen+11Orange+11Lila) 
-		Wuerfel: 0-36
-	 * ([Blau, Gelb, Gruen, Lila, Orange, Weiss] 1: 1blau 7: 1Gelb 30: 6Weiss
+	 * game Status 1x Spielerzahl + 1x rundenzaehler + 1x aktueller Spieler + 6x
+	 * Wuefelflaechen+3x genommener wuerfel +4xSpielfeld:
+	 * (2xNachwuerfeln(Freigeschaltet + genutzt)+2x
+	 * Zusatzwuerfel+12Gelb+11Blau+1Gruen+11Orange+11Lila) Wuerfel: 0-36 ([Blau,
+	 * Gelb, Gruen, Lila, Orange, Weiss] 1: 1blau 7: 1Gelb 30: 6Weiss
 	 */
 	private int[] gameStatus = new int[212];
 	private User playerTurn = null;
@@ -76,6 +75,9 @@ public class gsClever extends Game {
 		this.gameStatus = gameStatus;
 	}
 
+	/*
+	 * Verarbeitet die sendDataToServer() methoden aus JS
+	 */
 	@Override
 	public void execute(User user, String gsonString) {
 		if (this.gState == GameState.CLOSED)
@@ -90,25 +92,53 @@ public class gsClever extends Game {
 		if (gsonString.equals("RESTART")) {
 			if (playerList.size() == 0)
 				return;
-			setGameStatus(new int[132]);
+			setGameStatus(new int[212]);
 			this.gState = GameState.RUNNING;
 			sendGameDataToClients("standardEvent");
 			return;
 		}
+
+		if (gsonString.equals("ADDKI")) {
+			// TODO
+		}
+
+		if (gsonString.equals("STARTGAME")) {
+			this.gState = GameState.RUNNING;
+		}
+
 		if (gState != GameState.RUNNING)
 			return;
+
+		// Koennen wir so wahrscheinlich nicht machen, je nachdem wie unsere Logic Zug
+		// definiert
 		if (!user.equals(playerTurn)) {
 			return;
 		}
+		//Die Folgen Methoden sind Templates, die können im COde auch weiter runter verschoben werden
+		if (gsonString.equals("WUERFELN")) {
+			//TODO
+		}
+
+		if (gsonString.equals("NACHWUERFELN")) {
+			//TODO
+		}
+
+		if (gsonString.equals("ZUSATZWUERFELN")) {
+			//TODO
+		}
+
+		if (gsonString.equals("SKIP")) {
+			//TODO
+		}
 
 		String[] strArray = gsonString.split(",");
-		int[] receivedArray = new int[211];
-		for (int i = 0; i < 131; i++) {
+		int[] receivedArray = new int[212];
+		for (int i = 0; i < 212; i++) {
 			receivedArray[i] = Integer.parseInt(strArray[i]);
 		}
 		int[] gameStatus = getGameStatus();
 		boolean changed = false;
-		for (int i = 0; i < 132; i++) {
+		for (int i = 0; i < 212; i++) {
 			if (gameStatus[i] == 0 && receivedArray[i] != 0) {
 				changed = true;
 				break;
@@ -116,18 +146,6 @@ public class gsClever extends Game {
 		}
 		if (changed == true) {
 			// TODO
-
-			/*
-			 * gameStatus[2] gibt den aktuellen Spieler an. Der nï¿½chste Spieler ist dran.
-			 */
-			if (gameStatus[2] < getCurrentPlayerAmount())
-				gameStatus[2]++;
-			else
-				gameStatus[2] = 1;
-			setGameStatus(gameStatus);
-
-			// TODO
-			sendGameDataToClients("standardEvent");
 		}
 
 	}
@@ -142,10 +160,13 @@ public class gsClever extends Game {
 		return this.spectatorList;
 	}
 
+	/*
+	 * Hier senden wir die Daten an die Clients. Unter anderem das Array[212] wir
+	 * koennen aber auch noch nachrichten dranhaengen
+	 */
 	@Override
 	public String getGameData(String eventName, User user) {
 
-		// TODO
 		String gameData = "";
 		if (eventName.equals("PLAYERLEFT")) {
 			return playerLeft + " hat das Spiel verlassen!";
@@ -153,23 +174,16 @@ public class gsClever extends Game {
 		if (eventName.equals("CLOSE")) {
 			return "CLOSE";
 		}
-		/*
-		 * int[] grid = getGameStatus();
-		 * 
-		 * for (int i = 0; i < grid.length; i++) { gameData += String.valueOf(grid[i]);
-		 * gameData += ','; }
-		 * 
-		 * if (playerList.size() < 2) { gameData += "Warte Auf 2ten Spieler...";
-		 * gameData += isHost(user); return gameData; }
-		 * 
-		 * if (this.gState == GameState.FINISHED) { // TODO }
-		 * 
-		 * else if (playerTurn.equals(user)) { gameData += "Du bist dran!"; } else
-		 * gameData += playerTurn.getName() + " ist dran!";
-		 * 
-		 * if (playerList.indexOf(user) == 0) gameData += " (x)"; else gameData +=
-		 * " (o)";
-		 */
+
+		int[] grid = getGameStatus();
+
+		for (int i = 0; i < 212; i++) {
+			gameData += String.valueOf(grid[i]);
+			gameData += ',';
+		}
+
+		// TODO (hier können wir jetzt anhaengen)
+
 		gameData += isHost(user);
 
 		return gameData;
