@@ -2,6 +2,8 @@ package games.gsClever;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.concurrent.ThreadLocalRandom;
+
 import gameClasses.Game;
 import gameClasses.GameState;
 import games.gsClever.Logic.KI;
@@ -80,7 +82,7 @@ public class gsClever extends Game {
 		// der Logic holen
 		int[] result = new int[212];
 		for (int i = 0; i < 212; i++) {
-			
+
 		}
 		setGameStatus(result);
 		return gameStatus;
@@ -136,6 +138,8 @@ public class gsClever extends Game {
 		// verschoben werden
 		if (gsonString.equals("WUERFELN")) {
 			sendGameDataToClients("TESTWUERFELN");
+			return;
+			//ACHTUNG: Wenn keine Game DATA Gebraucht wird, bitte nicht nach unten springen lassen sondern returnen.
 		}
 
 		if (gsonString.equals("NACHWUERFELN")) {
@@ -195,6 +199,22 @@ public class gsClever extends Game {
 		}
 		if (eventName.equals("CLOSE")) {
 			return "CLOSE";
+		}
+		
+		if (eventName.equals("TESTWUERFELN")) {
+			String testwuerfel="";
+			testwuerfel += Integer.toString(ThreadLocalRandom.current().nextInt(1, 6 + 1));
+			testwuerfel += ',';
+			testwuerfel += Integer.toString(ThreadLocalRandom.current().nextInt(7, 12 + 1));
+			testwuerfel += ',';
+			testwuerfel += Integer.toString(ThreadLocalRandom.current().nextInt(13, 18 + 1));
+			testwuerfel += ',';
+			testwuerfel += Integer.toString(ThreadLocalRandom.current().nextInt(19, 24 + 1));
+			testwuerfel += ',';
+			testwuerfel += Integer.toString(ThreadLocalRandom.current().nextInt(25, 30 + 1));
+			testwuerfel += ',';
+			testwuerfel += Integer.toString(ThreadLocalRandom.current().nextInt(31, 36 + 1));
+			return testwuerfel;
 		}
 
 		int[] grid = getGameStatus();

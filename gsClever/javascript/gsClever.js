@@ -21,12 +21,7 @@ addListener('standardEvent', function(event) {
     statusWait = false;
 });
 addListener('START', function(event){
-    var stringFromServer = event.data;
-    var arr = stringFromServer.split(',');
-    playerMessage = arr[9];
-    document.getElementById("Player").innerHTML = playerMessage;
-    if(arr[10]=="HOST") setVisible();
-    statusWait = false;
+// TODO
 });
 addListener('PLAYERLEFT', function(event){
     var stringFromServer = event.data;
@@ -39,20 +34,25 @@ addListener('CLOSE', function(event){
 addListener('TESTWUERFELN', function(event){
     var stringFromServer = event.data;
     var arr = stringFromServer.split(',');
-    playerMessage = arr[212];
-    //Schleife hier
-    setDice(1);
-    if(arr[10]=="HOST") setVisible();
-    statusWait = false;
+    console.log(stringFromServer);
+    console.log(arr);
+    for(var i=0; i<6; i++) {
+	number[i] = +arr[i]; 
+	}
+    // var number = Number(stringFromServer);
+    // Hier wird ein Array uebergeben:
+    
+    setDice(number);
 });
 
+var number = [0,0,0,0,0,0];
 playerMessage = "";
-var White1 = "/gsClever/Images/Dice/1White.jpg";
-var White2 = "/gsClever/Images/Dice/2White.jpg";
-var White3 = "/gsClever/Images/Dice/3White.jpg";
-var White4 = "/gsClever/Images/Dice/4White.jpg";
-var White5 = "/gsClever/Images/Dice/5White.jpg";
-var White6 = "/gsClever/Images/Dice/6White.jpg";
+var Blau1 = "/gsClever/Images/Dice/1BLAU.jpg";
+var Blau2 = "/gsClever/Images/Dice/2BLAU.jpg";
+var Blau3 = "/gsClever/Images/Dice/3BLAU.jpg";
+var Blau4 = "/gsClever/Images/Dice/4BLAU.jpg";
+var Blau5 = "/gsClever/Images/Dice/5BLAU.jpg";
+var Blau6 = "/gsClever/Images/Dice/6BLAU.jpg";
 var Gelb1 = "/gsClever/Images/Dice/1GELB.jpg";
 var Gelb2 = "/gsClever/Images/Dice/2GELB.jpg";
 var Gelb3 = "/gsClever/Images/Dice/3GELB.jpg";
@@ -111,12 +111,12 @@ function setField(x){
 function getDiceImg(x){
     switch(x){
         case 0: return
-        case 1: return White1
-        case 2: return White2
-        case 3: return White3
-        case 4: return White4
-        case 5: return White5
-        case 6: return White6
+        case 1: return Blau1
+        case 2: return Blau2
+        case 3: return Blau3
+        case 4: return Blau4
+        case 5: return Blau5
+        case 6: return Blau6
         
         case 7: return Gelb1
         case 8: return Gelb2
@@ -210,12 +210,46 @@ function zusatzwuerfeln(){
     sendDataToServer("ZUSATZWUERFELN");
 }
 function showview(x){
-    // TODO
+    switch(x){
+    	case 2: {
+    	    document.getElementById("spieler2").style.visibility ="visible";
+    	    document.getElementById("spieler3").style.visibility ="hidden";
+    	    document.getElementById("spieler4").style.visibility ="hidden";
+    	break;
+    	};
+    	case 3:	{
+    	    document.getElementById("spieler2").style.visibility ="hidden";
+    	    document.getElementById("spieler3").style.visibility ="visible";
+    	    document.getElementById("spieler4").style.visibility ="hidden";
+    	break;
+    	}
+    	case 4:	{
+    	    document.getElementById("spieler2").style.visibility ="hidden";
+    	    document.getElementById("spieler3").style.visibility ="hidden";
+    	    document.getElementById("spieler4").style.visibility ="visible";
+    	break;
+    	}
+    }
 }
 function skip(){
     sendDataToServer("SKIP");
 }
 function setDice(x){
+    // Hier wird das Silberfeld zurueckgesetzt wenn die neuen Wuerfel geladen
+    // werden
+    document.getElementById("wuerfelfeldsilber1").src = "";
+    document.getElementById("wuerfelfeldsilber2").src = "";
+    document.getElementById("wuerfelfeldsilber3").src = "";
+    document.getElementById("wuerfelfeldsilber4").src = "";
+    document.getElementById("wuerfelfeldsilber5").src = "";
+    document.getElementById("wuerfelfeldsilber6").src = "";
+    
+    for(var i=0; i<6; i++){
+	setDiceImg(x[i]);
+    }
+}
+
+function setDiceImg(x){
     if(x>0 && x<=6){
 	document.getElementById("wuerfelfeldsilber3").src = getDiceImg(x);
     } 
@@ -234,6 +268,4 @@ function setDice(x){
     if(x>30 && x<=36){
 	document.getElementById("wuerfelfeldsilber1").src = getDiceImg(x);
     } 
-    
 }
-
