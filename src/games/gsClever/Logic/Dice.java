@@ -2,17 +2,16 @@ package games.gsClever.Logic;
 
 public class Dice {
 
-	
 	private Color color;
 	private int value;
 	private boolean onTray;
 	private int field;
-	
-	public Dice(Color color ) {
-		
-		this.color= color;
+
+	public Dice(Color color) {
+
+		this.color = color;
 		value = 1;
-		onTray= false;
+		onTray = false;
 		field = -1;
 	}
 
@@ -47,8 +46,5 @@ public class Dice {
 	public void setField(int field) {
 		this.field = field;
 	}
-	
-	
-	
-	
+
 }

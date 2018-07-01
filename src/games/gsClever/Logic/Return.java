@@ -6,20 +6,20 @@ public class Return {
 	private int round;
 	private IsClickable[] clickable;
 	private Matchfield[] matchfield;
-	
+
 	public Return(int currentPlayer, int round, int playerCount) {
-		
+
 		this.currentPlayer = currentPlayer;
 		this.round = round;
-		
+
 		clickable = new IsClickable[playerCount];
 		matchfield = new Matchfield[playerCount];
 	}
-	
+
 	public int getCurrentPlayer() {
 		return currentPlayer;
 	}
-	
+
 	public int getRound() {
 		return round;
 	}

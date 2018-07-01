@@ -45,7 +45,6 @@ public class Yellow extends ColorArea {
 		} else
 			return false;
 	}
-	
 
 	public boolean[] isClickable(int valueDiceYellow, int valueDiceWhite) {
 
@@ -55,62 +54,61 @@ public class Yellow extends ColorArea {
 			field[i] = false;
 		}
 
-		
-		if( valueDiceYellow == 1 || valueDiceWhite==1) {
-			if(fields[4] ==false) {
+		if (valueDiceYellow == 1 || valueDiceWhite == 1) {
+			if (fields[4] == false) {
 				field[4] = true;
 			}
-			if(fields[6]==false) {
+			if (fields[6] == false) {
 				field[6] = true;
 			}
 			return field;
 		}
-		if( valueDiceYellow == 2 || valueDiceWhite==2) {
-			if(fields[3] ==false) {
+		if (valueDiceYellow == 2 || valueDiceWhite == 2) {
+			if (fields[3] == false) {
 				field[3] = true;
 			}
-			if(fields[7] ==false) {
+			if (fields[7] == false) {
 				field[7] = true;
 			}
 			return field;
 		}
-		if( valueDiceYellow == 3 || valueDiceWhite==3) {
+		if (valueDiceYellow == 3 || valueDiceWhite == 3) {
 			if (fields[0] == false) {
 				field[0] = true;
 			}
-			if(fields[9] == false) {
+			if (fields[9] == false) {
 				field[9] = true;
 			}
 			return field;
 		}
-		if( valueDiceYellow == 4 || valueDiceWhite==4) {
-			if( fields[8] == false) {
+		if (valueDiceYellow == 4 || valueDiceWhite == 4) {
+			if (fields[8] == false) {
 				field[8] = true;
 			}
-			if( fields[10] == false) {
+			if (fields[10] == false) {
 				field[10] = true;
 			}
 			return field;
 		}
-		if( valueDiceYellow == 5 || valueDiceWhite==5) {
+		if (valueDiceYellow == 5 || valueDiceWhite == 5) {
 			if (fields[2] == false) {
 				field[2] = true;
 			}
-			if ( fields[5] == false) {
+			if (fields[5] == false) {
 				field[5] = true;
 			}
 			return field;
 		}
-		if( valueDiceYellow == 6 || valueDiceWhite==6) {
+		if (valueDiceYellow == 6 || valueDiceWhite == 6) {
 			if (fields[1] == false) {
 				field[1] = true;
 			}
-			if(fields[11] ==false) {
+			if (fields[11] == false) {
 				field[11] = true;
 			}
 			return field;
 		}
-		
+
 		return field;
 
 	}

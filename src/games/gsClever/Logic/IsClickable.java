@@ -10,9 +10,9 @@ public class IsClickable {
 	private boolean[] green;
 	private boolean[] orange;
 	private boolean[] purple;
-	
+
 	public IsClickable() {
-		
+
 		playerId = -1;
 		rollDices = false;
 		dices = new boolean[6];
@@ -22,7 +22,7 @@ public class IsClickable {
 		orange = new boolean[11];
 		purple = new boolean[11];
 	}
-	
+
 	public boolean[] getDices() {
 		return dices;
 	}

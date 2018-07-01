@@ -121,13 +121,13 @@ public class Green extends ColorArea {
 					field[fields] = true;
 				}
 				return field;
-				
+
 			case 2:
 				if (valueDiceGreen >= 3 || valueDiceWhite >= 3) {
 					field[fields] = true;
 				}
 				return field;
-				
+
 			case 3:
 				if (valueDiceGreen >= 4 || valueDiceWhite >= 4) {
 					field[fields] = true;
@@ -138,37 +138,37 @@ public class Green extends ColorArea {
 					field[fields] = true;
 				}
 				return field;
-				
+
 			case 5:
 				if (valueDiceGreen >= 1 || valueDiceWhite >= 1) {
 					field[fields] = true;
 				}
 				return field;
-				
+
 			case 6:
 				if (valueDiceGreen >= 2 || valueDiceWhite >= 2) {
 					field[fields] = true;
 				}
 				return field;
-				
+
 			case 7:
 				if (valueDiceGreen >= 3 || valueDiceWhite >= 3) {
 					field[fields] = true;
 				}
 				return field;
-				
+
 			case 8:
 				if (valueDiceGreen >= 4 || valueDiceWhite >= 4) {
 					field[fields] = true;
 				}
 				return field;
-				
+
 			case 9:
 				if (valueDiceGreen >= 5 || valueDiceWhite >= 5) {
 					field[fields] = true;
 				}
 				return field;
-				
+
 			case 10:
 				if (valueDiceGreen >= 6 || valueDiceWhite >= 6) {
 					field[fields] = true;

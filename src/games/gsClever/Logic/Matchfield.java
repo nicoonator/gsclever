@@ -12,9 +12,9 @@ public class Matchfield {
 	private int diceRepeatUsed;
 	private int additionalDiceCount;
 	private int additionalDiceUsed;
-	
+
 	public Matchfield() {
-		
+
 		playerId = -1;
 		yellow = null;
 		blue = null;
