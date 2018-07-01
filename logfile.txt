@@ -104,3 +104,12 @@
 [2018-07-01 09:39:09.435] [IP: /25.59.173.57] [LOGIN] Logging in user "Nils" succeeded
 [2018-07-01 09:40:20.549] [IP: /25.59.173.57] [LOGIN] Logging in user "Nils" succeeded
 [2018-07-01 09:42:09.267] [IP: /25.59.173.57] [LOGIN] Logging in user "Nils" succeeded
+[2018-07-01 14:52:34.393] [IP: /192.168.178.29] [LOGIN] Logging in user "nico" succeeded
+[2018-07-01 14:56:12.492] [IP: /192.168.178.29] [LOGIN] Logging in user "nico" succeeded
+[2018-07-01 15:08:23.904] [IP: /192.168.178.29] [LOGIN] Logging in user "nico" succeeded
+[2018-07-01 15:09:21.972] [IP: /192.168.178.29] [LOGIN] Logging in user "nico" succeeded
+[2018-07-01 15:10:48.993] [IP: /192.168.178.29] [LOGIN] Logging in user "nico" succeeded
+[2018-07-01 15:18:24.848] [IP: /192.168.178.29] [LOGIN] Logging in user "nico" succeeded
+[2018-07-01 15:26:04.129] [IP: /192.168.178.29] [LOGIN] Logging in user "nico" succeeded
+[2018-07-01 15:32:46.418] [IP: /192.168.178.29] [LOGIN] Logging in user "nico" succeeded
+[2018-07-01 15:47:58.444] [IP: /192.168.178.29] [LOGIN] Logging in user "nico" succeeded
