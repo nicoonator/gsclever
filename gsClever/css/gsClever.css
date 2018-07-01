@@ -748,6 +748,15 @@
 	background: purple;
 }
 
+#wuerfelfeldsilber6 {
+	top: 353px;
+	left: 180px;
+	height: 44px;
+	position: absolute;
+	min-width: 44px;
+	background: green;
+}
+
 #wuerfelfeldEntscheider1 {
 	top: 530px;
 	left: 100px;
@@ -840,4 +849,16 @@ input {
 	position: absolute;
 	min-width: 275px;
 	background: white;
+}
+
+#spieler2 {
+	visibility: hidden;
+}
+
+#spieler3 {
+	visibility: hidden;
+}
+
+#spieler4 {
+	visibility: hidden;
 }
