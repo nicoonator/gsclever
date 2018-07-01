@@ -41,7 +41,7 @@ playerMessage = "";
 var Blau1 = "/gsClever/Images/dice/1Blau.png";
 var Blau2 = "/gsClever/Images/dice/2Blau.png";
 var Blau3 = "/gsClever/Images/dice/3Blau.png";
-//TODO
+// TODO
 var img1 ="/gsClever/Images/Numbers/1.png";
 var img2 ="/gsClever/Images/Numbers/2.png";
 var img3 ="/gsClever/Images/Numbers/3.png";
@@ -95,10 +95,13 @@ function getNumberImg(x){
 }
 
 
-/*(window).on('load',function () {
-    // TODO: Code goes here
-}*/
+/*
+ * (window).on('load',function () { // TODO: Code goes here }
+ */
 
+
+    
+    
 function updateGameState(){
     statusWait = true;
     sendDataToServer(sentFields);
@@ -125,7 +128,7 @@ function zusatzwuerfeln(){
     sendDataToServer("ZUSATZWUERFELN");
 }
 function showview(x){
-    //TODO
+    // TODO
 }
 function skip(){
     sendDataToServer("SKIP");
