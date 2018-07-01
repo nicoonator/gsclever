@@ -67,7 +67,22 @@ public class gsClever extends Game {
 		return playerList.size();
 	}
 
+	/*
+	 * game Status 1x Spielerzahl + 1x rundenzaehler + 1x aktueller Spieler + 6x
+	 * Wuefelflaechen+3x genommener wuerfel +4xSpielfeld:
+	 * (2xNachwuerfeln(Freigeschaltet + genutzt)+2x
+	 * Zusatzwuerfel+12Gelb+11Blau+1Gruen+11Orange+11Lila) Wuerfel: 0-36 ([Blau,
+	 * Gelb, Gruen, Lila, Orange, Weiss] 1: 1blau 7: 1Gelb 30: 6Weiss
+	 */
+
 	private int[] getGameStatus() {
+		// Hier muessen wir jedes mal wenn die Methode aufgerufen wird, das Array aus
+		// der Logic holen
+		int[] result = new int[212];
+		for (int i = 0; i < 212; i++) {
+			
+		}
+		setGameStatus(result);
 		return gameStatus;
 	}
 
@@ -106,29 +121,33 @@ public class gsClever extends Game {
 			this.gState = GameState.RUNNING;
 		}
 
-		if (gState != GameState.RUNNING)
-			return;
+		// Bei Bedarf:
+		/*
+		 * if (gState != GameState.RUNNING) return;
+		 */
 
 		// Koennen wir so wahrscheinlich nicht machen, je nachdem wie unsere Logic Zug
 		// definiert
-		if (!user.equals(playerTurn)) {
-			return;
-		}
-		//Die Folgen Methoden sind Templates, die können im COde auch weiter runter verschoben werden
+		/*
+		 * if (!user.equals(playerTurn)) { return; }
+		 */
+
+		// Die Folgen Methoden sind Templates, die können im COde auch weiter runter
+		// verschoben werden
 		if (gsonString.equals("WUERFELN")) {
-			//TODO
+			sendGameDataToClients("TESTWUERFELN");
 		}
 
 		if (gsonString.equals("NACHWUERFELN")) {
-			//TODO
+			// TODO
 		}
 
 		if (gsonString.equals("ZUSATZWUERFELN")) {
-			//TODO
+			// TODO
 		}
 
 		if (gsonString.equals("SKIP")) {
-			//TODO
+			// TODO
 		}
 
 		String[] strArray = gsonString.split(",");
@@ -148,6 +167,9 @@ public class gsClever extends Game {
 			// TODO
 		}
 
+		// ist nur temporaer hier. Beendet die Methode wenn noch nicht behandelte faelle
+		// eintreten, sonst schmeisst der server einen Fehler
+		return;
 	}
 
 	@Override
