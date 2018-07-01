@@ -832,6 +832,7 @@ input {
 	position: absolute;
 	background: white;
 }
+
 #label {
 	top: 590px;
 	left: 100px;
@@ -839,18 +840,4 @@ input {
 	position: absolute;
 	min-width: 275px;
 	background: white;
-	
-	
 }
-
-
-
-
-
-
-
-
-
-
-
-
