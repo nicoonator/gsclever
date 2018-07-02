@@ -6,6 +6,7 @@ public class Return {
 	private int round;
 	private IsClickable[] clickable;
 	private Matchfield[] matchfield;
+	private Dice[] dices;
 
 	public Return(int currentPlayer, int round, int playerCount) {
 
@@ -38,5 +39,13 @@ public class Return {
 
 	public void setClickable(IsClickable clickable, int index) {
 		this.clickable[index] = clickable;
+	}
+
+	public Dice[] getDices() {
+		return dices;
+	}
+
+	public void setDices(Dice[] dices) {
+		this.dices = dices;
 	}
 }
