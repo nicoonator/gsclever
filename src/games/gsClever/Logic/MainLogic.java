@@ -2,7 +2,7 @@ package games.gsClever.Logic;
 
 import java.util.*;
 
-import games.gsClever.Exceptions.CannotUseDiceRepeatException;
+import games.gsClever.Exceptions.*;
 
 public class MainLogic {
 
@@ -36,9 +36,9 @@ public class MainLogic {
 		dices[5] = new Dice(Color.purple);
 
 		players = new Player[playerCount];
-		for (int i = 0; i < playerCount; i++) {
+		for (int id = 0; id < playerCount; id++) {
 
-			players[i] = new Player(i, "player_" + String.valueOf(i));
+			players[id] = new Player("player_" + String.valueOf(id), "pw", id);
 		}
 	}
 
@@ -165,7 +165,7 @@ public class MainLogic {
 
 		Return returnBack = new Return(currentPlayer, round, playerCount);
 
-		switch (area) {
+		switch(area) {
 		case dices:
 
 			int diceField = 0;
@@ -183,63 +183,72 @@ public class MainLogic {
 					dice.setOnTray(true);
 			}
 
-			switch (dices[fieldId].getColor()) {
+			switch(dices[fieldId].getColor()) {
 			case yellow:
 
-				players[playerId].getManagement().enterCrossOrNumber(Area.yellow, currentFieldId[playerId],
-						dices[Color.yellow.ordinal()].getValue());
+				currentSpecialEvent[playerId] = players[playerId].getManagement().enterCrossOrNumber(
+						Area.yellow, currentFieldId[playerId], dices[Color.yellow.ordinal()].getValue());
 
 				break;
 
 			case blue:
 
-				players[playerId].getManagement().enterCrossOrNumber(Area.blue, currentFieldId[playerId],
-						dices[Color.blue.ordinal()].getValue() + dices[Color.white.ordinal()].getValue());
+				currentSpecialEvent[playerId] = players[playerId].getManagement().enterCrossOrNumber(
+						Area.blue, currentFieldId[playerId], dices[Color.blue.ordinal()].getValue() + 
+						dices[Color.white.ordinal()].getValue());
 
 				break;
 
 			case white:
 
 				if (currentArea[playerId] == Area.blue) {
-					players[playerId].getManagement().enterCrossOrNumber(currentArea[playerId],
-							currentFieldId[playerId],
+					currentSpecialEvent[playerId] = players[playerId].getManagement().enterCrossOrNumber(
+							currentArea[playerId], currentFieldId[playerId],
 							dices[Color.white.ordinal()].getValue() + dices[Color.blue.ordinal()].getValue());
 				} else {
-					players[playerId].getManagement().enterCrossOrNumber(currentArea[playerId],
-							currentFieldId[playerId], dices[Color.white.ordinal()].getValue());
+					currentSpecialEvent[playerId] = players[playerId].getManagement().enterCrossOrNumber(
+							currentArea[playerId], currentFieldId[playerId], 
+							dices[Color.white.ordinal()].getValue());
 				}
 
 				break;
 
 			case green:
 
-				players[playerId].getManagement().enterCrossOrNumber(Area.green, currentFieldId[playerId],
-						dices[Color.green.ordinal()].getValue());
+				currentSpecialEvent[playerId] = players[playerId].getManagement().enterCrossOrNumber(
+						Area.green, currentFieldId[playerId], dices[Color.green.ordinal()].getValue());
 
 				break;
 
 			case orange:
 
-				players[playerId].getManagement().enterCrossOrNumber(Area.orange, currentFieldId[playerId],
-						dices[Color.orange.ordinal()].getValue());
+				currentSpecialEvent[playerId] = players[playerId].getManagement().enterCrossOrNumber(
+						Area.orange, currentFieldId[playerId], dices[Color.orange.ordinal()].getValue());
 
 				break;
 
 			case purple:
 
-				players[playerId].getManagement().enterCrossOrNumber(Area.purple, currentFieldId[playerId],
-						dices[Color.purple.ordinal()].getValue());
+				currentSpecialEvent[playerId] = players[playerId].getManagement().enterCrossOrNumber(
+						Area.purple, currentFieldId[playerId], dices[Color.purple.ordinal()].getValue());
 
 				break;
 			}
 
-			// TODO
-
+			break;
+			
+		case rollDices:
+			
+			//TODO
+			
 			break;
 
 		case diceRepeat:
 
-			players[playerId].getManagement().useDiceRepeat();
+			if (players[playerId].getManagement().getDiceRepeatUsed() < players[playerId].getManagement().getDiceRepeatCount())
+				players[playerId].getManagement().incrementDiceRepeatUsed();
+			else
+				throw new CannotUseDiceRepeatException();
 
 			// TODO
 
@@ -247,7 +256,10 @@ public class MainLogic {
 
 		case additionalDice:
 
-			players[playerId].getManagement().useAdditionalDice();
+			if (players[playerId].getManagement().getAdditionalDiceUsed() < players[playerId].getManagement().getAdditionalDiceCount())
+				players[playerId].getManagement().incrementAdditionalDiceUsed();
+			else
+				throw new CannotUseAdditionalDiceException();
 
 			// TODO
 
@@ -290,7 +302,7 @@ public class MainLogic {
 			break;
 		}
 
-		for (int i = 0; i < playerCount; i++) {
+		for(int i = 0; i < playerCount; i++) {
 
 			returnBack.setClickable(players[i].getManagement().isClickable(), i);
 			returnBack.getClickable(i).setPlayerId(i);
