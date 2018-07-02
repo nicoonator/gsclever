@@ -274,8 +274,10 @@ public class MainLogic {
 			else
 				throw new CannotUseDiceRepeatException();
 
-			// TODO
+			returnBack.getClickable(playerId).setRollDices(true);
 
+			nextArea[playerId] = Area.rollDices;
+			
 			break;
 
 		case additionalDice:
@@ -287,13 +289,46 @@ public class MainLogic {
 				throw new CannotUseAdditionalDiceException();
 
 			// TODO
+			
+			boolean[] additionalDices = new boolean[6];
+			
+			for(int i = 0; i < 6; i++) {
+				
+				if(this.dices[i].isOnTray() == true)
+					additionalDices[i] = true;
+			}
+			
+			returnBack.getClickable(playerId).setDices(additionalDices);
+			
+			nextArea[playerId] = Area.dices;
 
 			break;
 
 		case specialEvent:
 
-			// TODO
+			switch(currentSpecialEvent[playerId]) {
+			case enterCrossYellow:
+				
+				currentSpecialEvent[playerId] = players[playerId].getManagement().enterCrossOrNumber(
+						Area.yellow, fieldId, 0);
+				
+				break;
+				
+			case enterCrossBlue:
+				
+				currentSpecialEvent[playerId] = players[playerId].getManagement().enterCrossOrNumber(
+						Area.yellow, fieldId, 0);
+				
+				break;
+			}
+			
+			// TODO clickable
 
+			if(currentSpecialEvent != null && playerId == currentPlayer)
+				nextArea[playerId] = Area.rollDices;
+			else
+				nextArea[playerId] = Area.specialEvent;
+			
 			break;
 
 		case yellow:
