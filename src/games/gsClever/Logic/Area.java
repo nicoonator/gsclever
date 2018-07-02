@@ -11,5 +11,6 @@ public enum Area {
 	blue, 
 	green, 
 	orange, 
-	purple
+	purple,
+	ready
 }
