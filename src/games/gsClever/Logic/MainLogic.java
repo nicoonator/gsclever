@@ -11,6 +11,7 @@ public class MainLogic {
 	private int currentPlayer;
 	private int[] currentFieldId;
 	private Area[] currentArea;
+	private Area[] nextArea;
 	private SpecialEvent[] currentSpecialEvent;
 	private boolean[] ready;
 	private Dice[] dices;
@@ -21,9 +22,10 @@ public class MainLogic {
 		round = 0;
 		this.playerCount = playerCount;
 		currentPlayer = 0;
-
+		
 		currentFieldId = new int[playerCount];
 		currentArea = new Area[playerCount];
+		nextArea = new Area[playerCount];
 		currentSpecialEvent = new SpecialEvent[playerCount];
 		ready = new boolean[playerCount];
 
@@ -58,6 +60,9 @@ public class MainLogic {
 
 		clearTray();
 		clearDiceFields();
+		for(int i = 0; i < playerCount; i++) {
+			ready[i] = false;
+		}
 
 		if (currentPlayer == 0)
 			startRound();
@@ -110,7 +115,7 @@ public class MainLogic {
 		return false;
 	}
 
-	public List<Dice> rollDices(List<Dice> dices) {
+	public void rollDices(List<Dice> dices) {
 
 		Random random = new Random();
 
@@ -118,8 +123,6 @@ public class MainLogic {
 
 			dice.setValue(random.nextInt(6) + 1);
 		}
-
-		return dices;
 	}
 
 	public List<Integer> investigateWinner() {
@@ -234,10 +237,30 @@ public class MainLogic {
 
 				break;
 			}
+			
+			if(currentSpecialEvent[playerId] == SpecialEvent.enterCrossYellow || 
+					currentSpecialEvent[playerId] == SpecialEvent.enterCrossBlue) {
+				
+				//TODO clickable
+				
+				nextArea[playerId] = Area.specialEvent;
+			}
+			
+			//TODO
 
 			break;
 			
 		case rollDices:
+			
+			List<Dice> dices = new ArrayList<Dice>();
+			
+			for(Dice dice : this.dices) {
+				
+				if(dice.isOnTray() == false && dice.getField() == -1)
+					dices.add(dice);
+			}
+			
+			rollDices(dices);
 			
 			//TODO
 			
@@ -245,7 +268,8 @@ public class MainLogic {
 
 		case diceRepeat:
 
-			if (players[playerId].getManagement().getDiceRepeatUsed() < players[playerId].getManagement().getDiceRepeatCount())
+			if (players[playerId].getManagement().getDiceRepeatUsed() < 
+					players[playerId].getManagement().getDiceRepeatCount())
 				players[playerId].getManagement().incrementDiceRepeatUsed();
 			else
 				throw new CannotUseDiceRepeatException();
@@ -256,7 +280,8 @@ public class MainLogic {
 
 		case additionalDice:
 
-			if (players[playerId].getManagement().getAdditionalDiceUsed() < players[playerId].getManagement().getAdditionalDiceCount())
+			if (players[playerId].getManagement().getAdditionalDiceUsed() < 
+					players[playerId].getManagement().getAdditionalDiceCount())
 				players[playerId].getManagement().incrementAdditionalDiceUsed();
 			else
 				throw new CannotUseAdditionalDiceException();
@@ -273,33 +298,92 @@ public class MainLogic {
 
 		case yellow:
 
-			// TODO
+			currentFieldId[playerId] = fieldId;
+			
+			returnBack.getClickable(playerId).setDices(
+					players[playerId].getManagement().getYellow().clickableDices(
+					dices[Color.yellow.ordinal(), dices[Color.white.ordinal()]));
+			
+			//TODO
+			
+			nextArea[playerId] = Area.dices;
 
 			break;
 
 		case blue:
 
+			currentFieldId[playerId] = fieldId;
+			
+			returnBack.getClickable(playerId).setDices(
+					players[playerId].getManagement().getYellow().clickableDices(
+					dices[Color.blue.ordinal(), dices[Color.white.ordinal()]));
+			
 			// TODO
+			
+			nextArea[playerId] = Area.dices;
 
 			break;
 
 		case green:
+			
+			currentFieldId[playerId] = fieldId;
 
+			returnBack.getClickable(playerId).setDices(
+					players[playerId].getManagement().getYellow().clickableDices(
+					dices[Color.green.ordinal(), dices[Color.white.ordinal()]));
+			
 			// TODO
+			
+			nextArea[playerId] = Area.dices;
 
 			break;
 
 		case orange:
+			
+			currentFieldId[playerId] = fieldId;
 
+			returnBack.getClickable(playerId).setDices(
+					players[playerId].getManagement().getYellow().clickableDices(
+					dices[Color.orange.ordinal(), dices[Color.white.ordinal()]));
+			
 			// TODO
+			
+			nextArea[playerId] = Area.dices;
 
 			break;
 
 		case purple:
+			
+			currentFieldId[playerId] = fieldId;
 
+			returnBack.getClickable(playerId).setDices(
+					players[playerId].getManagement().getYellow().clickableDices(
+					dices[Color.purple.ordinal(), dices[Color.white.ordinal()]));
+			
 			// TODO
+			
+			nextArea[playerId] = Area.dices;
 
 			break;
+			
+		case ready:
+			
+			ready[playerId] = true;
+			
+			boolean allReady = true;
+			for(int i = 0; i < playerCount; i++) {
+				
+				if(ready[i] == false) {
+					
+					allReady = false;
+					break;
+				}
+			}
+			
+			if(allReady == true) {
+				
+				//TODO nächster Spieler
+			}
 		}
 
 		for(int i = 0; i < playerCount; i++) {
@@ -323,6 +407,8 @@ public class MainLogic {
 
 			returnBack.setMatchfield(matchfield, i);
 		}
+		
+		returnBack.setDices(dices);
 
 		// TODO
 
