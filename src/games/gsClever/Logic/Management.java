@@ -1,7 +1,5 @@
 package games.gsClever.Logic;
 
-import games.gsClever.Exceptions.*;
-
 public class Management {
 
 	private int diceRepeatCount;
@@ -71,6 +69,16 @@ public class Management {
 		additionalDiceCount++;
 	}
 
+	public void incrementDiceRepeatUsed() {
+
+		diceRepeatUsed++;
+	}
+
+	public void incrementAdditionalDiceUsed() {
+
+		additionalDiceUsed++;
+	}
+
 	public int determinePoints() {
 
 		int[] points = new int[5];
@@ -94,26 +102,6 @@ public class Management {
 		}
 
 		return points[0] + points[1] + points[2] + points[3] + points[4] + (foxes * lowestPoints);
-	}
-
-	public void useDiceRepeat() throws CannotUseDiceRepeatException {
-
-		if (diceRepeatUsed < diceRepeatCount)
-			diceRepeatUsed++;
-		else
-			throw new CannotUseDiceRepeatException();
-
-		// TODO
-	}
-
-	public void useAdditionalDice() throws CannotUseAdditionalDiceException {
-
-		if (additionalDiceUsed < additionalDiceCount)
-			additionalDiceUsed++;
-		else
-			throw new CannotUseAdditionalDiceException();
-
-		// TODO
 	}
 
 	public IsClickable isClickable() {
