@@ -21,7 +21,7 @@ public class gsClever extends Game {
 
 	/*
 	 * game Status 1x Spielerzahl + 1x rundenzaehler + 1x aktueller Spieler + 6x
-	 * Wuefelflaechen+3x genommener wuerfel +4xSpielfeld:
+	 * Wuefelflaeche wuerfel +4xSpielfeld:
 	 * (2xNachwuerfeln(Freigeschaltet + genutzt)+2x
 	 * Zusatzwuerfel+12Gelb+11Blau+1Gruen+11Orange+11Lila) Wuerfel: 0-36 ([Blau,
 	 * Gelb, Gruen, Lila, Orange, Weiss] 1: 1blau 7: 1Gelb 30: 6Weiss
@@ -82,7 +82,7 @@ public class gsClever extends Game {
 		// der Logic holen
 		int[] result = new int[212];
 		for (int i = 0; i < 212; i++) {
-
+			
 		}
 		setGameStatus(result);
 		return gameStatus;
@@ -134,7 +134,7 @@ public class gsClever extends Game {
 		 * if (!user.equals(playerTurn)) { return; }
 		 */
 
-		// Die Folgen Methoden sind Templates, die können im COde auch weiter runter
+		// Die Folgen Methoden sind Templates, die kï¿½nnen im COde auch weiter runter
 		// verschoben werden
 		if (gsonString.equals("WUERFELN")) {
 			sendGameDataToClients("TESTWUERFELN");
@@ -224,7 +224,7 @@ public class gsClever extends Game {
 			gameData += ',';
 		}
 
-		// TODO (hier können wir jetzt anhaengen)
+		// TODO (hier koenen wir jetzt anhaengen)
 
 		gameData += isHost(user);
 

@@ -129,3 +129,7 @@
 [2018-07-01 23:17:03.368] [IP: /192.168.178.29] [LOGIN] Logging in user "nico" succeeded
 [2018-07-01 23:21:26.418] [IP: /192.168.178.29] [LOGIN] Logging in user "nico" succeeded
 [2018-07-01 23:31:11.126] [IP: /192.168.178.29] [LOGIN] Logging in user "nico" succeeded
+[2018-07-03 12:01:54.259] [IP: /141.99.208.88] [LOGIN] Logging in user "admin" succeeded
+[2018-07-03 12:30:27.07] [IP: /141.99.208.88] [LOGIN] Logging in user "admin" succeeded
+[2018-07-03 12:44:09.198] [IP: /141.99.208.88] [LOGOUT] Logging out user "admin" succeeded; Session length: 13  Minutes
+[2018-07-03 12:44:13.0] [IP: /141.99.208.88] [LOGIN] Logging in user "admin" succeeded
