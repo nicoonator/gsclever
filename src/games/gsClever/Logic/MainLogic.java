@@ -48,23 +48,21 @@ public class MainLogic {
 		this.playerCount = playerCount;
 	}
 
-	public void gameMove() {
+	public void nextPlayer() {
 
 		clearTray();
 		clearDiceFields();
+		
 		for(int i = 0; i < playerCount; i++) {
 			ready[i] = false;
 		}
 
-		if (currentPlayer == 0)
-			startRound();
-
-		// TODO
-
 		if (currentPlayer < playerCount - 1)
 			currentPlayer++;
-		else
+		else {
 			currentPlayer = 0;
+			startRound();
+		}
 	}
 
 	public boolean startRound() {
@@ -409,7 +407,7 @@ public class MainLogic {
 			
 			if(allReady == true) {
 				
-				//TODO nächster Spieler
+				nextPlayer();
 			}
 		}
 
