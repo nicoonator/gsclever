@@ -188,31 +188,31 @@ public class Management {
 		switch (area) {
 		case yellow:
 
-			specialEvent = colorAreas[Color.yellow.ordinal()].enterCross(fieldId);
+			specialEvent = getYellow().enterCross(fieldId);
 
 			break;
 
 		case blue:
 
-			specialEvent = colorAreas[Color.blue.ordinal()].enterCross(fieldId);
+			specialEvent = getBlue().enterCross(fieldId);
 
 			break;
 
 		case green:
 
-			specialEvent = colorAreas[Color.green.ordinal()].enterCross();
+			specialEvent = getGreen().enterCross();
 
 			break;
 
 		case orange:
 
-			specialEvent = colorAreas[Color.orange.ordinal()].enterNumber(number);
+			specialEvent = getOrange().enterNumber(number);
 
 			break;
 
 		case purple:
 
-			specialEvent = colorAreas[Color.purple.ordinal()].enterNumber(number);
+			specialEvent = getPurple().enterNumber(number);
 
 			break;
 		}
