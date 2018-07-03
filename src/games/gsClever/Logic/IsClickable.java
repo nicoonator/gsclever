@@ -7,9 +7,11 @@ public class IsClickable {
 	private boolean[] dices;
 	private boolean[] yellow;
 	private boolean[] blue;
-	private boolean[] green;
-	private boolean[] orange;
-	private boolean[] purple;
+	private boolean green;
+	private boolean orange;
+	private boolean purple;
+	private boolean diceRepeat;
+	private boolean additionalDice;
 
 	public IsClickable() {
 
@@ -18,9 +20,11 @@ public class IsClickable {
 		dices = new boolean[6];
 		yellow = new boolean[12];
 		blue = new boolean[11];
-		green = new boolean[11];
-		orange = new boolean[11];
-		purple = new boolean[11];
+		green = false;
+		orange = false;
+		purple = false;
+		diceRepeat = false;
+		additionalDice = false;
 	}
 
 	public boolean[] getDices() {
@@ -47,27 +51,27 @@ public class IsClickable {
 		this.blue = blue;
 	}
 
-	public boolean[] getGreen() {
+	public boolean getGreen() {
 		return green;
 	}
 
-	public void setGreen(boolean[] green) {
+	public void setGreen(boolean green) {
 		this.green = green;
 	}
 
-	public boolean[] getOrange() {
+	public boolean getOrange() {
 		return orange;
 	}
 
-	public void setOrange(boolean[] orange) {
+	public void setOrange(boolean orange) {
 		this.orange = orange;
 	}
 
-	public boolean[] getPurple() {
+	public boolean getPurple() {
 		return purple;
 	}
 
-	public void setPurple(boolean[] purple) {
+	public void setPurple(boolean purple) {
 		this.purple = purple;
 	}
 
@@ -85,5 +89,21 @@ public class IsClickable {
 
 	public void setRollDices(boolean rollDices) {
 		this.rollDices = rollDices;
+	}
+
+	public boolean isDiceRepeat() {
+		return diceRepeat;
+	}
+
+	public void setDiceRepeat(boolean diceRepeat) {
+		this.diceRepeat = diceRepeat;
+	}
+
+	public boolean isAdditionalDice() {
+		return additionalDice;
+	}
+
+	public void setAdditionalDice(boolean additionalDice) {
+		this.additionalDice = additionalDice;
 	}
 }
