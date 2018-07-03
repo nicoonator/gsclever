@@ -148,31 +148,31 @@ public class Management {
 
 		case enterCrossGreen:
 
-			specialEvent = colorAreas[Color.green.ordinal()].enterCross();
+			specialEvent = getGreen().enterCross();
 
 			break;
 
 		case enterOrange4:
 
-			specialEvent = colorAreas[Color.orange.ordinal()].enterNumber(4);
+			specialEvent = getOrange().enterNumber(4);
 
 			break;
 
 		case enterOrange5:
 
-			specialEvent = colorAreas[Color.orange.ordinal()].enterNumber(5);
+			specialEvent = getOrange().enterNumber(5);
 
 			break;
 
 		case enterOrange6:
 
-			specialEvent = colorAreas[Color.orange.ordinal()].enterNumber(6);
+			specialEvent = getOrange().enterNumber(6);
 
 			break;
 
 		case enterPurple6:
 
-			specialEvent = colorAreas[Color.orange.ordinal()].enterNumber(6);
+			specialEvent = getPurple().enterNumber(6);
 
 			break;
 		}
