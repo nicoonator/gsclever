@@ -30,7 +30,7 @@ public class gsClever extends Game {
 	 * 0-36 ([Blau, Gelb, Gruen, Lila, Orange, Weiss] 1: 1blau 7: 1Gelb 30:
 	 * 6Weiss
 	 */
-	private int[] gameStatus = new int[217];
+	private int[] gameStatus = new int[345];
 	private User playerTurn = null;
 	private ArrayList<User> playerList = new ArrayList<User>();
 	private ArrayList<User> spectatorList = new ArrayList<User>();
@@ -87,8 +87,8 @@ public class gsClever extends Game {
 		// Array aus
 		// der Logic holen
 		Return testReturn = null;
-		int[] result = new int[217];
-		for (int i = 0; i < 217; i++) {
+		int[] result = new int[345];
+		for (int i = 0; i < 345; i++) {
 			switch (i) {
 			case 0:
 				result[i] = testReturn.getRound();
@@ -230,13 +230,13 @@ public class gsClever extends Game {
 		}
 
 		String[] strArray = gsonString.split(",");
-		int[] receivedArray = new int[212];
-		for (int i = 0; i < 212; i++) {
+		int[] receivedArray = new int[345];
+		for (int i = 0; i < 345; i++) {
 			receivedArray[i] = Integer.parseInt(strArray[i]);
 		}
 		int[] gameStatus = getGameStatus();
 		boolean changed = false;
-		for (int i = 0; i < 212; i++) {
+		for (int i = 0; i < 345; i++) {
 			if (gameStatus[i] == 0 && receivedArray[i] != 0) {
 				changed = true;
 				break;
@@ -253,14 +253,15 @@ public class gsClever extends Game {
 	}
 
 	private int[] getNewGame() {
-		int[] result = new int[217];
-		for (int i = 0; i < 217; i++) {
+		int[] result = new int[345];
+		for (int i = 0; i < 345; i++) {
 			if (i == 0)
 				result[i] = 1;
 
 			else
 				result[i] = 0;
 		}
+		result[69]=1;
 		return result;
 	}
 
