@@ -6,7 +6,11 @@ import java.util.concurrent.ThreadLocalRandom;
 
 import gameClasses.Game;
 import gameClasses.GameState;
+import games.gsClever.Logic.Color;
+import games.gsClever.Logic.Dice;
 import games.gsClever.Logic.KI;
+import games.gsClever.Logic.MainLogic;
+import games.gsClever.Logic.Return;
 import global.FileHelper;
 import userManagement.User;
 
@@ -21,16 +25,17 @@ public class gsClever extends Game {
 
 	/*
 	 * game Status 1x Spielerzahl + 1x rundenzaehler + 1x aktueller Spieler + 6x
-	 * Wuefelflaeche wuerfel +4xSpielfeld:
-	 * (2xNachwuerfeln(Freigeschaltet + genutzt)+2x
-	 * Zusatzwuerfel+12Gelb+11Blau+1Gruen+11Orange+11Lila) Wuerfel: 0-36 ([Blau,
-	 * Gelb, Gruen, Lila, Orange, Weiss] 1: 1blau 7: 1Gelb 30: 6Weiss
+	 * Wuefelflaeche wuerfel +4xSpielfeld: (2xNachwuerfeln(Freigeschaltet +
+	 * genutzt)+2x Zusatzwuerfel+12Gelb+11Blau+1Gruen+11Orange+11Lila) Wuerfel:
+	 * 0-36 ([Blau, Gelb, Gruen, Lila, Orange, Weiss] 1: 1blau 7: 1Gelb 30:
+	 * 6Weiss
 	 */
-	private int[] gameStatus = new int[212];
+	private int[] gameStatus = new int[217];
 	private User playerTurn = null;
 	private ArrayList<User> playerList = new ArrayList<User>();
 	private ArrayList<User> spectatorList = new ArrayList<User>();
 	private String playerLeft = null;
+	private MainLogic currentGame;
 
 	@Override
 	public String getSite() {
@@ -78,12 +83,76 @@ public class gsClever extends Game {
 	 */
 
 	private int[] getGameStatus() {
-		// Hier muessen wir jedes mal wenn die Methode aufgerufen wird, das Array aus
+		// Hier muessen wir jedes mal wenn die Methode aufgerufen wird, das
+		// Array aus
 		// der Logic holen
-		int[] result = new int[212];
-		for (int i = 0; i < 212; i++) {
-			
+		Return testReturn = null;
+		int[] result = new int[217];
+		for (int i = 0; i < 217; i++) {
+			switch (i) {
+			case 0:
+				result[i] = testReturn.getRound();
+				break;
+			case 1:
+				result[i] = testReturn.getCurrentPlayer();
+				break;
+			case 2:
+				result[i] = testReturn.getDices()[Color.blue.ordinal()].getValue();
+				break;
+			case 3:
+				result[i] = testReturn.getDices()[Color.yellow.ordinal()].getValue();
+				break;
+
+			// TODO
+
+			case 8:
+				result[i] = 0;
+				for (Dice dice : testReturn.getDices()) {
+					if (dice.getField() == 0) {
+						result[i] = dice.getColor().ordinal() + 1;
+						break;
+					}
+				}
+				break;
+
+			// TODO
+
+			case 11:
+				if (testReturn.getDices()[Color.blue.ordinal()].isOnTray()) {
+					result[i] = 1;
+				} else
+					result[i] = 0;
+				break;
+			case 17:
+				result[i] = testReturn.getMatchfield(0).getDiceRepeatCount();
+				break;
+
+			case 18:
+				result[i] = testReturn.getMatchfield(0).getDiceRepeatUsed();
+				break;
+
+			case 21:
+				if (testReturn.getMatchfield(0).getYellow()[0]) {
+					result[i] = 1;
+				} else
+					result[i] = 0;
+				break;
+			case 44:
+				result[i] = testReturn.getMatchfield(0).getGreen();
+				break;
+			case 45:
+				result[i] = testReturn.getMatchfield(0).getOrange()[0];
+				break;
+
+			case 73:
+				if (testReturn.getClickable(0).getYellow()[0]) {
+					result[i] = 1;
+				} else
+					result[i] = 0;
+				break;
+			}
 		}
+
 		setGameStatus(result);
 		return gameStatus;
 	}
@@ -109,7 +178,7 @@ public class gsClever extends Game {
 		if (gsonString.equals("RESTART")) {
 			if (playerList.size() == 0)
 				return;
-			setGameStatus(new int[212]);
+			setGameStatus(this.getNewGame());
 			this.gState = GameState.RUNNING;
 			sendGameDataToClients("standardEvent");
 			return;
@@ -121,6 +190,9 @@ public class gsClever extends Game {
 
 		if (gsonString.equals("STARTGAME")) {
 			this.gState = GameState.RUNNING;
+			currentGame = new MainLogic(this.getCurrentPlayerAmount());
+			gameStatus = this.getNewGame();
+			sendGameDataToClients("NEWGAME");
 		}
 
 		// Bei Bedarf:
@@ -128,18 +200,21 @@ public class gsClever extends Game {
 		 * if (gState != GameState.RUNNING) return;
 		 */
 
-		// Koennen wir so wahrscheinlich nicht machen, je nachdem wie unsere Logic Zug
+		// Koennen wir so wahrscheinlich nicht machen, je nachdem wie unsere
+		// Logic Zug
 		// definiert
 		/*
 		 * if (!user.equals(playerTurn)) { return; }
 		 */
 
-		// Die Folgen Methoden sind Templates, die k�nnen im COde auch weiter runter
+		// Die Folgen Methoden sind Templates, die k�nnen im COde auch weiter
+		// runter
 		// verschoben werden
 		if (gsonString.equals("WUERFELN")) {
 			sendGameDataToClients("TESTWUERFELN");
 			return;
-			//ACHTUNG: Wenn keine Game DATA Gebraucht wird, bitte nicht nach unten springen lassen sondern returnen.
+			// ACHTUNG: Wenn keine Game DATA Gebraucht wird, bitte nicht nach
+			// unten springen lassen sondern returnen.
 		}
 
 		if (gsonString.equals("NACHWUERFELN")) {
@@ -171,9 +246,22 @@ public class gsClever extends Game {
 			// TODO
 		}
 
-		// ist nur temporaer hier. Beendet die Methode wenn noch nicht behandelte faelle
+		// ist nur temporaer hier. Beendet die Methode wenn noch nicht
+		// behandelte faelle
 		// eintreten, sonst schmeisst der server einen Fehler
 		return;
+	}
+
+	private int[] getNewGame() {
+		int[] result = new int[217];
+		for (int i = 0; i < 217; i++) {
+			if (i == 0)
+				result[i] = 1;
+
+			else
+				result[i] = 0;
+		}
+		return result;
 	}
 
 	@Override
@@ -187,8 +275,8 @@ public class gsClever extends Game {
 	}
 
 	/*
-	 * Hier senden wir die Daten an die Clients. Unter anderem das Array[212] wir
-	 * koennen aber auch noch nachrichten dranhaengen
+	 * Hier senden wir die Daten an die Clients. Unter anderem das Array[212]
+	 * wir koennen aber auch noch nachrichten dranhaengen
 	 */
 	@Override
 	public String getGameData(String eventName, User user) {
@@ -200,9 +288,9 @@ public class gsClever extends Game {
 		if (eventName.equals("CLOSE")) {
 			return "CLOSE";
 		}
-		
+
 		if (eventName.equals("TESTWUERFELN")) {
-			String testwuerfel="";
+			String testwuerfel = "";
 			testwuerfel += Integer.toString(ThreadLocalRandom.current().nextInt(1, 6 + 1));
 			testwuerfel += ',';
 			testwuerfel += Integer.toString(ThreadLocalRandom.current().nextInt(7, 12 + 1));
@@ -219,7 +307,7 @@ public class gsClever extends Game {
 
 		int[] grid = getGameStatus();
 
-		for (int i = 0; i < 212; i++) {
+		for (int i = 0; i < 217; i++) {
 			gameData += String.valueOf(grid[i]);
 			gameData += ',';
 		}
