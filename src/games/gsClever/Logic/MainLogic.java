@@ -96,13 +96,32 @@ public class MainLogic {
 			}
 
 			return true;
+			
+		case 4:
+			
+			//TODO
+			
+			return true;
+			
+		case 5:
+			
+			if(playerCount <= 3)
+				return true;
+			else
+				return false;
+			
+		case 6:
+			
+			if(playerCount <= 2)
+				return true;
+			else
+				return false;
+			
+		default:
+			
+			return false;
 
-		// TODO
 		}
-
-		// TODO
-
-		return false;
 	}
 
 	public void rollDices(List<Dice> dices) {
@@ -159,6 +178,12 @@ public class MainLogic {
 		Return returnBack = new Return(currentPlayer, round, playerCount);
 
 		switch(area) {
+		case null:
+			
+			startRound();
+			
+			break;
+			
 		case dices:
 
 			int diceField = 0;
@@ -288,7 +313,7 @@ public class MainLogic {
 					additionalDices[i] = true;
 			}
 			
-			returnBack.getClickable(playerId).setDices(additionalDices);
+			returnBack.getClickable(playerId).setDices(additionalDices); //TODO auf DecisionMaker anpassen
 			
 			nextArea[playerId] = Area.dices;
 
