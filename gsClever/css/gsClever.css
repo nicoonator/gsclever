@@ -54,14 +54,14 @@
 	position: absolute;
 }
 
-#Spielfeld {
+.Spielfeld {
 	top: 250px;
 	left: 100px;
 	height: 600px;
 	position: absolute;
 }
 
-#Nachwuerfeln1 {
+.Nachwuerfeln1 {
 	height: 38px;
 	min-width: 38px;
 	position: absolute;
@@ -69,7 +69,7 @@
 	left: 224px;
 }
 
-#Nachwuerfeln2 {
+.Nachwuerfeln2 {
 	height: 38px;
 	position: absolute;
 	min-width: 38px;
@@ -77,7 +77,7 @@
 	left: 264px;
 }
 
-#Nachwuerfeln3 {
+.Nachwuerfeln3 {
 	height: 38px;
 	position: absolute;
 	min-width: 38px;
@@ -85,7 +85,7 @@
 	left: 304px;
 }
 
-#Nachwuerfeln4 {
+.Nachwuerfeln4 {
 	height: 38px;
 	position: absolute;
 	min-width: 38px;
@@ -93,7 +93,7 @@
 	left: 344px;
 }
 
-#Nachwuerfeln5 {
+.Nachwuerfeln5 {
 	height: 38px;
 	position: absolute;
 	min-width: 38px;
@@ -101,7 +101,7 @@
 	left: 384px;
 }
 
-#Nachwuerfeln6 {
+.Nachwuerfeln6 {
 	height: 38px;
 	position: absolute;
 	min-width: 38px;
@@ -109,7 +109,7 @@
 	left: 424px;
 }
 
-#Nachwuerfeln7 {
+.Nachwuerfeln7 {
 	height: 38px;
 	position: absolute;
 	min-width: 38px;
@@ -117,7 +117,7 @@
 	left: 464px;
 }
 
-#Zusatzwuerfeln1 {
+.Zusatzwuerfeln1 {
 	height: 38px;
 	position: absolute;
 	min-width: 38px;
@@ -125,7 +125,7 @@
 	left: 224px;
 }
 
-#Zusatzwuerfeln2 {
+.Zusatzwuerfeln2 {
 	height: 38px;
 	position: absolute;
 	min-width: 38px;
@@ -133,7 +133,7 @@
 	left: 264px;
 }
 
-#Zusatzwuerfeln3 {
+.Zusatzwuerfeln3 {
 	height: 38px;
 	position: absolute;
 	min-width: 38px;
@@ -141,7 +141,7 @@
 	left: 304px;
 }
 
-#Zusatzwuerfeln4 {
+.Zusatzwuerfeln4 {
 	height: 38px;
 	position: absolute;
 	min-width: 38px;
@@ -149,7 +149,7 @@
 	left: 344px;
 }
 
-#Zusatzwuerfeln5 {
+.Zusatzwuerfeln5 {
 	height: 38px;
 	position: absolute;
 	min-width: 38px;
@@ -157,7 +157,7 @@
 	left: 384px;
 }
 
-#Zusatzwuerfeln6 {
+.Zusatzwuerfeln6 {
 	height: 38px;
 	position: absolute;
 	min-width: 38px;
@@ -165,7 +165,7 @@
 	left: 424px;
 }
 
-#Zusatzwuerfeln7 {
+.Zusatzwuerfeln7 {
 	height: 38px;
 	position: absolute;
 	min-width: 38px;
@@ -173,7 +173,7 @@
 	left: 464px;
 }
 
-#Wuerfelfeld1 {
+.Wuerfelfeld1 {
 	height: 44px;
 	position: absolute;
 	min-width: 44px;
@@ -181,7 +181,7 @@
 	left: 117px;
 }
 
-#Wuerfelfeld2 {
+.Wuerfelfeld2 {
 	height: 44px;
 	position: absolute;
 	min-width: 44px;
@@ -189,7 +189,7 @@
 	left: 118px;
 }
 
-#Wuerfelfeld3 {
+.Wuerfelfeld3 {
 	height: 44px;
 	position: absolute;
 	min-width: 44px;
@@ -197,55 +197,61 @@
 	left: 117px;
 }
 
-#Rundefeld1 {
+.Rundefeld1 {
 	height: 44px;
 	position: absolute;
 	min-width: 38px;
 	top: 261px;
 	left: 184px;
+	visibility: hidden;
 }
 
-#Rundefeld2 {
+.Rundefeld2 {
 	height: 44px;
 	position: absolute;
 	min-width: 38px;
 	top: 261px;
 	left: 241px;
+	visibility: hidden;
 }
 
-#Rundefeld3 {
+.Rundefeld3 {
 	height: 44px;
 	position: absolute;
 	min-width: 38px;
 	top: 261px;
 	left: 298px;
+	visibility: hidden;
 }
 
-#Rundefeld4 {
+.Rundefeld4 {
 	height: 44px;
 	position: absolute;
 	min-width: 38px;
 	top: 261px;
 	left: 355px;
+	visibility: hidden;
 }
 
-#Rundefeld5 {
+.Rundefeld5 {
 	height: 44px;
 	position: absolute;
 	min-width: 38px;
 	top: 259px;
 	left: 412px;
+	visibility: hidden;
 }
 
-#Rundefeld6 {
+.Rundefeld6 {
 	height: 44px;
 	position: absolute;
 	min-width: 38px;
 	top: 256px;
 	left: 469px;
+	visibility: hidden;
 }
 
-#yellowfield1 {
+.yellowfield1 {
 	height: 25px;
 	position: absolute;
 	min-width: 25px;
@@ -255,7 +261,7 @@
 	px
 }
 
-#yellowfield2 {
+.yellowfield2 {
 	height: 25px;
 	position: absolute;
 	min-width: 25px;
@@ -263,7 +269,7 @@
 	left: 160px;
 }
 
-#yellowfield3 {
+.yellowfield3 {
 	height: 25px;
 	position: absolute;
 	min-width: 25px;
@@ -271,7 +277,7 @@
 	left: 196px;
 }
 
-#yellowfield4 {
+.yellowfield4 {
 	height: 25px;
 	position: absolute;
 	min-width: 25px;
@@ -279,7 +285,7 @@
 	left: 124px;
 }
 
-#yellowfield5 {
+.yellowfield5 {
 	height: 25px;
 	position: absolute;
 	min-width: 25px;
@@ -287,7 +293,7 @@
 	left: 160px;
 }
 
-#yellowfield6 {
+.yellowfield6 {
 	height: 25px;
 	position: absolute;
 	min-width: 25px;
@@ -295,7 +301,7 @@
 	left: 232px;
 }
 
-#yellowfield7 {
+.yellowfield7 {
 	height: 25px;
 	position: absolute;
 	min-width: 25px;
@@ -303,7 +309,7 @@
 	left: 124px;
 }
 
-#yellowfield8 {
+.yellowfield8 {
 	height: 25px;
 	position: absolute;
 	min-width: 25px;
@@ -311,7 +317,7 @@
 	left: 196px;
 }
 
-#yellowfield9 {
+.yellowfield9 {
 	height: 25px;
 	position: absolute;
 	min-width: 25px;
@@ -319,7 +325,7 @@
 	left: 232px;
 }
 
-#yellowfield10 {
+.yellowfield10 {
 	height: 25px;
 	position: absolute;
 	min-width: 25px;
@@ -327,7 +333,7 @@
 	left: 162px;
 }
 
-#yellowfield11 {
+.yellowfield11 {
 	height: 25px;
 	position: absolute;
 	min-width: 25px;
@@ -335,7 +341,7 @@
 	left: 198px;
 }
 
-#yellowfield12 {
+.yellowfield12 {
 	height: 25px;
 	position: absolute;
 	min-width: 25px;
@@ -343,7 +349,7 @@
 	left: 234px;
 }
 
-#bluefield2 {
+.bluefield2 {
 	height: 25px;
 	position: absolute;
 	min-width: 25px;
@@ -352,7 +358,7 @@
 	/* Abstand oben und unten +36px*/
 }
 
-#bluefield3 {
+.bluefield3 {
 	height: 25px;
 	position: absolute;
 	min-width: 25px;
@@ -361,7 +367,7 @@
 	/* Abstand oben und unten +36px*/
 }
 
-#bluefield4 {
+.bluefield4 {
 	height: 25px;
 	position: absolute;
 	min-width: 25px;
@@ -370,7 +376,7 @@
 	/* Abstand oben und unten +36px*/
 }
 
-#bluefield5 {
+.bluefield5 {
 	height: 25px;
 	position: absolute;
 	min-width: 25px;
@@ -379,7 +385,7 @@
 	/* Abstand oben und unten +36px*/
 }
 
-#bluefield6 {
+.bluefield6 {
 	height: 25px;
 	position: absolute;
 	min-width: 25px;
@@ -388,7 +394,7 @@
 	/* Abstand oben und unten +36px*/
 }
 
-#bluefield7 {
+.bluefield7 {
 	height: 25px;
 	position: absolute;
 	min-width: 25px;
@@ -397,7 +403,7 @@
 	/* Abstand oben und unten +36px*/
 }
 
-#bluefield8 {
+.bluefield8 {
 	height: 25px;
 	position: absolute;
 	min-width: 25px;
@@ -406,7 +412,7 @@
 	/* Abstand oben und unten +36px*/
 }
 
-#bluefield9 {
+.bluefield9 {
 	height: 25px;
 	position: absolute;
 	min-width: 25px;
@@ -415,7 +421,7 @@
 	/* Abstand oben und unten +36px*/
 }
 
-#bluefield10 {
+.bluefield10 {
 	height: 25px;
 	position: absolute;
 	min-width: 25px;
@@ -423,7 +429,7 @@
 	left: 364px;
 }
 
-#bluefield11 {
+.bluefield11 {
 	height: 25px;
 	position: absolute;
 	min-width: 25px;
@@ -431,7 +437,7 @@
 	left: 400px;
 }
 
-#bluefield12 {
+.bluefield12 {
 	height: 25px;
 	position: absolute;
 	min-width: 25px;
@@ -439,7 +445,7 @@
 	left: 439px;
 }
 
-#greenfield1 {
+.greenfield1 {
 	height: 25px;
 	position: absolute;
 	min-width: 25px;
@@ -447,7 +453,7 @@
 	left: 157px;
 }
 
-#greenfield2 {
+.greenfield2 {
 	height: 25px;
 	position: absolute;
 	min-width: 25px;
@@ -455,7 +461,7 @@
 	left: 189px;
 }
 
-#greenfield3 {
+.greenfield3 {
 	height: 25px;
 	position: absolute;
 	min-width: 25px;
@@ -463,7 +469,7 @@
 	left: 221px;
 }
 
-#greenfield4 {
+.greenfield4 {
 	height: 25px;
 	position: absolute;
 	min-width: 25px;
@@ -471,7 +477,7 @@
 	left: 253px;
 }
 
-#greenfield5 {
+.greenfield5 {
 	height: 25px;
 	position: absolute;
 	min-width: 25px;
@@ -479,7 +485,7 @@
 	left: 285px;
 }
 
-#greenfield6 {
+.greenfield6 {
 	height: 25px;
 	position: absolute;
 	min-width: 25px;
@@ -487,7 +493,7 @@
 	left: 317px;
 }
 
-#greenfield7 {
+.greenfield7 {
 	height: 25px;
 	position: absolute;
 	min-width: 25px;
@@ -495,7 +501,7 @@
 	left: 349px;
 }
 
-#greenfield8 {
+.greenfield8 {
 	height: 25px;
 	position: absolute;
 	min-width: 25px;
@@ -503,7 +509,7 @@
 	left: 381px;
 }
 
-#greenfield9 {
+.greenfield9 {
 	height: 25px;
 	position: absolute;
 	min-width: 25px;
@@ -511,7 +517,7 @@
 	left: 413px;
 }
 
-#greenfield10 {
+.greenfield10 {
 	height: 25px;
 	position: absolute;
 	min-width: 25px;
@@ -519,7 +525,7 @@
 	left: 445px;
 }
 
-#greenfield11 {
+.greenfield11 {
 	height: 25px;
 	position: absolute;
 	min-width: 25px;
@@ -527,7 +533,7 @@
 	left: 477px;
 }
 
-#orangefield1 {
+.orangefield1 {
 	height: 25px;
 	position: absolute;
 	min-width: 25px;
@@ -535,7 +541,7 @@
 	left: 157px;
 }
 
-#orangefield2 {
+.orangefield2 {
 	height: 25px;
 	position: absolute;
 	min-width: 25px;
@@ -543,7 +549,7 @@
 	left: 189px;
 }
 
-#orangefield3 {
+.orangefield3 {
 	height: 25px;
 	position: absolute;
 	min-width: 25px;
@@ -551,7 +557,7 @@
 	left: 221px;
 }
 
-#orangefield4 {
+.orangefield4 {
 	height: 25px;
 	position: absolute;
 	min-width: 25px;
@@ -559,7 +565,7 @@
 	left: 253px;
 }
 
-#orangefield5 {
+.orangefield5 {
 	height: 25px;
 	position: absolute;
 	min-width: 25px;
@@ -567,7 +573,7 @@
 	left: 285px;
 }
 
-#orangefield6 {
+.orangefield6 {
 	height: 25px;
 	position: absolute;
 	min-width: 25px;
@@ -575,7 +581,7 @@
 	left: 317px;
 }
 
-#orangefield7 {
+.orangefield7 {
 	height: 25px;
 	position: absolute;
 	min-width: 25px;
@@ -583,7 +589,7 @@
 	left: 349px;
 }
 
-#orangefield8 {
+.orangefield8 {
 	height: 25px;
 	position: absolute;
 	min-width: 25px;
@@ -591,7 +597,7 @@
 	left: 381px;
 }
 
-#orangefield9 {
+.orangefield9 {
 	height: 25px;
 	position: absolute;
 	min-width: 25px;
@@ -599,7 +605,7 @@
 	left: 413px;
 }
 
-#orangefield10 {
+.orangefield10 {
 	height: 25px;
 	position: absolute;
 	min-width: 25px;
@@ -607,7 +613,7 @@
 	left: 445px;
 }
 
-#orangefield11 {
+.orangefield11 {
 	height: 25px;
 	position: absolute;
 	min-width: 25px;
@@ -615,7 +621,7 @@
 	left: 477px;
 }
 
-#purplefield1 {
+.purplefield1 {
 	height: 25px;
 	position: absolute;
 	min-width: 25px;
@@ -623,7 +629,7 @@
 	left: 157px;
 }
 
-#purplefield2 {
+.purplefield2 {
 	height: 25px;
 	position: absolute;
 	min-width: 25px;
@@ -631,7 +637,7 @@
 	left: 189px;
 }
 
-#purplefield3 {
+.purplefield3 {
 	height: 25px;
 	position: absolute;
 	min-width: 25px;
@@ -639,7 +645,7 @@
 	left: 221px;
 }
 
-#purplefield4 {
+.purplefield4 {
 	height: 25px;
 	position: absolute;
 	min-width: 25px;
@@ -647,7 +653,7 @@
 	left: 253px;
 }
 
-#purplefield5 {
+.purplefield5 {
 	height: 25px;
 	position: absolute;
 	min-width: 25px;
@@ -655,7 +661,7 @@
 	left: 285px;
 }
 
-#purplefield6 {
+.purplefield6 {
 	height: 25px;
 	position: absolute;
 	min-width: 25px;
@@ -663,7 +669,7 @@
 	left: 317px;
 }
 
-#purplefield7 {
+.purplefield7 {
 	height: 25px;
 	position: absolute;
 	min-width: 25px;
@@ -671,7 +677,7 @@
 	left: 349px;
 }
 
-#purplefield8 {
+.purplefield8 {
 	height: 25px;
 	position: absolute;
 	min-width: 25px;
@@ -679,7 +685,7 @@
 	left: 381px;
 }
 
-#purplefield9 {
+.purplefield9 {
 	height: 25px;
 	position: absolute;
 	min-width: 25px;
@@ -687,7 +693,7 @@
 	left: 413px;
 }
 
-#purplefield10 {
+.purplefield10 {
 	height: 25px;
 	position: absolute;
 	min-width: 25px;
@@ -695,7 +701,7 @@
 	left: 445px;
 }
 
-#purplefield11 {
+.purplefield11 {
 	height: 25px;
 	position: absolute;
 	min-width: 25px;
@@ -852,7 +858,7 @@ input {
 }
 
 #spieler2 {
-	visibility: hidden;
+	visibility: visible;
 }
 
 #spieler3 {
