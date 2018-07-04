@@ -109,6 +109,7 @@ var img18 = "/gsClever/Images/Numbers/18.png";
 
 var ximg = "/gsClever/Images/X.png";
 var circleimg = "/gsClever/Images/circle.png";
+var circleximg = "/gsClever/Images/circlex.png";
 var statusWait = true;
 
 var arrFields = [ 0, 0, 0, 0, 0, 0, 0, 0, 0 ];
@@ -402,10 +403,10 @@ function currentPlayerField(){
     if (currentPlayer==userNumber){
 	return "spieler1";
     }
-    else{ //Wenn ich nicht am wuerfeln bin
+    else{ // Wenn ich nicht am wuerfeln bin
 	switch (currentPlayer){
         	case 1: {
-        	    //hier bin ich NICHT user1
+        	    // hier bin ich NICHT user1
         	    switch(userNumber){
         	    case 2: return "spieler2";
         	    case 3: return "spieler3";
@@ -439,6 +440,21 @@ function currentPlayerField(){
         	}
 	}
     }
+}
+
+function getFieldID(SpielerNR){
+    if (SpielerNR==userNumber){
+	return "spieler1";
+    }
+    else{
+	
+	//TODO BUGFIX
+    	    switch(userNumber){
+    	    case 2: return "spieler2";
+    	    case 3: return "spieler3";
+    	    case 4: return "spieler4";
+    	    }
+    	}
 }
 
 function setDiceOnField(fieldNR, dice){
@@ -546,6 +562,79 @@ function setDiceOnField(fieldNR, dice){
     }
 }
 
+function setNachwuerfelKreis(SpielerNR, anz /*anzahlkreise*/){
+    //TODO BUGFIX
+	var nodes = document.getElementById(getFieldID(SpielerNR)).childNodes;
+	if (anz >= 1){
+	    for(var i=0; i<nodes.length; i++) {
+		    if (nodes[i].class== 'Nachwuerfeln1') {
+			nodes[i].src=circleimg;
+		    }
+	}
+	}
+	if (anz >= 2){
+	    for(var i=0; i<nodes.length; i++) {
+		    if (nodes[i].class== 'Nachwuerfeln2') {
+			nodes[i].src=circleimg;
+		    }
+	}
+	}
+        if (anz >= 3){
+            for(var i=0; i<nodes.length; i++) {
+		    if (nodes[i].class== 'Nachwuerfeln3') {
+			nodes[i].src=circleimg;
+		    }
+        }
+        }
+        if (anz >= 4){
+            for(var i=0; i<nodes.length; i++) {
+		    if (nodes[i].class== 'Nachwuerfeln4') {
+			nodes[i].src=circleimg;
+		    }
+        }
+        }
+        if (anz >= 5){
+            for(var i=0; i<nodes.length; i++) {
+		    if (nodes[i].class== 'Nachwuerfeln5') {
+			nodes[i].src=circleimg;
+		    }
+        }
+        }
+        if (anz >= 6){
+            for(var i=0; i<nodes.length; i++) {
+		    if (nodes[i].class== 'Nachwuerfeln6') {
+			nodes[i].src=circleimg;
+		    }
+        }
+        }
+        if (anz >= 7){
+            for(var i=0; i<nodes.length; i++) {
+		    if (nodes[i].class== 'Nachwuerfeln7') {
+			nodes[i].src=circleimg;
+		    }
+        }
+    }
+}
+
+
+//TEMPLATE
+function f(SpielerNR, x){
+    switch (x){
+    case 1:{
+	break;
+    }
+    case 2:{
+	break;
+    }
+    case 3:{
+	break;
+    }
+    case 4:{
+	break;
+    }
+    }
+}
+
 function extractArray(x) {
     // erst die Silberplatte loeschen
     clearTray();
@@ -632,6 +721,27 @@ function extractArray(x) {
 	case 16: {
 	    if(x[i]==1) setDiceOnTray(WeissWert);
 	    break;
+	}
+	// START SPIELER1 DATA
+	case 17:{
+	    setNachwuerfelnKreis(1, x[i]);
+	    break
+	}
+	case 18:{
+	    
+	    break
+	}
+	case 19:{
+    
+	    break
+	}
+	case 20:{
+    
+	    break
+	}
+	case 21:{
+    
+	    break
 	}
 	}
     }
