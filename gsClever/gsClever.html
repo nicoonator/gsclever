@@ -1,6 +1,405 @@
 <!DOCTYPE html>
 <html>
 
+<<<<<<< HEAD
+<head>
+<title>Ganz Schoen Clever</title>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="css/gsClever.css">
+</head>
+<body>
+	<div id=Lobby>
+
+
+
+		<table class="tg">
+			<tbody id="tableBody">
+				<tr>
+					<th class="tg-s6z2">Spieler</th>
+					<th class="tg-baqh">Spielername</th>
+					<th class="tg-baqh">Status</th>
+				</tr>
+			</tbody>
+		</table>
+
+
+		<input type="button" class="LobbyButton" id=button0
+			value="Spiel Starten" onclick="closeLobby()"> <input
+			type="button" class="LobbyButton" id=button1 value="Add Bot"
+			onclick="">
+
+		<div id=spielfeld>
+			<div class="col-md-4">
+				<img id="Spielfeld" src="Images/Spielplan.png"> <img
+					id="Wuerfelfeld1" src="Images/Dice/1WHITE.jpg"> <img
+					id="Wuerfelfeld2" src="Images/Dice/2BLAU.jpg"> <img
+					id="Wuerfelfeld3" src="Images/Dice/6GREEN.jpg"> <img
+					id="Rundefeld1" src="Images/X.png"> <img id="Rundefeld2"
+					src="Images/X.png"> <img id="Rundefeld3" src="Images/X.png">
+				<img id="Rundefeld4" src="Images/X.png"> <img id="Rundefeld5"
+					src="Images/X.png"> <img id="Rundefeld6" src="Images/X.png">
+				<img id="yellowfield1" src="Images/X.png"> <img
+					id="yellowfield2" src="Images/X.png"> <img id="yellowfield3"
+					src="Images/X.png"> <img id="yellowfield4" src="Images/X.png">
+				<img id="yellowfield5" src="Images/X.png"> <img
+					id="yellowfield6" src="Images/X.png"> <img id="yellowfield7"
+					src="Images/X.png"> <img id="yellowfield8" src="Images/X.png">
+				<img id="yellowfield9" src="Images/X.png"> <img
+					id="yellowfield10" src="Images/X.png"> <img
+					id="yellowfield11" src="Images/X.png"> <img
+					id="yellowfield12" src="Images/X.png"> <img id="bluefield2"
+					src="Images/X.png"> <img id="bluefield3" src="Images/X.png">
+				<img id="bluefield4" src="Images/X.png"> <img id="bluefield5"
+					src="Images/X.png"> <img id="bluefield6" src="Images/X.png">
+				<img id="bluefield7" src="Images/X.png"> <img id="bluefield8"
+					src="Images/X.png"> <img id="bluefield9" src="Images/X.png">
+				<img id="bluefield10" src="Images/X.png"> <img
+					id="bluefield11" src="Images/X.png"> <img id="bluefield12"
+					src="Images/X.png"> <img id="greenfield1" src="Images/X.png">
+				<img id="greenfield2" src="Images/X.png"> <img
+					id="greenfield3" src="Images/X.png"> <img id="greenfield4"
+					src="Images/X.png"> <img id="greenfield5" src="Images/X.png">
+				<img id="greenfield6" src="Images/X.png"> <img
+					id="greenfield7" src="Images/X.png"> <img id="greenfield8"
+					src="Images/X.png"> <img id="greenfield9" src="Images/X.png">
+				<img id="greenfield10" src="Images/X.png"> <img
+					id="greenfield11" src="Images/X.png"> <img id="orangefield1"
+					src="Images/X.png"> <img id="orangefield2" src="Images/X.png">
+				<img id="orangefield3" src="Images/X.png"> <img
+					id="orangefield4" src="Images/X.png"> <img id="orangefield5"
+					src="Images/X.png"> <img id="orangefield6" src="Images/X.png">
+				<img id="orangefield7" src="Images/X.png"> <img
+					id="orangefield8" src="Images/X.png"> <img id="orangefield9"
+					src="Images/X.png"> <img id="orangefield10"
+					src="Images/X.png"> <img id="orangefield11"
+					src="Images/X.png"> <img id="purplefield1" src="Images/X.png">
+				<img id="purplefield2" src="Images/X.png"> <img
+					id="purplefield3" src="Images/X.png"> <img id="purplefield4"
+					src="Images/X.png"> <img id="purplefield5" src="Images/X.png">
+				<img id="purplefield6" src="Images/X.png"> <img
+					id="purplefield7" src="Images/X.png"> <img id="purplefield8"
+					src="Images/X.png"> <img id="purplefield9" src="Images/X.png">
+				<img id="purplefield10" src="Images/X.png"> <img
+					id="purplefield11" src="Images/Numbers/8.png"> <img
+					id="Nachwuerfeln1" src="Images/circle.png"> <img
+					id="Nachwuerfeln1" src="Images/X.png"> <img
+					id="Nachwuerfeln2" src="Images/circle.png"> <img
+					id="Nachwuerfeln2" src="Images/X.png"> <img
+					id="Nachwuerfeln3" src="Images/circle.png"> <img
+					id="Nachwuerfeln3" src="Images/X.png"> <img
+					id="Nachwuerfeln4" src="Images/circle.png"> <img
+					id="Nachwuerfeln4" src="Images/X.png"> <img
+					id="Nachwuerfeln5" src="Images/circle.png"> <img
+					id="Nachwuerfeln5" src="Images/X.png"> <img
+					id="Nachwuerfeln6" src="Images/circle.png"> <img
+					id="Nachwuerfeln6" src="Images/X.png"> <img
+					id="Nachwuerfeln7" src="Images/circle.png"> <img
+					id="Nachwuerfeln7" src="Images/X.png"> <img
+					id="Zusatzwuerfeln1" src="Images/circle.png"> <img
+					id="Zusatzwuerfeln1" src="Images/X.png"> <img
+					id="Zusatzwuerfeln2" src="Images/circle.png"> <img
+					id="Zusatzwuerfeln2" src="Images/X.png"> <img
+					id="Zusatzwuerfeln3" src="Images/circle.png"> <img
+					id="Zusatzwuerfeln3" src="Images/X.png"> <img
+					id="Zusatzwuerfeln4" src="Images/circle.png"> <img
+					id="Zusatzwuerfeln4" src="Images/X.png"> <img
+					id="Zusatzwuerfeln5" src="Images/circle.png"> <img
+					id="Zusatzwuerfeln5" src="Images/X.png"> <img
+					id="Zusatzwuerfeln6" src="Images/circle.png"> <img
+					id="Zusatzwuerfeln6" src="Images/X.png"> <img
+					id="Zusatzwuerfeln7" src="Images/circle.png"> <img
+					id="Zusatzwuerfeln7" src="Images/X.png">
+			</div>
+			<!-- TODO NILS 
+
+Label fuer Textanzeige
+Wuerfel Entscheider
+
+
+-->
+
+			<div id="mitte" class="col-md-4">
+				<img id="Silberplatte" src="Images/silberplatte.jpg"> <img
+					id=wuerfelfeldsilber1> <img id=wuerfelfeldsilber2> <img
+					id=wuerfelfeldsilber3> <img id=wuerfelfeldsilber4> <img
+					id=wuerfelfeldsilber5> <img id=wuerfelfeldsilber6> <img
+					id=wuerfelfeldEntscheider1 onclick=""> <img
+					id=wuerfelfeldEntscheider2 onclick=""> <input type="button"
+					class="buttonwurf" value="Wuerfeln" onclick="wuerfeln()"> <input
+					type="button" class="buttonNachwurf" value="Nachwuerfeln"
+					onclick="nachwuerfeln()"> <input type="button"
+					class="buttonZusatzWuerfel" value="zusatzwuerfel"
+					onclick="zusatzwuerfeln()"> <input type="button"
+					class="buttonSpieler2" value="Spieler2" onclick="showview(2)">
+				<input type="button" class="buttonSpieler3" value="Spieler3"
+					onclick="showview(3)"> <input type="button"
+					class="buttonSpieler4" value="Spieler4" onclick="showview(4)">
+				<input type="button" class="buttonUeberspringen"
+					value="Ueberspringen" onclick="skip()"> <label id="label">Spezialevent:</label>
+				<img id="wuerfelfeldwhite"> 
+				<img id="wuerfelfeldyellow"> 
+				<img id="wuerfelfeldblue"> 
+				<img id="wuerfelfeldorange"> 
+				<img id="wuerfelfeldgreen"> 
+				<img id="wuerfelfeldpurple"> 
+				
+				
+				
+			</div>
+			<div id="rechtesFeld" class="col-md-4">
+				<div id="spieler2">
+					<img id="Spielfeld" src="Images/Spielplan.png"> <img
+						id="Wuerfelfeld1" src="Images/Dice/1WHITE.jpg"> <img
+						id="Wuerfelfeld2" src="Images/Dice/2BLAU.jpg"> <img
+						id="Wuerfelfeld3" src="Images/Dice/6GREEN.jpg"> <img
+						id="Rundefeld2" src="Images/X.png"> <img id="Rundefeld3"
+						src="Images/X.png"> <img id="Rundefeld4" src="Images/X.png">
+					<img id="Rundefeld5" src="Images/X.png"> <img id="Rundefeld6"
+						src="Images/X.png"> <img id="yellowfield1"
+						src="Images/X.png"> <img id="yellowfield2"
+						src="Images/X.png"> <img id="yellowfield3"
+						src="Images/X.png"> <img id="yellowfield4"
+						src="Images/X.png"> <img id="yellowfield5"
+						src="Images/X.png"> <img id="yellowfield6"
+						src="Images/X.png"> <img id="yellowfield7"
+						src="Images/X.png"> <img id="yellowfield8"
+						src="Images/X.png"> <img id="yellowfield9"
+						src="Images/X.png"> <img id="yellowfield10"
+						src="Images/X.png"> <img id="yellowfield11"
+						src="Images/X.png"> <img id="yellowfield12"
+						src="Images/X.png"> <img id="bluefield2" src="Images/X.png">
+					<img id="bluefield3" src="Images/X.png"> <img id="bluefield4"
+						src="Images/X.png"> <img id="bluefield5" src="Images/X.png">
+					<img id="bluefield6" src="Images/X.png"> <img id="bluefield7"
+						src="Images/X.png"> <img id="bluefield8" src="Images/X.png">
+					<img id="bluefield9" src="Images/X.png"> <img
+						id="bluefield10" src="Images/X.png"> <img id="bluefield11"
+						src="Images/X.png"> <img id="bluefield12" src="Images/X.png">
+					<img id="greenfield1" src="Images/X.png"> <img
+						id="greenfield2" src="Images/X.png"> <img id="greenfield3"
+						src="Images/X.png"> <img id="greenfield4" src="Images/X.png">
+					<img id="greenfield5" src="Images/X.png"> <img
+						id="greenfield6" src="Images/X.png"> <img id="greenfield7"
+						src="Images/X.png"> <img id="greenfield8" src="Images/X.png">
+					<img id="greenfield9" src="Images/X.png"> <img
+						id="greenfield10" src="Images/X.png"> <img id="greenfield11"
+						src="Images/X.png"> <img id="orangefield1"
+						src="Images/X.png"> <img id="orangefield2"
+						src="Images/X.png"> <img id="orangefield3"
+						src="Images/X.png"> <img id="orangefield4"
+						src="Images/X.png"> <img id="orangefield5"
+						src="Images/X.png"> <img id="orangefield6"
+						src="Images/X.png"> <img id="orangefield7"
+						src="Images/X.png"> <img id="orangefield8"
+						src="Images/X.png"> <img id="orangefield9"
+						src="Images/X.png"> <img id="orangefield10"
+						src="Images/X.png"> <img id="orangefield11"
+						src="Images/X.png"> <img id="purplefield1"
+						src="Images/X.png"> <img id="purplefield2"
+						src="Images/X.png"> <img id="purplefield3"
+						src="Images/X.png"> <img id="purplefield4"
+						src="Images/X.png"> <img id="purplefield5"
+						src="Images/X.png"> <img id="purplefield6"
+						src="Images/X.png"> <img id="purplefield7"
+						src="Images/X.png"> <img id="purplefield8"
+						src="Images/X.png"> <img id="purplefield9"
+						src="Images/X.png"> <img id="purplefield10"
+						src="Images/X.png"> <img id="purplefield11"
+						src="Images/Numbers/8.png"> <img id="Nachwuerfeln1"
+						src="Images/circle.png"> <img id="Nachwuerfeln1"
+						src="Images/X.png"> <img id="Nachwuerfeln2"
+						src="Images/circle.png"> <img id="Nachwuerfeln2"
+						src="Images/X.png"> <img id="Nachwuerfeln3"
+						src="Images/circle.png"> <img id="Nachwuerfeln3"
+						src="Images/X.png"> <img id="Nachwuerfeln4"
+						src="Images/circle.png"> <img id="Nachwuerfeln4"
+						src="Images/X.png"> <img id="Nachwuerfeln5"
+						src="Images/circle.png"> <img id="Nachwuerfeln5"
+						src="Images/X.png"> <img id="Nachwuerfeln6"
+						src="Images/circle.png"> <img id="Nachwuerfeln6"
+						src="Images/X.png"> <img id="Nachwuerfeln7"
+						src="Images/circle.png"> <img id="Nachwuerfeln7"
+						src="Images/X.png"> <img id="Zusatzwuerfeln1"
+						src="Images/circle.png"> <img id="Zusatzwuerfeln1"
+						src="Images/X.png"> <img id="Zusatzwuerfeln2"
+						src="Images/circle.png"> <img id="Zusatzwuerfeln2"
+						src="Images/X.png"> <img id="Zusatzwuerfeln3"
+						src="Images/circle.png"> <img id="Zusatzwuerfeln3"
+						src="Images/X.png"> <img id="Zusatzwuerfeln4"
+						src="Images/circle.png"> <img id="Zusatzwuerfeln4"
+						src="Images/X.png"> <img id="Zusatzwuerfeln5"
+						src="Images/circle.png"> <img id="Zusatzwuerfeln5"
+						src="Images/X.png"> <img id="Zusatzwuerfeln6"
+						src="Images/circle.png"> <img id="Zusatzwuerfeln6"
+						src="Images/X.png"> <img id="Zusatzwuerfeln7"
+						src="Images/circle.png"> <img id="Zusatzwuerfeln7"
+						src="Images/X.png">
+				</div>
+				<div id="spieler3">
+					<img id="Spielfeld" src="Images/Spielplan.png"> <img
+						id="Wuerfelfeld1" src="Images/Dice/1WHITE.jpg"> <img
+						id="Wuerfelfeld2" src="Images/Dice/2BLAU.jpg"> <img
+						id="Wuerfelfeld3" src="Images/Dice/6GREEN.jpg"> <img
+						id="Rundefeld4" src="Images/X.png"> <img id="Rundefeld5"
+						src="Images/X.png"> <img id="Rundefeld6" src="Images/X.png">
+					<img id="yellowfield1" src="Images/X.png"> <img
+						id="yellowfield2" src="Images/X.png"> <img id="yellowfield3"
+						src="Images/X.png"> <img id="yellowfield4"
+						src="Images/X.png"> <img id="yellowfield5"
+						src="Images/X.png"> <img id="yellowfield6"
+						src="Images/X.png"> <img id="yellowfield7"
+						src="Images/X.png"> <img id="yellowfield8"
+						src="Images/X.png"> <img id="yellowfield9"
+						src="Images/X.png"> <img id="yellowfield10"
+						src="Images/X.png"> <img id="yellowfield11"
+						src="Images/X.png"> <img id="yellowfield12"
+						src="Images/X.png"> <img id="bluefield2" src="Images/X.png">
+					<img id="bluefield3" src="Images/X.png"> <img id="bluefield4"
+						src="Images/X.png"> <img id="bluefield5" src="Images/X.png">
+					<img id="bluefield6" src="Images/X.png"> <img id="bluefield7"
+						src="Images/X.png"> <img id="bluefield8" src="Images/X.png">
+					<img id="bluefield9" src="Images/X.png"> <img
+						id="bluefield10" src="Images/X.png"> <img id="bluefield11"
+						src="Images/X.png"> <img id="bluefield12" src="Images/X.png">
+					<img id="greenfield1" src="Images/X.png"> <img
+						id="greenfield2" src="Images/X.png"> <img id="greenfield3"
+						src="Images/X.png"> <img id="greenfield4" src="Images/X.png">
+					<img id="greenfield5" src="Images/X.png"> <img
+						id="greenfield6" src="Images/X.png"> <img id="greenfield7"
+						src="Images/X.png"> <img id="greenfield8" src="Images/X.png">
+					<img id="greenfield9" src="Images/X.png"> <img
+						id="greenfield10" src="Images/X.png"> <img id="greenfield11"
+						src="Images/X.png"> <img id="orangefield1"
+						src="Images/X.png"> <img id="orangefield2"
+						src="Images/X.png"> <img id="orangefield3"
+						src="Images/X.png"> <img id="orangefield4"
+						src="Images/X.png"> <img id="orangefield5"
+						src="Images/X.png"> <img id="orangefield6"
+						src="Images/X.png"> <img id="orangefield7"
+						src="Images/X.png"> <img id="orangefield8"
+						src="Images/X.png"> <img id="orangefield9"
+						src="Images/X.png"> <img id="orangefield10"
+						src="Images/X.png"> <img id="orangefield11"
+						src="Images/X.png"> <img id="purplefield1"
+						src="Images/X.png"> <img id="purplefield2"
+						src="Images/X.png"> <img id="purplefield3"
+						src="Images/X.png"> <img id="purplefield4"
+						src="Images/X.png"> <img id="purplefield5"
+						src="Images/X.png"> <img id="purplefield6"
+						src="Images/X.png"> <img id="purplefield7"
+						src="Images/X.png"> <img id="purplefield8"
+						src="Images/X.png"> <img id="purplefield9"
+						src="Images/X.png"> <img id="purplefield10"
+						src="Images/X.png"> <img id="purplefield11"
+						src="Images/Numbers/8.png"> <img id="Nachwuerfeln1"
+						src="Images/circle.png"> <img id="Nachwuerfeln1"
+						src="Images/X.png"> <img id="Nachwuerfeln2"
+						src="Images/circle.png"> <img id="Nachwuerfeln2"
+						src="Images/X.png"> <img id="Nachwuerfeln3"
+						src="Images/circle.png"> <img id="Nachwuerfeln3"
+						src="Images/X.png"> <img id="Nachwuerfeln4"
+						src="Images/circle.png"> <img id="Nachwuerfeln4"
+						src="Images/X.png"> <img id="Nachwuerfeln5"
+						src="Images/circle.png"> <img id="Nachwuerfeln5"
+						src="Images/X.png"> <img id="Nachwuerfeln6"
+						src="Images/circle.png"> <img id="Nachwuerfeln6"
+						src="Images/X.png"> <img id="Nachwuerfeln7"
+						src="Images/circle.png"> <img id="Nachwuerfeln7"
+						src="Images/X.png"> <img id="Zusatzwuerfeln1"
+						src="Images/circle.png"> <img id="Zusatzwuerfeln1"
+						src="Images/X.png"> <img id="Zusatzwuerfeln2"
+						src="Images/circle.png"> <img id="Zusatzwuerfeln2"
+						src="Images/X.png"> <img id="Zusatzwuerfeln3"
+						src="Images/circle.png"> <img id="Zusatzwuerfeln3"
+						src="Images/X.png"> <img id="Zusatzwuerfeln4"
+						src="Images/circle.png"> <img id="Zusatzwuerfeln4"
+						src="Images/X.png"> <img id="Zusatzwuerfeln5"
+						src="Images/circle.png"> <img id="Zusatzwuerfeln5"
+						src="Images/X.png"> <img id="Zusatzwuerfeln6"
+						src="Images/circle.png"> <img id="Zusatzwuerfeln6"
+						src="Images/X.png"> <img id="Zusatzwuerfeln7"
+						src="Images/circle.png"> <img id="Zusatzwuerfeln7"
+						src="Images/X.png">
+				</div>
+				<div id="spieler4">
+					<img id="Spielfeld" src="Images/Spielplan.png"> <img
+						id="Wuerfelfeld1" src="Images/Dice/1WHITE.jpg"> <img
+						id="Wuerfelfeld2" src="Images/Dice/2BLAU.jpg"> <img
+						id="Wuerfelfeld3" src="Images/Dice/6GREEN.jpg"> <img
+						id="Rundefeld2" src="Images/X.png"> <img id="Rundefeld3"
+						src="Images/X.png"> <img id="Rundefeld4" src="Images/X.png">
+					<img id="Rundefeld5" src="Images/X.png"> <img id="bluefield5"
+						src="Images/X.png"> <img id="bluefield6" src="Images/X.png">
+					<img id="bluefield7" src="Images/X.png"> <img id="bluefield8"
+						src="Images/X.png"> <img id="bluefield9" src="Images/X.png">
+					<img id="bluefield10" src="Images/X.png"> <img
+						id="bluefield11" src="Images/X.png"> <img id="bluefield12"
+						src="Images/X.png"> <img id="greenfield1" src="Images/X.png">
+					<img id="greenfield2" src="Images/X.png"> <img
+						id="greenfield3" src="Images/X.png"> <img id="greenfield4"
+						src="Images/X.png"> <img id="greenfield5" src="Images/X.png">
+					<img id="greenfield6" src="Images/X.png"> <img
+						id="greenfield7" src="Images/X.png"> <img id="greenfield8"
+						src="Images/X.png"> <img id="greenfield9" src="Images/X.png">
+					<img id="greenfield10" src="Images/X.png"> <img
+						id="greenfield11" src="Images/X.png"> <img id="orangefield1"
+						src="Images/X.png"> <img id="orangefield2"
+						src="Images/X.png"> <img id="orangefield3"
+						src="Images/X.png"> <img id="orangefield4"
+						src="Images/X.png"> <img id="orangefield5"
+						src="Images/X.png"> <img id="orangefield6"
+						src="Images/X.png"> <img id="orangefield7"
+						src="Images/X.png"> <img id="orangefield8"
+						src="Images/X.png"> <img id="orangefield9"
+						src="Images/X.png"> <img id="orangefield10"
+						src="Images/X.png"> <img id="orangefield11"
+						src="Images/X.png"> <img id="purplefield1"
+						src="Images/X.png"> <img id="purplefield2"
+						src="Images/X.png"> <img id="purplefield3"
+						src="Images/X.png"> <img id="purplefield4"
+						src="Images/X.png"> <img id="purplefield5"
+						src="Images/X.png"> <img id="purplefield6"
+						src="Images/X.png"> <img id="purplefield7"
+						src="Images/X.png"> <img id="purplefield8"
+						src="Images/X.png"> <img id="purplefield9"
+						src="Images/X.png"> <img id="purplefield10"
+						src="Images/X.png"> <img id="purplefield11"
+						src="Images/Numbers/8.png"> <img id="Nachwuerfeln1"
+						src="Images/circle.png"> <img id="Nachwuerfeln1"
+						src="Images/X.png"> <img id="Nachwuerfeln2"
+						src="Images/circle.png"> <img id="Nachwuerfeln2"
+						src="Images/X.png"> <img id="Nachwuerfeln3"
+						src="Images/circle.png"> <img id="Nachwuerfeln3"
+						src="Images/X.png"> <img id="Nachwuerfeln4"
+						src="Images/circle.png"> <img id="Nachwuerfeln4"
+						src="Images/X.png"> <img id="Nachwuerfeln5"
+						src="Images/circle.png"> <img id="Nachwuerfeln5"
+						src="Images/X.png"> <img id="Nachwuerfeln6"
+						src="Images/circle.png"> <img id="Nachwuerfeln6"
+						src="Images/X.png"> <img id="Nachwuerfeln7"
+						src="Images/circle.png"> <img id="Nachwuerfeln7"
+						src="Images/X.png"> <img id="Zusatzwuerfeln1"
+						src="Images/circle.png"> <img id="Zusatzwuerfeln1"
+						src="Images/X.png"> <img id="Zusatzwuerfeln2"
+						src="Images/circle.png"> <img id="Zusatzwuerfeln2"
+						src="Images/X.png"> <img id="Zusatzwuerfeln3"
+						src="Images/circle.png"> <img id="Zusatzwuerfeln3"
+						src="Images/X.png"> <img id="Zusatzwuerfeln4"
+						src="Images/circle.png"> <img id="Zusatzwuerfeln4"
+						src="Images/X.png"> <img id="Zusatzwuerfeln5"
+						src="Images/circle.png"> <img id="Zusatzwuerfeln5"
+						src="Images/X.png"> <img id="Zusatzwuerfeln6"
+						src="Images/circle.png"> <img id="Zusatzwuerfeln6"
+						src="Images/X.png"> <img id="Zusatzwuerfeln7"
+						src="Images/circle.png"> <img id="Zusatzwuerfeln7"
+						src="Images/X.png">
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+=======
     <head>
         <title>Ganz Schoen Clever</title>
         <link rel="stylesheet"
@@ -361,4 +760,5 @@
         	</div>
         </div>
     </body>
+>>>>>>> branch 'master' of https://github.com/nicoonator/gsclever.git
 </html>
