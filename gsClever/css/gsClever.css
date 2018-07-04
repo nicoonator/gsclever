@@ -173,7 +173,7 @@
 	left: 464px;
 }
 
-.Wuerfelfeld1 {
+#Wuerfelfeld1 {
 	height: 44px;
 	position: absolute;
 	min-width: 44px;
@@ -181,7 +181,7 @@
 	left: 117px;
 }
 
-.Wuerfelfeld2 {
+#Wuerfelfeld2 {
 	height: 44px;
 	position: absolute;
 	min-width: 44px;
@@ -189,7 +189,7 @@
 	left: 118px;
 }
 
-.Wuerfelfeld3 {
+#Wuerfelfeld3 {
 	height: 44px;
 	position: absolute;
 	min-width: 44px;
