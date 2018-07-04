@@ -6,6 +6,7 @@ public class Return {
 	private int round;
 	private IsClickable[] clickable;
 	private Matchfield[] matchfield;
+	private DecisionMaker[] decisionMaker;
 	private Dice[] dices;
 
 	public Return(int currentPlayer, int round, int playerCount) {
@@ -15,6 +16,7 @@ public class Return {
 
 		clickable = new IsClickable[playerCount];
 		matchfield = new Matchfield[playerCount];
+		decisionMaker = new DecisionMaker[playerCount];
 	}
 
 	public int getCurrentPlayer() {
@@ -47,5 +49,13 @@ public class Return {
 
 	public void setDices(Dice[] dices) {
 		this.dices = dices;
+	}
+
+	public DecisionMaker getDecisionMaker(int playerId) {
+		return decisionMaker[playerId];
+	}
+
+	public void setDecisionMaker(DecisionMaker decisionMaker, int playerId) {
+		this.decisionMaker[playerId] = decisionMaker;
 	}
 }
