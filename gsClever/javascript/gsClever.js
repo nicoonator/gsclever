@@ -444,17 +444,45 @@ function currentPlayerField(){
 
 function getFieldID(SpielerNR){
     if (SpielerNR==userNumber){
-	return "spieler1";
+    	return "spieler1";
     }
     else{
-	
-	//TODO BUGFIX
-    	    switch(userNumber){
-    	    case 2: return "spieler2";
-    	    case 3: return "spieler3";
-    	    case 4: return "spieler4";
-    	    }
+    	switch (SpielerNR){
+			case 1: {
+			    // hier bin ich NICHT user1
+			    switch(userNumber){
+			    case 2: return "spieler2";
+			    case 3: return "spieler3";
+			    case 4: return "spieler4";
+			    }
+			    break;
+			}
+			case 2: {
+			    switch(userNumber){
+			    case 1: return "spieler2";
+			    case 3: return "spieler3";
+			    case 4: return "spieler4";
+			    }
+			    break;
+			}
+			case 3: {
+			    switch(userNumber){
+			    case 2: return "spieler2";
+			    case 1: return "spieler3";
+			    case 4: return "spieler4";
+			    }
+			    break;
+			}
+			case 4: {
+			    switch(userNumber){
+			    case 2: return "spieler2";
+			    case 3: return "spieler3";
+			    case 1: return "spieler4";
+			    }
+			    break;
+			}
     	}
+    }
 }
 
 function setDiceOnField(fieldNR, dice){
@@ -567,7 +595,7 @@ function setNachwuerfelKreis(SpielerNR, anz /*anzahlkreise*/){
 	var nodes = document.getElementById(getFieldID(SpielerNR)).childNodes;
 	if (anz >= 1){
 	    for(var i=0; i<nodes.length; i++) {
-		    if (nodes[i].class== 'Nachwuerfeln1') {
+		    if (nodes[i].class== "Nachwuerfeln1") {
 			nodes[i].src=circleimg;
 		    }
 	}
