@@ -4,7 +4,6 @@ public class IsClickable {
 
 	private int playerId;
 	private boolean rollDices;
-	private boolean[] dices;
 	private boolean[] yellow;
 	private boolean[] blue;
 	private boolean green;
@@ -17,7 +16,6 @@ public class IsClickable {
 
 		playerId = -1;
 		rollDices = false;
-		dices = new boolean[6];
 		yellow = new boolean[12];
 		blue = new boolean[11];
 		green = false;
@@ -25,14 +23,6 @@ public class IsClickable {
 		purple = false;
 		diceRepeat = false;
 		additionalDice = false;
-	}
-
-	public boolean[] getDices() {
-		return dices;
-	}
-
-	public void setDices(boolean[] dices) {
-		this.dices = dices;
 	}
 
 	public boolean[] getYellow() {
