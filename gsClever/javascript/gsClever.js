@@ -48,6 +48,8 @@ addListener('TESTWUERFELN', function(event) {
 });
 
 var playerAmount = 2;
+var userNumber=0;
+// 1 = Host, 2 = Spieler2 usw...
 var number = [ 0, 0, 0, 0, 0, 0 ];
 playerMessage = "";
 var BlauWert = 0;
@@ -307,7 +309,38 @@ function setDice(x) {
     }
 }
 
+function clearTray() {
+    // Hier wird das Silberfeld zurueckgesetzt wenn die neuen Wuerfel geladen
+    // werden
+    document.getElementById("wuerfelfeldsilber1").src = "";
+    document.getElementById("wuerfelfeldsilber2").src = "";
+    document.getElementById("wuerfelfeldsilber3").src = "";
+    document.getElementById("wuerfelfeldsilber4").src = "";
+    document.getElementById("wuerfelfeldsilber5").src = "";
+    document.getElementById("wuerfelfeldsilber6").src = "";
+}
+
 function setDiceImg(x) {
+    if (x > 0 && x <= 6) {
+	document.getElementById("wuerfelfeldsilber3").src = getDiceImg(x);
+    }
+    if (x > 6 && x <= 12) {
+	document.getElementById("wuerfelfeldsilber2").src = getDiceImg(x);
+    }
+    if (x > 12 && x <= 18) {
+	document.getElementById("wuerfelfeldsilber6").src = getDiceImg(x);
+    }
+    if (x > 18 && x <= 24) {
+	document.getElementById("wuerfelfeldsilber5").src = getDiceImg(x);
+    }
+    if (x > 24 && x <= 30) {
+	document.getElementById("wuerfelfeldsilber4").src = getDiceImg(x);
+    }
+    if (x > 30 && x <= 36) {
+	document.getElementById("wuerfelfeldsilber1").src = getDiceImg(x);
+    }
+}
+function setDiceOnTray(x) {
     if (x > 0 && x <= 6) {
 	document.getElementById("wuerfelfeldsilber3").src = getDiceImg(x);
     }
@@ -365,7 +398,157 @@ function setRound(x) {
     }
 }
 
+function currentPlayerField(){
+    if (currentPlayer==userNumber){
+	return "spieler1";
+    }
+    else{ //Wenn ich nicht am wuerfeln bin
+	switch (currentPlayer){
+        	case 1: {
+        	    //hier bin ich NICHT user1
+        	    switch(userNumber){
+        	    case 2: return "spieler2";
+        	    case 3: return "spieler3";
+        	    case 4: return "spieler4";
+        	    }
+        	    break;
+        	}
+        	case 2: {
+        	    switch(userNumber){
+        	    case 1: return "spieler2";
+        	    case 3: return "spieler3";
+        	    case 4: return "spieler4";
+        	    }
+        	    break;
+        	}
+        	case 3: {
+        	    switch(userNumber){
+        	    case 2: return "spieler2";
+        	    case 1: return "spieler3";
+        	    case 4: return "spieler4";
+        	    }
+        	    break;
+        	}
+        	case 4: {
+        	    switch(userNumber){
+        	    case 2: return "spieler2";
+        	    case 3: return "spieler3";
+        	    case 1: return "spieler4";
+        	    }
+        	    break;
+        	}
+	}
+    }
+}
+
+function setDiceOnField(fieldNR, dice){
+    var nodes = document.getElementById(currentPlayerField()).childNodes;
+    switch (fieldNR){
+    case 1: {
+	for(var i=0; i<nodes.length; i++) {
+	    if (nodes[i].id == 'Wuerfelfeld1') {
+		switch (dice){
+		case 1:{
+		    nodes[i].src=getDiceImg(BlauWert);
+		    break;
+		}
+		case 2:{
+		    nodes[i].src=getDiceImg(GelbWert);
+		    break;
+		}
+		case 3:{
+		    nodes[i].src=getDiceImg(OrangeWert);
+		    break;
+		}
+		case 4:{
+		    nodes[i].src=getDiceImg(LilaWert);
+		    break;
+		}
+		case 5:{
+		    nodes[i].src=getDiceImg(GreenWert);
+		    break;
+		}
+		case 6:{
+		    nodes[i].src=getDiceImg(WeissWert);
+		    break;
+		}
+		}
+	     }
+	}
+	break;
+    }
+    case 2: {
+	for(var i=0; i<nodes.length; i++) {
+	    if (nodes[i].id == 'Wuerfelfeld2') {
+		switch (dice){
+		case 1:{
+		    nodes[i].src=getDiceImg(BlauWert);
+		    break;
+		}
+		case 2:{
+		    nodes[i].src=getDiceImg(GelbWert);
+		    break;
+		}
+		case 3:{
+		    nodes[i].src=getDiceImg(OrangeWert);
+		    break;
+		}
+		case 4:{
+		    nodes[i].src=getDiceImg(LilaWert);
+		    break;
+		}
+		case 5:{
+		    nodes[i].src=getDiceImg(GreenWert);
+		    break;
+		}
+		case 6:{
+		    nodes[i].src=getDiceImg(WeissWert);
+		    break;
+		}
+		}
+	     }
+	}
+	break;
+    }
+    case 3: {
+	for(var i=0; i<nodes.length; i++) {
+	    if (nodes[i].id == 'Wuerfelfeld3') {
+		switch (dice){
+		case 1:{
+		    nodes[i].src=getDiceImg(BlauWert);
+		    break;
+		}
+		case 2:{
+		    nodes[i].src=getDiceImg(GelbWert);
+		    break;
+		}
+		case 3:{
+		    nodes[i].src=getDiceImg(OrangeWert);
+		    break;
+		}
+		case 4:{
+		    nodes[i].src=getDiceImg(LilaWert);
+		    break;
+		}
+		case 5:{
+		    nodes[i].src=getDiceImg(GreenWert);
+		    break;
+		}
+		case 6:{
+		    nodes[i].src=getDiceImg(WeissWert);
+		    break;
+		}
+		}
+	     }
+	}
+	break;
+    }
+    }
+}
+
 function extractArray(x) {
+    // erst die Silberplatte loeschen
+    clearTray();
     var limit = 345;
     switch (PlayerAmount) {
     case 2: {
@@ -381,6 +564,9 @@ function extractArray(x) {
 	switch (i) {
 	case 0: {
 	    setRound(x[i]);
+	    if(x[i]!=0){
+		showview(x[i]);
+	    }
 	    break;
 	}
 	case 1: {
@@ -392,23 +578,23 @@ function extractArray(x) {
 	    break;
 	}
 	case 3: {
-	    GelbWert= x[i];
+	    GelbWert= x[i]+6;
 	    break;
 	}
 	case 4: {
-	    OrangeWert= x[i];
+	    OrangeWert= x[i]+24;
 	    break;
 	}
 	case 5: {
-	    LilaWert= x[i];
+	    LilaWert= x[i]+18;
 	    break;
 	}
 	case 6: {
-	    GreenWert= x[i];
+	    GreenWert= x[i]+12;
 	    break;
 	}
 	case 7: {
-	    WeissWert= x[i];
+	    WeissWert= x[i]+30;
 	    break;
 	}
 	case 8: {
@@ -421,6 +607,30 @@ function extractArray(x) {
 	}
 	case 10: {
 	    setDiceOnField(3,x[i]);
+	    break;
+	}
+	case 11: {
+	    if(x[i]==1) setDiceOnTray(BlauWert);
+	    break;
+	}
+	case 12: {
+	    if(x[i]==1) setDiceOnTray(GelbWert);
+	    break;
+	}
+	case 13: {
+	    if(x[i]==1) setDiceOnTray(OrangeWert);
+	    break;
+	}
+	case 14: {
+	    if(x[i]==1) setDiceOnTray(LilaWert);
+	    break;
+	}
+	case 15: {
+	    if(x[i]==1) setDiceOnTray(GreenWert);
+	    break;
+	}
+	case 16: {
+	    if(x[i]==1) setDiceOnTray(WeissWert);
 	    break;
 	}
 	}
