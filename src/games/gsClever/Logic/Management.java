@@ -117,7 +117,7 @@ public class Management {
 		return clickable;
 	}
 
-	public void specialEventRecursive(SpecialEvent specialEvent) {
+	public SpecialEvent specialEventRecursive(SpecialEvent specialEvent) {
 
 		switch (specialEvent) {
 		case diceRepeat:
@@ -136,16 +136,12 @@ public class Management {
 
 		case enterCrossYellow:
 
-			specialEvent = null;// TODO
-
-			break;
+			return SpecialEvent.enterCrossYellow;
 
 		case enterCrossBlue:
 
-			specialEvent = null;// TODO
-
-			break;
-
+			return SpecialEvent.enterCrossBlue;
+			
 		case enterCrossGreen:
 
 			specialEvent = getGreen().enterCross();
@@ -178,7 +174,9 @@ public class Management {
 		}
 
 		if (specialEvent != null)
-			specialEventRecursive(specialEvent);
+			specialEvent = specialEventRecursive(specialEvent);
+		
+		return specialEvent;
 	}
 
 	public SpecialEvent enterCrossOrNumber(Area area, int fieldId, int number) {
@@ -218,8 +216,8 @@ public class Management {
 		}
 
 		if (specialEvent != null)
-			specialEventRecursive(specialEvent);
+			specialEvent = specialEventRecursive(specialEvent);
 
-		return null;// TODO
+		return specialEvent;
 	}
 }
