@@ -59,6 +59,7 @@
 	left: 100px;
 	height: 600px;
 	position: absolute;
+	visibility:visible;
 }
 
 .Nachwuerfeln1 {
@@ -853,6 +854,64 @@ input {
 	
 	
 }
+/* .test{
+top:768 px; 
+left:117 px;	
+height:61px; 
+min-height:61 px; 
+width:392,0 px; 
+min-width:392,0px;	
+background:green;	
+	
+	
+}
+ */
+
+
+
+.greenOnClick {
+top:650px; 
+left:117px;		
+position: absolute;
+height:61px; 
+min-height:61px; 
+width:392px; 
+min-width:392px;
+
+
+	
+	
+	
+}
+.orangeOnClick {
+top:728px; 
+left:117px;		
+position: absolute;
+height:46px; 
+min-height:46px; 
+width:392px; 
+min-width:392px;
+
+}	
+	
+.purpleOnClick {
+top:788px; 
+left:117px;		
+position: absolute;
+height:46px; 
+min-height:46px; 
+width:392px; 
+min-width:392px;
+
+}
+
+.Zusatzwuerfeln1 {
+	height: 38px;
+	position: absolute;
+	min-width: 38px;
+	top: 400px;
+	left: 224px;
+}
 
 
 
@@ -944,7 +1003,7 @@ input {
 
 #spielfeld {
 	
-	visibility:hidden;
+	visibility:visible;
 }
 
 #Lobby{
@@ -952,8 +1011,8 @@ input {
 	height: 100%;
     width: 100%;
     position: absolute;
-    /*top: 12.5%;
-    left: 12.5%;*/
+    top: 12.5%;
+    left: 12.5%;
     background-color: #696969;  
 	
 }
