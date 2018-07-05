@@ -108,7 +108,12 @@ public class MainLogic {
 			
 		case 4:
 			
-			//TODO
+			for(int i = 0; i < playerCount; i++) {
+			
+				currentSpecialEvent[i] = SpecialEvent.round4;
+					
+				nextArea[i] = Area.specialEvent;
+			}
 			
 			return true;
 			
@@ -239,6 +244,12 @@ public class MainLogic {
 			}
 			
 			returnBack.getClickable(playerId).setBlue(clickableBlue);
+			
+			break;
+			
+		case round4:
+			
+			//TODO
 			
 			break;
 		}
@@ -840,6 +851,9 @@ public class MainLogic {
 			if(allReady == true) {
 				
 				nextPlayer();
+				
+				if(currentSpecialEvent[playerId] == SpecialEvent.round4)
+					clickableSpecialEvent(returnBack, playerId);
 				
 				returnBack.getClickable(currentPlayer).setRollDices(true);
 				
