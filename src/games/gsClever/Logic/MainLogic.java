@@ -359,7 +359,7 @@ public class MainLogic {
 			case enterCrossBlue:
 				
 				currentSpecialEvent[playerId] = players[playerId].getManagement().enterCrossOrNumber(
-						Area.yellow, fieldId, 0);
+						Area.blue, fieldId, 0);
 				
 				break;
 			}
@@ -378,7 +378,7 @@ public class MainLogic {
 			currentFieldId[playerId] = fieldId;
 			
 			clickableDices = players[playerId].getManagement().getYellow().clickableDices(
-					this.dices[Color.yellow.ordinal()], this.dices[Color.white.ordinal()]);
+					this.dices[Color.yellow.ordinal()], this.dices[Color.white.ordinal()], fieldId);
 			
 			if(this.dices[Color.yellow.ordinal()].getValue() == this.dices[Color.white.ordinal()].getValue() && 
 					this.dices[Color.yellow.ordinal()].getField() == -1 && 
@@ -404,6 +404,38 @@ public class MainLogic {
 						Area.yellow, currentFieldId[playerId], this.dices[Color.white.ordinal()].getValue());
 				
 				if(currentSpecialEvent[playerId] != null) {
+					
+					switch(currentSpecialEvent[playerId]) {
+					case enterCrossYellow:
+						
+						boolean[] clickableYellow = players[playerId].getManagement().getYellow().getFields();
+						for(int i = 0; i < clickableYellow.length; i++) {
+							
+							if(clickableYellow[i] == true)
+								clickableYellow[i] = false;
+							else
+								clickableYellow[i] = true;
+						}
+						
+						returnBack.getClickable(playerId).setYellow(clickableYellow);
+						
+						break;
+						
+					case enterCrossBlue:
+						
+						boolean[] clickableBlue = players[playerId].getManagement().getBlue().getFields();
+						for(int i = 0; i < clickableBlue.length; i++) {
+							
+							if(clickableBlue[i] == true)
+								clickableBlue[i] = false;
+							else
+								clickableBlue[i] = true;
+						}
+						
+						returnBack.getClickable(playerId).setBlue(clickableBlue);
+						
+						break;
+					}
 					
 					//TODO clickable
 					
@@ -448,7 +480,7 @@ public class MainLogic {
 			currentFieldId[playerId] = fieldId;
 			
 			clickableDices = players[playerId].getManagement().getBlue().clickableDices(
-					this.dices[Color.blue.ordinal()], this.dices[Color.white.ordinal()]);
+					this.dices[Color.blue.ordinal()], this.dices[Color.white.ordinal()], fieldId);
 			
 			if(this.dices[Color.blue.ordinal()].getField() == -1 && 
 					this.dices[Color.blue.ordinal()].isOnTray() == false && 
@@ -746,8 +778,7 @@ public class MainLogic {
 
 			returnBack.setClickable(players[i].getManagement().isClickable(), i);
 			returnBack.getClickable(i).setPlayerId(i);
-			returnBack.getClickable(i).setRollDices(false);// TODO
-
+			
 			Matchfield matchfield = new Matchfield();
 
 			matchfield.setYellow(players[i].getManagement().getYellow().getFields());
