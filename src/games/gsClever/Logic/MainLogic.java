@@ -443,21 +443,8 @@ public class MainLogic {
 			else
 				throw new CannotUseAdditionalDiceException();
 
-			// TODO
-			
-			boolean[] additionalDices = new boolean[6];
-			
-			for(int i = 0; i < 6; i++) {
+			returnBack.setClickable(players[playerId].getManagement().isClickable(), playerId);
 				
-				if(dices[i].isOnTray() == true)
-					additionalDices[i] = true;
-			}
-			
-			//TODO auf DecisionMaker anpassen
-//			returnBack.getClickable(playerId).setDices(additionalDices);
-			
-			nextArea[playerId] = Area.decisionMaker;
-
 			break;
 
 		case specialEvent:
