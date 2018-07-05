@@ -1288,96 +1288,96 @@ function extractArray(x) {
 	    break;
 	    }
 	case 73:{
-		setYellowClickable(1, 0);
+		setYellowClickable(1, 0,x[i]);
 	    break;
 	}
 	case 74:{
-	    	setYellowClickable(1, 1);
+	    	setYellowClickable(1, 1,x[i]);
 	    break;
 	}
 	case 75:{
-		setYellowClickable(1, 2);
+		setYellowClickable(1, 2,x[i]);
 	    break;
 	}
 	case 76:{
-		setYellowClickable(1, 3);
+		setYellowClickable(1, 3,x[i]);
 	    break;
 	}
 	case 77:{
-		setYellowClickable(1, 4);
+		setYellowClickable(1, 4,x[i]);
 	    break;
 	}
 	case 78:{
-		setYellowClickable(1, 5);
+		setYellowClickable(1, 5,x[i]);
 	    break;
 	}
 	case 79:{
-		setYellowClickable(1, 6);
+		setYellowClickable(1, 6,x[i]);
 	    break;
 	}
 	case 80:{
-		setYellowClickable(1, 7);
+		setYellowClickable(1, 7,x[i]);
 	    break;
 	}
 	case 81:{
-		setYellowClickable(1, 8);
+		setYellowClickable(1, 8,x[i]);
 	    break;
 	}
 	case 82:{
-		setYellowClickable(1, 9);
+		setYellowClickable(1, 9,x[i]);
 	    break;
 	}
 	case 83:{
-		setYellowClickable(1, 10);
+		setYellowClickable(1, 10,x[i]);
 	    break;
 	}
 	case 84:{
-		setYellowClickable(1, 11);
+		setYellowClickable(1, 11,x[i]);
 	    break;
 	}
 	case 85:{
-		setBlueClickable(1, 0);
+		setBlueClickable(1, 0,x[i]);
 	    break;
 	}
 	case 86:{
-		setBlueClickable(1, 1);
+		setBlueClickable(1, 1,x[i]);
 	    break;
 	}
 	case 87:{
-		setBlueClickable(1, 2);
+		setBlueClickable(1, 2,x[i]);
 	    break;
 	}
 	case 88:{
-		setBlueClickable(1, 3);
+		setBlueClickable(1, 3,x[i]);
 	    break;
 	}
 	case 89:{
-		setBlueClickable(1, 4);
+		setBlueClickable(1, 4,x[i]);
 	    break;
 	}
 	case 90:{
-		setBlueClickable(1, 5);
+		setBlueClickable(1, 5,x[i]);
 	    break;
 	}
 	case 91:{
-		setBlueClickable(1, 6);
+		setBlueClickable(1, 6,x[i]);
 	    break;
 	}
 	case 92:{
-		setBlueClickable(1, 7);
+		setBlueClickable(1, 7,x[i]);
 	    break;
 	}
 	case 93:{
-	    setBlueClickable(1, 8);
+	    setBlueClickable(1, 8,x[i]);
 	    break;
 	}
 	case 94:{
-	    setBlueClickable(1, 9);
+	    setBlueClickable(1, 9,x[i]);
 	    break;
 	}
 	
 	case 95:{
-	    setBlueClickable(1, 10);
+	    setBlueClickable(1, 10,x[i]);
 	    break;
 	}
 	case 96:{
