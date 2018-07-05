@@ -137,3 +137,6 @@
 [2018-07-05 10:25:34.459] [IP: /141.99.208.87] [LOGIN] Logging in user "admin" succeeded
 [2018-07-05 10:42:40.789] [IP: /141.99.208.87] [LOGIN] Logging in user "admin" succeeded
 [2018-07-05 11:08:21.301] [IP: /141.99.208.87] [LOGIN] Logging in user "admin" succeeded
+[2018-07-05 16:08:33.044] [IP: /192.168.178.29] [LOGIN] Logging in user "nico" succeeded
+[2018-07-05 16:09:05.035] [IP: /192.168.178.29] [LOGIN] Logging in user "nico" succeeded
+[2018-07-05 16:09:22.088] [IP: /192.168.178.29] [LOGIN] Logging in user "admin" succeeded

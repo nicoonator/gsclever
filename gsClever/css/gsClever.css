@@ -59,7 +59,6 @@
 	left: 100px;
 	height: 600px;
 	position: absolute;
-	visibility:visible;
 }
 
 .Nachwuerfeln1 {
@@ -1003,7 +1002,7 @@ min-width:392px;
 
 #spielfeld {
 	
-	visibility:visible;
+	visibility:hidden;
 }
 
 #Lobby{
