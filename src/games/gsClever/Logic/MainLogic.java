@@ -50,7 +50,7 @@ public class MainLogic {
 		this.playerCount = playerCount;
 	}
 
-	public void nextPlayer() {
+	public boolean nextPlayer() {
 
 		clearTray();
 		clearDiceFields();
@@ -65,12 +65,18 @@ public class MainLogic {
 			currentSpecialEvent[i] = null;
 			ready[i] = false;
 		}
-
-		if (currentPlayer < playerCount - 1)
+		
+		if (currentPlayer < playerCount - 1) {
+			
 			currentPlayer++;
+			
+			return true;
+		}
 		else {
+			
 			currentPlayer = 0;
-			startRound();
+			
+			return startRound();
 		}
 	}
 
@@ -286,6 +292,9 @@ public class MainLogic {
 			returnBack.getClickable(playerId).setPurple(clickablePurple);
 			
 			break;
+			
+		default:
+			break;
 		}
 	}
 
@@ -497,6 +506,9 @@ public class MainLogic {
 							Area.purple, fieldId - Color.purple.ordinal() * 100, 6);
 				}
 				
+				break;
+				
+			default:
 				break;
 			}
 			
@@ -906,7 +918,10 @@ public class MainLogic {
 			
 			if(allReady == true) {
 				
-				nextPlayer();
+				if(nextPlayer() == false) {
+				
+					List<Integer> winners = investigateWinner(); //TODO winners und einzelne Punkte zurückgeben
+				}
 				
 				returnBack.getClickable(currentPlayer).setRollDices(true);
 				
