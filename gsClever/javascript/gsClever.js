@@ -970,7 +970,61 @@ function extractArray(x) {
 		}
 	    break;
 	}
-	//TODO 22-31
+	
+	case 23:{
+		if(x[i]==1){
+			setYellowX(1, 2);
+		}
+	    break;
+	}
+	case 24:{
+		if(x[i]==1){
+			setYellowX(1, 3);
+		}
+	    break;
+	}
+	case 25:{
+		if(x[i]==1){
+			setYellowX(1, 4);
+		}
+	    break;
+	}
+	case 26:{
+		if(x[i]==1){
+			setYellowX(1, 5);
+		}
+	    break;
+	}
+	case 27:{
+		if(x[i]==1){
+			setYellowX(1, 6);
+		}
+	    break;
+	}
+	case 28:{
+		if(x[i]==1){
+			setYellowX(1, 7);
+		}
+	    break;
+	}
+	case 29:{
+		if(x[i]==1){
+			setYellowX(1, 8);
+		}
+	    break;
+	}
+	case 30:{
+		if(x[i]==1){
+			setYellowX(1, 9);
+		}
+	    break;
+	}
+	case 31:{
+		if(x[i]==1){
+			setYellowX(1, 10);
+		}
+	    break;
+	}
 	case 32:{
 		if(x[i]==1){
 			setYellowX(1, 11);
@@ -989,7 +1043,55 @@ function extractArray(x) {
 		}
 	    break;
 	}
-	//TODO 35-42
+	case 35:{
+		if(x[i]==1){
+			setBlueX(1, 2);
+		}
+	    break;
+	}
+	case 36:{
+		if(x[i]==1){
+			setBlueX(1, 3);
+		}
+	    break;
+	}
+	case 37:{
+		if(x[i]==1){
+			setBlueX(1, 4);
+		}
+	    break;
+	}
+	case 38:{
+		if(x[i]==1){
+			setBlueX(1, 5);
+		}
+	    break;
+	}
+	case 39:{
+		if(x[i]==1){
+			setBlueX(1, 6);
+		}
+	    break;
+	}
+	case 40:{
+		if(x[i]==1){
+			setBlueX(1, 7);
+		}
+	    break;
+	}
+	case 41:{
+		if(x[i]==1){
+			setBlueX(1, 8);
+		}
+	    break;
+	}
+	case 42:{
+		if(x[i]==1){
+			setBlueX(1, 9);
+		}
+	    break;
+	}
+	
 	case 43:{
 		if(x[i]==1){
 			setBlueX(1, 10);
