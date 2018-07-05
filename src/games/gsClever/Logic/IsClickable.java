@@ -17,7 +17,11 @@ public class IsClickable {
 		playerId = -1;
 		rollDices = false;
 		yellow = new boolean[12];
+		for(int i = 0; i < 12; i++)
+			yellow[i] = false;
 		blue = new boolean[11];
+		for(int i = 0; i < 11; i++)
+			blue[i] = false;
 		green = false;
 		orange = false;
 		purple = false;
