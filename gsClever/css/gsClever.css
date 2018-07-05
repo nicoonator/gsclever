@@ -916,7 +916,7 @@ min-width:392px;
 
 
 
-.buttonwurf {
+#buttonwurf {
 	top: 435px;
 	left: 100px;
 	height: 44px;
@@ -925,7 +925,7 @@ min-width:392px;
 	background: white;
 }
 
-.buttonNachwurf {
+#buttonNachwurf {
 	top: 435px;
 	left: 180px;
 	height: 44px;
@@ -934,7 +934,7 @@ min-width:392px;
 	background: white;
 }
 
-.buttonZusatzWuerfel {
+#buttonZusatzWuerfel {
 	top: 480px;
 	left: 100px;
 	height: 44px;
@@ -943,7 +943,7 @@ min-width:392px;
 	background: white;
 }
 
-.buttonSpieler2 {
+#buttonSpieler2 {
 	top: 250px;
 	left: 325px;
 	height: 44px;
@@ -952,7 +952,7 @@ min-width:392px;
 	background: white;
 }
 
-.buttonSpieler3 {
+#buttonSpieler3 {
 	top: 294px;
 	left: 325px;
 	height: 44px;
@@ -961,7 +961,7 @@ min-width:392px;
 	background: white;
 }
 
-.buttonSpieler4 {
+#buttonSpieler4 {
 	top: 338px;
 	left: 325px;
 	height: 44px;
@@ -970,7 +970,7 @@ min-width:392px;
 	background: white;
 }
 
-.buttonUeberspringen {
+#buttonUeberspringen {
 	top: 480px;
 	left: 210px;
 	height: 44px;

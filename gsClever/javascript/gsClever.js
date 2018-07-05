@@ -123,9 +123,7 @@ function setField(x) {
 function getDiceImg(x) {
     switch (x) {
     case 0:
-	return
-	
-
+	return
     case 1:
 	return Blau1
     case 2:
@@ -138,7 +136,7 @@ function getDiceImg(x) {
 	return Blau5
     case 6:
 	return Blau6
-
+	
     case 7:
 	return Gelb1
     case 8:
@@ -362,7 +360,7 @@ function setDiceOnTray(x) {
     }
 }
 
-function setDiceOnTray(x) {
+function setDiceOnField(x) {
     if (x > 0 && x <= 6) {
 	document.getElementById("wuerfelfeldblue").src = getDiceImg(x);
     }
@@ -370,13 +368,13 @@ function setDiceOnTray(x) {
 	document.getElementById("wuerfelfeldyellow").src = getDiceImg(x);
     }
     if (x > 12 && x <= 18) {
-	document.getElementById("wuerfelfeldorange").src = getDiceImg(x);
-    }
-    if (x > 18 && x <= 24) {
 	document.getElementById("wuerfelfeldgreen").src = getDiceImg(x);
     }
-    if (x > 24 && x <= 30) {
+    if (x > 18 && x <= 24) {
 	document.getElementById("wuerfelfeldpurple").src = getDiceImg(x);
+    }
+    if (x > 24 && x <= 30) {
+	document.getElementById("wuerfelfeldorange").src = getDiceImg(x);
     }
     if (x > 30 && x <= 36) {
 	document.getElementById("wuerfelfeldwhite").src = getDiceImg(x);
@@ -490,23 +488,23 @@ function getFieldID(SpielerNR){
 			case 2: {
 			    switch(userNumber){
 			    case 1: return "spieler2";
-			    case 3: return "spieler3";
-			    case 4: return "spieler4";
+			    case 3: return "spieler2";
+			    case 4: return "spieler2";
 			    }
 			    break;
 			}
 			case 3: {
 			    switch(userNumber){
-			    case 2: return "spieler2";
+			    case 2: return "spieler3";
 			    case 1: return "spieler3";
-			    case 4: return "spieler4";
+			    case 4: return "spieler3";
 			    }
 			    break;
 			}
 			case 4: {
 			    switch(userNumber){
-			    case 2: return "spieler2";
-			    case 3: return "spieler3";
+			    case 2: return "spieler4";
+			    case 3: return "spieler4";
 			    case 1: return "spieler4";
 			    }
 			    break;
@@ -621,8 +619,8 @@ function setDiceOnField(fieldNR, dice){
 }
 
 
-function setNachwuerfelX(SpielerNR, anz /*anzahlkreise*/){
-    //TODO BUGFIX
+function setNachwuerfelX(SpielerNR, anz /* anzahlkreise */){
+    // TODO BUGFIX
 	var nodes = document.getElementById(getFieldID(SpielerNR)).childNodes;
 	if (anz >= 1){
 	    for(var i=0; i<nodes.length; i++) {
@@ -674,8 +672,8 @@ function setNachwuerfelX(SpielerNR, anz /*anzahlkreise*/){
         }
     }
 }
-function setNachwuerfelKreis(SpielerNR, anz /*anzahlkreise*/){
-    //TODO BUGFIX
+function setNachwuerfelKreis(SpielerNR, anz /* anzahlkreise */){
+    // TODO BUGFIX
 	var nodes = document.getElementById(getFieldID(SpielerNR)).childNodes;
 	if (anz >= 1){
 	    for(var i=0; i<nodes.length; i++) {
@@ -728,8 +726,8 @@ function setNachwuerfelKreis(SpielerNR, anz /*anzahlkreise*/){
     }
 }
 
-function setZusatzwuerfelX(SpielerNR, anz /*anzahlkreise*/){
-    //TODO BUGFIX
+function setZusatzwuerfelX(SpielerNR, anz /* anzahlkreise */){
+    // TODO BUGFIX
 	var nodes = document.getElementById(getFieldID(SpielerNR)).childNodes;
 	if (anz >= 1){
 	    for(var i=0; i<nodes.length; i++) {
@@ -781,8 +779,8 @@ function setZusatzwuerfelX(SpielerNR, anz /*anzahlkreise*/){
         }
     }
 }
-function setZusatzwuerfelKreis(SpielerNR, anz /*anzahlkreise*/){
-    //TODO BUGFIX
+function setZusatzwuerfelKreis(SpielerNR, anz /* anzahlkreise */){
+    // TODO BUGFIX
 	var nodes = document.getElementById(getFieldID(SpielerNR)).childNodes;
 	if (anz >= 1){
 	    for(var i=0; i<nodes.length; i++) {
@@ -835,7 +833,7 @@ function setZusatzwuerfelKreis(SpielerNR, anz /*anzahlkreise*/){
     }
 }
 
-//TEMPLATE
+// TEMPLATE
 function f(SpielerNR, x){
     switch (x){
     case 1:{
@@ -853,6 +851,133 @@ function f(SpielerNR, x){
     }
 }
 
+function getYellowFieldByID(x){
+    return "yellowfield"+(x+1);
+}
+function getBlueFieldByID(x){
+    return "bluefield"+(x+2);
+}
+function getGreenFieldByID(x){
+    return "greenfield"+(x+1);
+}
+function getOrangeFieldByID(x){
+    return "orangefield"+(x+1);
+}
+function getPurpleFieldByID(x){
+    return "purplefield"+(x+1);
+}
+
+function setYellowX(SpielerNR, x){
+    var nodes = document.getElementById(getFieldID(SpielerNR)).childNodes;
+    for(var i=0; i<nodes.length; i++) {
+	    if (nodes[i].className == getYellowFieldByID(x)) {
+		nodes[i].src=ximg;
+	    }
+    }	
+}
+function setBlueX(SpielerNR, x){
+    var nodes = document.getElementById(getFieldID(SpielerNR)).childNodes;
+    for(var i=0; i<nodes.length; i++) {
+	    if (nodes[i].className == getBlueFieldByID(x)) {
+		nodes[i].src=ximg;
+	    }
+    }	
+}
+function setGreenX(SpielerNR, x){
+    var nodes = document.getElementById(getFieldID(SpielerNR)).childNodes;
+        for(var j=0; j<x;j++){
+        	for(var i=0; i<nodes.length; i++) {
+        	    if (nodes[i].className == getGreenFieldByID(j)) {
+        		nodes[i].src=ximg;
+        	    }
+            }	
+        }
+}
+//Spieler1 Feld:0 Wert von: x[i]
+function setOrange(SpielerNR, field, value){
+    if(value){
+        var nodes = document.getElementById(getFieldID(SpielerNR)).childNodes;
+        for(var i=0; i<nodes.length; i++) {
+    	    if (nodes[i].className == getOrangeFieldByID(field)) {
+    		nodes[i].src=getNumberImg(value);
+    	    }
+        }	
+    }
+}
+function setPurple(SpielerNR, field, value){
+    if(value){
+        var nodes = document.getElementById(getFieldID(SpielerNR)).childNodes;
+        for(var i=0; i<nodes.length; i++) {
+    	    if (nodes[i].className == getPurpleFieldByID(field)) {
+    		nodes[i].src=getNumberImg(value);
+    	    }
+        }	
+    }
+}
+function setNachwuerfelnClickable(x){
+    if(x==1){
+	document.getElementById("buttonNachwurf").setAttribute('onclick','nachwuerfeln()');
+    }else{
+	document.getElementById("buttonNachwurf").setAttribute('onclick','');
+    }
+}
+function setZusatzwuerfelnClickable(x){
+    if(x==1){
+	document.getElementById("buttonZusatzWuerfel").setAttribute('onclick','zusatzwuerfeln()');
+    }else{
+	document.getElementById("buttonZusatzWuerfel").setAttribute('onclick','');
+    }
+}
+function setWuerfelnClickable(x){
+    if(x==1){
+	document.getElementById("buttonwurf").setAttribute('onclick','wuerfeln()');
+    }else{
+	document.getElementById("buttonwurf").setAttribute('onclick','');
+    }
+}
+function setColorDecider(x){
+    if(x){
+	document.getElementById("wuerfelfeldEntscheider1").setAttribute('onclick','SendDataToServer("COLORDECIDER")');
+    }else{
+	document.getElementById("wuerfelfeldEntscheider1").setAttribute('onclick','');
+    }
+}
+function setWhiteDecider(x){
+    if(x){
+	document.getElementById("wuerfelfeldEntscheider2").src=getDiceImg(WeissWert);
+	document.getElementById("wuerfelfeldEntscheider2").setAttribute('onclick','SendDataToServer("WHITEDECIDER")');
+    }else{
+	document.getElementById("wuerfelfeldEntscheider2").setAttribute('onclick','');
+    }
+}
+function setColorDeciderColor(x){
+    switch (x){
+    case 0:{
+	document.getElementById("wuerfelfeldEntscheider1").src="";
+	break;
+    }
+    case 1:{
+	document.getElementById("wuerfelfeldEntscheider1").src=getDiceImg(BlauWert);
+    	break;
+        }
+    case 2:{
+	document.getElementById("wuerfelfeldEntscheider1").src=getDiceImg(GelbWert);
+    	break;
+    }
+    case 3:{
+	document.getElementById("wuerfelfeldEntscheider1").src=getDiceImg(OrangeWert);
+    	break;
+    }
+    case 4:{
+	document.getElementById("wuerfelfeldEntscheider1").src=getDiceImg(LilaWert);
+    	break;
+    }
+    case 5:{
+	document.getElementById("wuerfelfeldEntscheider1").src=getDiceImg(GreenWert);
+    	break;
+    }
+    }
+}
 function extractArray(x) {
     // erst die Silberplatte loeschen
     clearTray();
@@ -1112,7 +1237,7 @@ function extractArray(x) {
 	    	setOrange(1,1, x[i]);
 	    break;
 	}
-	//TODO 47-54
+	// TODO 47-54
 	case 55:{
 	    	setOrange(1,10, x[i]);
 	    break;
@@ -1126,7 +1251,7 @@ function extractArray(x) {
 	    	setPurple(1,1, x[i]);
 	    break;
 	}
-	//TODO 58-65
+	// TODO 58-65
 	case 66:{
 		setPurple(1,10, x[i]);
 	    break;
@@ -1161,11 +1286,123 @@ function extractArray(x) {
 	    }
 	    break;
 	    }
+	case 72:{
+	    if(userNumber==1){
+		setColorDeciderColor(x[i]);
+	    }
+	    break;
+	    }
+	case 73:{
+		setYellowClickable(1, 0);
+	    break;
+	}
+	case 74:{
+	    	setYellowClickable(1, 1);
+	    break;
+	}
+	case 75:{
+		setYellowClickable(1, 2);
+	    break;
+	}
+	case 76:{
+		setYellowClickable(1, 3);
+	    break;
+	}
+	case 77:{
+		setYellowClickable(1, 4);
+	    break;
+	}
+	case 78:{
+		setYellowClickable(1, 5);
+	    break;
+	}
+	case 79:{
+		setYellowClickable(1, 6);
+	    break;
+	}
+	case 80:{
+		setYellowClickable(1, 7);
+	    break;
+	}
+	case 81:{
+		setYellowClickable(1, 8);
+	    break;
+	}
+	case 82:{
+		setYellowClickable(1, 9);
+	    break;
+	}
+	case 83:{
+		setYellowClickable(1, 10);
+	    break;
+	}
+	case 84:{
+		setYellowClickable(1, 11);
+	    break;
+	}
+	case 85:{
+		setBlueClickable(1, 0);
+	    break;
+	}
+	case 86:{
+		setBlueClickable(1, 1);
+	    break;
+	}
+	case 87:{
+		setBlueClickable(1, 2);
+	    break;
+	}
+	case 88:{
+		setBlueClickable(1, 3);
+	    break;
+	}
+	case 89:{
+		setBlueClickable(1, 4);
+	    break;
+	}
+	case 90:{
+		setBlueClickable(1, 5);
+	    break;
+	}
+	case 91:{
+		setBlueClickable(1, 6);
+	    break;
+	}
+	case 92:{
+		setBlueClickable(1, 7);
+	    break;
+	}
+	case 93:{
+	    setBlueClickable(1, 8);
+	    break;
+	}
+	case 94:{
+	    setBlueClickable(1, 9);
+	    break;
+	}
+	
+	case 95:{
+	    setBlueClickable(1, 10);
+	    break;
+	}
+	case 96:{
+	    setGreenClickable(1, x[i]);
+	    break;
+	}
+	case 97:{
+	    setOrangeClickable(1, x[i]);
+	    break;
+	}
+	case 98:{
+	    setPurpleClickable(1, x[i]);
+	    break;
+	}
+	// ENDE SPIELER 1
+	// START SPIELER 2
 	}
     }
 }
-//TODO: SetGreen/Blue/yellow/Orange/purple
-//TODO setColor/WhiteDecider
+//TODO Clickable
 
 function closeLobby(){
 	
