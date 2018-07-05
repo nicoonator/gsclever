@@ -1068,7 +1068,6 @@ function extractArray(x) {
 	// START SPIELER1 DATA
 	case 17:{
 	    setNachwuerfelnKreis(1, x[i]);
-	    setNachwuerfelnKreis(2,x[99])
 	    break;
 	}
 	case 18:{
@@ -1251,7 +1250,7 @@ function extractArray(x) {
 	// TODO 58-65
 	case 66:{
 		setPurple(1,10, x[i]);
-	
+	}
 	case 67:{
 	    if(userNumber==1){
 		setNachwuerfelnClickable(x[i]);
@@ -1397,7 +1396,6 @@ function extractArray(x) {
 	// START SPIELER2 DATA
 	case 99:{
 	    setNachwuerfelnKreis(2, x[i]);
-	    setNachwuerfelnKreis(3,x[99])
 	    break;
 	}
 	case 100:{
