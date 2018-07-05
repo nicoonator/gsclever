@@ -382,7 +382,7 @@ function setDiceOnTray(x) {
 	document.getElementById("wuerfelfeldwhite").src = getDiceImg(x);
     }
 }
-function clearWuerfelfeld ()) {
+function clearWuerfelfeld () {
     // Hier wird das Silberfeld zurueckgesetzt wenn die neuen Wuerfel geladen
     // werden
     document.getElementById("wuerfelfeldwhite").src = "";
