@@ -382,7 +382,7 @@ function setDiceOnTray(x) {
 	document.getElementById("wuerfelfeldwhite").src = getDiceImg(x);
     }
 }
-function clearWuerfelfeld ()) {
+function clearWuerfelfeld () {
     // Hier wird das Silberfeld zurueckgesetzt wenn die neuen Wuerfel geladen
     // werden
     document.getElementById("wuerfelfeldwhite").src = "";
@@ -620,60 +620,220 @@ function setDiceOnField(fieldNR, dice){
     }
 }
 
+
+function setNachwuerfelX(SpielerNR, anz /*anzahlkreise*/){
+    //TODO BUGFIX
+	var nodes = document.getElementById(getFieldID(SpielerNR)).childNodes;
+	if (anz >= 1){
+	    for(var i=0; i<nodes.length; i++) {
+		    if (nodes[i].className == "Nachwuerfeln1") {
+			nodes[i].src=circleximg;
+		    }
+	}
+	}
+	if (anz >= 2){
+	    for(var i=0; i<nodes.length; i++) {
+		    if (nodes[i].className== 'Nachwuerfeln2') {
+			nodes[i].src=circleximg;
+		    }
+	}
+	}
+        if (anz >= 3){
+            for(var i=0; i<nodes.length; i++) {
+		    if (nodes[i].className == 'Nachwuerfeln3') {
+			nodes[i].src=circleximg;
+		    }
+        }
+        }
+        if (anz >= 4){
+            for(var i=0; i<nodes.length; i++) {
+		    if (nodes[i].className== 'Nachwuerfeln4') {
+			nodes[i].src=circleximg;
+		    }
+        }
+        }
+        if (anz >= 5){
+            for(var i=0; i<nodes.length; i++) {
+		    if (nodes[i].className== 'Nachwuerfeln5') {
+			nodes[i].src=circleximg;
+		    }
+        }
+        }
+        if (anz >= 6){
+            for(var i=0; i<nodes.length; i++) {
+		    if (nodes[i].className== 'Nachwuerfeln6') {
+			nodes[i].src=circleximg;
+		    }
+        }
+        }
+        if (anz >= 7){
+            for(var i=0; i<nodes.length; i++) {
+		    if (nodes[i].className== 'Nachwuerfeln7') {
+			nodes[i].src=circleximg;
+		    }
+        }
+    }
+}
 function setNachwuerfelKreis(SpielerNR, anz /*anzahlkreise*/){
     //TODO BUGFIX
 	var nodes = document.getElementById(getFieldID(SpielerNR)).childNodes;
 	if (anz >= 1){
 	    for(var i=0; i<nodes.length; i++) {
-		    if (nodes[i].class== "Nachwuerfeln1") {
+		    if (nodes[i].className == "Nachwuerfeln1") {
 			nodes[i].src=circleimg;
 		    }
 	}
 	}
 	if (anz >= 2){
 	    for(var i=0; i<nodes.length; i++) {
-		    if (nodes[i].class== 'Nachwuerfeln2') {
+		    if (nodes[i].className== 'Nachwuerfeln2') {
 			nodes[i].src=circleimg;
 		    }
 	}
 	}
         if (anz >= 3){
             for(var i=0; i<nodes.length; i++) {
-		    if (nodes[i].class == 'Nachwuerfeln3') {
+		    if (nodes[i].className == 'Nachwuerfeln3') {
 			nodes[i].src=circleimg;
 		    }
         }
         }
         if (anz >= 4){
             for(var i=0; i<nodes.length; i++) {
-		    if (nodes[i].class== 'Nachwuerfeln4') {
+		    if (nodes[i].className== 'Nachwuerfeln4') {
 			nodes[i].src=circleimg;
 		    }
         }
         }
         if (anz >= 5){
             for(var i=0; i<nodes.length; i++) {
-		    if (nodes[i].class== 'Nachwuerfeln5') {
+		    if (nodes[i].className== 'Nachwuerfeln5') {
 			nodes[i].src=circleimg;
 		    }
         }
         }
         if (anz >= 6){
             for(var i=0; i<nodes.length; i++) {
-		    if (nodes[i].class== 'Nachwuerfeln6') {
+		    if (nodes[i].className== 'Nachwuerfeln6') {
 			nodes[i].src=circleimg;
 		    }
         }
         }
         if (anz >= 7){
             for(var i=0; i<nodes.length; i++) {
-		    if (nodes[i].class== 'Nachwuerfeln7') {
+		    if (nodes[i].className== 'Nachwuerfeln7') {
 			nodes[i].src=circleimg;
 		    }
         }
     }
 }
 
+function setZusatzwuerfelX(SpielerNR, anz /*anzahlkreise*/){
+    //TODO BUGFIX
+	var nodes = document.getElementById(getFieldID(SpielerNR)).childNodes;
+	if (anz >= 1){
+	    for(var i=0; i<nodes.length; i++) {
+		    if (nodes[i].className == "Zusatzwuerfeln1") {
+			nodes[i].src=circleximg;
+		    }
+	}
+	}
+	if (anz >= 2){
+	    for(var i=0; i<nodes.length; i++) {
+		    if (nodes[i].className== 'Zusatzwuerfeln2') {
+			nodes[i].src=circleximg;
+		    }
+	}
+	}
+        if (anz >= 3){
+            for(var i=0; i<nodes.length; i++) {
+		    if (nodes[i].className == 'Zusatzwuerfeln3') {
+			nodes[i].src=circleximg;
+		    }
+        }
+        }
+        if (anz >= 4){
+            for(var i=0; i<nodes.length; i++) {
+		    if (nodes[i].className== 'Zusatzwuerfeln4') {
+			nodes[i].src=circleximg;
+		    }
+        }
+        }
+        if (anz >= 5){
+            for(var i=0; i<nodes.length; i++) {
+		    if (nodes[i].className== 'Zusatzwuerfeln5') {
+			nodes[i].src=circleximg;
+		    }
+        }
+        }
+        if (anz >= 6){
+            for(var i=0; i<nodes.length; i++) {
+		    if (nodes[i].className== 'Zusatzwuerfeln6') {
+			nodes[i].src=circleximg;
+		    }
+        }
+        }
+        if (anz >= 7){
+            for(var i=0; i<nodes.length; i++) {
+		    if (nodes[i].className== 'Zusatzwuerfeln7') {
+			nodes[i].src=circleximg;
+		    }
+        }
+    }
+}
+function setZusatzwuerfelKreis(SpielerNR, anz /*anzahlkreise*/){
+    //TODO BUGFIX
+	var nodes = document.getElementById(getFieldID(SpielerNR)).childNodes;
+	if (anz >= 1){
+	    for(var i=0; i<nodes.length; i++) {
+		    if (nodes[i].className == "Zusatzwuerfeln1") {
+			nodes[i].src=circleimg;
+		    }
+	}
+	}
+	if (anz >= 2){
+	    for(var i=0; i<nodes.length; i++) {
+		    if (nodes[i].className== 'Zusatzwuerfeln2') {
+			nodes[i].src=circleimg;
+		    }
+	}
+	}
+        if (anz >= 3){
+            for(var i=0; i<nodes.length; i++) {
+		    if (nodes[i].className == 'Zusatzwuerfeln3') {
+			nodes[i].src=circleimg;
+		    }
+        }
+        }
+        if (anz >= 4){
+            for(var i=0; i<nodes.length; i++) {
+		    if (nodes[i].className== 'Zusatzwuerfeln4') {
+			nodes[i].src=circleimg;
+		    }
+        }
+        }
+        if (anz >= 5){
+            for(var i=0; i<nodes.length; i++) {
+		    if (nodes[i].className== 'Zusatzwuerfeln5') {
+			nodes[i].src=circleimg;
+		    }
+        }
+        }
+        if (anz >= 6){
+            for(var i=0; i<nodes.length; i++) {
+		    if (nodes[i].className== 'Zusatzwuerfeln6') {
+			nodes[i].src=circleimg;
+		    }
+        }
+        }
+        if (anz >= 7){
+            for(var i=0; i<nodes.length; i++) {
+		    if (nodes[i].className== 'Zusatzwuerfeln7') {
+			nodes[i].src=circleimg;
+		    }
+        }
+    }
+}
 
 //TEMPLATE
 function f(SpielerNR, x){
@@ -783,6 +943,7 @@ function extractArray(x) {
 	// START SPIELER1 DATA
 	case 17:{
 	    setNachwuerfelnKreis(1, x[i]);
+	    setNachwuerfelnKreis(2,x[99])
 	    break;
 	}
 	case 18:{
@@ -794,11 +955,49 @@ function extractArray(x) {
 	    break;
 	}
 	case 20:{
-    
+		setZusatzwuerfelnX(1, x[i]);
 	    break;
 	}
 	case 21:{
-    
+		if(x[i]==1){
+			setYellowX(1, 0);
+		}
+	    break;
+	}
+	case 22:{
+		if(x[i]==1){
+			setYellowX(1, 1);
+		}
+	    break;
+	}
+	//TODO 22-31
+	case 32:{
+		if(x[i]==1){
+			setYellowX(1, 11);
+		}
+	    break;
+	}
+	case 33:{
+		if(x[i]==1){
+			setBlueX(1, 0);
+		}
+	    break;
+	}
+	case 34:{
+		if(x[i]==1){
+			setBlueX(1, 1);
+		}
+	    break;
+	}
+	//TODO 35-42
+	case 43:{
+		if(x[i]==1){
+			setBlueX(1, 10);
+		}
+	    break;
+	}
+	case 44:{
+		setGreenX(1, x[i]);
 	    break;
 	}
 	}
