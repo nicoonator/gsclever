@@ -1102,10 +1102,70 @@ function extractArray(x) {
 		setGreenX(1, x[i]);
 	    break;
 	}
+	case 45:{
+	    	// Spieler1 Feld:0 Wert von: x[i]
+	    	setOrange(1,0, x[i]);
+	    break;
+	}
+	
+	case 46:{
+	    	setOrange(1,1, x[i]);
+	    break;
+	}
+	//TODO 47-54
+	case 55:{
+	    	setOrange(1,10, x[i]);
+	    break;
+	}
+	case 56:{
+		setPurple(1,0, x[i]);
+	    break;
+	}
+	
+	case 57:{
+	    	setPurple(1,1, x[i]);
+	    break;
+	}
+	//TODO 58-65
+	case 66:{
+		setPurple(1,10, x[i]);
+	    break;
+	}
+	case 67:{
+	    if(userNumber==1){
+		setNachwuerfelnClickable(x[i]);
+	    }
+	    break;
+	    }
+	case 68:{
+	    if(userNumber==1){
+		setZusatzwuerfelnClickable(x[i]);
+	    }
+	    break;
+	    }
+	case 69:{
+	    if(userNumber==1){
+		setWuerfelnClickable(x[i]);
+	    }
+	    break;
+	    }
+	case 70:{
+	    if(userNumber==1){
+		setColorDecider(x[i]);
+	    }
+	    break;
+	    }
+	case 71:{
+	    if(userNumber==1){
+		setWhiteDecider(x[i]);
+	    }
+	    break;
+	    }
 	}
     }
 }
-
+//TODO: SetGreen/Blue/yellow/Orange/purple
+//TODO setColor/WhiteDecider
 
 function closeLobby(){
 	
