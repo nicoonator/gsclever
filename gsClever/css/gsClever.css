@@ -931,7 +931,7 @@ input {
 }
 
 #spieler2 {
-	visibility: visible;
+	visibility: hidden;
 }
 
 #spieler3 {
