@@ -10,5 +10,6 @@ public enum SpecialEvent {
 	enterOrange4, 
 	enterOrange5, 
 	enterOrange6, 
-	enterPurple6
+	enterPurple6,
+	round4
 }
