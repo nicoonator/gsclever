@@ -362,6 +362,36 @@ function setDiceOnTray(x) {
     }
 }
 
+function setDiceOnTray(x) {
+    if (x > 0 && x <= 6) {
+	document.getElementById("wuerfelfeldblue").src = getDiceImg(x);
+    }
+    if (x > 6 && x <= 12) {
+	document.getElementById("wuerfelfeldyellow").src = getDiceImg(x);
+    }
+    if (x > 12 && x <= 18) {
+	document.getElementById("wuerfelfeldorange").src = getDiceImg(x);
+    }
+    if (x > 18 && x <= 24) {
+	document.getElementById("wuerfelfeldgreen").src = getDiceImg(x);
+    }
+    if (x > 24 && x <= 30) {
+	document.getElementById("wuerfelfeldpurple").src = getDiceImg(x);
+    }
+    if (x > 30 && x <= 36) {
+	document.getElementById("wuerfelfeldwhite").src = getDiceImg(x);
+    }
+}
+function clearWuerfelfeld ()) {
+    // Hier wird das Silberfeld zurueckgesetzt wenn die neuen Wuerfel geladen
+    // werden
+    document.getElementById("wuerfelfeldwhite").src = "";
+    document.getElementById("wuerfelfeldyellow").src = "";
+    document.getElementById("wuerfelfeldblue").src = "";
+    document.getElementById("wuerfelfeldorange").src = "";
+    document.getElementById("wuerfelfeldgreen").src = "";
+    document.getElementById("wuerfelfeldpurple").src = "";
+}
 function setRound(x) {
     var elements = document.getElementsByClassName('Rundefeld1');
     for (var i = 0; i < elements.length; i++) {
@@ -609,7 +639,7 @@ function setNachwuerfelKreis(SpielerNR, anz /*anzahlkreise*/){
 	}
         if (anz >= 3){
             for(var i=0; i<nodes.length; i++) {
-		    if (nodes[i].class== 'Nachwuerfeln3') {
+		    if (nodes[i].class == 'Nachwuerfeln3') {
 			nodes[i].src=circleimg;
 		    }
         }
@@ -753,23 +783,23 @@ function extractArray(x) {
 	// START SPIELER1 DATA
 	case 17:{
 	    setNachwuerfelnKreis(1, x[i]);
-	    break
+	    break;
 	}
 	case 18:{
-	    
-	    break
+		setNachwuerfelnX(1, x[i]);
+	    break;
 	}
 	case 19:{
-    
-	    break
+		setZusatzwuerfelnKreis(1, x[i]);
+	    break;
 	}
 	case 20:{
     
-	    break
+	    break;
 	}
 	case 21:{
     
-	    break
+	    break;
 	}
 	}
     }

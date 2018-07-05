@@ -636,27 +636,25 @@ public class gsClever extends Game {
 					result[i] = 1;
 				}
 				break;
-				/*
+				
 			case 70:
 				result[i] = 0;
-				if (testReturn.getClickable(0).) {
+				if (testReturn.getDecisionMaker(0).isColorDiceActive()) {
 					result[i] = 1;
 				}
 				break;
 			case 71:
 				result[i] = 0;
-				if (testReturn.getClickable(0).) {
+				if (testReturn.getDecisionMaker(0).isWhiteDiceActive()) {
 					result[i] = 1;
 				}
 				break;
 			case 72:
 				result[i] = 0;
-				if (testReturn.getClickable(0).isRollDices()) {
-					result[i] = 1;
+				if (result[i-2]==1) {
+					result[i] = testReturn.getDecisionMaker(0).getColorOfDice().ordinal()+1;
 				}
 				break;
-				*/
-				//TODO
 			case 73:
 				if (testReturn.getClickable(0).getYellow()[0]) {
 					result[i] = 1;
@@ -1228,8 +1226,12 @@ public class gsClever extends Game {
 				} else
 					result[i] = 0;
 				break;
+				//BEGIN SPIELER 3
 			case 181:
-				result[i] = testReturn.getMatchfield(2).getDiceRepeatCount();
+				result[i] = 0;
+				if (this.getCurrentPlayerAmount()>2) {
+					result[i] = testReturn.getMatchfield(2).getDiceRepeatCount();
+				}
 				break;
 			case 182:
 				result[i] = testReturn.getMatchfield(2).getDiceRepeatUsed();
@@ -1642,6 +1644,7 @@ public class gsClever extends Game {
 				} else
 					result[i] = 0;
 				break; 
+				//BEGIN SPIELER 4
 			case 263:
 				result[i] = testReturn.getMatchfield(3).getDiceRepeatCount();
 				break;
