@@ -249,7 +249,41 @@ public class MainLogic {
 			
 		case round4:
 			
-			//TODO
+			clickableYellow = players[playerId].getManagement().getYellow().getFields();
+			for(int i = 0; i < clickableYellow.length; i++) {
+				
+				if(clickableYellow[i] == true)
+					clickableYellow[i] = false;
+				else
+					clickableYellow[i] = true;
+			}
+			
+			clickableBlue = players[playerId].getManagement().getBlue().getFields();
+			for(int i = 0; i < clickableBlue.length; i++) {
+				
+				if(clickableBlue[i] == true)
+					clickableBlue[i] = false;
+				else
+					clickableBlue[i] = true;
+			}
+			
+			boolean clickableGreen = false;
+			if(players[playerId].getManagement().getGreen().getFields() < 11)
+				clickableGreen = true;
+			
+			boolean clickableOrange = false;
+			if(players[playerId].getManagement().getOrange().getFields()[10] == 0)
+				clickableOrange = true;
+			
+			boolean clickablePurple = false;
+			if(players[playerId].getManagement().getPurple().getFields()[10] == 0)
+				clickablePurple = true;
+			
+			returnBack.getClickable(playerId).setYellow(clickableYellow);
+			returnBack.getClickable(playerId).setBlue(clickableBlue);
+			returnBack.getClickable(playerId).setGreen(clickableGreen);
+			returnBack.getClickable(playerId).setOrange(clickableOrange);
+			returnBack.getClickable(playerId).setPurple(clickablePurple);
 			
 			break;
 		}
@@ -440,6 +474,41 @@ public class MainLogic {
 				
 				currentSpecialEvent[playerId] = players[playerId].getManagement().enterCrossOrNumber(
 						Area.blue, fieldId, 0);
+				
+				break;
+				
+			case round4:
+				
+				//"fieldId" = fieldId + Color * 100
+				if(fieldId >= Color.yellow.ordinal() * 100 && fieldId < Color.yellow.ordinal() * 100 + 100) {
+					
+					currentSpecialEvent[playerId] = players[playerId].getManagement().enterCrossOrNumber(
+							Area.yellow, fieldId - Color.yellow.ordinal() * 100, 6);
+				}
+				
+				if(fieldId >= Color.blue.ordinal() * 100 && fieldId < Color.blue.ordinal() * 100 + 100) {
+					
+					currentSpecialEvent[playerId] = players[playerId].getManagement().enterCrossOrNumber(
+							Area.blue, fieldId - Color.blue.ordinal() * 100, 6);
+				}
+				
+				if(fieldId >= Color.green.ordinal() * 100 && fieldId < Color.green.ordinal() * 100 + 100) {
+					
+					currentSpecialEvent[playerId] = players[playerId].getManagement().enterCrossOrNumber(
+							Area.green, fieldId - Color.green.ordinal() * 100, 6);
+				}
+				
+				if(fieldId >= Color.orange.ordinal() * 100 && fieldId < Color.orange.ordinal() * 100 + 100) {
+					
+					currentSpecialEvent[playerId] = players[playerId].getManagement().enterCrossOrNumber(
+							Area.orange, fieldId - Color.orange.ordinal() * 100, 6);
+				}
+				
+				if(fieldId >= Color.purple.ordinal() * 100 && fieldId < Color.purple.ordinal() * 100 + 100) {
+					
+					currentSpecialEvent[playerId] = players[playerId].getManagement().enterCrossOrNumber(
+							Area.purple, fieldId - Color.purple.ordinal() * 100, 6);
+				}
 				
 				break;
 			}
@@ -852,9 +921,6 @@ public class MainLogic {
 				
 				nextPlayer();
 				
-				if(currentSpecialEvent[playerId] == SpecialEvent.round4)
-					clickableSpecialEvent(returnBack, playerId);
-				
 				returnBack.getClickable(currentPlayer).setRollDices(true);
 				
 				nextArea[currentPlayer] = Area.rollDices;
@@ -863,6 +929,13 @@ public class MainLogic {
 
 		for(int i = 0; i < playerCount; i++) {
 
+			if(currentSpecialEvent[i] == SpecialEvent.round4) {
+				
+				clickableSpecialEvent(returnBack, playerId);
+				
+				nextArea[i] = Area.specialEvent;
+			}
+			
 			returnBack.getClickable(i).setPlayerId(i);
 			
 			if(players[i].getManagement().getAdditionalDiceUsed() < 
