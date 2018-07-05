@@ -244,15 +244,7 @@ function getNumberImg(x) {
  * (window).on('load',function () { // TODO: Code goes here }
  */
 
-<<<<<<< HEAD
-
-
-    
-    
-function updateGameState(){
-=======
 function updateGameState() {
->>>>>>> branch 'master' of https://github.com/nicoonator/gsclever.git
     statusWait = true;
     sendDataToServer(sentFields);
 }
@@ -318,11 +310,6 @@ function setDice(x) {
     }
 }
 
-<<<<<<< HEAD
-
-function setDiceImg(x){
-    if(x>0 && x<=6){
-=======
 function clearTray() {
     // Hier wird das Silberfeld zurueckgesetzt wenn die neuen Wuerfel geladen
     // werden
@@ -336,7 +323,6 @@ function clearTray() {
 
 function setDiceImg(x) {
     if (x > 0 && x <= 6) {
->>>>>>> branch 'master' of https://github.com/nicoonator/gsclever.git
 	document.getElementById("wuerfelfeldsilber3").src = getDiceImg(x);
     }
     if (x > 6 && x <= 12) {
