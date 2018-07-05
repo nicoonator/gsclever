@@ -1102,70 +1102,179 @@ function extractArray(x) {
 		setGreenX(1, x[i]);
 	    break;
 	}
-	case 45:{
-	    	// Spieler1 Feld:0 Wert von: x[i]
-	    	setOrange(1,0, x[i]);
+	
+	
+	
+	// START SPIELER2 DATA
+	case 99:{
+	    setNachwuerfelnKreis(2, x[i]);
+	    setNachwuerfelnKreis(3,x[99])
+	    break;
+	}
+	case 100:{
+		setNachwuerfelnX(2, x[i]);
+	    break;
+	}
+	case 101:{
+		setZusatzwuerfelnKreis(2, x[i]);
+	    break;
+	}
+	case 102:{
+		setZusatzwuerfelnX(2, x[i]);
+	    break;
+	}
+	case 103:{
+		if(x[i]==1){
+			setYellowX(2, 0);
+		}
+	    break;
+	}
+	case 104:{
+		if(x[i]==1){
+			setYellowX(2, 1);
+		}
 	    break;
 	}
 	
-	case 46:{
-	    	setOrange(1,1, x[i]);
+	case 105:{
+		if(x[i]==1){
+			setYellowX(2, 2);
+		}
 	    break;
 	}
-	//TODO 47-54
-	case 55:{
-	    	setOrange(1,10, x[i]);
+	case 106:{
+		if(x[i]==1){
+			setYellowX(2, 3);
+		}
 	    break;
 	}
-	case 56:{
-		setPurple(1,0, x[i]);
+	case 107:{
+		if(x[i]==1){
+			setYellowX(2, 4);
+		}
+	    break;
+	}
+	case 108:{
+		if(x[i]==1){
+			setYellowX(2, 5);
+		}
+	    break;
+	}
+	case 109:{
+		if(x[i]==1){
+			setYellowX(2, 6);
+		}
+	    break;
+	}
+	case 110:{
+		if(x[i]==1){
+			setYellowX(2, 7);
+		}
+	    break;
+	}
+	case 111:{
+		if(x[i]==1){
+			setYellowX(2, 8);
+		}
+	    break;
+	}
+	case 112:{
+		if(x[i]==1){
+			setYellowX(2, 9);
+		}
+	    break;
+	}
+	case 113:{
+		if(x[i]==1){
+			setYellowX(2, 10);
+		}
+	    break;
+	}
+	case 114:{
+		if(x[i]==1){
+			setYellowX(2, 11);
+		}
+	    break;
+	}
+	case 115:{
+		if(x[i]==1){
+			setBlueX(2, 0);
+		}
+	    break;
+	}
+	case 116:{
+		if(x[i]==1){
+			setBlueX(2, 1);
+		}
+	    break;
+	}
+	case 117:{
+		if(x[i]==1){
+			setBlueX(2, 2);
+		}
+	    break;
+	}
+	case 118:{
+		if(x[i]==1){
+			setBlueX(2, 3);
+		}
+	    break;
+	}
+	case 119:{
+		if(x[i]==1){
+			setBlueX(2, 4);
+		}
+	    break;
+	}
+	case 120:{
+		if(x[i]==1){
+			setBlueX(2, 5);
+		}
+	    break;
+	}
+	case 121:{
+		if(x[i]==1){
+			setBlueX(2, 6);
+		}
+	    break;
+	}
+	case 122:{
+		if(x[i]==1){
+			setBlueX(2, 7);
+		}
+	    break;
+	}
+	case 123:{
+		if(x[i]==1){
+			setBlueX(2, 8);
+		}
+	    break;
+	}
+	case 124:{
+		if(x[i]==1){
+			setBlueX(2, 9);
+		}
 	    break;
 	}
 	
-	case 57:{
-	    	setPurple(1,1, x[i]);
+	case 125:{
+		if(x[i]==1){
+			setBlueX(2, 10);
+		}
 	    break;
 	}
-	//TODO 58-65
-	case 66:{
-		setPurple(1,10, x[i]);
+	case 126:{
+		setGreenX(2, x[i]);
 	    break;
 	}
-	case 67:{
-	    if(userNumber==1){
-		setNachwuerfelnClickable(x[i]);
-	    }
-	    break;
-	    }
-	case 68:{
-	    if(userNumber==1){
-		setZusatzwuerfelnClickable(x[i]);
-	    }
-	    break;
-	    }
-	case 69:{
-	    if(userNumber==1){
-		setWuerfelnClickable(x[i]);
-	    }
-	    break;
-	    }
-	case 70:{
-	    if(userNumber==1){
-		setColorDecider(x[i]);
-	    }
-	    break;
-	    }
-	case 71:{
-	    if(userNumber==1){
-		setWhiteDecider(x[i]);
-	    }
-	    break;
-	    }
+	
+	
+	
+	
 	}
     }
 }
-//TODO: SetGreen/Blue/yellow/Orange/purple
-//TODO setColor/WhiteDecider
+
 
 function closeLobby(){
 	
