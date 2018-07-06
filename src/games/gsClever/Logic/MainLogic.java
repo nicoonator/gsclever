@@ -3,6 +3,7 @@ package games.gsClever.Logic;
 import java.util.*;
 
 import games.gsClever.Exceptions.*;
+import userManagement.User;
 
 public class MainLogic {
 
@@ -18,18 +19,18 @@ public class MainLogic {
 	private Dice[] dices;
 	private Player[] players;
 
-	public MainLogic(int playerCount) {
+	public MainLogic(ArrayList<Player> userList) {
 
 		round = 0;
-		this.playerCount = playerCount;
+		this.playerCount = userList.size();
 		additionalDiceTime = false;
 		currentPlayer = 0;
 		
-		currentFieldId = new int[playerCount];
-		currentArea = new Area[playerCount];
-		nextArea = new Area[playerCount];
-		currentSpecialEvent = new SpecialEvent[playerCount];
-		ready = new boolean[playerCount];
+		currentFieldId = new int[userList.size()];
+		currentArea = new Area[userList.size()];
+		nextArea = new Area[userList.size()];
+		currentSpecialEvent = new SpecialEvent[userList.size()];
+		ready = new boolean[userList.size()];
 
 		dices = new Dice[6];
 		dices[0] = new Dice(Color.yellow);
@@ -39,10 +40,10 @@ public class MainLogic {
 		dices[4] = new Dice(Color.orange);
 		dices[5] = new Dice(Color.purple);
 
-		players = new Player[playerCount];
-		for (int id = 0; id < playerCount; id++) {
-
-			players[id] = new Player("player_" + String.valueOf(id), "pw", id);
+		players = new Player[userList.size()];
+		for (int id = 0; id < userList.size(); id++) {
+			
+			players[id] = userList.get(id);
 		}
 	}
 
