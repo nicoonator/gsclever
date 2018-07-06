@@ -782,7 +782,7 @@
 }
 
 input {
-	color: black;
+	color: black !important;
 }
 
 
@@ -986,6 +986,7 @@ min-width:392px;
 	position: absolute;
 	min-width: 275px;
 	background: white;
+	color:black;
 }
 
 #spieler2 {

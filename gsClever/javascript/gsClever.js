@@ -1,3 +1,16 @@
+addListener('USERJOINED',function (event) {
+    var stringFromServer = event.data;
+    // username*4
+    var temp=stringFromServer.split(",");
+    // alert(stringFromServer);
+    var table='<tr><th class="tg-s6z2">Spielernummer</th><th class="tg-baqh">Name</th><th class="tg-baqh">Status</th></tr>';
+    for(var i=0; i<temp.length;i++){
+        spieler[i]=temp[i];
+        table+=('<tr><th class="tg-s6z2">'+(i+1)+'</th><th class="tg-baqh">'+temp[i]+'</th><th class="tg-baqh">beigetreten</th></tr>');
+    }
+    $("#tableBody").html(table); 
+
+});
 addListener('standardEvent', function(event) {
     var stringFromServer = event.data;
     var arr = stringFromServer.split(',');
@@ -26,7 +39,7 @@ addListener('START', function(event) {
 addListener('PLAYERLEFT', function(event) {
     var stringFromServer = event.data;
     playerMessage = stringFromServer;
-    document.getElementById("Player").innerHTML = playerMessage;
+    document.getElementById("label").innerHTML = "Ein Spieler hat das Spiel verlassen";
 });
 addListener(
 	'CLOSE',
@@ -47,6 +60,7 @@ addListener('TESTWUERFELN', function(event) {
     setDice(number);
 });
 
+var spieler=new Array(4);
 var playerAmount = 2;
 var userNumber=0;
 // 1 = Host, 2 = Spieler2 usw...
