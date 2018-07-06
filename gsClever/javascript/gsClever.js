@@ -1605,8 +1605,39 @@ function extractArray(x) {
 	    	setOrange(1,1, +x[i]);
 	 break;
 	    }
-	// TODO 47-54
-	case 55:{
+	 case 47:{
+	    	setOrange(1,2, +x[i]);
+	 break;
+	    }
+	 case 48:{
+	    	setOrange(1,3, +x[i]);
+	 break;
+	    }
+	 case 49:{
+	    	setOrange(1,4, +x[i]);
+	 break;
+	    }
+	 case 50:{
+	    	setOrange(1,5, +x[i]);
+	 break;
+	    }
+	 case 51:{
+	    	setOrange(1,6, +x[i]);
+	 break;
+	    }
+	 case 52:{
+	    	setOrange(1,7, +x[i]);
+	 break;
+	    } 
+	 case 53:{
+	    	setOrange(1,8, +x[i]);
+	 break;
+	    }
+	 case 54:{
+	    	setOrange(1,9, +x[i]);
+	 break;
+	    }
+	 case 55:{
 	    	setOrange(1,10, +x[i]);
 	}
 	case 56:{
@@ -1617,7 +1648,40 @@ function extractArray(x) {
 	    	setPurple(1,1, +x[i]);
 	break;
 	    	}
-	// TODO 58-65
+	
+	case 58:{
+    	setPurple(1,2, +x[i]);
+break;
+    	}
+	case 59:{
+    	setPurple(1,3, +x[i]);
+break;
+    	}
+	case 60:{
+    	setPurple(1,4, +x[i]);
+break;
+    	}
+	case 61:{
+    	setPurple(1,5, +x[i]);
+break;
+    	}
+	case 62:{
+    	setPurple(1,6, +x[i]);
+break;
+    	}
+	case 63:{
+    	setPurple(1,7, +x[i]);
+break;
+    	}
+	case 64:{
+    	setPurple(1,8, +x[i]);
+break;
+    	}
+	case 65:{
+    	setPurple(1,9, +x[i]);
+break;
+    	}
+	
 	case 66:{
 		setPurple(1,10, +x[i]);
 	}
@@ -1925,6 +1989,245 @@ function extractArray(x) {
 		setGreenX(2, +x[i]);
 	    break;
 	}
+	case 127:{
+    	setOrange(2,0, +x[i]);
+    	break;
+	}
+	case 128:{
+    	setOrange(2,1, +x[i]);
+    	break;
+	}
+	case 129:{
+    	setOrange(2,2, +x[i]);
+    	break;
+	}
+	case 130:{
+    	setOrange(2,3, +x[i]);
+    	break;
+	}
+	
+	case 131:{
+    	setOrange(2,4, +x[i]);
+    	break;
+	}	
+	case 132:{
+    	setOrange(2,5, +x[i]);
+    	break;
+	}	
+	case 133:{
+    	setOrange(2,6, +x[i]);
+    	break;
+	}	
+	case 134:{
+    	setOrange(2,7, +x[i]);
+    	break;
+	}	
+	case 135:{
+    	setOrange(2,8, +x[i]);
+    	break;
+	}	
+	case 136:{
+    	setOrange(2,9, +x[i]);
+    	break;
+}	
+	case 137:{
+    	setOrange(2,10, +x[i]);
+    	break;
+	}	
+	case 138:{
+    	setPurple(2,0, +x[i]);
+break;
+    	}
+	case 139:{
+    	setPurple(2,1, +x[i]);
+break;
+    	}
+	case 140:{
+    	setPurple(2,2, +x[i]);
+break;
+    	}
+	case 141:{
+    	setPurple(2,3, +x[i]);
+break;
+    	}
+	case 142:{
+    	setPurple(2,4, +x[i]);
+break;
+    	}
+	case 143:{
+	    setPurple(2,5, +x[i]);
+	    break;
+	    	    	}
+	case 144:{
+	setPurple(2,6, +x[i]);
+break;
+	}
+case 145:{
+	setPurple(2,7, +x[i]);
+break;
+	}
+case 146:{
+	setPurple(2,8, +x[i]);
+break;
+	}
+case 147:{
+	setPurple(2,9, +x[i]);
+break;
+	}
+case 148:{
+	setPurple(2,10, +x[i]);
+break;
+	}
+case 149:{
+    if(userNumber==2){
+	setNachwuerfelnClickable(+x[i]);
+    }
+    break;
+    }
+case 150:{
+    if(userNumber==2){
+	setZusatzwuerfelnClickable(+x[i]);
+    }
+    break;
+    }
+case 151:{
+    if(userNumber==2){
+	setWuerfelnClickable(+x[i]);
+    }
+    break;
+    }
+case 152:{
+    if(userNumber==2){
+	setColorDecider(+x[i]);
+    }
+    break;
+    }
+case 153:{
+    if(userNumber==2){
+	setWhiteDecider(+x[i]);
+    }
+    break;
+    }
+case 154:{
+    if(userNumber==2){
+	setColorDeciderColor(+x[i]);
+    }
+    break;
+    }
+case 155:{
+	setYellowClickable(2, 0,+x[i]);
+    break;
+}
+case 156:{
+    setYellowClickable(2, 1,+x[i]);
+    break;
+}
+case 157:{
+	setYellowClickable(2, 2,+x[i]);
+    break;
+}
+case 158:{
+	setYellowClickable(2, 3,+x[i]);
+    break;
+}
+case 159:{
+	setYellowClickable(2, 4,+x[i]);
+    break;
+}
+case 160:{
+	setYellowClickable(2, 5,+x[i]);
+    break;
+}
+case 161:{
+	setYellowClickable(2, 6,+x[i]);
+    break;
+}
+case 162:{
+	setYellowClickable(2, 7,+x[i]);
+    break;
+}
+case 163:{
+	setYellowClickable(2, 8,+x[i]);
+    break;
+}
+case 164:{
+	setYellowClickable(2, 9,+x[i]);
+    break;
+}
+case 165:{
+	setYellowClickable(2, 10,+x[i]);
+    break;
+}
+case 166:{
+	setYellowClickable(2, 11,+x[i]);
+    break;
+}
+case 167:{
+	setBlueClickable(2, 0,+x[i]);
+    break;
+}
+case 168:{
+	setBlueClickable(2, 1,+x[i]);
+    break;
+}
+case 169:{
+	setBlueClickable(2, 2,+x[i]);
+    break;
+}
+case 170:{
+	setBlueClickable(2, 3,+x[i]);
+    break;
+}
+case 171:{
+	setBlueClickable(2, 4,+x[i]);
+    break;
+}
+case 172:{
+	setBlueClickable(2, 5,+x[i]);
+    break;
+}
+case 173:{
+	setBlueClickable(2, 6,+x[i]);
+    break;
+}
+case 174:{
+	setBlueClickable(2, 7,+x[i]);
+    break;
+}
+case 175:{
+    setBlueClickable(2, 8,+x[i]);
+    break;
+}
+case 176:{
+    setBlueClickable(2, 9,+x[i]);
+    break;
+}
+case 177:{
+    setBlueClickable(2, 10,+x[i]);
+    break;
+}
+case 178:{
+    setGreenClickable(2, +x[i]);
+    break;
+}
+case 179:{
+    setOrangeClickable(2, +x[i]);
+    break;
+}
+case 180:{
+    setPurpleClickable(2, +x[i]);
+    break;
+}
+//ENDE SPIELER 2
+// START SPIELER3 DATA
+
+
+
+
+
+
+
+
 	}
     }
 }
