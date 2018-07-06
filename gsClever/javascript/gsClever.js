@@ -2221,10 +2221,780 @@ case 180:{
 //ENDE SPIELER 2
 // START SPIELER3 DATA
 
+case 181:{
+    setNachwuerfelnKreis(3, +x[i]);
+    break;
+}
+case 182:{
+	setNachwuerfelnX(3, +x[i]);
+    break;
+}
+case 183:{
+	setZusatzwuerfelnKreis(3, +x[i]);
+    break;
+}
+case 184:{
+	setZusatzwuerfelnX(3, +x[i]);
+    break;
+}
+case 185:{
+	if(+x[i]==1){
+		setYellowX(3, 0);
+	}
+    break;
+}
+case 186:{
+	if(+x[i]==1){
+		setYellowX(3, 1);
+	}
+    break;
+}
 
+case 187:{
+	if(+x[i]==1){
+		setYellowX(3, 2);
+	}
+    break;
+}
+case 188:{
+	if(+x[i]==1){
+		setYellowX(3, 3);
+	}
+    break;
+}
+case 189:{
+	if(+x[i]==1){
+		setYellowX(3, 4);
+	}
+    break;
+}
+case 190:{
+	if(+x[i]==1){
+		setYellowX(3, 5);
+	}
+    break;
+}
+case 191:{
+	if(+x[i]==1){
+		setYellowX(3, 6);
+	}
+    break;
+}
+case 192:{
+	if(+x[i]==1){
+		setYellowX(3, 7);
+	}
+    break;
+}
+case 193:{
+	if(+x[i]==1){
+		setYellowX(3, 8);
+	}
+    break;
+}
+case 194:{
+	if(+x[i]==1){
+		setYellowX(3, 9);
+	}
+    break;
+}
+case 195:{
+	if(+x[i]==1){
+		setYellowX(3, 10);
+	}
+    break;
+}
+case 196:{
+	if(+x[i]==1){
+		setYellowX(3, 11);
+	}
+    break;
+}
+case 197:{
+	if(+x[i]==1){
+		setBlueX(3, 0);
+	}
+    break;
+}
+case 198:{
+	if(+x[i]==1){
+		setBlueX(3, 1);
+	}
+    break;
+}
+case 199:{
+	if(+x[i]==1){
+		setBlueX(3, 2);
+	}
+    break;
+}
+case 200:{
+	if(+x[i]==1){
+		setBlueX(3, 3);
+	}
+    break;
+}
+case 201:{
+	if(+x[i]==1){
+		setBlueX(3, 4);
+	}
+    break;
+}
+case 202:{
+	if(+x[i]==1){
+		setBlueX(3, 5);
+	}
+    break;
+}
+case 203:{
+	if(+x[i]==1){
+		setBlueX(3, 6);
+	}
+    break;
+}
+case 204:{
+	if(+x[i]==1){
+		setBlueX(3, 7);
+	}
+    break;
+}
+case 205:{
+	if(+x[i]==1){
+		setBlueX(3, 8);
+	}
+    break;
+}
+case 206:{
+	if(+x[i]==1){
+		setBlueX(3, 9);
+	}
+    break;
+}
+case 207:{
+	if(+x[i]==1){
+		setBlueX(3, 10);
+	}
+    break;
+}
+case 208:{
+	setGreenX(3, +x[i]);
+    break;
+}
+case 209:{
+	setOrange(3,0, +x[i]);
+	break;
+}
+case 210:{
+	setOrange(3,1, +x[i]);
+	break;
+}
+case 211:{
+	setOrange(3,2, +x[i]);
+	break;
+}
+case 212:{
+	setOrange(3,3, +x[i]);
+	break;
+}
+case 213:{
+	setOrange(3,4, +x[i]);
+	break;
+}	
+case 214:{
+	setOrange(3,5, +x[i]);
+	break;
+}	
+case 215:{
+	setOrange(3,6, +x[i]);
+	break;
+}	
+case 216:{
+	setOrange(3,7, +x[i]);
+	break;
+}	
+case 217:{
+	setOrange(3,8, +x[i]);
+	break;
+}	
+case 218:{
+	setOrange(3,9, +x[i]);
+	break;
+}	
+case 219:{
+	setOrange(3,10, +x[i]);
+	break;
+}	
+case 220:{
+	setPurple(3,0, +x[i]);
+break;
+	}
+case 221:{
+	setPurple(3,1, +x[i]);
+break;
+	}
+case 222:{
+	setPurple(3,2, +x[i]);
+break;
+	}
+case 223:{
+	setPurple(3,3, +x[i]);
+break;
+	}
+case 224:{
+	setPurple(3,4, +x[i]);
+break;
+	}
+case 225:{
+    setPurple(3,5, +x[i]);
+    break;   	    	}
+case 226:{
+	setPurple(3,6, +x[i]);
+break;
+}
+case 227:{
+	setPurple(3,7, +x[i]);
+break;
+}
+case 228:{
+	setPurple(3,8, +x[i]);
+break;
+}
+case 229:{
+	setPurple(3,9, +x[i]);
+break;
+}
+case 230:{
+	setPurple(3,10, +x[i]);
+break;
+}
+case 231:{
+    if(userNumber==3){
+	setNachwuerfelnClickable(+x[i]);
+    }
+    break;
+    }
+case 232:{
+    if(userNumber==3){
+	setZusatzwuerfelnClickable(+x[i]);
+    }
+    break;
+    }
+case 233:{
+    if(userNumber==3){
+	setWuerfelnClickable(+x[i]);
+    }
+    break;
+    }
+case 234:{
+    if(userNumber==3){
+	setColorDecider(+x[i]);
+    }
+    break;
+    }
+case 235:{
+    if(userNumber==3){
+	setWhiteDecider(+x[i]);
+    }
+    break;
+    }
+case 236:{
+    if(userNumber==3){
+	setColorDeciderColor(+x[i]);
+    }
+    break;
+    }
+case 237:{
+	setYellowClickable(3, 0,+x[i]);
+    break;
+}
+case 238:{
+    setYellowClickable(3, 1,+x[i]);
+    break;
+}
+case 239:{
+	setYellowClickable(3, 2,+x[i]);
+    break;
+}
+case 240:{
+	setYellowClickable(3, 3,+x[i]);
+    break;
+}
+case 241:{
+	setYellowClickable(3, 4,+x[i]);
+    break;
+}
+case 242:{
+	setYellowClickable(3, 5,+x[i]);
+    break;
+}
+case 243:{
+	setYellowClickable(3, 6,+x[i]);
+    break;
+}
+case 244:{
+	setYellowClickable(3, 7,+x[i]);
+    break;
+}
+case 245:{
+	setYellowClickable(3, 8,+x[i]);
+    break;
+}
+case 246:{
+	setYellowClickable(3, 9,+x[i]);
+    break;
+}
+case 247:{
+	setYellowClickable(3, 10,+x[i]);
+    break;
+}
+case 248:{
+	setYellowClickable(3, 11,+x[i]);
+    break;
+}
+case 249:{
+	setBlueClickable(3, 0,+x[i]);
+    break;
+}
+case 250:{
+	setBlueClickable(3, 1,+x[i]);
+    break;
+}
+case 251:{
+	setBlueClickable(3, 2,+x[i]);
+    break;
+}
+case 252:{
+	setBlueClickable(3, 3,+x[i]);
+    break;
+}
+case 253:{
+	setBlueClickable(3, 4,+x[i]);
+    break;
+}
+case 254:{
+	setBlueClickable(3, 5,+x[i]);
+    break;
+}
+case 255:{
+	setBlueClickable(3, 6,+x[i]);
+    break;
+}
+case 256:{
+	setBlueClickable(3, 7,+x[i]);
+    break;
+}
+case 257:{
+    setBlueClickable(3, 8,+x[i]);
+    break;
+}
+case 258:{
+    setBlueClickable(3, 9,+x[i]);
+    break;
+}
+case 259:{
+    setBlueClickable(3, 10,+x[i]);
+    break;
+}
+case 260:{
+    setGreenClickable(3, +x[i]);
+    break;
+}
+case 261:{
+    setOrangeClickable(3, +x[i]);
+    break;
+}
+case 262:{
+    setPurpleClickable(3, +x[i]);
+    break;
+}
+//ENDE SPIELER 3
+//START SPIELER4 DATA
+case 263:{
+    setNachwuerfelnKreis(4, +x[i]);
+    break;
+}
+case 264:{
+	setNachwuerfelnX(4, +x[i]);
+    break;
+}
+case 265:{
+	setZusatzwuerfelnKreis(4, +x[i]);
+    break;
+}
+case 266:{
+	setZusatzwuerfelnX(4, +x[i]);
+    break;
+}
+case 267:{
+	if(+x[i]==1){
+		setYellowX(4, 0);
+	}
+    break;
+}
+case 268:{
+	if(+x[i]==1){
+		setYellowX(4, 1);
+	}
+    break;
+}
 
-
-
+case 269:{
+	if(+x[i]==1){
+		setYellowX(4, 2);
+	}
+    break;
+}
+case 270:{
+	if(+x[i]==1){
+		setYellowX(4, 3);
+	}
+    break;
+}
+case 271:{
+	if(+x[i]==1){
+		setYellowX(4, 4);
+	}
+    break;
+}
+case 272:{
+	if(+x[i]==1){
+		setYellowX(4, 5);
+	}
+    break;
+}
+case 273:{
+	if(+x[i]==1){
+		setYellowX(4, 6);
+	}
+    break;
+}
+case 274:{
+	if(+x[i]==1){
+		setYellowX(4, 7);
+	}
+    break;
+}
+case 275:{
+	if(+x[i]==1){
+		setYellowX(4, 8);
+	}
+    break;
+}
+case 276:{
+	if(+x[i]==1){
+		setYellowX(4, 9);
+	}
+    break;
+}
+case 277:{
+	if(+x[i]==1){
+		setYellowX(4, 10);
+	}
+    break;
+}
+case 278:{
+	if(+x[i]==1){
+		setYellowX(4, 11);
+	}
+    break;
+}
+case 279:{
+	if(+x[i]==1){
+		setBlueX(4, 0);
+	}
+    break;
+}
+case 280:{
+	if(+x[i]==1){
+		setBlueX(4, 1);
+	}
+    break;
+}
+case 281:{
+	if(+x[i]==1){
+		setBlueX(4, 2);
+	}
+    break;
+}
+case 282:{
+	if(+x[i]==1){
+		setBlueX(4, 3);
+	}
+    break;
+}
+case 283:{
+	if(+x[i]==1){
+		setBlueX(4, 4);
+	}
+    break;
+}
+case 284:{
+	if(+x[i]==1){
+		setBlueX(4, 5);
+	}
+    break;
+}
+case 285:{
+	if(+x[i]==1){
+		setBlueX(4, 6);
+	}
+    break;
+}
+case 286:{
+	if(+x[i]==1){
+		setBlueX(4, 7);
+	}
+    break;
+}
+case 287:{
+	if(+x[i]==1){
+		setBlueX(4, 8);
+	}
+    break;
+}
+case 288:{
+	if(+x[i]==1){
+		setBlueX(4, 9);
+	}
+    break;
+}
+case 289:{
+	if(+x[i]==1){
+		setBlueX(4, 10);
+	}
+    break;
+}
+case 290:{
+	setGreenX(4, +x[i]);
+    break;
+}
+case 291:{
+	setOrange(4,0, +x[i]);
+	break;
+}
+case 292:{
+	setOrange(4,1, +x[i]);
+	break;
+}
+case 293:{
+	setOrange(4,2, +x[i]);
+	break;
+}
+case 294:{
+	setOrange(4,3, +x[i]);
+	break;
+}
+case 295:{
+	setOrange(4,4, +x[i]);
+	break;
+}	
+case 296:{
+	setOrange(4,5, +x[i]);
+	break;
+}	
+case 297:{
+	setOrange(4,6, +x[i]);
+	break;
+}	
+case 298:{
+	setOrange(4,7, +x[i]);
+	break;
+}	
+case 299:{
+	setOrange(4,8, +x[i]);
+	break;
+}	
+case 300:{
+	setOrange(4,9, +x[i]);
+	break;
+}	
+case 301:{
+	setOrange(4,10, +x[i]);
+	break;
+}
+case 302:{
+	setPurple(4,0, +x[i]);
+break;
+	}
+case 303:{
+	setPurple(4,1, +x[i]);
+break;
+	}
+case 304:{
+	setPurple(4,2, +x[i]);
+break;
+	}
+case 305:{
+	setPurple(4,3, +x[i]);
+break;
+	}
+case 306:{
+	setPurple(4,4, +x[i]);
+break;
+	}
+case 307:{
+    setPurple(4,5, +x[i]);
+    break;   	    	}
+case 308:{
+	setPurple(4,6, +x[i]);
+break;
+}
+case 309:{
+	setPurple(4,7, +x[i]);
+break;
+}
+case 310:{
+	setPurple(4,8, +x[i]);
+break;
+}
+case 311:{
+	setPurple(4,9, +x[i]);
+break;
+}
+case 312:{
+	setPurple(4,10, +x[i]);
+break;
+}
+case 313:{
+    if(userNumber==4){
+	setNachwuerfelnClickable(+x[i]);
+    }
+    break;
+    }
+case 314:{
+    if(userNumber==4){
+	setZusatzwuerfelnClickable(+x[i]);
+    }
+    break;
+    }
+case 315:{
+    if(userNumber==4){
+	setWuerfelnClickable(+x[i]);
+    }
+    break;
+    }
+case 316:{
+    if(userNumber==4){
+	setColorDecider(+x[i]);
+    }
+    break;
+    }
+case 317:{
+    if(userNumber==4){
+	setWhiteDecider(+x[i]);
+    }
+    break;
+    }
+case 318:{
+    if(userNumber==4){
+	setColorDeciderColor(+x[i]);
+    }
+    break;
+    }
+case 319:{
+	setYellowClickable(4, 0,+x[i]);
+    break;
+}
+case 320:{
+    setYellowClickable(4, 1,+x[i]);
+    break;
+}
+case 321:{
+	setYellowClickable(4, 2,+x[i]);
+    break;
+}
+case 322:{
+	setYellowClickable(4, 3,+x[i]);
+    break;
+}
+case 323:{
+	setYellowClickable(4, 4,+x[i]);
+    break;
+}
+case 324:{
+	setYellowClickable(3, 5,+x[i]);
+    break;
+}
+case 325:{
+	setYellowClickable(4, 6,+x[i]);
+    break;
+}
+case 326:{
+	setYellowClickable(4, 7,+x[i]);
+    break;
+}
+case 327:{
+	setYellowClickable(4, 8,+x[i]);
+    break;
+}
+case 328:{
+	setYellowClickable(4, 9,+x[i]);
+    break;
+}
+case 329:{
+	setYellowClickable(4, 10,+x[i]);
+    break;
+}
+case 330:{
+	setYellowClickable(4, 11,+x[i]);
+    break;
+}
+case 331:{
+	setBlueClickable(4, 0,+x[i]);
+    break;
+}
+case 332:{
+	setBlueClickable(4, 1,+x[i]);
+    break;
+}
+case 333:{
+	setBlueClickable(4, 2,+x[i]);
+    break;
+}
+case 334:{
+	setBlueClickable(4, 3,+x[i]);
+    break;
+}
+case 335:{
+	setBlueClickable(4, 4,+x[i]);
+    break;
+}
+case 336:{
+	setBlueClickable(4, 5,+x[i]);
+    break;
+}
+case 337:{
+	setBlueClickable(4, 6,+x[i]);
+    break;
+}
+case 338:{
+	setBlueClickable(4, 7,+x[i]);
+    break;
+}
+case 339:{
+    setBlueClickable(4, 8,+x[i]);
+    break;
+}
+case 340:{
+    setBlueClickable(4, 9,+x[i]);
+    break;
+}
+case 341:{
+    setBlueClickable(4, 10,+x[i]);
+    break;
+}
+case 342:{
+    setGreenClickable(4, +x[i]);
+    break;
+}
+case 343:{
+    setOrangeClickable(4, +x[i]);
+    break;
+}
+case 344:{
+    setPurpleClickable(4, +x[i]);
+    break;
+}
 
 
 
