@@ -8,6 +8,7 @@ public class Return {
 	private Matchfield[] matchfield;
 	private DecisionMaker[] decisionMaker;
 	private Dice[] dices;
+	private Winner winner;
 
 	public Return(int currentPlayer, int round, int playerCount) {
 
@@ -17,6 +18,8 @@ public class Return {
 		clickable = new IsClickable[playerCount];
 		matchfield = new Matchfield[playerCount];
 		decisionMaker = new DecisionMaker[playerCount];
+		
+		winner = null;
 	}
 
 	public int getCurrentPlayer() {
@@ -57,5 +60,13 @@ public class Return {
 
 	public void setDecisionMaker(DecisionMaker decisionMaker, int playerId) {
 		this.decisionMaker[playerId] = decisionMaker;
+	}
+
+	public Winner getWinner() {
+		return winner;
+	}
+
+	public void setWinner(Winner winner) {
+		this.winner = winner;
 	}
 }

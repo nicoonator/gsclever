@@ -78,15 +78,15 @@ public class Management {
 
 		additionalDiceUsed++;
 	}
-
-	public int determinePoints() {
-
+	
+	public int determinePointsFoxes() {
+		
 		int[] points = new int[5];
 		for (int i = 0; i < 5; i++) {
 
 			points[i] = colorAreas[i].determinePoints();
 		}
-
+		
 		int lowestPoints = points[0];
 		for (int i = 1; i < 5; i++) {
 
@@ -100,8 +100,19 @@ public class Management {
 			if (colorAreas[i].getFox() == true)
 				foxes++;
 		}
+		
+		return foxes * lowestPoints;
+	}
 
-		return points[0] + points[1] + points[2] + points[3] + points[4] + (foxes * lowestPoints);
+	public int determinePoints() {
+
+		int points = 0;
+		for (int i = 0; i < 5; i++) {
+
+			points += colorAreas[i].determinePoints();
+		}
+
+		return points + determinePointsFoxes();
 	}
 
 	public IsClickable isClickable() {

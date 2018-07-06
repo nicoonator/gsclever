@@ -5,12 +5,14 @@ public class DecisionMaker {
 	private boolean colorDiceActive;
 	private boolean whiteDiceActive;
 	private Color colorOfDice;
+	private int playerId;
 	
 	public DecisionMaker() {
 		
 		colorDiceActive = false;
 		whiteDiceActive = false;
 		colorOfDice = null;
+		playerId = -1;
 	}
 
 	public boolean isColorDiceActive() {
@@ -35,5 +37,13 @@ public class DecisionMaker {
 
 	public void setColorOfDice(Color colorOfDice) {
 		this.colorOfDice = colorOfDice;
+	}
+
+	public int getPlayerId() {
+		return playerId;
+	}
+
+	public void setPlayerId(int playerId) {
+		this.playerId = playerId;
 	}
 }

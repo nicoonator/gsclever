@@ -921,7 +921,32 @@ public class MainLogic {
 				
 				if(nextPlayer() == false) {
 				
-					List<Integer> winners = investigateWinner(); //TODO winners und einzelne Punkte zurückgeben
+					returnBack.setWinner(new Winner(playerCount));
+					returnBack.getWinner().setWinners(investigateWinner());
+					
+					for(int i = 0; i < playerCount; i++) {
+						
+						returnBack.getWinner().getPoints(i).setPlayerId(i);
+						returnBack.getWinner().getPoints(i).setPoints(
+								players[i].getManagement().getYellow().determinePoints(), 
+								Color.yellow.ordinal());
+						returnBack.getWinner().getPoints(i).setPoints(
+								players[i].getManagement().getBlue().determinePoints(), 
+								Color.blue.ordinal());
+						returnBack.getWinner().getPoints(i).setPoints(
+								players[i].getManagement().getGreen().determinePoints(), 
+								Color.green.ordinal());
+						returnBack.getWinner().getPoints(i).setPoints(
+								players[i].getManagement().getOrange().determinePoints(), 
+								Color.orange.ordinal());
+						returnBack.getWinner().getPoints(i).setPoints(
+								players[i].getManagement().getPurple().determinePoints(), 
+								Color.purple.ordinal());
+						returnBack.getWinner().getPoints(i).setPoints(
+								players[i].getManagement().determinePointsFoxes(), 5);
+						returnBack.getWinner().getPoints(i).setPoints(
+								players[i].getManagement().determinePoints(), 6);
+					}
 				}
 				
 				returnBack.getClickable(currentPlayer).setRollDices(true);
