@@ -11,6 +11,37 @@ addListener('USERJOINED',function (event) {
     $("#tableBody").html(table); 
 
 });
+addListener('NEWGAME',function (event) {
+    // INPUT: Spielerzahl, UserNumber
+    var stringFromServer = event.data;
+    var arr = stringFromServer.split(',');
+    console.log(arr.length);
+    console.log(+arr[0]);
+    console.log(+arr[1]);
+    console.log(typeof(+arr[0]));
+    console.log(typeof(+arr[1]));
+    if (arr.length == 2) {
+	playerAmount=+arr[0];
+	setupGameByPlayerAmount();
+	showview(2);
+	userNumber=+arr[1];
+    }
+    document.getElementById("Lobby").style.visibility ="hidden";
+    document.getElementById("spielfeld").style.visibility="visible";
+
+});
+addListener('STARTARRAY',function (event) {
+    var stringFromServer = event.data;
+    var arr = stringFromServer.split(',');
+    console.log(arr.length);
+    console.log(+arr[0]);
+    console.log(+arr[1]);
+    console.log(typeof(+arr[0]));
+    console.log(typeof(+arr[1]));
+    if (arr.length == 345) {
+	extractArray(arr);
+    }
+});
 addListener('standardEvent', function(event) {
     var stringFromServer = event.data;
     var arr = stringFromServer.split(',');
@@ -252,9 +283,24 @@ function getNumberImg(x) {
     }
 }
 
-/*
- * (window).on('load',function () { // TODO: Code goes here }
- */
+
+function setupGameByPlayerAmount(){
+    switch(playerAmount){
+    case 2:{
+	document.getElementById("buttonSpieler3").style.visibility = "hidden";
+	document.getElementById("buttonSpieler4").style.visibility = "hidden";
+	break;
+    }
+    case 3:{
+	document.getElementById("buttonSpieler4").style.visibility = "hidden";
+	break;
+    }
+    case 4:{
+	
+	break;
+    }
+    }
+}
 
 function updateGameState() {
     statusWait = true;
@@ -310,12 +356,7 @@ function skip() {
 function setDice(x) {
     // Hier wird das Silberfeld zurueckgesetzt wenn die neuen Wuerfel geladen
     // werden
-    document.getElementById("wuerfelfeldsilber1").src = "";
-    document.getElementById("wuerfelfeldsilber2").src = "";
-    document.getElementById("wuerfelfeldsilber3").src = "";
-    document.getElementById("wuerfelfeldsilber4").src = "";
-    document.getElementById("wuerfelfeldsilber5").src = "";
-    document.getElementById("wuerfelfeldsilber6").src = "";
+   clearTray();
 
     for (var i = 0; i < 6; i++) {
 	setDiceImg(x[i]);
@@ -325,12 +366,12 @@ function setDice(x) {
 function clearTray() {
     // Hier wird das Silberfeld zurueckgesetzt wenn die neuen Wuerfel geladen
     // werden
-    document.getElementById("wuerfelfeldsilber1").src = "";
-    document.getElementById("wuerfelfeldsilber2").src = "";
-    document.getElementById("wuerfelfeldsilber3").src = "";
-    document.getElementById("wuerfelfeldsilber4").src = "";
-    document.getElementById("wuerfelfeldsilber5").src = "";
-    document.getElementById("wuerfelfeldsilber6").src = "";
+    document.getElementById("wuerfelfeldsilber1").src = "#";
+    document.getElementById("wuerfelfeldsilber2").src = "#";
+    document.getElementById("wuerfelfeldsilber3").src = "#";
+    document.getElementById("wuerfelfeldsilber4").src = "#";
+    document.getElementById("wuerfelfeldsilber5").src = "#";
+    document.getElementById("wuerfelfeldsilber6").src = "#";
 }
 
 function setDiceImg(x) {
@@ -397,12 +438,12 @@ function setDiceOnField(x) {
 function clearWuerfelfeld () {
     // Hier wird das Silberfeld zurueckgesetzt wenn die neuen Wuerfel geladen
     // werden
-    document.getElementById("wuerfelfeldwhite").src = "";
-    document.getElementById("wuerfelfeldyellow").src = "";
-    document.getElementById("wuerfelfeldblue").src = "";
-    document.getElementById("wuerfelfeldorange").src = "";
-    document.getElementById("wuerfelfeldgreen").src = "";
-    document.getElementById("wuerfelfeldpurple").src = "";
+    document.getElementById("wuerfelfeldwhite").src = "#";
+    document.getElementById("wuerfelfeldyellow").src = "#";
+    document.getElementById("wuerfelfeldblue").src = "#";
+    document.getElementById("wuerfelfeldorange").src = "#";
+    document.getElementById("wuerfelfeldgreen").src = "#";
+    document.getElementById("wuerfelfeldpurple").src = "#";
 }
 function setRound(x) {
     var elements = document.getElementsByClassName('Rundefeld1');
@@ -633,7 +674,7 @@ function setDiceOnField(fieldNR, dice){
 }
 
 
-function setNachwuerfelX(SpielerNR, anz /* anzahlkreise */){
+function setNachwuerfelnX(SpielerNR, anz /* anzahlkreise */){
     // TODO BUGFIX
 	var nodes = document.getElementById(getFieldID(SpielerNR)).childNodes;
 	if (anz >= 1){
@@ -686,7 +727,7 @@ function setNachwuerfelX(SpielerNR, anz /* anzahlkreise */){
         }
     }
 }
-function setNachwuerfelKreis(SpielerNR, anz /* anzahlkreise */){
+function setNachwuerfelnKreis(SpielerNR, anz /* anzahlkreise */){
     // TODO BUGFIX
 	var nodes = document.getElementById(getFieldID(SpielerNR)).childNodes;
 	if (anz >= 1){
@@ -740,7 +781,7 @@ function setNachwuerfelKreis(SpielerNR, anz /* anzahlkreise */){
     }
 }
 
-function setZusatzwuerfelX(SpielerNR, anz /* anzahlkreise */){
+function setZusatzwuerfelnX(SpielerNR, anz /* anzahlkreise */){
     // TODO BUGFIX
 	var nodes = document.getElementById(getFieldID(SpielerNR)).childNodes;
 	if (anz >= 1){
@@ -793,7 +834,7 @@ function setZusatzwuerfelX(SpielerNR, anz /* anzahlkreise */){
         }
     }
 }
-function setZusatzwuerfelKreis(SpielerNR, anz /* anzahlkreise */){
+function setZusatzwuerfelnKreis(SpielerNR, anz /* anzahlkreise */){
     // TODO BUGFIX
 	var nodes = document.getElementById(getFieldID(SpielerNR)).childNodes;
 	if (anz >= 1){
@@ -961,13 +1002,14 @@ function setWhiteDecider(x){
 	document.getElementById("wuerfelfeldEntscheider2").src=getDiceImg(WeissWert);
 	document.getElementById("wuerfelfeldEntscheider2").setAttribute('onclick','Clicked("WHITEDECIDER")');
     }else{
+	document.getElementById("wuerfelfeldEntscheider2").src=getDiceImg("#");
 	document.getElementById("wuerfelfeldEntscheider2").setAttribute('onclick','');
     }
 }
 function setColorDeciderColor(x){
     switch (x){
     case 0:{
-	document.getElementById("wuerfelfeldEntscheider1").src="";
+	document.getElementById("wuerfelfeldEntscheider1").src="#";
 	break;
     }
     case 1:{
@@ -1310,7 +1352,7 @@ function extractArray(x) {
     // erst die Silberplatte loeschen
     clearTray();
     var limit = 345;
-    switch (PlayerAmount) {
+    switch (playerAmount) {
     case 2: {
 	limit = 180;
 	break;
@@ -1323,564 +1365,564 @@ function extractArray(x) {
     for (var i = 0; i < limit; i++) {
 	switch (i) {
 	case 0: {
-	    setRound(x[i]);
-	    if(x[i]!=0){
-		showview(x[i]);
+	    setRound(+x[i]);
+	    if(+x[i]!=0){
+		showview(+x[i]);
 	    }
 	    break;
 	}
 	case 1: {
-	    currentplayer = x[i];
+	    currentPlayer = +x[i];
 	    break;
 	}
 	case 2: {
-	    BlauWert= x[i];
+	    BlauWert= +x[i];
 	    break;
 	}
 	case 3: {
-	    GelbWert= x[i]+6;
+	    GelbWert= +x[i]+6;
 	    break;
 	}
 	case 4: {
-	    OrangeWert= x[i]+24;
+	    OrangeWert= +x[i]+24;
 	    break;
 	}
 	case 5: {
-	    LilaWert= x[i]+18;
+	    LilaWert= +x[i]+18;
 	    break;
 	}
 	case 6: {
-	    GreenWert= x[i]+12;
+	    GreenWert= +x[i]+12;
 	    break;
 	}
 	case 7: {
-	    WeissWert= x[i]+30;
+	    WeissWert= +x[i]+30;
 	    break;
 	}
 	case 8: {
-	    setDiceOnField(1,x[i]);
+	    setDiceOnField(1,+x[i]);
 	    break;
 	}
 	case 9: {
-	    setDiceOnField(2,x[i]);
+	    setDiceOnField(2,+x[i]);
 	    break;
 	}
 	case 10: {
-	    setDiceOnField(3,x[i]);
+	    setDiceOnField(3,+x[i]);
 	    break;
 	}
 	case 11: {
-	    if(x[i]==1) setDiceOnTray(BlauWert);
+	    if(+x[i]==1) setDiceOnTray(BlauWert);
 	    break;
 	}
 	case 12: {
-	    if(x[i]==1) setDiceOnTray(GelbWert);
+	    if(+x[i]==1) setDiceOnTray(GelbWert);
 	    break;
 	}
 	case 13: {
-	    if(x[i]==1) setDiceOnTray(OrangeWert);
+	    if(+x[i]==1) setDiceOnTray(OrangeWert);
 	    break;
 	}
 	case 14: {
-	    if(x[i]==1) setDiceOnTray(LilaWert);
+	    if(+x[i]==1) setDiceOnTray(LilaWert);
 	    break;
 	}
 	case 15: {
-	    if(x[i]==1) setDiceOnTray(GreenWert);
+	    if(+x[i]==1) setDiceOnTray(GreenWert);
 	    break;
 	}
 	case 16: {
-	    if(x[i]==1) setDiceOnTray(WeissWert);
+	    if(+x[i]==1) setDiceOnTray(WeissWert);
 	    break;
 	}
 	// START SPIELER1 DATA
 	case 17:{
-	    setNachwuerfelnKreis(1, x[i]);
+	    setNachwuerfelnKreis(1, +x[i]);
 	    break;
 	}
 	case 18:{
-		setNachwuerfelnX(1, x[i]);
+		setNachwuerfelnX(1, +x[i]);
 	    break;
 	}
 	case 19:{
-		setZusatzwuerfelnKreis(1, x[i]);
+		setZusatzwuerfelnKreis(1, +x[i]);
 	    break;
 	}
 	case 20:{
-		setZusatzwuerfelnX(1, x[i]);
+		setZusatzwuerfelnX(1, +x[i]);
 	    break;
 	}
 	case 21:{
-		if(x[i]==1){
+		if(+x[i]==1){
 			setYellowX(1, 0);
 		}
 	    break;
 	}
 	case 22:{
-		if(x[i]==1){
+		if(+x[i]==1){
 			setYellowX(1, 1);
 		}
 	    break;
 	}
 	
 	case 23:{
-		if(x[i]==1){
+		if(+x[i]==1){
 			setYellowX(1, 2);
 		}
 	    break;
 	}
 	case 24:{
-		if(x[i]==1){
+		if(+x[i]==1){
 			setYellowX(1, 3);
 		}
 	    break;
 	}
 	case 25:{
-		if(x[i]==1){
+		if(+x[i]==1){
 			setYellowX(1, 4);
 		}
 	    break;
 	}
 	case 26:{
-		if(x[i]==1){
+		if(+x[i]==1){
 			setYellowX(1, 5);
 		}
 	    break;
 	}
 	case 27:{
-		if(x[i]==1){
+		if(+x[i]==1){
 			setYellowX(1, 6);
 		}
 	    break;
 	}
 	case 28:{
-		if(x[i]==1){
+		if(+x[i]==1){
 			setYellowX(1, 7);
 		}
 	    break;
 	}
 	case 29:{
-		if(x[i]==1){
+		if(+x[i]==1){
 			setYellowX(1, 8);
 		}
 	    break;
 	}
 	case 30:{
-		if(x[i]==1){
+		if(+x[i]==1){
 			setYellowX(1, 9);
 		}
 	    break;
 	}
 	case 31:{
-		if(x[i]==1){
+		if(+x[i]==1){
 			setYellowX(1, 10);
 		}
 	    break;
 	}
 	case 32:{
-		if(x[i]==1){
+		if(+x[i]==1){
 			setYellowX(1, 11);
 		}
 	    break;
 	}
 	case 33:{
-		if(x[i]==1){
+		if(+x[i]==1){
 			setBlueX(1, 0);
 		}
 	    break;
 	}
 	case 34:{
-		if(x[i]==1){
+		if(+x[i]==1){
 			setBlueX(1, 1);
 		}
 	    break;
 	}
 	case 35:{
-		if(x[i]==1){
+		if(+x[i]==1){
 			setBlueX(1, 2);
 		}
 	    break;
 	}
 	case 36:{
-		if(x[i]==1){
+		if(+x[i]==1){
 			setBlueX(1, 3);
 		}
 	    break;
 	}
 	case 37:{
-		if(x[i]==1){
+		if(+x[i]==1){
 			setBlueX(1, 4);
 		}
 	    break;
 	}
 	case 38:{
-		if(x[i]==1){
+		if(+x[i]==1){
 			setBlueX(1, 5);
 		}
 	    break;
 	}
 	case 39:{
-		if(x[i]==1){
+		if(+x[i]==1){
 			setBlueX(1, 6);
 		}
 	    break;
 	}
 	case 40:{
-		if(x[i]==1){
+		if(+x[i]==1){
 			setBlueX(1, 7);
 		}
 	    break;
 	}
 	case 41:{
-		if(x[i]==1){
+		if(+x[i]==1){
 			setBlueX(1, 8);
 		}
 	    break;
 	}
 	case 42:{
-		if(x[i]==1){
+		if(+x[i]==1){
 			setBlueX(1, 9);
 		}
 	    break;
 	}
 	
 	case 43:{
-		if(x[i]==1){
+		if(+x[i]==1){
 			setBlueX(1, 10);
 		}
 	    break;
 	}
 	case 44:{
-		setGreenX(1, x[i]);
+		setGreenX(1, +x[i]);
 	    break;
 	}
 	case 45:{
-	       	// Spieler1 Feld:0 Wert von: x[i]
-	    	setOrange(1,0, x[i]);
+	       	// Spieler1 Feld:0 Wert von: +x[i]
+	    	setOrange(1,0, +x[i]);
 	    break;
 	}
 	 case 46:{
-	    	setOrange(1,1, x[i]);
+	    	setOrange(1,1, +x[i]);
 	 break;
 	    }
 	// TODO 47-54
 	case 55:{
-	    	setOrange(1,10, x[i]);
+	    	setOrange(1,10, +x[i]);
 	}
 	case 56:{
-	    	setPurple(1,0, x[i]);
+	    	setPurple(1,0, +x[i]);
 	break;
 	   }
 	case 57:{
-	    	setPurple(1,1, x[i]);
+	    	setPurple(1,1, +x[i]);
 	break;
 	    	}
 	// TODO 58-65
 	case 66:{
-		setPurple(1,10, x[i]);
+		setPurple(1,10, +x[i]);
 	}
 	case 67:{
 	    if(userNumber==1){
-		setNachwuerfelnClickable(x[i]);
+		setNachwuerfelnClickable(+x[i]);
 	    }
 	    break;
 	    }
 	case 68:{
 	    if(userNumber==1){
-		setZusatzwuerfelnClickable(x[i]);
+		setZusatzwuerfelnClickable(+x[i]);
 	    }
 	    break;
 	    }
 	case 69:{
 	    if(userNumber==1){
-		setWuerfelnClickable(x[i]);
+		setWuerfelnClickable(+x[i]);
 	    }
 	    break;
 	    }
 	case 70:{
 	    if(userNumber==1){
-		setColorDecider(x[i]);
+		setColorDecider(+x[i]);
 	    }
 	    break;
 	    }
 	case 71:{
 	    if(userNumber==1){
-		setWhiteDecider(x[i]);
+		setWhiteDecider(+x[i]);
 	    }
 	    break;
 	    }
 	case 72:{
 	    if(userNumber==1){
-		setColorDeciderColor(x[i]);
+		setColorDeciderColor(+x[i]);
 	    }
 	    break;
 	    }
 	case 73:{
-		setYellowClickable(1, 0,x[i]);
+		setYellowClickable(1, 0,+x[i]);
 	    break;
 	}
 	case 74:{
-	    	setYellowClickable(1, 1,x[i]);
+	    	setYellowClickable(1, 1,+x[i]);
 	    break;
 	}
 	case 75:{
-		setYellowClickable(1, 2,x[i]);
+		setYellowClickable(1, 2,+x[i]);
 	    break;
 	}
 	case 76:{
-		setYellowClickable(1, 3,x[i]);
+		setYellowClickable(1, 3,+x[i]);
 	    break;
 	}
 	case 77:{
-		setYellowClickable(1, 4,x[i]);
+		setYellowClickable(1, 4,+x[i]);
 	    break;
 	}
 	case 78:{
-		setYellowClickable(1, 5,x[i]);
+		setYellowClickable(1, 5,+x[i]);
 	    break;
 	}
 	case 79:{
-		setYellowClickable(1, 6,x[i]);
+		setYellowClickable(1, 6,+x[i]);
 	    break;
 	}
 	case 80:{
-		setYellowClickable(1, 7,x[i]);
+		setYellowClickable(1, 7,+x[i]);
 	    break;
 	}
 	case 81:{
-		setYellowClickable(1, 8,x[i]);
+		setYellowClickable(1, 8,+x[i]);
 	    break;
 	}
 	case 82:{
-		setYellowClickable(1, 9,x[i]);
+		setYellowClickable(1, 9,+x[i]);
 	    break;
 	}
 	case 83:{
-		setYellowClickable(1, 10,x[i]);
+		setYellowClickable(1, 10,+x[i]);
 	    break;
 	}
 	case 84:{
-		setYellowClickable(1, 11,x[i]);
+		setYellowClickable(1, 11,+x[i]);
 	    break;
 	}
 	case 85:{
-		setBlueClickable(1, 0,x[i]);
+		setBlueClickable(1, 0,+x[i]);
 	    break;
 	}
 	case 86:{
-		setBlueClickable(1, 1,x[i]);
+		setBlueClickable(1, 1,+x[i]);
 	    break;
 	}
 	case 87:{
-		setBlueClickable(1, 2,x[i]);
+		setBlueClickable(1, 2,+x[i]);
 	    break;
 	}
 	case 88:{
-		setBlueClickable(1, 3,x[i]);
+		setBlueClickable(1, 3,+x[i]);
 	    break;
 	}
 	case 89:{
-		setBlueClickable(1, 4,x[i]);
+		setBlueClickable(1, 4,+x[i]);
 	    break;
 	}
 	case 90:{
-		setBlueClickable(1, 5,x[i]);
+		setBlueClickable(1, 5,+x[i]);
 	    break;
 	}
 	case 91:{
-		setBlueClickable(1, 6,x[i]);
+		setBlueClickable(1, 6,+x[i]);
 	    break;
 	}
 	case 92:{
-		setBlueClickable(1, 7,x[i]);
+		setBlueClickable(1, 7,+x[i]);
 	    break;
 	}
 	case 93:{
-	    setBlueClickable(1, 8,x[i]);
+	    setBlueClickable(1, 8,+x[i]);
 	    break;
 	}
 	case 94:{
-	    setBlueClickable(1, 9,x[i]);
+	    setBlueClickable(1, 9,+x[i]);
 	    break;
 	}
 	
 	case 95:{
-	    setBlueClickable(1, 10,x[i]);
+	    setBlueClickable(1, 10,+x[i]);
 	    break;
 	}
 	case 96:{
-	    setGreenClickable(1, x[i]);
+	    setGreenClickable(1, +x[i]);
 	    break;
 	}
 	case 97:{
-	    setOrangeClickable(1, x[i]);
+	    setOrangeClickable(1, +x[i]);
 	    break;
 	}
 	case 98:{
-	    setPurpleClickable(1, x[i]);
+	    setPurpleClickable(1, +x[i]);
 	    break;
 	}
 	// ENDE SPIELER 1
 	// START SPIELER2 DATA
 	case 99:{
-	    setNachwuerfelnKreis(2, x[i]);
+	    setNachwuerfelnKreis(2, +x[i]);
 	    break;
 	}
 	case 100:{
-		setNachwuerfelnX(2, x[i]);
+		setNachwuerfelnX(2, +x[i]);
 	    break;
 	}
 	case 101:{
-		setZusatzwuerfelnKreis(2, x[i]);
+		setZusatzwuerfelnKreis(2, +x[i]);
 	    break;
 	}
 	case 102:{
-		setZusatzwuerfelnX(2, x[i]);
+		setZusatzwuerfelnX(2, +x[i]);
 	    break;
 	}
 	case 103:{
-		if(x[i]==1){
+		if(+x[i]==1){
 			setYellowX(2, 0);
 		}
 	    break;
 	}
 	case 104:{
-		if(x[i]==1){
+		if(+x[i]==1){
 			setYellowX(2, 1);
 		}
 	    break;
 	}
 	
 	case 105:{
-		if(x[i]==1){
+		if(+x[i]==1){
 			setYellowX(2, 2);
 		}
 	    break;
 	}
 	case 106:{
-		if(x[i]==1){
+		if(+x[i]==1){
 			setYellowX(2, 3);
 		}
 	    break;
 	}
 	case 107:{
-		if(x[i]==1){
+		if(+x[i]==1){
 			setYellowX(2, 4);
 		}
 	    break;
 	}
 	case 108:{
-		if(x[i]==1){
+		if(+x[i]==1){
 			setYellowX(2, 5);
 		}
 	    break;
 	}
 	case 109:{
-		if(x[i]==1){
+		if(+x[i]==1){
 			setYellowX(2, 6);
 		}
 	    break;
 	}
 	case 110:{
-		if(x[i]==1){
+		if(+x[i]==1){
 			setYellowX(2, 7);
 		}
 	    break;
 	}
 	case 111:{
-		if(x[i]==1){
+		if(+x[i]==1){
 			setYellowX(2, 8);
 		}
 	    break;
 	}
 	case 112:{
-		if(x[i]==1){
+		if(+x[i]==1){
 			setYellowX(2, 9);
 		}
 	    break;
 	}
 	case 113:{
-		if(x[i]==1){
+		if(+x[i]==1){
 			setYellowX(2, 10);
 		}
 	    break;
 	}
 	case 114:{
-		if(x[i]==1){
+		if(+x[i]==1){
 			setYellowX(2, 11);
 		}
 	    break;
 	}
 	case 115:{
-		if(x[i]==1){
+		if(+x[i]==1){
 			setBlueX(2, 0);
 		}
 	    break;
 	}
 	case 116:{
-		if(x[i]==1){
+		if(+x[i]==1){
 			setBlueX(2, 1);
 		}
 	    break;
 	}
 	case 117:{
-		if(x[i]==1){
+		if(+x[i]==1){
 			setBlueX(2, 2);
 		}
 	    break;
 	}
 	case 118:{
-		if(x[i]==1){
+		if(+x[i]==1){
 			setBlueX(2, 3);
 		}
 	    break;
 	}
 	case 119:{
-		if(x[i]==1){
+		if(+x[i]==1){
 			setBlueX(2, 4);
 		}
 	    break;
 	}
 	case 120:{
-		if(x[i]==1){
+		if(+x[i]==1){
 			setBlueX(2, 5);
 		}
 	    break;
 	}
 	case 121:{
-		if(x[i]==1){
+		if(+x[i]==1){
 			setBlueX(2, 6);
 		}
 	    break;
 	}
 	case 122:{
-		if(x[i]==1){
+		if(+x[i]==1){
 			setBlueX(2, 7);
 		}
 	    break;
 	}
 	case 123:{
-		if(x[i]==1){
+		if(+x[i]==1){
 			setBlueX(2, 8);
 		}
 	    break;
 	}
 	case 124:{
-		if(x[i]==1){
+		if(+x[i]==1){
 			setBlueX(2, 9);
 		}
 	    break;
 	}
 	
 	case 125:{
-		if(x[i]==1){
+		if(+x[i]==1){
 			setBlueX(2, 10);
 		}
 	    break;
 	}
 
 	case 126:{
-		setGreenX(2, x[i]);
+		setGreenX(2, +x[i]);
 	    break;
 	}
 	}
@@ -1888,9 +1930,10 @@ function extractArray(x) {
 }
 
 function closeLobby(){
-	
-	 document.getElementById("Lobby").style.visibility ="hidden";
-	 document.getElementById("spielfeld").style.visibility="visible"
+    
+    	sendDataToServer("STARTGAME");
+	 //Das darf hier eigentlich erst passieren wenn>2 spieler da sind
+	 
 
 
 }

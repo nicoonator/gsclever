@@ -106,11 +106,12 @@ public class gsClever extends Game {
 			// TODO
 		}
 
-		if (gsonString.equals("STARTGAME")) {
+		if (gsonString.equals("STARTGAME")&&userList.size()>=2) {
 			this.gState = GameState.RUNNING;
-			currentGame = new MainLogic(this.getCurrentPlayerAmount());
+			currentGame = new MainLogic(this.userList);
 			gameStatus = this.getNewGame();
 			sendGameDataToClients("NEWGAME");
+			sendGameDataToClients("STARTARRAY");
 		}
 
 		// Bei Bedarf:
@@ -179,6 +180,7 @@ public class gsClever extends Game {
 				result[i] = 0;
 		}
 		result[69] = 1;
+		result[1] = 1;
 		return result;
 	}
 
@@ -193,7 +195,7 @@ public class gsClever extends Game {
 	}
 
 	/*
-	 * Hier senden wir die Daten an die Clients. Unter anderem das Array[212] wir
+	 * Hier senden wir die Daten an die Clients. Unter anderem das Array[345] wir
 	 * koennen aber auch noch nachrichten dranhaengen
 	 */
 	@Override
@@ -206,39 +208,40 @@ public class gsClever extends Game {
 		if (eventName.equals("CLOSE")) {
 			return "CLOSE";
 		}
-
-		if (eventName.equals("TESTWUERFELN")) {
-			String testwuerfel = "";
-			testwuerfel += Integer.toString(ThreadLocalRandom.current().nextInt(1, 6 + 1));
-			testwuerfel += ',';
-			testwuerfel += Integer.toString(ThreadLocalRandom.current().nextInt(7, 12 + 1));
-			testwuerfel += ',';
-			testwuerfel += Integer.toString(ThreadLocalRandom.current().nextInt(13, 18 + 1));
-			testwuerfel += ',';
-			testwuerfel += Integer.toString(ThreadLocalRandom.current().nextInt(19, 24 + 1));
-			testwuerfel += ',';
-			testwuerfel += Integer.toString(ThreadLocalRandom.current().nextInt(25, 30 + 1));
-			testwuerfel += ',';
-			testwuerfel += Integer.toString(ThreadLocalRandom.current().nextInt(31, 36 + 1));
-			return testwuerfel;
-		}
 		
 		if (eventName.equals("USERJOINED")) {
 			gameData = users;
 			return gameData;
 		}
+		if (eventName.equals("NEWGAME")) {
+			gameData = Integer.toString(userList.size());
+			for(int i=0; i<playerList.size();i++) {
+				if(playerList.get(i).getName()==user.getName()) {
+					gameData += ","+Integer.toString(i+1);
+				}
+			}
+			return gameData;
+		}
+		if (eventName.equals("STARTARRAY")) {
+			for(int i=0; i<345;i++) {
+				gameData+=getNewGame()[i];
+				if (i<344) {
+					gameData += ",";
+				}
+			}
+			return gameData;
+		}
 		
-		int[] grid = getGameStatus();
+		/*int[] grid = getGameStatus();
 
-		for (int i = 0; i < 217; i++) {
+		for (int i = 0; i < 345; i++) {
 			gameData += String.valueOf(grid[i]);
 			gameData += ',';
 		}
 
 		// TODO (hier koenen wir jetzt anhaengen)
 
-		gameData += isHost(user);
-
+		*/
 		return gameData;
 
 	}
