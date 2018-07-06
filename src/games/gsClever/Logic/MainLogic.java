@@ -3,6 +3,7 @@ package games.gsClever.Logic;
 import java.util.*;
 
 import games.gsClever.Exceptions.*;
+import userManagement.User;
 
 public class MainLogic {
 
@@ -42,7 +43,7 @@ public class MainLogic {
 		players = new Player[playerCount];
 		for (int id = 0; id < playerCount; id++) {
 
-			players[id] = new Player("player_" + String.valueOf(id), "pw", id);
+			players[id] = new Player(new User("player_" + String.valueOf(id), "pw"));
 		}
 	}
 
