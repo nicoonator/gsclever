@@ -946,9 +946,6 @@ public class MainLogic {
 						returnBack.getWinner().getPoints(i).setPoints(
 								players[i].getManagement().determinePoints(), 6);
 					}
-					
-					
-					//TODO Punkte in winner.points
 				}
 				
 				returnBack.getClickable(currentPlayer).setRollDices(true);
