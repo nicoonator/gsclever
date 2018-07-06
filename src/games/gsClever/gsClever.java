@@ -10,6 +10,7 @@ import games.gsClever.Logic.Color;
 import games.gsClever.Logic.Dice;
 import games.gsClever.Logic.KI;
 import games.gsClever.Logic.MainLogic;
+import games.gsClever.Logic.Player;
 import games.gsClever.Logic.Return;
 import global.FileHelper;
 import userManagement.User;
@@ -32,8 +33,10 @@ public class gsClever extends Game {
 	private int[] gameStatus = new int[345];
 	private User playerTurn = null;
 	private ArrayList<User> playerList = new ArrayList<User>();
+	private ArrayList<Player> userList = new ArrayList<Player>();
 	private ArrayList<User> spectatorList = new ArrayList<User>();
 	private String playerLeft = null;
+	private String users = "";
 	private MainLogic currentGame;
 
 	@Override
@@ -58,9 +61,8 @@ public class gsClever extends Game {
 
 	@Override
 	public String getJavaScript() {
-		return "<link rel=\"stylesheet\"\r\n"
-				+ "	href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css\">"
-				+ "<script src=\"javascript/gsClever.js\"></script>";
+		return  "<script src=\"javascript/gsClever.js\"></script>"
+				+" <script src=\"https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js\"></script>";
 	}
 
 	@Override
@@ -127,7 +129,6 @@ public class gsClever extends Game {
 		// runter
 		// verschoben werden
 		if (gsonString.equals("WUERFELN")) {
-			sendGameDataToClients("TESTWUERFELN");
 			return;
 			// ACHTUNG: Wenn keine Game DATA Gebraucht wird, bitte nicht nach
 			// unten springen lassen sondern returnen.
@@ -221,7 +222,12 @@ public class gsClever extends Game {
 			testwuerfel += Integer.toString(ThreadLocalRandom.current().nextInt(31, 36 + 1));
 			return testwuerfel;
 		}
-
+		
+		if (eventName.equals("USERJOINED")) {
+			gameData = users;
+			return gameData;
+		}
+		
 		int[] grid = getGameStatus();
 
 		for (int i = 0; i < 217; i++) {
@@ -241,12 +247,16 @@ public class gsClever extends Game {
 	public void addUser(User user) {
 
 		if (playerList.size() < 4 && !playerList.contains(user)) {
+			
 			playerList.add(user);
-
-			if (playerTurn == null) {
-				playerTurn = user;
+			Player p = new Player(user);
+			userList.add(p);
+			if (users.equals("")) {
+				users = user.getName();
+			} else {
+				users = users + "," + user.getName();
 			}
-			sendGameDataToClients("START");
+			sendGameDataToClients("USERJOINED");
 		}
 		if (playerList.size() == 4) {
 			this.gState = GameState.RUNNING;
