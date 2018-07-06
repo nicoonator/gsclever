@@ -893,7 +893,7 @@ function setGreenX(SpielerNR, x){
             }	
         }
 }
-//Spieler1 Feld:0 Wert von: x[i]
+// Spieler1 Feld:0 Wert von: x[i]
 function setOrange(SpielerNR, field, value){
     if(value){
         var nodes = document.getElementById(getFieldID(SpielerNR)).childNodes;
@@ -916,28 +916,28 @@ function setPurple(SpielerNR, field, value){
 }
 function setNachwuerfelnClickable(x){
     if(x==1){
-	document.getElementById("buttonNachwurf").setAttribute('onclick','nachwuerfeln()');
+	document.getElementById("buttonNachwurf").setAttribute('onclick','Clicked("NACHWUERFELN")()');
     }else{
 	document.getElementById("buttonNachwurf").setAttribute('onclick','');
     }
 }
 function setZusatzwuerfelnClickable(x){
     if(x==1){
-	document.getElementById("buttonZusatzWuerfel").setAttribute('onclick','zusatzwuerfeln()');
+	document.getElementById("buttonZusatzWuerfel").setAttribute('onclick','Clicked("ZUSATZWUERFELN")()');
     }else{
 	document.getElementById("buttonZusatzWuerfel").setAttribute('onclick','');
     }
 }
 function setWuerfelnClickable(x){
     if(x==1){
-	document.getElementById("buttonwurf").setAttribute('onclick','wuerfeln()');
+	document.getElementById("buttonwurf").setAttribute('onclick','Clicked("WUERFELN")()');
     }else{
 	document.getElementById("buttonwurf").setAttribute('onclick','');
     }
 }
 function setColorDecider(x){
     if(x){
-	document.getElementById("wuerfelfeldEntscheider1").setAttribute('onclick','SendDataToServer("COLORDECIDER")');
+	document.getElementById("wuerfelfeldEntscheider1").setAttribute('onclick','Clicked("COLORDECIDER")');
     }else{
 	document.getElementById("wuerfelfeldEntscheider1").setAttribute('onclick','');
     }
@@ -945,7 +945,7 @@ function setColorDecider(x){
 function setWhiteDecider(x){
     if(x){
 	document.getElementById("wuerfelfeldEntscheider2").src=getDiceImg(WeissWert);
-	document.getElementById("wuerfelfeldEntscheider2").setAttribute('onclick','SendDataToServer("WHITEDECIDER")');
+	document.getElementById("wuerfelfeldEntscheider2").setAttribute('onclick','Clicked("WHITEDECIDER")');
     }else{
 	document.getElementById("wuerfelfeldEntscheider2").setAttribute('onclick','');
     }
@@ -976,6 +976,320 @@ function setColorDeciderColor(x){
 	document.getElementById("wuerfelfeldEntscheider1").src=getDiceImg(GreenWert);
     	break;
     }
+    }
+}
+function setYellowClickable(SpielerNR, FieldID, value){
+    if(userNumber==SpielerNR){
+	var nodes = document.getElementById("spieler1").childNodes;
+	var fieldName=getYellowFieldByID(FieldID);
+	switch (FieldID){
+    	case 0:{
+    	for(var i=0; i<nodes.length; i++) {
+    	    if (nodes[i].className == fieldName) {
+    		if(value==1){
+    		    nodes[i].setAttribute('onclick','Clicked("CLICKYELLOW0")');
+    		} else{
+    		    nodes[i].setAttribute('onclick','');
+    		}
+    	    }}
+    	    break;
+    	}
+    	case 1:{
+        	for(var i=0; i<nodes.length; i++) {
+        	    if (nodes[i].className == fieldName) {
+        		if(value==1){
+        		    nodes[i].setAttribute('onclick','Clicked("CLICKYELLOW1")');
+        		} else{
+        		    nodes[i].setAttribute('onclick','');
+        		}
+        	    }}
+        	    break;
+        	}
+    	case 2:{
+        	for(var i=0; i<nodes.length; i++) {
+        	    if (nodes[i].className == fieldName) {
+        		if(value==1){
+        		    nodes[i].setAttribute('onclick','Clicked("CLICKYELLOW2")');
+        		} else{
+        		    nodes[i].setAttribute('onclick','');
+        		}
+        	    }}
+        	    break;
+        	}
+    	case 3:{
+        	for(var i=0; i<nodes.length; i++) {
+        	    if (nodes[i].className == fieldName) {
+        		if(value==1){
+        		    nodes[i].setAttribute('onclick','Clicked("CLICKYELLOW3")');
+        		} else{
+        		    nodes[i].setAttribute('onclick','');
+        		}
+        	    }}
+        	    break;
+        	}
+    	case 4:{
+        	for(var i=0; i<nodes.length; i++) {
+        	    if (nodes[i].className == fieldName) {
+        		if(value==1){
+        		    nodes[i].setAttribute('onclick','Clicked("CLICKYELLOW4")');
+        		} else{
+        		    nodes[i].setAttribute('onclick','');
+        		}
+        	    }}
+        	    break;
+        	}
+    	case 5:{
+        	for(var i=0; i<nodes.length; i++) {
+        	    if (nodes[i].className == fieldName) {
+        		if(value==1){
+        		    nodes[i].setAttribute('onclick','Clicked("CLICKYELLOW5")');
+        		} else{
+        		    nodes[i].setAttribute('onclick','');
+        		}
+        	    }}
+        	    break;
+        	}
+    	case 6:{
+        	for(var i=0; i<nodes.length; i++) {
+        	    if (nodes[i].className == fieldName) {
+        		if(value==1){
+        		    nodes[i].setAttribute('onclick','Clicked("CLICKYELLOW6")');
+        		} else{
+        		    nodes[i].setAttribute('onclick','');
+        		}
+        	    }}
+        	    break;
+        	}
+    	case 7:{
+        	for(var i=0; i<nodes.length; i++) {
+        	    if (nodes[i].className == fieldName) {
+        		if(value==1){
+        		    nodes[i].setAttribute('onclick','Clicked("CLICKYELLOW7")');
+        		} else{
+        		    nodes[i].setAttribute('onclick','');
+        		}
+        	    }}
+        	    break;
+        	}
+    	case 8:{
+        	for(var i=0; i<nodes.length; i++) {
+        	    if (nodes[i].className == fieldName) {
+        		if(value==1){
+        		    nodes[i].setAttribute('onclick','Clicked("CLICKYELLOW8")');
+        		} else{
+        		    nodes[i].setAttribute('onclick','');
+        		}
+        	    }}
+        	    break;
+        	}
+    	case 9:{
+        	for(var i=0; i<nodes.length; i++) {
+        	    if (nodes[i].className == fieldName) {
+        		if(value==1){
+        		    nodes[i].setAttribute('onclick','Clicked("CLICKYELLOW9")');
+        		} else{
+        		    nodes[i].setAttribute('onclick','');
+        		}
+        	    }}
+        	    break;
+        	}
+    	case 10:{
+        	for(var i=0; i<nodes.length; i++) {
+        	    if (nodes[i].className == fieldName) {
+        		if(value==1){
+        		    nodes[i].setAttribute('onclick','Clicked("CLICKYELLOW10")');
+        		} else{
+        		    nodes[i].setAttribute('onclick','');
+        		}
+        	    }}
+        	    break;
+        	}
+    	case 11:{
+    	for(var i=0; i<nodes.length; i++) {
+    	    if (nodes[i].className == fieldName) {
+    		if(value==1){
+    		    nodes[i].setAttribute('onclick','Clicked("CLICKYELLOW11")');
+    		} else{
+    		    nodes[i].setAttribute('onclick','');
+    		}
+    	    }}
+    	    break;
+    	}
+	}
+}
+}
+function Clicked(Data){
+    sendDataToServer(Data);
+}
+function setBlueClickable(SpielerNR, FieldID, value){
+    if(userNumber==SpielerNR){
+	var nodes = document.getElementById("spieler1").childNodes;
+	var fieldName=getBlueFieldByID(FieldID);
+	switch (FieldID){
+    	case 0:{
+    	for(var i=0; i<nodes.length; i++) {
+    	    if (nodes[i].className == fieldName) {
+    		if(value==1){
+    		    nodes[i].setAttribute('onclick','Clicked("CLICKBLUE0")');
+    		} else{
+    		    nodes[i].setAttribute('onclick','');
+    		}
+    	    }}
+    	    break;
+    	}
+    	case 1:{
+        	for(var i=0; i<nodes.length; i++) {
+        	    if (nodes[i].className == fieldName) {
+        		if(value==1){
+        		    nodes[i].setAttribute('onclick','Clicked("CLICKBLUE1")');
+        		} else{
+        		    nodes[i].setAttribute('onclick','');
+        		}
+        	    }}
+        	    break;
+        	}
+    	case 2:{
+        	for(var i=0; i<nodes.length; i++) {
+        	    if (nodes[i].className == fieldName) {
+        		if(value==1){
+        		    nodes[i].setAttribute('onclick','Clicked("CLICKBLUE2")');
+        		} else{
+        		    nodes[i].setAttribute('onclick','');
+        		}
+        	    }}
+        	    break;
+        	}
+    	case 3:{
+        	for(var i=0; i<nodes.length; i++) {
+        	    if (nodes[i].className == fieldName) {
+        		if(value==1){
+        		    nodes[i].setAttribute('onclick','Clicked("CLICKBLUE3")');
+        		} else{
+        		    nodes[i].setAttribute('onclick','');
+        		}
+        	    }}
+        	    break;
+        	}
+    	case 4:{
+        	for(var i=0; i<nodes.length; i++) {
+        	    if (nodes[i].className == fieldName) {
+        		if(value==1){
+        		    nodes[i].setAttribute('onclick','Clicked("CLICKBLUE4")');
+        		} else{
+        		    nodes[i].setAttribute('onclick','');
+        		}
+        	    }}
+        	    break;
+        	}
+    	case 5:{
+        	for(var i=0; i<nodes.length; i++) {
+        	    if (nodes[i].className == fieldName) {
+        		if(value==1){
+        		    nodes[i].setAttribute('onclick','Clicked("CLICKBLUE5")');
+        		} else{
+        		    nodes[i].setAttribute('onclick','');
+        		}
+        	    }}
+        	    break;
+        	}
+    	case 6:{
+        	for(var i=0; i<nodes.length; i++) {
+        	    if (nodes[i].className == fieldName) {
+        		if(value==1){
+        		    nodes[i].setAttribute('onclick','Clicked("CLICKBLUE6")');
+        		} else{
+        		    nodes[i].setAttribute('onclick','');
+        		}
+        	    }}
+        	    break;
+        	}
+    	case 7:{
+        	for(var i=0; i<nodes.length; i++) {
+        	    if (nodes[i].className == fieldName) {
+        		if(value==1){
+        		    nodes[i].setAttribute('onclick','Clicked("CLICKBLUE7")');
+        		} else{
+        		    nodes[i].setAttribute('onclick','');
+        		}
+        	    }}
+        	    break;
+        	}
+    	case 8:{
+        	for(var i=0; i<nodes.length; i++) {
+        	    if (nodes[i].className == fieldName) {
+        		if(value==1){
+        		    nodes[i].setAttribute('onclick','Clicked("CLICKBLUE8")');
+        		} else{
+        		    nodes[i].setAttribute('onclick','');
+        		}
+        	    }}
+        	    break;
+        	}
+    	case 9:{
+        	for(var i=0; i<nodes.length; i++) {
+        	    if (nodes[i].className == fieldName) {
+        		if(value==1){
+        		    nodes[i].setAttribute('onclick','Clicked("CLICKBLUE9")');
+        		} else{
+        		    nodes[i].setAttribute('onclick','');
+        		}
+        	    }}
+        	    break;
+        	}
+    	case 10:{
+        	for(var i=0; i<nodes.length; i++) {
+        	    if (nodes[i].className == fieldName) {
+        		if(value==1){
+        		    nodes[i].setAttribute('onclick','Clicked("CLICKBLUE10")');
+        		} else{
+        		    nodes[i].setAttribute('onclick','');
+        		}
+        	    }}
+        	    break;
+        	}
+	}
+}
+}
+function setGreenClickable(SpielerNR, value){
+    if(userNumber==SpielerNR){
+	var nodes = document.getElementById("spieler1").childNodes;
+	for(var i=0; i<nodes.length; i++) {
+	    if (nodes[i].className == "greenOnClick") {
+		if(value==1){
+		    nodes[i].setAttribute('onclick','Clicked("CLICKGREEN")');
+		} else{
+		    nodes[i].setAttribute('onclick','');
+		}
+	    }
+	}
+    }
+}
+function setOrangeClickable(SpielerNR, value){
+    if(userNumber==SpielerNR){
+	var nodes = document.getElementById("spieler1").childNodes;
+	for(var i=0; i<nodes.length; i++) {
+	    if (nodes[i].className == "orangeOnClick") {
+		if(value==1){
+		    nodes[i].setAttribute('onclick','Clicked("CLICKORANGE")');
+		} else{
+		    nodes[i].setAttribute('onclick','');
+		}
+	    }
+	}
+    }
+}
+function setPurpleClickable(SpielerNR, value){
+    if(userNumber==SpielerNR){
+	var nodes = document.getElementById("spieler1").childNodes;
+	for(var i=0; i<nodes.length; i++) {
+	    if (nodes[i].className == "purpleOnClick") {
+		if(value==1){
+		    nodes[i].setAttribute('onclick','Clicked("CLICKPURPLE")');
+		} else{
+		    nodes[i].setAttribute('onclick','');
+		}
+	    }
+	}
     }
 }
 function extractArray(x) {
@@ -1558,8 +1872,6 @@ function extractArray(x) {
 	}
     }
 }
-//TODO Clickable
-
 
 function closeLobby(){
 	
