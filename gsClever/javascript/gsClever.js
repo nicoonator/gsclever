@@ -152,6 +152,7 @@ var img12 = "/gsClever/Images/Numbers/12.png";
 var img15 = "/gsClever/Images/Numbers/15.png";
 var img18 = "/gsClever/Images/Numbers/18.png";
 
+var empty = "/gsClever/Images/Empty.png";
 var ximg = "/gsClever/Images/X.png";
 var circleimg = "/gsClever/Images/circle.png";
 var circleximg = "/gsClever/Images/circlex.png";
@@ -351,6 +352,7 @@ function showview(x) {
     }
 }
 function skip() {
+    if(document.getElementById("buttonNachwurf").getAttribute('onclick')=="Clicked('NACHWUERFELN')" || document.getElementById("buttonNachwurf")..getAttribute('onclick')=="Clicked('ZUSATZWUERFELN')" )
     sendDataToServer("SKIP");
 }
 function setDice(x) {
@@ -366,12 +368,12 @@ function setDice(x) {
 function clearTray() {
     // Hier wird das Silberfeld zurueckgesetzt wenn die neuen Wuerfel geladen
     // werden
-    document.getElementById("wuerfelfeldsilber1").src = "#";
-    document.getElementById("wuerfelfeldsilber2").src = "#";
-    document.getElementById("wuerfelfeldsilber3").src = "#";
-    document.getElementById("wuerfelfeldsilber4").src = "#";
-    document.getElementById("wuerfelfeldsilber5").src = "#";
-    document.getElementById("wuerfelfeldsilber6").src = "#";
+    document.getElementById("wuerfelfeldsilber1").src = empty;
+    document.getElementById("wuerfelfeldsilber2").src = empty;
+    document.getElementById("wuerfelfeldsilber3").src = empty;
+    document.getElementById("wuerfelfeldsilber4").src = empty;
+    document.getElementById("wuerfelfeldsilber5").src = empty;
+    document.getElementById("wuerfelfeldsilber6").src = empty;
 }
 
 function setDiceImg(x) {
@@ -438,12 +440,12 @@ function setDiceOnField(x) {
 function clearWuerfelfeld () {
     // Hier wird das Silberfeld zurueckgesetzt wenn die neuen Wuerfel geladen
     // werden
-    document.getElementById("wuerfelfeldwhite").src = "#";
-    document.getElementById("wuerfelfeldyellow").src = "#";
-    document.getElementById("wuerfelfeldblue").src = "#";
-    document.getElementById("wuerfelfeldorange").src = "#";
-    document.getElementById("wuerfelfeldgreen").src = "#";
-    document.getElementById("wuerfelfeldpurple").src = "#";
+    document.getElementById("wuerfelfeldwhite").src = empty;
+    document.getElementById("wuerfelfeldyellow").src = empty;
+    document.getElementById("wuerfelfeldblue").src = empty;
+    document.getElementById("wuerfelfeldorange").src = empty;
+    document.getElementById("wuerfelfeldgreen").src = empty;
+    document.getElementById("wuerfelfeldpurple").src = empty;
 }
 function setRound(x) {
     var elements = document.getElementsByClassName('Rundefeld1');
@@ -971,21 +973,21 @@ function setPurple(SpielerNR, field, value){
 }
 function setNachwuerfelnClickable(x){
     if(x==1){
-	document.getElementById("buttonNachwurf").setAttribute('onclick','Clicked("NACHWUERFELN")()');
+	document.getElementById("buttonNachwurf").setAttribute('onclick',"Clicked('NACHWUERFELN')");
     }else{
 	document.getElementById("buttonNachwurf").setAttribute('onclick','');
     }
 }
 function setZusatzwuerfelnClickable(x){
     if(x==1){
-	document.getElementById("buttonZusatzWuerfel").setAttribute('onclick','Clicked("ZUSATZWUERFELN")()');
+	document.getElementById("buttonZusatzWuerfel").setAttribute('onclick',"Clicked('ZUSATZWUERFELN')");
     }else{
 	document.getElementById("buttonZusatzWuerfel").setAttribute('onclick','');
     }
 }
 function setWuerfelnClickable(x){
     if(x==1){
-	document.getElementById("buttonwurf").setAttribute('onclick','Clicked("WUERFELN")()');
+	document.getElementById("buttonwurf").setAttribute('onclick','Clicked("WUERFELN")');
     }else{
 	document.getElementById("buttonwurf").setAttribute('onclick','');
     }
@@ -1002,14 +1004,15 @@ function setWhiteDecider(x){
 	document.getElementById("wuerfelfeldEntscheider2").src=getDiceImg(WeissWert);
 	document.getElementById("wuerfelfeldEntscheider2").setAttribute('onclick','Clicked("WHITEDECIDER")');
     }else{
-	document.getElementById("wuerfelfeldEntscheider2").src=getDiceImg("#");
+	document.getElementById("wuerfelfeldEntscheider2").src=empty;
 	document.getElementById("wuerfelfeldEntscheider2").setAttribute('onclick','');
     }
 }
 function setColorDeciderColor(x){
+    console.log(x);
     switch (x){
     case 0:{
-	document.getElementById("wuerfelfeldEntscheider1").src="#";
+	document.getElementById("wuerfelfeldEntscheider1").src=empty;
 	break;
     }
     case 1:{
