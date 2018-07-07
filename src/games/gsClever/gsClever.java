@@ -994,353 +994,353 @@ public class gsClever extends Game {
 			case 105:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 1) {
-				if (testReturn.getMatchfield(1).getYellow()[2]) {
-					result[i] = 1;
-				} else
-					result[i] = 0;
+					if (testReturn.getMatchfield(1).getYellow()[2]) {
+						result[i] = 1;
+					} else
+						result[i] = 0;
 				}
 				break;
 			case 106:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 1) {
-				if (testReturn.getMatchfield(1).getYellow()[3]) {
-					result[i] = 1;
-				} else
-					result[i] = 0;
+					if (testReturn.getMatchfield(1).getYellow()[3]) {
+						result[i] = 1;
+					} else
+						result[i] = 0;
 				}
 				break;
 			case 107:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 1) {
-				if (testReturn.getMatchfield(1).getYellow()[4]) {
-					result[i] = 1;
-				} else
-					result[i] = 0;
+					if (testReturn.getMatchfield(1).getYellow()[4]) {
+						result[i] = 1;
+					} else
+						result[i] = 0;
 				}
 				break;
 			case 108:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 1) {
-				if (testReturn.getMatchfield(1).getYellow()[5]) {
-					result[i] = 1;
-				} else
-					result[i] = 0;
+					if (testReturn.getMatchfield(1).getYellow()[5]) {
+						result[i] = 1;
+					} else
+						result[i] = 0;
 				}
 				break;
 			case 109:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 1) {
-				if (testReturn.getMatchfield(1).getYellow()[6]) {
-					result[i] = 1;
-				} else
-					result[i] = 0;
+					if (testReturn.getMatchfield(1).getYellow()[6]) {
+						result[i] = 1;
+					} else
+						result[i] = 0;
 				}
 				break;
 			case 110:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 1) {
-				if (testReturn.getMatchfield(1).getYellow()[7]) {
-					result[i] = 1;
-				} else
-					result[i] = 0;
+					if (testReturn.getMatchfield(1).getYellow()[7]) {
+						result[i] = 1;
+					} else
+						result[i] = 0;
 				}
 				break;
 			case 111:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 1) {
-				if (testReturn.getMatchfield(1).getYellow()[8]) {
-					result[i] = 1;
-				} else
-					result[i] = 0;
+					if (testReturn.getMatchfield(1).getYellow()[8]) {
+						result[i] = 1;
+					} else
+						result[i] = 0;
 				}
 				break;
 			case 112:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 1) {
-				if (testReturn.getMatchfield(1).getYellow()[9]) {
-					result[i] = 1;
-				} else
-					result[i] = 0;
+					if (testReturn.getMatchfield(1).getYellow()[9]) {
+						result[i] = 1;
+					} else
+						result[i] = 0;
 				}
 				break;
 			case 113:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 1) {
-				if (testReturn.getMatchfield(1).getYellow()[10]) {
-					result[i] = 1;
-				} else
-					result[i] = 0;
+					if (testReturn.getMatchfield(1).getYellow()[10]) {
+						result[i] = 1;
+					} else
+						result[i] = 0;
 				}
 				break;
 			case 114:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 1) {
-				if (testReturn.getMatchfield(1).getYellow()[11]) {
-					result[i] = 1;
-				} else
-					result[i] = 0;
+					if (testReturn.getMatchfield(1).getYellow()[11]) {
+						result[i] = 1;
+					} else
+						result[i] = 0;
 				}
 				break;
 			case 115:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 1) {
-				if (testReturn.getMatchfield(1).getBlue()[0]) {
-					result[i] = 1;
-				} else
-					result[i] = 0;
+					if (testReturn.getMatchfield(1).getBlue()[0]) {
+						result[i] = 1;
+					} else
+						result[i] = 0;
 				}
 				break;
 			case 116:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 1) {
-				if (testReturn.getMatchfield(1).getBlue()[1]) {
-					result[i] = 1;
-				} else
-					result[i] = 0;
+					if (testReturn.getMatchfield(1).getBlue()[1]) {
+						result[i] = 1;
+					} else
+						result[i] = 0;
 				}
 				break;
 			case 117:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 1) {
-				if (testReturn.getMatchfield(1).getBlue()[2]) {
-					result[i] = 1;
-				} else
-					result[i] = 0;
+					if (testReturn.getMatchfield(1).getBlue()[2]) {
+						result[i] = 1;
+					} else
+						result[i] = 0;
 				}
 				break;
 			case 118:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 1) {
-				if (testReturn.getMatchfield(1).getBlue()[3]) {
-					result[i] = 1;
-				} else
-					result[i] = 0;
+					if (testReturn.getMatchfield(1).getBlue()[3]) {
+						result[i] = 1;
+					} else
+						result[i] = 0;
 				}
 				break;
 			case 119:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 1) {
-				if (testReturn.getMatchfield(1).getBlue()[4]) {
-					result[i] = 1;
-				} else
-					result[i] = 0;
+					if (testReturn.getMatchfield(1).getBlue()[4]) {
+						result[i] = 1;
+					} else
+						result[i] = 0;
 				}
 				break;
 			case 120:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 1) {
-				if (testReturn.getMatchfield(1).getBlue()[5]) {
-					result[i] = 1;
-				} else
-					result[i] = 0;
+					if (testReturn.getMatchfield(1).getBlue()[5]) {
+						result[i] = 1;
+					} else
+						result[i] = 0;
 				}
 				break;
 			case 121:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 1) {
-				if (testReturn.getMatchfield(1).getBlue()[6]) {
-					result[i] = 1;
-				} else
-					result[i] = 0;
+					if (testReturn.getMatchfield(1).getBlue()[6]) {
+						result[i] = 1;
+					} else
+						result[i] = 0;
 				}
 				break;
 			case 122:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 1) {
-				if (testReturn.getMatchfield(1).getBlue()[7]) {
-					result[i] = 1;
-				} else
-					result[i] = 0;
+					if (testReturn.getMatchfield(1).getBlue()[7]) {
+						result[i] = 1;
+					} else
+						result[i] = 0;
 				}
 				break;
 			case 123:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 1) {
-				if (testReturn.getMatchfield(1).getBlue()[8]) {
-					result[i] = 1;
-				} else
-					result[i] = 0;
+					if (testReturn.getMatchfield(1).getBlue()[8]) {
+						result[i] = 1;
+					} else
+						result[i] = 0;
 				}
 				break;
 			case 124:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 1) {
-				if (testReturn.getMatchfield(1).getBlue()[9]) {
-					result[i] = 1;
-				} else
-					result[i] = 0;
+					if (testReturn.getMatchfield(1).getBlue()[9]) {
+						result[i] = 1;
+					} else
+						result[i] = 0;
 				}
 				break;
 			case 125:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 1) {
-				if (testReturn.getMatchfield(1).getBlue()[10]) {
-					result[i] = 1;
-				} else
-					result[i] = 0;
+					if (testReturn.getMatchfield(1).getBlue()[10]) {
+						result[i] = 1;
+					} else
+						result[i] = 0;
 				}
 				break;
 			case 126:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 1) {
-				result[i] = testReturn.getMatchfield(1).getGreen();
+					result[i] = testReturn.getMatchfield(1).getGreen();
 				}
 				break;
 			case 127:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 1) {
-				result[i] = testReturn.getMatchfield(1).getOrange()[0];
+					result[i] = testReturn.getMatchfield(1).getOrange()[0];
 				}
 				break;
 			case 128:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 1) {
-				result[i] = testReturn.getMatchfield(1).getOrange()[1];
-				
+					result[i] = testReturn.getMatchfield(1).getOrange()[1];
+
 				}
 				break;
 			case 129:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 1) {
-				result[i] = testReturn.getMatchfield(1).getOrange()[2];
+					result[i] = testReturn.getMatchfield(1).getOrange()[2];
 				}
 				break;
 			case 130:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 1) {
-				result[i] = testReturn.getMatchfield(1).getOrange()[3];
+					result[i] = testReturn.getMatchfield(1).getOrange()[3];
 				}
 				break;
 			case 131:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 1) {
-				result[i] = testReturn.getMatchfield(1).getOrange()[4];
+					result[i] = testReturn.getMatchfield(1).getOrange()[4];
 				}
 				break;
 			case 132:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 1) {
-				result[i] = testReturn.getMatchfield(1).getOrange()[5];
+					result[i] = testReturn.getMatchfield(1).getOrange()[5];
 				}
 				break;
 			case 133:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 1) {
-				result[i] = testReturn.getMatchfield(1).getOrange()[6];
+					result[i] = testReturn.getMatchfield(1).getOrange()[6];
 				}
 				break;
 			case 134:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 1) {
-				result[i] = testReturn.getMatchfield(1).getOrange()[7];
+					result[i] = testReturn.getMatchfield(1).getOrange()[7];
 				}
 				break;
 			case 135:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 1) {
-				result[i] = testReturn.getMatchfield(1).getOrange()[8];
+					result[i] = testReturn.getMatchfield(1).getOrange()[8];
 				}
 				break;
 			case 136:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 1) {
-				result[i] = testReturn.getMatchfield(1).getOrange()[9];
+					result[i] = testReturn.getMatchfield(1).getOrange()[9];
 				}
 				break;
 			case 137:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 1) {
-				result[i] = testReturn.getMatchfield(1).getOrange()[10];
+					result[i] = testReturn.getMatchfield(1).getOrange()[10];
 				}
 				break;
 			case 138:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 1) {
-				result[i] = testReturn.getMatchfield(1).getPurple()[0];
+					result[i] = testReturn.getMatchfield(1).getPurple()[0];
 				}
 				break;
 			case 139:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 1) {
-				result[i] = testReturn.getMatchfield(1).getPurple()[1];
+					result[i] = testReturn.getMatchfield(1).getPurple()[1];
 				}
 				break;
 			case 140:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 1) {
-				result[i] = testReturn.getMatchfield(1).getPurple()[2];
+					result[i] = testReturn.getMatchfield(1).getPurple()[2];
 				}
 				break;
 			case 141:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 1) {
-				result[i] = testReturn.getMatchfield(1).getPurple()[3];
+					result[i] = testReturn.getMatchfield(1).getPurple()[3];
 				}
 				break;
 			case 142:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 1) {
-				result[i] = testReturn.getMatchfield(1).getPurple()[4];
+					result[i] = testReturn.getMatchfield(1).getPurple()[4];
 				}
 				break;
 			case 143:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 1) {
-				result[i] = testReturn.getMatchfield(1).getPurple()[5];
+					result[i] = testReturn.getMatchfield(1).getPurple()[5];
 				}
 				break;
 			case 144:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 1) {
-				result[i] = testReturn.getMatchfield(1).getPurple()[6];
+					result[i] = testReturn.getMatchfield(1).getPurple()[6];
 				}
 				break;
 			case 145:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 1) {
-				result[i] = testReturn.getMatchfield(1).getPurple()[7];
+					result[i] = testReturn.getMatchfield(1).getPurple()[7];
 				}
 				break;
 			case 146:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 1) {
-				result[i] = testReturn.getMatchfield(1).getPurple()[8];
+					result[i] = testReturn.getMatchfield(1).getPurple()[8];
 				}
 				break;
 			case 147:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 1) {
-				result[i] = testReturn.getMatchfield(1).getPurple()[9];
+					result[i] = testReturn.getMatchfield(1).getPurple()[9];
 				}
 				break;
 			case 148:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 1) {
-				result[i] = testReturn.getMatchfield(1).getPurple()[10];
+					result[i] = testReturn.getMatchfield(1).getPurple()[10];
 				}
 				break;
 			case 149:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 1) {
-				if (testReturn.getClickable(1).isDiceRepeat()) {
-					result[i] = 1;
-				}
+					if (testReturn.getClickable(1).isDiceRepeat()) {
+						result[i] = 1;
+					}
 				}
 				break;
 			case 150:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 1) {
-				if (testReturn.getClickable(1).isAdditionalDice()) {
-					result[i] = 1;
-				}
+					if (testReturn.getClickable(1).isAdditionalDice()) {
+						result[i] = 1;
+					}
 				}
 				break;
 			case 151:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 1) {
-				if (testReturn.getClickable(1).isRollDices()) {
-					result[i] = 1;
-				}
+					if (testReturn.getClickable(1).isRollDices()) {
+						result[i] = 1;
+					}
 				}
 				break;
 
@@ -1349,25 +1349,25 @@ public class gsClever extends Game {
 			case 152:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 1) {
-				if (testReturn.getClickable(1)) {
-					result[i] = 1;
-				}
+					if (testReturn.getClickable(1)) {
+						result[i] = 1;
+					}
 				}
 				break;
 			case 153:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 1) {
-				if (testReturn.getClickable(1)) {
-					result[i] = 1;
-				}
+					if (testReturn.getClickable(1)) {
+						result[i] = 1;
+					}
 				}
 				break;
 			case 154:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 1) {
-				if (testReturn.getClickable(1).isRollDices()) {
-					result[i] = 1;
-				}
+					if (testReturn.getClickable(1).isRollDices()) {
+						result[i] = 1;
+					}
 				}
 				break;
 
@@ -1376,235 +1376,235 @@ public class gsClever extends Game {
 			case 155:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 1) {
-				if (testReturn.getClickable(1).getYellow()[0]) {
-					result[i] = 1;
-				} else
-					result[i] = 0;
+					if (testReturn.getClickable(1).getYellow()[0]) {
+						result[i] = 1;
+					} else
+						result[i] = 0;
 				}
 				break;
 			case 156:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 1) {
-				if (testReturn.getClickable(1).getYellow()[1]) {
-					result[i] = 1;
-				} else
-					result[i] = 0;
+					if (testReturn.getClickable(1).getYellow()[1]) {
+						result[i] = 1;
+					} else
+						result[i] = 0;
 				}
 				break;
 			case 157:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 1) {
-				if (testReturn.getClickable(1).getYellow()[2]) {
-					result[i] = 1;
-				} else
-					result[i] = 0;
+					if (testReturn.getClickable(1).getYellow()[2]) {
+						result[i] = 1;
+					} else
+						result[i] = 0;
 				}
 				break;
 			case 158:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 1) {
-				if (testReturn.getClickable(1).getYellow()[3]) {
-					result[i] = 1;
-				} else
-					result[i] = 0;
+					if (testReturn.getClickable(1).getYellow()[3]) {
+						result[i] = 1;
+					} else
+						result[i] = 0;
 				}
 				break;
 			case 159:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 1) {
-				if (testReturn.getClickable(1).getYellow()[4]) {
-					result[i] = 1;
-				} else
-					result[i] = 0;
+					if (testReturn.getClickable(1).getYellow()[4]) {
+						result[i] = 1;
+					} else
+						result[i] = 0;
 				}
 				break;
 			case 160:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 1) {
-				if (testReturn.getClickable(1).getYellow()[5]) {
-					result[i] = 1;
-				} else
-					result[i] = 0;
+					if (testReturn.getClickable(1).getYellow()[5]) {
+						result[i] = 1;
+					} else
+						result[i] = 0;
 				}
 				break;
 			case 161:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 1) {
-				if (testReturn.getClickable(1).getYellow()[6]) {
-					result[i] = 1;
-				} else
-					result[i] = 0;
+					if (testReturn.getClickable(1).getYellow()[6]) {
+						result[i] = 1;
+					} else
+						result[i] = 0;
 				}
 				break;
 			case 162:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 1) {
-				if (testReturn.getClickable(1).getYellow()[7]) {
-					result[i] = 1;
-				} else
-					result[i] = 0;
+					if (testReturn.getClickable(1).getYellow()[7]) {
+						result[i] = 1;
+					} else
+						result[i] = 0;
 				}
 				break;
 			case 163:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 1) {
-				if (testReturn.getClickable(1).getYellow()[8]) {
-					result[i] = 1;
-				} else
-					result[i] = 0;
+					if (testReturn.getClickable(1).getYellow()[8]) {
+						result[i] = 1;
+					} else
+						result[i] = 0;
 				}
 				break;
 			case 164:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 1) {
-				if (testReturn.getClickable(1).getYellow()[9]) {
-					result[i] = 1;
-				} else
-					result[i] = 0;
+					if (testReturn.getClickable(1).getYellow()[9]) {
+						result[i] = 1;
+					} else
+						result[i] = 0;
 				}
 				break;
 			case 165:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 1) {
-				if (testReturn.getClickable(1).getYellow()[10]) {
-					result[i] = 1;
-				} else
-					result[i] = 0;
+					if (testReturn.getClickable(1).getYellow()[10]) {
+						result[i] = 1;
+					} else
+						result[i] = 0;
 				}
 				break;
 			case 166:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 1) {
-				if (testReturn.getClickable(1).getYellow()[11]) {
-					result[i] = 1;
-				} else
-					result[i] = 0;
+					if (testReturn.getClickable(1).getYellow()[11]) {
+						result[i] = 1;
+					} else
+						result[i] = 0;
 				}
 				break;
 			case 167:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 1) {
-				if (testReturn.getClickable(1).getBlue()[0]) {
-					result[i] = 1;
-				} else
-					result[i] = 0;
+					if (testReturn.getClickable(1).getBlue()[0]) {
+						result[i] = 1;
+					} else
+						result[i] = 0;
 				}
 				break;
 			case 168:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 1) {
-				if (testReturn.getClickable(1).getBlue()[1]) {
-					result[i] = 1;
-				} else
-					result[i] = 0;
+					if (testReturn.getClickable(1).getBlue()[1]) {
+						result[i] = 1;
+					} else
+						result[i] = 0;
 				}
 				break;
 			case 169:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 1) {
-				if (testReturn.getClickable(1).getBlue()[2]) {
-					result[i] = 1;
-				} else
-					result[i] = 0;
+					if (testReturn.getClickable(1).getBlue()[2]) {
+						result[i] = 1;
+					} else
+						result[i] = 0;
 				}
 				break;
 			case 170:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 1) {
-				if (testReturn.getClickable(1).getBlue()[3]) {
-					result[i] = 1;
-				} else
-					result[i] = 0;
+					if (testReturn.getClickable(1).getBlue()[3]) {
+						result[i] = 1;
+					} else
+						result[i] = 0;
 				}
 				break;
 			case 171:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 1) {
-				if (testReturn.getClickable(1).getBlue()[4]) {
-					result[i] = 1;
-				} else
-					result[i] = 0;
+					if (testReturn.getClickable(1).getBlue()[4]) {
+						result[i] = 1;
+					} else
+						result[i] = 0;
 				}
 				break;
 			case 172:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 1) {
-				if (testReturn.getClickable(1).getBlue()[5]) {
-					result[i] = 1;
-				} else
-					result[i] = 0;
+					if (testReturn.getClickable(1).getBlue()[5]) {
+						result[i] = 1;
+					} else
+						result[i] = 0;
 				}
 				break;
 			case 173:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 1) {
-				if (testReturn.getClickable(1).getBlue()[6]) {
-					result[i] = 1;
-				} else
-					result[i] = 0;
+					if (testReturn.getClickable(1).getBlue()[6]) {
+						result[i] = 1;
+					} else
+						result[i] = 0;
 				}
 				break;
 			case 174:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 1) {
-				if (testReturn.getClickable(1).getBlue()[7]) {
-					result[i] = 1;
-				} else
-					result[i] = 0;
+					if (testReturn.getClickable(1).getBlue()[7]) {
+						result[i] = 1;
+					} else
+						result[i] = 0;
 				}
 				break;
 			case 175:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 1) {
-				if (testReturn.getClickable(1).getBlue()[8]) {
-					result[i] = 1;
-				} else
-					result[i] = 0;
+					if (testReturn.getClickable(1).getBlue()[8]) {
+						result[i] = 1;
+					} else
+						result[i] = 0;
 				}
 				break;
 			case 176:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 1) {
-				if (testReturn.getClickable(1).getBlue()[9]) {
-					result[i] = 1;
-				} else
-					result[i] = 0;
+					if (testReturn.getClickable(1).getBlue()[9]) {
+						result[i] = 1;
+					} else
+						result[i] = 0;
 				}
 				break;
 			case 177:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 1) {
-				if (testReturn.getClickable(1).getBlue()[10]) {
-					result[i] = 1;
-				} else
-					result[i] = 0;
+					if (testReturn.getClickable(1).getBlue()[10]) {
+						result[i] = 1;
+					} else
+						result[i] = 0;
 				}
 				break;
 			case 178:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 1) {
-				if (testReturn.getClickable(1).getGreen()) {
-					result[i] = 1;
-				} else
-					result[i] = 0;
+					if (testReturn.getClickable(1).getGreen()) {
+						result[i] = 1;
+					} else
+						result[i] = 0;
 				}
 				break;
 			case 179:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 1) {
-				if (testReturn.getClickable(1).getOrange()) {
-					result[i] = 1;
-				} else
-					result[i] = 0;
+					if (testReturn.getClickable(1).getOrange()) {
+						result[i] = 1;
+					} else
+						result[i] = 0;
 				}
 				break;
 			case 180:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 1) {
-				if (testReturn.getClickable(1).getPurple()) {
-					result[i] = 1;
-				} else
-					result[i] = 0;
+					if (testReturn.getClickable(1).getPurple()) {
+						result[i] = 1;
+					} else
+						result[i] = 0;
 				}
 				break;
 			// BEGIN SPIELER 3
@@ -1617,414 +1617,418 @@ public class gsClever extends Game {
 			case 182:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 2) {
-				result[i] = testReturn.getMatchfield(2).getDiceRepeatUsed();
+					result[i] = testReturn.getMatchfield(2).getDiceRepeatUsed();
 				}
 				break;
 			case 183:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 2) {
-				result[i] = testReturn.getMatchfield(2).getAdditionalDiceCount();
+					result[i] = testReturn.getMatchfield(2).getAdditionalDiceCount();
 				}
 				break;
-			case 184:result[i] = 0;
+			case 184:
+				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 2) {
-				result[i] = testReturn.getMatchfield(2).getAdditionalDiceUsed();
+					result[i] = testReturn.getMatchfield(2).getAdditionalDiceUsed();
 				}
 				break;
 			case 185:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 2) {
-				if (testReturn.getMatchfield(2).getYellow()[0]) {
-					result[i] = 1;
-				} else
-					result[i] = 0;
+					if (testReturn.getMatchfield(2).getYellow()[0]) {
+						result[i] = 1;
+					} else
+						result[i] = 0;
 				}
 				break;
 			case 186:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 2) {
-				if (testReturn.getMatchfield(2).getYellow()[1]) {
-					result[i] = 1;
-				} else
-					result[i] = 0;
+					if (testReturn.getMatchfield(2).getYellow()[1]) {
+						result[i] = 1;
+					} else
+						result[i] = 0;
 				}
 				break;
 			case 187:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 2) {
-				if (testReturn.getMatchfield(2).getYellow()[2]) {
-					result[i] = 1;
-				} else
-					result[i] = 0;
+					if (testReturn.getMatchfield(2).getYellow()[2]) {
+						result[i] = 1;
+					} else
+						result[i] = 0;
 				}
 				break;
 			case 188:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 2) {
-				if (testReturn.getMatchfield(2).getYellow()[3]) {
-					result[i] = 1;
-				} else
-					result[i] = 0;
+					if (testReturn.getMatchfield(2).getYellow()[3]) {
+						result[i] = 1;
+					} else
+						result[i] = 0;
 				}
 				break;
 			case 189:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 2) {
-				if (testReturn.getMatchfield(2).getYellow()[4]) {
-					result[i] = 1;
-				} else
-					result[i] = 0;
+					if (testReturn.getMatchfield(2).getYellow()[4]) {
+						result[i] = 1;
+					} else
+						result[i] = 0;
 				}
 				break;
 			case 190:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 2) {
-				if (testReturn.getMatchfield(2).getYellow()[5]) {
-					result[i] = 1;
-				} else
-					result[i] = 0;
+					if (testReturn.getMatchfield(2).getYellow()[5]) {
+						result[i] = 1;
+					} else
+						result[i] = 0;
 				}
 				break;
 			case 191:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 2) {
-				if (testReturn.getMatchfield(2).getYellow()[6]) {
-					result[i] = 1;
-				} else
-					result[i] = 0;
+					if (testReturn.getMatchfield(2).getYellow()[6]) {
+						result[i] = 1;
+					} else
+						result[i] = 0;
 				}
 				break;
 			case 192:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 2) {
-				if (testReturn.getMatchfield(2).getYellow()[7]) {
-					result[i] = 1;
-				} else
-					result[i] = 0;
+					if (testReturn.getMatchfield(2).getYellow()[7]) {
+						result[i] = 1;
+					} else
+						result[i] = 0;
 				}
 				break;
 			case 193:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 2) {
-				if (testReturn.getMatchfield(2).getYellow()[8]) {
-					result[i] = 1;
-				} else
-					result[i] = 0;
+					if (testReturn.getMatchfield(2).getYellow()[8]) {
+						result[i] = 1;
+					} else
+						result[i] = 0;
 				}
 				break;
 			case 194:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 2) {
-				if (testReturn.getMatchfield(2).getYellow()[9]) {
-					result[i] = 1;
-				} else
-					result[i] = 0;
+					if (testReturn.getMatchfield(2).getYellow()[9]) {
+						result[i] = 1;
+					} else
+						result[i] = 0;
 				}
 				break;
 			case 195:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 2) {
-				if (testReturn.getMatchfield(2).getYellow()[10]) {
-					result[i] = 1;
-				} else
-					result[i] = 0;
+					if (testReturn.getMatchfield(2).getYellow()[10]) {
+						result[i] = 1;
+					} else
+						result[i] = 0;
 				}
 				break;
 			case 196:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 2) {
-				if (testReturn.getMatchfield(2).getYellow()[11]) {
-					result[i] = 1;
-				} else
-					result[i] = 0;
+					if (testReturn.getMatchfield(2).getYellow()[11]) {
+						result[i] = 1;
+					} else
+						result[i] = 0;
 				}
 				break;
 			case 197:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 2) {
-				if (testReturn.getMatchfield(2).getBlue()[0]) {
-					result[i] = 1;
-				} else
-					result[i] = 0;
+					if (testReturn.getMatchfield(2).getBlue()[0]) {
+						result[i] = 1;
+					} else
+						result[i] = 0;
 				}
 				break;
 			case 198:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 2) {
-				if (testReturn.getMatchfield(2).getBlue()[1]) {
-					result[i] = 1;
-				} else
-					result[i] = 0;
+					if (testReturn.getMatchfield(2).getBlue()[1]) {
+						result[i] = 1;
+					} else
+						result[i] = 0;
 				}
 				break;
 			case 199:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 2) {
-				if (testReturn.getMatchfield(2).getBlue()[2]) {
-					result[i] = 1;
-				} else
-					result[i] = 0;
+					if (testReturn.getMatchfield(2).getBlue()[2]) {
+						result[i] = 1;
+					} else
+						result[i] = 0;
 				}
 				break;
 			case 200:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 2) {
-				if (testReturn.getMatchfield(2).getBlue()[3]) {
-					result[i] = 1;
-				} else
-					result[i] = 0;
+					if (testReturn.getMatchfield(2).getBlue()[3]) {
+						result[i] = 1;
+					} else
+						result[i] = 0;
 				}
 				break;
 			case 201:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 2) {
-				if (testReturn.getMatchfield(2).getBlue()[4]) {
-					result[i] = 1;
-				} else
-					result[i] = 0;
+					if (testReturn.getMatchfield(2).getBlue()[4]) {
+						result[i] = 1;
+					} else
+						result[i] = 0;
 				}
 				break;
 			case 202:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 2) {
-				if (testReturn.getMatchfield(2).getBlue()[5]) {
-					result[i] = 1;
-				} else
-					result[i] = 0;
+					if (testReturn.getMatchfield(2).getBlue()[5]) {
+						result[i] = 1;
+					} else
+						result[i] = 0;
 				}
 				break;
 			case 203:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 2) {
-				if (testReturn.getMatchfield(2).getBlue()[6]) {
-					result[i] = 1;
-				} else
-					result[i] = 0;
+					if (testReturn.getMatchfield(2).getBlue()[6]) {
+						result[i] = 1;
+					} else
+						result[i] = 0;
 				}
 				break;
 			case 204:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 2) {
-				if (testReturn.getMatchfield(2).getBlue()[7]) {
-					result[i] = 1;
-				} else
-					result[i] = 0;
+					if (testReturn.getMatchfield(2).getBlue()[7]) {
+						result[i] = 1;
+					} else
+						result[i] = 0;
 				}
 				break;
 			case 205:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 2) {
-				if (testReturn.getMatchfield(2).getBlue()[8]) {
-					result[i] = 1;
-				} else
-					result[i] = 0;
+					if (testReturn.getMatchfield(2).getBlue()[8]) {
+						result[i] = 1;
+					} else
+						result[i] = 0;
 				}
 				break;
 			case 206:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 2) {
-				if (testReturn.getMatchfield(2).getBlue()[9]) {
-					result[i] = 1;
-				} else
-					result[i] = 0;
+					if (testReturn.getMatchfield(2).getBlue()[9]) {
+						result[i] = 1;
+					} else
+						result[i] = 0;
 				}
 				break;
 			case 207:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 2) {
-				if (testReturn.getMatchfield(2).getBlue()[10]) {
-					result[i] = 1;
-				} else
-					result[i] = 0;
+					if (testReturn.getMatchfield(2).getBlue()[10]) {
+						result[i] = 1;
+					} else
+						result[i] = 0;
 				}
 				break;
 			case 208:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 2) {
-				result[i] = testReturn.getMatchfield(2).getGreen();
+					result[i] = testReturn.getMatchfield(2).getGreen();
 				}
 				break;
 			case 209:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 2) {
-				result[i] = testReturn.getMatchfield(2).getOrange()[0];
+					result[i] = testReturn.getMatchfield(2).getOrange()[0];
 				}
 				break;
 			case 210:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 2) {
-				result[i] = testReturn.getMatchfield(2).getOrange()[1];
+					result[i] = testReturn.getMatchfield(2).getOrange()[1];
 				}
 				break;
 			case 211:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 2) {
-				result[i] = testReturn.getMatchfield(2).getOrange()[2];
-				
-				}break;
+					result[i] = testReturn.getMatchfield(2).getOrange()[2];
+
+				}
+				break;
 			case 212:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 2) {
-				result[i] = testReturn.getMatchfield(2).getOrange()[3];
+					result[i] = testReturn.getMatchfield(2).getOrange()[3];
 				}
 				break;
 			case 213:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 2) {
-				result[i] = testReturn.getMatchfield(2).getOrange()[4];
+					result[i] = testReturn.getMatchfield(2).getOrange()[4];
 				}
 				break;
 			case 214:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 2) {
-				result[i] = testReturn.getMatchfield(2).getOrange()[5];
+					result[i] = testReturn.getMatchfield(2).getOrange()[5];
 				}
 				break;
 			case 215:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 2) {
-				result[i] = testReturn.getMatchfield(2).getOrange()[6];
+					result[i] = testReturn.getMatchfield(2).getOrange()[6];
 				}
 				break;
 			case 216:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 2) {
-				result[i] = testReturn.getMatchfield(2).getOrange()[7];
+					result[i] = testReturn.getMatchfield(2).getOrange()[7];
 				}
 				break;
 			case 217:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 2) {
-				result[i] = testReturn.getMatchfield(2).getOrange()[8];
+					result[i] = testReturn.getMatchfield(2).getOrange()[8];
 				}
 				break;
 			case 218:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 2) {
-				result[i] = testReturn.getMatchfield(2).getOrange()[9];
+					result[i] = testReturn.getMatchfield(2).getOrange()[9];
 				}
 				break;
 			case 219:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 2) {
-				result[i] = testReturn.getMatchfield(2).getOrange()[10];
+					result[i] = testReturn.getMatchfield(2).getOrange()[10];
 				}
 				break;
 			case 220:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 2) {
-				result[i] = testReturn.getMatchfield(2).getPurple()[0];
+					result[i] = testReturn.getMatchfield(2).getPurple()[0];
 				}
 				break;
 			case 221:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 2) {
-				result[i] = testReturn.getMatchfield(2).getPurple()[1];
+					result[i] = testReturn.getMatchfield(2).getPurple()[1];
 				}
 				break;
 			case 222:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 2) {
-				result[i] = testReturn.getMatchfield(2).getPurple()[2];
+					result[i] = testReturn.getMatchfield(2).getPurple()[2];
 				}
 				break;
 			case 223:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 2) {
-				result[i] = testReturn.getMatchfield(2).getPurple()[3];
+					result[i] = testReturn.getMatchfield(2).getPurple()[3];
 				}
 				break;
 			case 224:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 2) {
-				result[i] = testReturn.getMatchfield(2).getPurple()[4];
+					result[i] = testReturn.getMatchfield(2).getPurple()[4];
 				}
 				break;
 			case 225:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 2) {
-				result[i] = testReturn.getMatchfield(2).getPurple()[5];
+					result[i] = testReturn.getMatchfield(2).getPurple()[5];
 				}
 				break;
-			case 226:result[i] = 0;
+			case 226:
+				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 2) {
-				result[i] = testReturn.getMatchfield(2).getPurple()[6];
+					result[i] = testReturn.getMatchfield(2).getPurple()[6];
 				}
 				break;
 			case 227:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 2) {
-				result[i] = testReturn.getMatchfield(2).getPurple()[7];
+					result[i] = testReturn.getMatchfield(2).getPurple()[7];
 				}
 				break;
 			case 228:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 2) {
-				result[i] = testReturn.getMatchfield(2).getPurple()[8];
+					result[i] = testReturn.getMatchfield(2).getPurple()[8];
 				}
 				break;
 			case 229:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 2) {
-				result[i] = testReturn.getMatchfield(2).getPurple()[9];
+					result[i] = testReturn.getMatchfield(2).getPurple()[9];
 				}
 				break;
-			case 230:result[i] = 0;
+			case 230:
+				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 2) {
-				result[i] = testReturn.getMatchfield(2).getPurple()[10];
+					result[i] = testReturn.getMatchfield(2).getPurple()[10];
 				}
 				break;
 			case 231:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 2) {
-				if (testReturn.getClickable(2).isDiceRepeat()) {
-					result[i] = 1;
-				}
+					if (testReturn.getClickable(2).isDiceRepeat()) {
+						result[i] = 1;
+					}
 				}
 				break;
 			case 232:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 2) {
-				if (testReturn.getClickable(2).isAdditionalDice()) {
-					result[i] = 1;
-				}
+					if (testReturn.getClickable(2).isAdditionalDice()) {
+						result[i] = 1;
+					}
 				}
 				break;
 			case 233:
-				
-					result[i] = 0;
-					if (this.getCurrentPlayerAmount() > 2) {
-				if (testReturn.getClickable(2).isRollDices()) {
-					result[i] = 1;
-				}
+
+				result[i] = 0;
+				if (this.getCurrentPlayerAmount() > 2) {
+					if (testReturn.getClickable(2).isRollDices()) {
+						result[i] = 1;
 					}
+				}
 				break;
 			// TODO
 			case 234:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 2) {
 					if (testReturn.getClickable(2)) {
-				
-					result[i] = 1;
-				}
+
+						result[i] = 1;
+					}
 				}
 				break;
 			case 235:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 2) {
 					if (testReturn.getClickable(2)) {
-				
-					result[i] = 1;
+
+						result[i] = 1;
 					}
-					}
+				}
 				break;
 			case 236:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 2) {
 					if (testReturn.getClickable(2).isRollDices()) {
-				
-					result[i] = 1;
-				}
+
+						result[i] = 1;
+					}
 				}
 				break;
 
@@ -2032,250 +2036,250 @@ public class gsClever extends Game {
 			case 237:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 2) {
-				if (testReturn.getClickable(2).getYellow()[0]) {
-					result[i] = 1;
-				} else
-					result[i] = 0;
+					if (testReturn.getClickable(2).getYellow()[0]) {
+						result[i] = 1;
+					} else
+						result[i] = 0;
 				}
 				break;
 			case 238:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 2) {
-				if (testReturn.getClickable(2).getYellow()[1]) {
-					result[i] = 1;
-				} else
-					result[i] = 0;
+					if (testReturn.getClickable(2).getYellow()[1]) {
+						result[i] = 1;
+					} else
+						result[i] = 0;
 				}
 				break;
 			case 239:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 2) {
-				if (testReturn.getClickable(2).getYellow()[2]) {
-					result[i] = 1;
-				} else
-					result[i] = 0;
+					if (testReturn.getClickable(2).getYellow()[2]) {
+						result[i] = 1;
+					} else
+						result[i] = 0;
 				}
 				break;
 			case 240:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 2) {
-				if (testReturn.getClickable(2).getYellow()[3]) {
-					result[i] = 1;
-				} else
-					result[i] = 0;
+					if (testReturn.getClickable(2).getYellow()[3]) {
+						result[i] = 1;
+					} else
+						result[i] = 0;
 				}
 				break;
 			case 241:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 2) {
 					if (testReturn.getClickable(2).getYellow()[4]) {
-				
-					result[i] = 1;
-					}else
-					result[i] = 0;
+
+						result[i] = 1;
+					} else
+						result[i] = 0;
 				}
 				break;
 			case 242:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 2) {
-				if (testReturn.getClickable(2).getYellow()[5]) {
-					result[i] = 1;
-				} else
-					result[i] = 0;
+					if (testReturn.getClickable(2).getYellow()[5]) {
+						result[i] = 1;
+					} else
+						result[i] = 0;
 				}
 				break;
 			case 243:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 2) {
 					if (testReturn.getClickable(2).getYellow()[6]) {
-				
-					result[i] = 1;
-				} else
-					result[i] = 0;
+
+						result[i] = 1;
+					} else
+						result[i] = 0;
 				}
 				break;
 			case 244:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 2) {
-				if (testReturn.getClickable(2).getYellow()[7]) {
-					result[i] = 1;
-				} else
-					result[i] = 0;
+					if (testReturn.getClickable(2).getYellow()[7]) {
+						result[i] = 1;
+					} else
+						result[i] = 0;
 				}
 				break;
 			case 245:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 2) {
-				if (testReturn.getClickable(2).getYellow()[8]) {
-					result[i] = 1;
-				} else
-					result[i] = 0;
+					if (testReturn.getClickable(2).getYellow()[8]) {
+						result[i] = 1;
+					} else
+						result[i] = 0;
 				}
 				break;
 			case 246:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 2) {
-				if (testReturn.getClickable(2).getYellow()[9]) {
-					result[i] = 1;
-				} else
-					result[i] = 0;
+					if (testReturn.getClickable(2).getYellow()[9]) {
+						result[i] = 1;
+					} else
+						result[i] = 0;
 				}
 				break;
 			case 247:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 2) {
-				if (testReturn.getClickable(2).getYellow()[10]) {
-					result[i] = 1;
-				} else
-					result[i] = 0;
+					if (testReturn.getClickable(2).getYellow()[10]) {
+						result[i] = 1;
+					} else
+						result[i] = 0;
 				}
 				break;
 			case 248:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 2) {
-				if (testReturn.getClickable(2).getYellow()[11]) {
-					result[i] = 1;
-				} else
-					result[i] = 0;
+					if (testReturn.getClickable(2).getYellow()[11]) {
+						result[i] = 1;
+					} else
+						result[i] = 0;
 				}
 				break;
 			case 249:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 2) {
-				if (testReturn.getClickable(2).getBlue()[0]) {
-					result[i] = 1;
-				} else
-					result[i] = 0;
+					if (testReturn.getClickable(2).getBlue()[0]) {
+						result[i] = 1;
+					} else
+						result[i] = 0;
 				}
 				break;
 			case 250:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 2) {
-				if (testReturn.getClickable(2).getBlue()[1]) {
-					result[i] = 1;
-				} else
-					result[i] = 0;
+					if (testReturn.getClickable(2).getBlue()[1]) {
+						result[i] = 1;
+					} else
+						result[i] = 0;
 				}
 				break;
 			case 251:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 2) {
-				if (testReturn.getClickable(2).getBlue()[2]) {
-					result[i] = 1;
-				} else
-					result[i] = 0;
+					if (testReturn.getClickable(2).getBlue()[2]) {
+						result[i] = 1;
+					} else
+						result[i] = 0;
 				}
 				break;
 			case 252:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 2) {
-				if (testReturn.getClickable(2).getBlue()[3]) {
-					result[i] = 1;
-				} else
-					result[i] = 0;
+					if (testReturn.getClickable(2).getBlue()[3]) {
+						result[i] = 1;
+					} else
+						result[i] = 0;
 				}
 				break;
 			case 253:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 2) {
-				if (testReturn.getClickable(2).getBlue()[4]) {
-					result[i] = 1;
-				} else
-					result[i] = 0;
+					if (testReturn.getClickable(2).getBlue()[4]) {
+						result[i] = 1;
+					} else
+						result[i] = 0;
 				}
 				break;
 			case 254:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 2) {
-				if (testReturn.getClickable(2).getBlue()[5]) {
-					result[i] = 1;
-				} else
-					result[i] = 0;
+					if (testReturn.getClickable(2).getBlue()[5]) {
+						result[i] = 1;
+					} else
+						result[i] = 0;
 				}
 				break;
 			case 255:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 2) {
-				if (testReturn.getClickable(2).getBlue()[6]) {
-					result[i] = 1;
-				} else
-					result[i] = 0;
+					if (testReturn.getClickable(2).getBlue()[6]) {
+						result[i] = 1;
+					} else
+						result[i] = 0;
 				}
 				break;
 			case 256:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 2) {
-				if (testReturn.getClickable(2).getBlue()[7]) {
-					result[i] = 1;
-				} else
-					result[i] = 0;
+					if (testReturn.getClickable(2).getBlue()[7]) {
+						result[i] = 1;
+					} else
+						result[i] = 0;
 				}
 				break;
 			case 257:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 2) {
-				if (testReturn.getClickable(2).getBlue()[8]) {
-					result[i] = 1;
-				} else
-					result[i] = 0;
+					if (testReturn.getClickable(2).getBlue()[8]) {
+						result[i] = 1;
+					} else
+						result[i] = 0;
 				}
 				break;
 			case 258:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 2) {
-				if (testReturn.getClickable(2).getBlue()[9]) {
-					result[i] = 1;
-				} else
-					result[i] = 0;
+					if (testReturn.getClickable(2).getBlue()[9]) {
+						result[i] = 1;
+					} else
+						result[i] = 0;
 				}
 				break;
 			case 259:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 2) {
-				if (testReturn.getClickable(2).getBlue()[10]) {
-					result[i] = 1;
-				} else
-					result[i] = 0;
+					if (testReturn.getClickable(2).getBlue()[10]) {
+						result[i] = 1;
+					} else
+						result[i] = 0;
 				}
 				break;
 			case 260:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 2) {
-				if (testReturn.getClickable(2).getGreen()) {
-					result[i] = 1;
-				} else
-					result[i] = 0;
+					if (testReturn.getClickable(2).getGreen()) {
+						result[i] = 1;
+					} else
+						result[i] = 0;
 				}
 				break;
 			case 261:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 2) {
-				if (testReturn.getClickable(2).getOrange()) {
-					result[i] = 1;
-				} else
-					result[i] = 0;
+					if (testReturn.getClickable(2).getOrange()) {
+						result[i] = 1;
+					} else
+						result[i] = 0;
 				}
 				break;
 			case 262:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 2) {
-				if (testReturn.getClickable(2).getPurple()) {
-					result[i] = 1;
-				} else
-					result[i] = 0;
+					if (testReturn.getClickable(2).getPurple()) {
+						result[i] = 1;
+					} else
+						result[i] = 0;
 				}
 				break;
 			// BEGIN SPIELER 4
 			case 263:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 3) {
-				result[i] = testReturn.getMatchfield(3).getDiceRepeatCount();
+					result[i] = testReturn.getMatchfield(3).getDiceRepeatCount();
 				}
 				break;
 			case 264:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 3) {
-				result[i] = testReturn.getMatchfield(3).getDiceRepeatUsed();
+					result[i] = testReturn.getMatchfield(3).getDiceRepeatUsed();
 				}
 				break;
 			case 265:
@@ -2293,214 +2297,214 @@ public class gsClever extends Game {
 			case 267:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 3) {
-				if (testReturn.getMatchfield(3).getYellow()[0]) {
-					result[i] = 1;
-				} else
-					result[i] = 0;
+					if (testReturn.getMatchfield(3).getYellow()[0]) {
+						result[i] = 1;
+					} else
+						result[i] = 0;
 				}
 				break;
 			case 268:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 3) {
-				if (testReturn.getMatchfield(3).getYellow()[1]) {
-					result[i] = 1;
-				} else
-					result[i] = 0;
+					if (testReturn.getMatchfield(3).getYellow()[1]) {
+						result[i] = 1;
+					} else
+						result[i] = 0;
 				}
 				break;
 			case 269:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 3) {
-				if (testReturn.getMatchfield(3).getYellow()[2]) {
-					result[i] = 1;
-				} else
-					result[i] = 0;
+					if (testReturn.getMatchfield(3).getYellow()[2]) {
+						result[i] = 1;
+					} else
+						result[i] = 0;
 				}
 				break;
 			case 270:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 3) {
-				if (testReturn.getMatchfield(3).getYellow()[3]) {
-					result[i] = 1;
-				} else
-					result[i] = 0;
+					if (testReturn.getMatchfield(3).getYellow()[3]) {
+						result[i] = 1;
+					} else
+						result[i] = 0;
 				}
 				break;
 			case 271:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 3) {
-				if (testReturn.getMatchfield(3).getYellow()[4]) {
-					result[i] = 1;
-				} else
-					result[i] = 0;
+					if (testReturn.getMatchfield(3).getYellow()[4]) {
+						result[i] = 1;
+					} else
+						result[i] = 0;
 				}
 				break;
 			case 272:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 3) {
-				if (testReturn.getMatchfield(3).getYellow()[5]) {
-					result[i] = 1;
-				} else
-					result[i] = 0;
+					if (testReturn.getMatchfield(3).getYellow()[5]) {
+						result[i] = 1;
+					} else
+						result[i] = 0;
 				}
 				break;
 			case 273:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 3) {
-				if (testReturn.getMatchfield(3).getYellow()[6]) {
-					result[i] = 1;
-				} else
-					result[i] = 0;
+					if (testReturn.getMatchfield(3).getYellow()[6]) {
+						result[i] = 1;
+					} else
+						result[i] = 0;
 				}
 				break;
 			case 274:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 3) {
-				if (testReturn.getMatchfield(3).getYellow()[7]) {
-					result[i] = 1;
-				} else
-					result[i] = 0;
+					if (testReturn.getMatchfield(3).getYellow()[7]) {
+						result[i] = 1;
+					} else
+						result[i] = 0;
 				}
 				break;
 			case 275:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 3) {
-				if (testReturn.getMatchfield(3).getYellow()[8]) {
-					result[i] = 1;
-				} else
-					result[i] = 0;
+					if (testReturn.getMatchfield(3).getYellow()[8]) {
+						result[i] = 1;
+					} else
+						result[i] = 0;
 				}
 				break;
 			case 276:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 3) {
-				if (testReturn.getMatchfield(3).getYellow()[9]) {
-					result[i] = 1;
-				} else
-					result[i] = 0;
+					if (testReturn.getMatchfield(3).getYellow()[9]) {
+						result[i] = 1;
+					} else
+						result[i] = 0;
 				}
 				break;
 			case 277:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 3) {
-				if (testReturn.getMatchfield(3).getYellow()[10]) {
-					result[i] = 1;
-				} else
-					result[i] = 0;
+					if (testReturn.getMatchfield(3).getYellow()[10]) {
+						result[i] = 1;
+					} else
+						result[i] = 0;
 				}
 				break;
 			case 278:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 3) {
-				if (testReturn.getMatchfield(3).getYellow()[11]) {
-					result[i] = 1;
-				} else
-					result[i] = 0;
+					if (testReturn.getMatchfield(3).getYellow()[11]) {
+						result[i] = 1;
+					} else
+						result[i] = 0;
 				}
 				break;
 			case 279:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 3) {
-				if (testReturn.getMatchfield(3).getBlue()[0]) {
-					result[i] = 1;
-				} else
-					result[i] = 0;
+					if (testReturn.getMatchfield(3).getBlue()[0]) {
+						result[i] = 1;
+					} else
+						result[i] = 0;
 				}
 				break;
 			case 280:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 3) {
-				if (testReturn.getMatchfield(3).getBlue()[1]) {
-					result[i] = 1;
-				} else
-					result[i] = 0;
+					if (testReturn.getMatchfield(3).getBlue()[1]) {
+						result[i] = 1;
+					} else
+						result[i] = 0;
 				}
 				break;
 			case 281:
 				result[i] = 0;
-			if (this.getCurrentPlayerAmount() > 3) {
-				if (testReturn.getMatchfield(3).getBlue()[2]) {
-					result[i] = 1;
-				} else
-					result[i] = 0;
-			}
-			break;
+				if (this.getCurrentPlayerAmount() > 3) {
+					if (testReturn.getMatchfield(3).getBlue()[2]) {
+						result[i] = 1;
+					} else
+						result[i] = 0;
+				}
+				break;
 			case 282:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 3) {
-				if (testReturn.getMatchfield(3).getBlue()[3]) {
-					result[i] = 1;
-				} else
-					result[i] = 0;
+					if (testReturn.getMatchfield(3).getBlue()[3]) {
+						result[i] = 1;
+					} else
+						result[i] = 0;
 				}
 				break;
 			case 283:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 3) {
-				if (testReturn.getMatchfield(3).getBlue()[4]) {
-					result[i] = 1;
-				} else
-					result[i] = 0;
+					if (testReturn.getMatchfield(3).getBlue()[4]) {
+						result[i] = 1;
+					} else
+						result[i] = 0;
 				}
 				break;
 			case 284:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 3) {
-				if (testReturn.getMatchfield(3).getBlue()[5]) {
-					result[i] = 1;
-				} else
-					result[i] = 0;
+					if (testReturn.getMatchfield(3).getBlue()[5]) {
+						result[i] = 1;
+					} else
+						result[i] = 0;
 				}
 				break;
 			case 285:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 3) {
-				if (testReturn.getMatchfield(3).getBlue()[6]) {
-					result[i] = 1;
-				} else
-					result[i] = 0;
+					if (testReturn.getMatchfield(3).getBlue()[6]) {
+						result[i] = 1;
+					} else
+						result[i] = 0;
 				}
 				break;
 			case 286:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 3) {
-				if (testReturn.getMatchfield(3).getBlue()[7]) {
-					result[i] = 1;
-				} else
-					result[i] = 0;
+					if (testReturn.getMatchfield(3).getBlue()[7]) {
+						result[i] = 1;
+					} else
+						result[i] = 0;
 				}
 				break;
 			case 287:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 3) {
-				if (testReturn.getMatchfield(3).getBlue()[8]) {
-					result[i] = 1;
-				} else
-					result[i] = 0;
+					if (testReturn.getMatchfield(3).getBlue()[8]) {
+						result[i] = 1;
+					} else
+						result[i] = 0;
 				}
 				break;
 			case 288:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 3) {
-				if (testReturn.getMatchfield(3).getBlue()[9]) {
-					result[i] = 1;
-				} else
-					result[i] = 0;
+					if (testReturn.getMatchfield(3).getBlue()[9]) {
+						result[i] = 1;
+					} else
+						result[i] = 0;
 				}
 				break;
 			case 289:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 3) {
-				if (testReturn.getMatchfield(3).getBlue()[10]) {
-					result[i] = 1;
-				} else
-					result[i] = 0;
+					if (testReturn.getMatchfield(3).getBlue()[10]) {
+						result[i] = 1;
+					} else
+						result[i] = 0;
 				}
 				break;
 			case 290:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 3) {
-				result[i] = testReturn.getMatchfield(3).getGreen();
+					result[i] = testReturn.getMatchfield(3).getGreen();
 				}
 				break;
 			case 291:
@@ -2638,50 +2642,50 @@ public class gsClever extends Game {
 			case 313:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 3) {
-				if (testReturn.getClickable(3).isDiceRepeat()) {
-					result[i] = 1;
-				}
+					if (testReturn.getClickable(3).isDiceRepeat()) {
+						result[i] = 1;
+					}
 				}
 				break;
 			case 314:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 3) {
-				if (testReturn.getClickable(3).isAdditionalDice()) {
-					result[i] = 1;
-				}
+					if (testReturn.getClickable(3).isAdditionalDice()) {
+						result[i] = 1;
+					}
 				}
 				break;
 			case 315:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 3) {
-				if (testReturn.getClickable(3).isRollDices()) {
-					result[i] = 1;
-				}
+					if (testReturn.getClickable(3).isRollDices()) {
+						result[i] = 1;
+					}
 				}
 				break;
 			// TODO
 			case 316:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 3) {
-				if (testReturn.getClickable(3)) {
-					result[i] = 1;
-				}
+					if (testReturn.getClickable(3)) {
+						result[i] = 1;
+					}
 				}
 				break;
 			case 317:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 3) {
-				if (testReturn.getClickable(3)) {
-					result[i] = 1;
-				}
+					if (testReturn.getClickable(3)) {
+						result[i] = 1;
+					}
 				}
 				break;
 			case 318:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 3) {
-				if (testReturn.getClickable(3).isRollDices()) {
-					result[i] = 1;
-				}
+					if (testReturn.getClickable(3).isRollDices()) {
+						result[i] = 1;
+					}
 				}
 				break;
 
@@ -2689,236 +2693,236 @@ public class gsClever extends Game {
 			case 319:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 3) {
-				if (testReturn.getClickable(3).getYellow()[0]) {
-					result[i] = 1;
-				} else
-					result[i] = 0;
+					if (testReturn.getClickable(3).getYellow()[0]) {
+						result[i] = 1;
+					} else
+						result[i] = 0;
 				}
 				break;
 			case 320:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 3) {
 					if (testReturn.getClickable(3).getYellow()[1]) {
-				
-					result[i] = 1;
-				} else
-					result[i] = 0;
+
+						result[i] = 1;
+					} else
+						result[i] = 0;
 				}
 				break;
 			case 321:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 3) {
-				if (testReturn.getClickable(2).getYellow()[2]) {
-					result[i] = 1;
-				} else
-					result[i] = 0;
+					if (testReturn.getClickable(2).getYellow()[2]) {
+						result[i] = 1;
+					} else
+						result[i] = 0;
 				}
 				break;
 			case 322:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 3) {
-				if (testReturn.getClickable(3).getYellow()[3]) {
-					result[i] = 1;
-				} else
-					result[i] = 0;
+					if (testReturn.getClickable(3).getYellow()[3]) {
+						result[i] = 1;
+					} else
+						result[i] = 0;
 				}
 				break;
 			case 323:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 3) {
-				if (testReturn.getClickable(3).getYellow()[4]) {
-					result[i] = 1;
-				} else
-					result[i] = 0;
+					if (testReturn.getClickable(3).getYellow()[4]) {
+						result[i] = 1;
+					} else
+						result[i] = 0;
 				}
 				break;
 			case 324:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 3) {
-				if (testReturn.getClickable(3).getYellow()[5]) {
-					result[i] = 1;
-				} else
-					result[i] = 0;
+					if (testReturn.getClickable(3).getYellow()[5]) {
+						result[i] = 1;
+					} else
+						result[i] = 0;
 				}
 				break;
 			case 325:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 3) {
-				if (testReturn.getClickable(3).getYellow()[6]) {
-					result[i] = 1;
-				} else
-					result[i] = 0;
+					if (testReturn.getClickable(3).getYellow()[6]) {
+						result[i] = 1;
+					} else
+						result[i] = 0;
 				}
 				break;
 			case 326:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 3) {
-				if (testReturn.getClickable(3).getYellow()[7]) {
-					result[i] = 1;
-				} else
-					result[i] = 0;
+					if (testReturn.getClickable(3).getYellow()[7]) {
+						result[i] = 1;
+					} else
+						result[i] = 0;
 				}
 				break;
 			case 327:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 3) {
-				if (testReturn.getClickable(3).getYellow()[8]) {
-					result[i] = 1;
-				} else
-					result[i] = 0;
+					if (testReturn.getClickable(3).getYellow()[8]) {
+						result[i] = 1;
+					} else
+						result[i] = 0;
 				}
 				break;
 			case 328:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 3) {
-				if (testReturn.getClickable(3).getYellow()[9]) {
-					result[i] = 1;
-				} else
-					result[i] = 0;
+					if (testReturn.getClickable(3).getYellow()[9]) {
+						result[i] = 1;
+					} else
+						result[i] = 0;
 				}
 				break;
 			case 329:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 3) {
-				if (testReturn.getClickable(3).getYellow()[10]) {
-					result[i] = 1;
-				} else
-					result[i] = 0;
+					if (testReturn.getClickable(3).getYellow()[10]) {
+						result[i] = 1;
+					} else
+						result[i] = 0;
 				}
 				break;
 			case 330:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 3) {
-				if (testReturn.getClickable(3).getYellow()[11]) {
-					result[i] = 1;
-				} else
-					result[i] = 0;
+					if (testReturn.getClickable(3).getYellow()[11]) {
+						result[i] = 1;
+					} else
+						result[i] = 0;
 				}
 				break;
 			case 331:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 3) {
-				if (testReturn.getClickable(3).getBlue()[0]) {
-					result[i] = 1;
-				} else
-					result[i] = 0;
+					if (testReturn.getClickable(3).getBlue()[0]) {
+						result[i] = 1;
+					} else
+						result[i] = 0;
 				}
 				break;
 			case 332:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 3) {
-				if (testReturn.getClickable(3).getBlue()[1]) {
-					result[i] = 1;
-				} else
-					result[i] = 0;
+					if (testReturn.getClickable(3).getBlue()[1]) {
+						result[i] = 1;
+					} else
+						result[i] = 0;
 				}
 				break;
 			case 333:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 3) {
-				if (testReturn.getClickable(3).getBlue()[2]) {
-					result[i] = 1;
-				} else
-					result[i] = 0;
+					if (testReturn.getClickable(3).getBlue()[2]) {
+						result[i] = 1;
+					} else
+						result[i] = 0;
 				}
 				break;
 			case 334:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 3) {
-				if (testReturn.getClickable(3).getBlue()[3]) {
-					result[i] = 1;
-				} else
-					result[i] = 0;
+					if (testReturn.getClickable(3).getBlue()[3]) {
+						result[i] = 1;
+					} else
+						result[i] = 0;
 				}
 				break;
 			case 335:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 3) {
-				if (testReturn.getClickable(3).getBlue()[4]) {
-					result[i] = 1;
-				} else
-					result[i] = 0;
+					if (testReturn.getClickable(3).getBlue()[4]) {
+						result[i] = 1;
+					} else
+						result[i] = 0;
 				}
 				break;
 			case 336:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 3) {
-				if (testReturn.getClickable(3).getBlue()[5]) {
-					result[i] = 1;
-				} else
-					result[i] = 0;
+					if (testReturn.getClickable(3).getBlue()[5]) {
+						result[i] = 1;
+					} else
+						result[i] = 0;
 				}
 				break;
 			case 337:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 3) {
-				if (testReturn.getClickable(3).getBlue()[6]) {
-					result[i] = 1;
-				} else
-					result[i] = 0;
+					if (testReturn.getClickable(3).getBlue()[6]) {
+						result[i] = 1;
+					} else
+						result[i] = 0;
 				}
 				break;
 			case 338:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 3) {
-				if (testReturn.getClickable(3).getBlue()[7]) {
-					result[i] = 1;
-				} else
-					result[i] = 0;
+					if (testReturn.getClickable(3).getBlue()[7]) {
+						result[i] = 1;
+					} else
+						result[i] = 0;
 				}
 				break;
 			case 339:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 3) {
-				if (testReturn.getClickable(3).getBlue()[8]) {
-					result[i] = 1;
-				} else
-					result[i] = 0;
+					if (testReturn.getClickable(3).getBlue()[8]) {
+						result[i] = 1;
+					} else
+						result[i] = 0;
 				}
 				break;
 			case 340:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 3) {
-				if (testReturn.getClickable(3).getBlue()[9]) {
-					result[i] = 1;
-				} else
-					result[i] = 0;
+					if (testReturn.getClickable(3).getBlue()[9]) {
+						result[i] = 1;
+					} else
+						result[i] = 0;
 				}
 				break;
 			case 341:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 3) {
-				if (testReturn.getClickable(3).getBlue()[10]) {
-					result[i] = 1;
-				} else
-					result[i] = 0;
+					if (testReturn.getClickable(3).getBlue()[10]) {
+						result[i] = 1;
+					} else
+						result[i] = 0;
 				}
 				break;
 			case 342:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 3) {
-				if (testReturn.getClickable(0).getGreen()) {
-					result[i] = 1;
-				} else
-					result[i] = 0;
+					if (testReturn.getClickable(0).getGreen()) {
+						result[i] = 1;
+					} else
+						result[i] = 0;
 				}
 				break;
 			case 343:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 3) {
-				if (testReturn.getClickable(0).getOrange()) {
-					result[i] = 1;
-				} else
-					result[i] = 0;
+					if (testReturn.getClickable(0).getOrange()) {
+						result[i] = 1;
+					} else
+						result[i] = 0;
 				}
 				break;
 			case 344:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 3) {
-				if (testReturn.getClickable(0).getPurple()) {
-					result[i] = 1;
-				} else
-					result[i] = 0;
+					if (testReturn.getClickable(0).getPurple()) {
+						result[i] = 1;
+					} else
+						result[i] = 0;
 				}
 				break;
 			}
