@@ -61,8 +61,8 @@ public class gsClever extends Game {
 
 	@Override
 	public String getJavaScript() {
-		return  "<script src=\"javascript/gsClever.js\"></script>"
-				+" <script src=\"https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js\"></script>";
+		return "<script src=\"javascript/gsClever.js\"></script>"
+				+ " <script src=\"https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js\"></script>";
 	}
 
 	@Override
@@ -106,7 +106,7 @@ public class gsClever extends Game {
 			// TODO
 		}
 
-		if (gsonString.equals("STARTGAME")&&userList.size()>=2) {
+		if (gsonString.equals("STARTGAME") && userList.size() >= 2) {
 			this.gState = GameState.RUNNING;
 			currentGame = new MainLogic(this.userList);
 			gameStatus = this.getNewGame();
@@ -130,43 +130,168 @@ public class gsClever extends Game {
 		// runter
 		// verschoben werden
 		if (gsonString.equals("WUERFELN")) {
+			sendGameDataToClients("SUBMITGAME");
+			//TODO
 			return;
-			// ACHTUNG: Wenn keine Game DATA Gebraucht wird, bitte nicht nach
-			// unten springen lassen sondern returnen.
 		}
 
 		if (gsonString.equals("NACHWUERFELN")) {
-			// TODO
+			sendGameDataToClients("SUBMITGAME");
+			//TODO
+			return;
 		}
 
 		if (gsonString.equals("ZUSATZWUERFELN")) {
-			// TODO
+			sendGameDataToClients("SUBMITGAME");
+			//TODO
+			return;
 		}
 
 		if (gsonString.equals("SKIP")) {
-			// TODO
+			sendGameDataToClients("SUBMITGAME");
+			//TODO
+			return;
 		}
-
-		String[] strArray = gsonString.split(",");
-		int[] receivedArray = new int[345];
-		for (int i = 0; i < 345; i++) {
-			receivedArray[i] = Integer.parseInt(strArray[i]);
+		if (gsonString.equals("COLORDECIDER")) {
+			sendGameDataToClients("SUBMITGAME");
+			//TODO
+			return;
 		}
-		int[] gameStatus = getGameStatus();
-		boolean changed = false;
-		for (int i = 0; i < 345; i++) {
-			if (gameStatus[i] == 0 && receivedArray[i] != 0) {
-				changed = true;
-				break;
-			}
+		if (gsonString.equals("WHITEDECIDER")) {
+			sendGameDataToClients("SUBMITGAME");
+			//TODO
+			return;
 		}
-		if (changed == true) {
-			// TODO
+		if (gsonString.equals("CLICKYELLOW0")) {
+			sendGameDataToClients("SUBMITGAME");
+			//TODO
+			return;
 		}
-
-		// ist nur temporaer hier. Beendet die Methode wenn noch nicht
-		// behandelte faelle
-		// eintreten, sonst schmeisst der server einen Fehler
+		if (gsonString.equals("CLICKYELLOW1")) {
+			sendGameDataToClients("SUBMITGAME");
+			//TODO
+			return;
+		}
+		if (gsonString.equals("CLICKYELLOW2")) {
+			sendGameDataToClients("SUBMITGAME");
+			//TODO
+			return;
+		}
+		if (gsonString.equals("CLICKYELLOW3")) {
+			sendGameDataToClients("SUBMITGAME");
+			//TODO
+			return;
+		}
+		if (gsonString.equals("CLICKYELLOW4")) {
+			sendGameDataToClients("SUBMITGAME");
+			//TODO
+			return;
+		}
+		if (gsonString.equals("CLICKYELLOW5")) {
+			sendGameDataToClients("SUBMITGAME");
+			//TODO
+			return;
+		}
+		if (gsonString.equals("CLICKYELLOW6")) {
+			sendGameDataToClients("SUBMITGAME");
+			//TODO
+			return;
+		}
+		if (gsonString.equals("CLICKYELLOW7")) {
+			sendGameDataToClients("SUBMITGAME");
+			//TODO
+			return;
+		}
+		if (gsonString.equals("CLICKYELLOW8")) {
+			sendGameDataToClients("SUBMITGAME");
+			//TODO
+			return;
+		}
+		if (gsonString.equals("CLICKYELLOW9")) {
+			sendGameDataToClients("SUBMITGAME");
+			//TODO
+			return;
+		}
+		if (gsonString.equals("CLICKYELLOW10")) {
+			sendGameDataToClients("SUBMITGAME");
+			//TODO
+			return;
+		}
+		if (gsonString.equals("CLICKYELLOW11")) {
+			sendGameDataToClients("SUBMITGAME");
+			//TODO
+			return;
+		}
+		if (gsonString.equals("CLICKBLUE0")) {
+			sendGameDataToClients("SUBMITGAME");
+			//TODO
+			return;
+		}
+		if (gsonString.equals("CLICKBLUE1")) {
+			sendGameDataToClients("SUBMITGAME");
+			//TODO
+			return;
+		}
+		if (gsonString.equals("CLICKBLUE2")) {
+			sendGameDataToClients("SUBMITGAME");
+			//TODO
+			return;
+		}
+		if (gsonString.equals("CLICKBLUE3")) {
+			sendGameDataToClients("SUBMITGAME");
+			//TODO
+			return;
+		}
+		if (gsonString.equals("CLICKBLUE4")) {
+			sendGameDataToClients("SUBMITGAME");
+			//TODO
+			return;
+		}
+		if (gsonString.equals("CLICKBLUE5")) {
+			sendGameDataToClients("SUBMITGAME");
+			//TODO
+			return;
+		}
+		if (gsonString.equals("CLICKBLUE6")) {
+			sendGameDataToClients("SUBMITGAME");
+			//TODO
+			return;
+		}
+		if (gsonString.equals("CLICKBLUE7")) {
+			sendGameDataToClients("SUBMITGAME");
+			//TODO
+			return;
+		}
+		if (gsonString.equals("CLICKBLUE8")) {
+			sendGameDataToClients("SUBMITGAME");
+			//TODO
+			return;
+		}
+		if (gsonString.equals("CLICKBLUE9")) {
+			sendGameDataToClients("SUBMITGAME");
+			//TODO
+			return;
+		}
+		if (gsonString.equals("CLICKBLUE10")) {
+			sendGameDataToClients("SUBMITGAME");
+			//TODO
+			return;
+		}
+		if (gsonString.equals("CLICKGREEN")) {
+			sendGameDataToClients("SUBMITGAME");
+			//TODO
+			return;
+		}
+		if (gsonString.equals("CLICKORANGE")) {
+			sendGameDataToClients("SUBMITGAME");
+			//TODO
+			return;
+		}
+		if (gsonString.equals("CLICKPURPLE")) {
+			sendGameDataToClients("SUBMITGAME");
+			//TODO
+			return;
+		}
 		return;
 	}
 
@@ -208,40 +333,40 @@ public class gsClever extends Game {
 		if (eventName.equals("CLOSE")) {
 			return "CLOSE";
 		}
-		
+
 		if (eventName.equals("USERJOINED")) {
 			gameData = users;
 			return gameData;
 		}
 		if (eventName.equals("NEWGAME")) {
 			gameData = Integer.toString(userList.size());
-			for(int i=0; i<playerList.size();i++) {
-				if(playerList.get(i).getName()==user.getName()) {
-					gameData += ","+Integer.toString(i+1);
+			for (int i = 0; i < playerList.size(); i++) {
+				if (playerList.get(i).getName() == user.getName()) {
+					gameData += "," + Integer.toString(i + 1);
 				}
 			}
 			return gameData;
 		}
 		if (eventName.equals("STARTARRAY")) {
-			for(int i=0; i<345;i++) {
-				gameData+=getNewGame()[i];
-				if (i<344) {
+			for (int i = 0; i < 345; i++) {
+				gameData += getNewGame()[i];
+				if (i < 344) {
 					gameData += ",";
 				}
 			}
 			return gameData;
 		}
-		
-		/*int[] grid = getGameStatus();
 
-		for (int i = 0; i < 345; i++) {
-			gameData += String.valueOf(grid[i]);
-			gameData += ',';
+		if (eventName.equals("SUBMITGAME")) {
+			int[] temp=this.getGameStatus();
+			for (int i = 0; i < 345; i++) {
+				gameData += temp[i];
+				if (i < 344) {
+					gameData += ",";
+				}
+			}
+			return gameData;
 		}
-
-		// TODO (hier koenen wir jetzt anhaengen)
-
-		*/
 		return gameData;
 
 	}
@@ -250,7 +375,7 @@ public class gsClever extends Game {
 	public void addUser(User user) {
 
 		if (playerList.size() < 4 && !playerList.contains(user)) {
-			
+
 			playerList.add(user);
 			Player p = new Player(user);
 			userList.add(p);
@@ -314,7 +439,7 @@ public class gsClever extends Game {
 	 * Zusatzwuerfel+12Gelb+11Blau+1Gruen+11Orange+11Lila) Wuerfel: 0-36 ([Blau,
 	 * Gelb, Gruen, Lila, Orange, Weiss] 1: 1blau 7: 1Gelb 30: 6Weiss
 	 */
-	
+
 	@SuppressWarnings("null")
 	private int[] getGameStatus() {
 		// Hier muessen wir jedes mal wenn die Methode aufgerufen wird, das
@@ -414,7 +539,7 @@ public class gsClever extends Game {
 			case 17:
 				result[i] = testReturn.getMatchfield(0).getDiceRepeatCount();
 				break;
-	
+
 			case 18:
 				result[i] = testReturn.getMatchfield(0).getDiceRepeatUsed();
 				break;
@@ -649,7 +774,7 @@ public class gsClever extends Game {
 					result[i] = 1;
 				}
 				break;
-				
+
 			case 70:
 				result[i] = 0;
 				if (testReturn.getDecisionMaker(0).isColorDiceActive()) {
@@ -664,8 +789,8 @@ public class gsClever extends Game {
 				break;
 			case 72:
 				result[i] = 0;
-				if (result[i-2]==1) {
-					result[i] = testReturn.getDecisionMaker(0).getColorOfDice().ordinal()+1;
+				if (result[i - 2] == 1) {
+					result[i] = testReturn.getDecisionMaker(0).getColorOfDice().ordinal() + 1;
 				}
 				break;
 			case 73:
@@ -1061,16 +1186,18 @@ public class gsClever extends Game {
 					result[i] = 1;
 				}
 				break;
-				/*
+
+			// TODO
+
 			case 152:
 				result[i] = 0;
-				if (testReturn.getClickable(1).) {
+				if (testReturn.getClickable(1)) {
 					result[i] = 1;
 				}
 				break;
 			case 153:
 				result[i] = 0;
-				if (testReturn.getClickable(1).) {
+				if (testReturn.getClickable(1)) {
 					result[i] = 1;
 				}
 				break;
@@ -1080,9 +1207,9 @@ public class gsClever extends Game {
 					result[i] = 1;
 				}
 				break;
-				*/
-				//TODO
-	
+
+			// TODO
+
 			case 155:
 				if (testReturn.getClickable(1).getYellow()[0]) {
 					result[i] = 1;
@@ -1239,10 +1366,10 @@ public class gsClever extends Game {
 				} else
 					result[i] = 0;
 				break;
-				//BEGIN SPIELER 3
+			// BEGIN SPIELER 3
 			case 181:
 				result[i] = 0;
-				if (this.getCurrentPlayerAmount()>2) {
+				if (this.getCurrentPlayerAmount() > 2) {
 					result[i] = testReturn.getMatchfield(2).getDiceRepeatCount();
 				}
 				break;
@@ -1480,16 +1607,16 @@ public class gsClever extends Game {
 					result[i] = 1;
 				}
 				break;
-				/*
+			// TODO
 			case 234:
 				result[i] = 0;
-				if (testReturn.getClickable(2).) {
+				if (testReturn.getClickable(2)) {
 					result[i] = 1;
 				}
 				break;
 			case 235:
 				result[i] = 0;
-				if (testReturn.getClickable(2).) {
+				if (testReturn.getClickable(2)) {
 					result[i] = 1;
 				}
 				break;
@@ -1499,8 +1626,8 @@ public class gsClever extends Game {
 					result[i] = 1;
 				}
 				break;
-				*/
-				//TODO
+
+			// TODO
 			case 237:
 				if (testReturn.getClickable(2).getYellow()[0]) {
 					result[i] = 1;
@@ -1656,8 +1783,8 @@ public class gsClever extends Game {
 					result[i] = 1;
 				} else
 					result[i] = 0;
-				break; 
-				//BEGIN SPIELER 4
+				break;
+			// BEGIN SPIELER 4
 			case 263:
 				result[i] = testReturn.getMatchfield(3).getDiceRepeatCount();
 				break;
@@ -1895,16 +2022,16 @@ public class gsClever extends Game {
 					result[i] = 1;
 				}
 				break;
-				/*
+			// TODO
 			case 316:
 				result[i] = 0;
-				if (testReturn.getClickable(3).) {
+				if (testReturn.getClickable(3)) {
 					result[i] = 1;
 				}
 				break;
 			case 317:
 				result[i] = 0;
-				if (testReturn.getClickable(3).) {
+				if (testReturn.getClickable(3)) {
 					result[i] = 1;
 				}
 				break;
@@ -1914,8 +2041,8 @@ public class gsClever extends Game {
 					result[i] = 1;
 				}
 				break;
-				*/
-				//TODO
+
+			// TODO
 			case 319:
 				if (testReturn.getClickable(3).getYellow()[0]) {
 					result[i] = 1;
@@ -2074,7 +2201,7 @@ public class gsClever extends Game {
 				break;
 			}
 		}
-	
+
 		setGameStatus(result);
 		return gameStatus;
 	}
