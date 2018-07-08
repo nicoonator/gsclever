@@ -55,7 +55,7 @@ public class MainLogic {
 				return i;
 		}
 		
-		return -1;
+		return -1; //TODO Exception
 	}
 	
 	public void setPlayerCount(int playerCount) {
