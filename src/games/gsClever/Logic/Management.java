@@ -182,6 +182,9 @@ public class Management {
 			specialEvent = getPurple().enterNumber(6);
 
 			break;
+			
+		default:
+			break;
 		}
 
 		if (specialEvent != null)
@@ -223,6 +226,9 @@ public class Management {
 
 			specialEvent = getPurple().enterNumber(number);
 
+			break;
+			
+		default:
 			break;
 		}
 
