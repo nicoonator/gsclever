@@ -619,9 +619,6 @@ public class MainLogic {
 
 			currentFieldId[playerId] = fieldId;
 			
-			clickableDices = players[playerId].getManagement().getBlue().clickableDices(
-					dices[Color.blue.ordinal()], dices[Color.white.ordinal()], fieldId);
-			
 			if(dices[Color.blue.ordinal()].getField() == -1 && 
 					dices[Color.blue.ordinal()].isOnTray() == false && 
 					dices[Color.white.ordinal()].getField() == -1 && 
@@ -634,8 +631,7 @@ public class MainLogic {
 				nextArea[playerId] = Area.decisionMaker;
 			}
 			else if(dices[Color.blue.ordinal()].getField() != -1 || 
-					dices[Color.blue.ordinal()].isOnTray() == true ||
-					clickableDices[0] == false) {
+					dices[Color.blue.ordinal()].isOnTray() == true) {
 				
 				dices[Color.white.ordinal()].setField(diceField);
 				if(diceField >= 2)
@@ -661,8 +657,7 @@ public class MainLogic {
 				}
 			}
 			else if(dices[Color.white.ordinal()].getField() != -1 || 
-					dices[Color.white.ordinal()].isOnTray() == true ||
-					clickableDices[1] == false) {
+					dices[Color.white.ordinal()].isOnTray() == true) {
 				
 				dices[Color.blue.ordinal()].setField(diceField);
 				if(diceField >= 2)
