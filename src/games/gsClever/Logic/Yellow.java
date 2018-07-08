@@ -123,5 +123,14 @@ public class Yellow extends ColorArea {
 		}
 		return 0;
 	}
+	
+	public boolean[] clickableDices(int valueDiceYellow, int valueDiceWhite, int FieldID) {
+		boolean[] result = new boolean[2];
+		for (int i = 0; i < 2; i++) {
+			result[i] = false;
+		}
+		// TODO: Gibt zurueck ob der gelbe bzw. der weisse wuerfel auf dem jeweiligen feld erlaubt sind
+		return result;
+	}
 
 }
