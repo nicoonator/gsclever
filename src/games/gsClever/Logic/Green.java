@@ -10,43 +10,42 @@ public class Green extends ColorArea {
 
 	}
 
-	public SpecialEvent enterCross(int number) {
-
+	public SpecialEvent enterCross() {
 		fieldCount++;
 
 		switch (fieldCount - 1) {
 		case 0:
-			fields = number;
+			fields++;
 			break;
 		case 1:
-			fields = number;
+			fields++;
 			break;
 		case 2:
-			fields = number;
+			fields++;
 			break;
 		case 3:
-			fields = number;
+			fields++;
 			return SpecialEvent.additionalDice;
 		case 4:
-			fields = number;
+			fields++;
 			break;
 		case 5:
-			fields = number;
+			fields++;
 			return SpecialEvent.enterCrossBlue;
 		case 6:
-			fields = number;
+			fields++;
 			break;
 		case 7:
-			fields = number;
+			fields++;
 			break;
 		case 8:
-			fields = number;
+			fields++;
 			return SpecialEvent.enterPurple6;
 		case 9:
-			fields = number;
+			fields++;
 			return SpecialEvent.diceRepeat;
 		case 10:
-			fields = number;
+			fields++;
 			break;
 
 		}
