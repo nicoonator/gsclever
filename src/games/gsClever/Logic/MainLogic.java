@@ -47,6 +47,17 @@ public class MainLogic {
 		}
 	}
 
+	public int determinePlayerId(String userName) {
+		
+		for(int i = 0; i < playerCount; i++) {
+			
+			if(players[i].getName().equals(userName))
+				return i;
+		}
+		
+		return -1;
+	}
+	
 	public void setPlayerCount(int playerCount) {
 		this.playerCount = playerCount;
 	}
