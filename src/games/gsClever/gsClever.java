@@ -2,10 +2,9 @@ package games.gsClever;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.concurrent.ThreadLocalRandom;
-
 import gameClasses.Game;
 import gameClasses.GameState;
+import games.gsClever.Logic.Area;
 import games.gsClever.Logic.Color;
 import games.gsClever.Logic.Dice;
 import games.gsClever.Logic.KI;
@@ -31,13 +30,13 @@ public class gsClever extends Game {
 	 * ([Blau, Gelb, Gruen, Lila, Orange, Weiss] 1: 1blau 7: 1Gelb 30: 6Weiss
 	 */
 	private int[] gameStatus = new int[345];
-	private User playerTurn = null;
 	private ArrayList<User> playerList = new ArrayList<User>();
 	private ArrayList<Player> userList = new ArrayList<Player>();
 	private ArrayList<User> spectatorList = new ArrayList<User>();
 	private String playerLeft = null;
 	private String users = "";
 	private MainLogic currentGame;
+	private Return returnBack;
 
 	@Override
 	public String getSite() {
@@ -84,6 +83,11 @@ public class gsClever extends Game {
 	 */
 	@Override
 	public void execute(User user, String gsonString) {
+
+		int userID = currentGame.determinePlayerId(user.getName());
+		if (userID == -1)
+			return;
+
 		if (this.gState == GameState.CLOSED)
 			return;
 
@@ -110,6 +114,7 @@ public class gsClever extends Game {
 			this.gState = GameState.RUNNING;
 			currentGame = new MainLogic(this.userList);
 			gameStatus = this.getNewGame();
+			this.setupGame();
 			sendGameDataToClients("NEWGAME");
 			sendGameDataToClients("STARTARRAY");
 		}
@@ -130,169 +135,341 @@ public class gsClever extends Game {
 		// runter
 		// verschoben werden
 		if (gsonString.equals("WUERFELN")) {
+			try {
+				currentGame.click(userID, Area.rollDices, 0);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			sendGameDataToClients("SUBMITGAME");
-			// TODO
 			return;
 		}
 
 		if (gsonString.equals("NACHWUERFELN")) {
+			try {
+				currentGame.click(userID, Area.diceRepeat, 0);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			sendGameDataToClients("SUBMITGAME");
-			// TODO
 			return;
 		}
 
 		if (gsonString.equals("ZUSATZWUERFELN")) {
+			try {
+				currentGame.click(userID, Area.additionalDice, 0);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			sendGameDataToClients("SUBMITGAME");
-			// TODO
 			return;
 		}
 
 		if (gsonString.equals("SKIP")) {
+			try {
+				currentGame.click(userID, Area.ready, 0);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			sendGameDataToClients("SUBMITGAME");
-			// TODO
 			return;
 		}
 		if (gsonString.equals("COLORDECIDER")) {
+			try {
+				currentGame.click(userID, Area.decisionMaker,
+						returnBack.getDecisionMaker(userID).getColorOfDice().ordinal());
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			sendGameDataToClients("SUBMITGAME");
-			// TODO
 			return;
 		}
 		if (gsonString.equals("WHITEDECIDER")) {
+			try {
+				currentGame.click(userID, Area.decisionMaker, Color.white.ordinal());
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			sendGameDataToClients("SUBMITGAME");
-			// TODO
 			return;
 		}
 		if (gsonString.equals("CLICKYELLOW0")) {
+			try {
+				currentGame.click(userID, Area.yellow, 0);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			sendGameDataToClients("SUBMITGAME");
-			// TODO
 			return;
 		}
 		if (gsonString.equals("CLICKYELLOW1")) {
+			try {
+				currentGame.click(userID, Area.yellow, 1);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			sendGameDataToClients("SUBMITGAME");
-			// TODO
 			return;
 		}
 		if (gsonString.equals("CLICKYELLOW2")) {
+			try {
+				currentGame.click(userID, Area.yellow, 2);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			sendGameDataToClients("SUBMITGAME");
-			// TODO
 			return;
 		}
 		if (gsonString.equals("CLICKYELLOW3")) {
+			try {
+				currentGame.click(userID, Area.yellow, 3);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			sendGameDataToClients("SUBMITGAME");
-			// TODO
 			return;
 		}
 		if (gsonString.equals("CLICKYELLOW4")) {
+			try {
+				currentGame.click(userID, Area.yellow, 4);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			sendGameDataToClients("SUBMITGAME");
-			// TODO
 			return;
 		}
 		if (gsonString.equals("CLICKYELLOW5")) {
+			try {
+				currentGame.click(userID, Area.yellow, 5);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			sendGameDataToClients("SUBMITGAME");
-			// TODO
 			return;
 		}
 		if (gsonString.equals("CLICKYELLOW6")) {
+			try {
+				currentGame.click(userID, Area.yellow, 3);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			sendGameDataToClients("SUBMITGAME");
-			// TODO
 			return;
 		}
 		if (gsonString.equals("CLICKYELLOW7")) {
+			try {
+				currentGame.click(userID, Area.yellow, 7);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			sendGameDataToClients("SUBMITGAME");
-			// TODO
 			return;
 		}
 		if (gsonString.equals("CLICKYELLOW8")) {
+			try {
+				currentGame.click(userID, Area.yellow, 8);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			sendGameDataToClients("SUBMITGAME");
-			// TODO
 			return;
 		}
 		if (gsonString.equals("CLICKYELLOW9")) {
+			try {
+				currentGame.click(userID, Area.yellow, 9);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			sendGameDataToClients("SUBMITGAME");
-			// TODO
 			return;
 		}
 		if (gsonString.equals("CLICKYELLOW10")) {
+			try {
+				currentGame.click(userID, Area.yellow, 10);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			sendGameDataToClients("SUBMITGAME");
-			// TODO
 			return;
 		}
 		if (gsonString.equals("CLICKYELLOW11")) {
+			try {
+				currentGame.click(userID, Area.yellow, 11);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			sendGameDataToClients("SUBMITGAME");
-			// TODO
 			return;
 		}
 		if (gsonString.equals("CLICKBLUE0")) {
+			try {
+				currentGame.click(userID, Area.blue, 0);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			sendGameDataToClients("SUBMITGAME");
-			// TODO
 			return;
 		}
 		if (gsonString.equals("CLICKBLUE1")) {
+			try {
+				currentGame.click(userID, Area.blue, 1);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			sendGameDataToClients("SUBMITGAME");
-			// TODO
 			return;
 		}
 		if (gsonString.equals("CLICKBLUE2")) {
+			try {
+				currentGame.click(userID, Area.blue, 2);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			sendGameDataToClients("SUBMITGAME");
-			// TODO
 			return;
 		}
 		if (gsonString.equals("CLICKBLUE3")) {
+			try {
+				currentGame.click(userID, Area.blue, 3);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			sendGameDataToClients("SUBMITGAME");
-			// TODO
 			return;
 		}
 		if (gsonString.equals("CLICKBLUE4")) {
+			try {
+				currentGame.click(userID, Area.blue, 4);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			sendGameDataToClients("SUBMITGAME");
-			// TODO
 			return;
 		}
 		if (gsonString.equals("CLICKBLUE5")) {
+			try {
+				currentGame.click(userID, Area.blue, 5);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			sendGameDataToClients("SUBMITGAME");
-			// TODO
 			return;
 		}
 		if (gsonString.equals("CLICKBLUE6")) {
+			try {
+				currentGame.click(userID, Area.blue, 6);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			sendGameDataToClients("SUBMITGAME");
-			// TODO
 			return;
 		}
 		if (gsonString.equals("CLICKBLUE7")) {
+			try {
+				currentGame.click(userID, Area.blue, 7);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			sendGameDataToClients("SUBMITGAME");
-			// TODO
 			return;
 		}
 		if (gsonString.equals("CLICKBLUE8")) {
+			try {
+				currentGame.click(userID, Area.blue, 8);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			sendGameDataToClients("SUBMITGAME");
-			// TODO
 			return;
 		}
 		if (gsonString.equals("CLICKBLUE9")) {
+			try {
+				currentGame.click(userID, Area.blue, 9);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			sendGameDataToClients("SUBMITGAME");
-			// TODO
 			return;
 		}
 		if (gsonString.equals("CLICKBLUE10")) {
+			try {
+				currentGame.click(userID, Area.blue, 10);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			sendGameDataToClients("SUBMITGAME");
-			// TODO
 			return;
 		}
 		if (gsonString.equals("CLICKGREEN")) {
+			try {
+				currentGame.click(userID, Area.green, 10);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			sendGameDataToClients("SUBMITGAME");
-			// TODO
 			return;
 		}
 		if (gsonString.equals("CLICKORANGE")) {
+			try {
+				currentGame.click(userID, Area.orange, 10);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			sendGameDataToClients("SUBMITGAME");
-			// TODO
 			return;
 		}
 		if (gsonString.equals("CLICKPURPLE")) {
+			try {
+				currentGame.click(userID, Area.purple, 10);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			sendGameDataToClients("SUBMITGAME");
-			// TODO
 			return;
 		}
 		return;
+	}
+
+	/**
+	 * 
+	 */
+	private void setupGame() {
+		try {
+			returnBack = currentGame.click(0, null, 0);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	private int[] getNewGame() {
@@ -420,13 +597,6 @@ public class gsClever extends Game {
 		sendGameDataToClients("PLAYERLEFT");
 	}
 
-	private String isHost(User user) {
-		if (user == creator)
-			return ",HOST";
-		else
-			return ",NOTTHEHOST";
-	}
-
 	@Override
 	public GameState getGameState() {
 		return this.gState;
@@ -440,42 +610,40 @@ public class gsClever extends Game {
 	 * Gelb, Gruen, Lila, Orange, Weiss] 1: 1blau 7: 1Gelb 30: 6Weiss
 	 */
 
-	@SuppressWarnings("null")
 	private int[] getGameStatus() {
 		// Hier muessen wir jedes mal wenn die Methode aufgerufen wird, das
 		// Array aus
 		// der Logic holen
-		Return testReturn = null;
 		int[] result = new int[345];
 		for (int i = 0; i < 345; i++) {
 			switch (i) {
 			case 0:
-				result[i] = testReturn.getRound();
+				result[i] = returnBack.getRound();
 				break;
 			case 1:
-				result[i] = testReturn.getCurrentPlayer();
+				result[i] = returnBack.getCurrentPlayer()+1;
 				break;
 			case 2:
-				result[i] = testReturn.getDices()[Color.blue.ordinal()].getValue();
+				result[i] = returnBack.getDices()[Color.blue.ordinal()].getValue();
 				break;
 			case 3:
-				result[i] = testReturn.getDices()[Color.yellow.ordinal()].getValue();
+				result[i] = returnBack.getDices()[Color.yellow.ordinal()].getValue();
 				break;
 			case 4:
-				result[i] = testReturn.getDices()[Color.orange.ordinal()].getValue();
+				result[i] = returnBack.getDices()[Color.orange.ordinal()].getValue();
 				break;
 			case 5:
-				result[i] = testReturn.getDices()[Color.purple.ordinal()].getValue();
+				result[i] = returnBack.getDices()[Color.purple.ordinal()].getValue();
 				break;
 			case 6:
-				result[i] = testReturn.getDices()[Color.green.ordinal()].getValue();
+				result[i] = returnBack.getDices()[Color.green.ordinal()].getValue();
 				break;
 			case 7:
-				result[i] = testReturn.getDices()[Color.white.ordinal()].getValue();
+				result[i] = returnBack.getDices()[Color.white.ordinal()].getValue();
 				break;
 			case 8:
 				result[i] = 0;
-				for (Dice dice : testReturn.getDices()) {
+				for (Dice dice : returnBack.getDices()) {
 					if (dice.getField() == 0) {
 						result[i] = dice.getColor().ordinal() + 1;
 						break;
@@ -484,7 +652,7 @@ public class gsClever extends Game {
 				break;
 			case 9:
 				result[i] = 0;
-				for (Dice dice : testReturn.getDices()) {
+				for (Dice dice : returnBack.getDices()) {
 					if (dice.getField() == 0) {
 						result[i] = dice.getColor().ordinal() + 1;
 						break;
@@ -493,7 +661,7 @@ public class gsClever extends Game {
 				break;
 			case 10:
 				result[i] = 0;
-				for (Dice dice : testReturn.getDices()) {
+				for (Dice dice : returnBack.getDices()) {
 					if (dice.getField() == 0) {
 						result[i] = dice.getColor().ordinal() + 1;
 						break;
@@ -501,450 +669,450 @@ public class gsClever extends Game {
 				}
 				break;
 			case 11:
-				if (testReturn.getDices()[Color.blue.ordinal()].isOnTray()) {
+				if (returnBack.getDices()[Color.blue.ordinal()].isOnTray()) {
 					result[i] = 1;
 				} else
 					result[i] = 0;
 				break;
 			case 12:
-				if (testReturn.getDices()[Color.yellow.ordinal()].isOnTray()) {
+				if (returnBack.getDices()[Color.yellow.ordinal()].isOnTray()) {
 					result[i] = 1;
 				} else
 					result[i] = 0;
 				break;
 			case 13:
-				if (testReturn.getDices()[Color.orange.ordinal()].isOnTray()) {
+				if (returnBack.getDices()[Color.orange.ordinal()].isOnTray()) {
 					result[i] = 1;
 				} else
 					result[i] = 0;
 				break;
 			case 14:
-				if (testReturn.getDices()[Color.purple.ordinal()].isOnTray()) {
+				if (returnBack.getDices()[Color.purple.ordinal()].isOnTray()) {
 					result[i] = 1;
 				} else
 					result[i] = 0;
 				break;
 			case 15:
-				if (testReturn.getDices()[Color.green.ordinal()].isOnTray()) {
+				if (returnBack.getDices()[Color.green.ordinal()].isOnTray()) {
 					result[i] = 1;
 				} else
 					result[i] = 0;
 				break;
 			case 16:
-				if (testReturn.getDices()[Color.white.ordinal()].isOnTray()) {
+				if (returnBack.getDices()[Color.white.ordinal()].isOnTray()) {
 					result[i] = 1;
 				} else
 					result[i] = 0;
 				break;
 			case 17:
-				result[i] = testReturn.getMatchfield(0).getDiceRepeatCount();
+				result[i] = returnBack.getMatchfield(0).getDiceRepeatCount();
 				break;
 
 			case 18:
-				result[i] = testReturn.getMatchfield(0).getDiceRepeatUsed();
+				result[i] = returnBack.getMatchfield(0).getDiceRepeatUsed();
 				break;
 			case 19:
-				result[i] = testReturn.getMatchfield(0).getAdditionalDiceCount();
+				result[i] = returnBack.getMatchfield(0).getAdditionalDiceCount();
 				break;
 			case 20:
-				result[i] = testReturn.getMatchfield(0).getAdditionalDiceUsed();
+				result[i] = returnBack.getMatchfield(0).getAdditionalDiceUsed();
 				break;
 			case 21:
-				if (testReturn.getMatchfield(0).getYellow()[0]) {
+				if (returnBack.getMatchfield(0).getYellow()[0]) {
 					result[i] = 1;
 				} else
 					result[i] = 0;
 				break;
 			case 22:
-				if (testReturn.getMatchfield(0).getYellow()[1]) {
+				if (returnBack.getMatchfield(0).getYellow()[1]) {
 					result[i] = 1;
 				} else
 					result[i] = 0;
 				break;
 			case 23:
-				if (testReturn.getMatchfield(0).getYellow()[2]) {
+				if (returnBack.getMatchfield(0).getYellow()[2]) {
 					result[i] = 1;
 				} else
 					result[i] = 0;
 				break;
 			case 24:
-				if (testReturn.getMatchfield(0).getYellow()[3]) {
+				if (returnBack.getMatchfield(0).getYellow()[3]) {
 					result[i] = 1;
 				} else
 					result[i] = 0;
 				break;
 			case 25:
-				if (testReturn.getMatchfield(0).getYellow()[4]) {
+				if (returnBack.getMatchfield(0).getYellow()[4]) {
 					result[i] = 1;
 				} else
 					result[i] = 0;
 				break;
 			case 26:
-				if (testReturn.getMatchfield(0).getYellow()[5]) {
+				if (returnBack.getMatchfield(0).getYellow()[5]) {
 					result[i] = 1;
 				} else
 					result[i] = 0;
 				break;
 			case 27:
-				if (testReturn.getMatchfield(0).getYellow()[6]) {
+				if (returnBack.getMatchfield(0).getYellow()[6]) {
 					result[i] = 1;
 				} else
 					result[i] = 0;
 				break;
 			case 28:
-				if (testReturn.getMatchfield(0).getYellow()[7]) {
+				if (returnBack.getMatchfield(0).getYellow()[7]) {
 					result[i] = 1;
 				} else
 					result[i] = 0;
 				break;
 			case 29:
-				if (testReturn.getMatchfield(0).getYellow()[8]) {
+				if (returnBack.getMatchfield(0).getYellow()[8]) {
 					result[i] = 1;
 				} else
 					result[i] = 0;
 				break;
 			case 30:
-				if (testReturn.getMatchfield(0).getYellow()[9]) {
+				if (returnBack.getMatchfield(0).getYellow()[9]) {
 					result[i] = 1;
 				} else
 					result[i] = 0;
 				break;
 			case 31:
-				if (testReturn.getMatchfield(0).getYellow()[10]) {
+				if (returnBack.getMatchfield(0).getYellow()[10]) {
 					result[i] = 1;
 				} else
 					result[i] = 0;
 				break;
 			case 32:
-				if (testReturn.getMatchfield(0).getYellow()[11]) {
+				if (returnBack.getMatchfield(0).getYellow()[11]) {
 					result[i] = 1;
 				} else
 					result[i] = 0;
 				break;
 			case 33:
-				if (testReturn.getMatchfield(0).getBlue()[0]) {
+				if (returnBack.getMatchfield(0).getBlue()[0]) {
 					result[i] = 1;
 				} else
 					result[i] = 0;
 				break;
 			case 34:
-				if (testReturn.getMatchfield(0).getBlue()[1]) {
+				if (returnBack.getMatchfield(0).getBlue()[1]) {
 					result[i] = 1;
 				} else
 					result[i] = 0;
 				break;
 			case 35:
-				if (testReturn.getMatchfield(0).getBlue()[2]) {
+				if (returnBack.getMatchfield(0).getBlue()[2]) {
 					result[i] = 1;
 				} else
 					result[i] = 0;
 				break;
 			case 36:
-				if (testReturn.getMatchfield(0).getBlue()[3]) {
+				if (returnBack.getMatchfield(0).getBlue()[3]) {
 					result[i] = 1;
 				} else
 					result[i] = 0;
 				break;
 			case 37:
-				if (testReturn.getMatchfield(0).getBlue()[4]) {
+				if (returnBack.getMatchfield(0).getBlue()[4]) {
 					result[i] = 1;
 				} else
 					result[i] = 0;
 				break;
 			case 38:
-				if (testReturn.getMatchfield(0).getBlue()[5]) {
+				if (returnBack.getMatchfield(0).getBlue()[5]) {
 					result[i] = 1;
 				} else
 					result[i] = 0;
 				break;
 			case 39:
-				if (testReturn.getMatchfield(0).getBlue()[6]) {
+				if (returnBack.getMatchfield(0).getBlue()[6]) {
 					result[i] = 1;
 				} else
 					result[i] = 0;
 				break;
 			case 40:
-				if (testReturn.getMatchfield(0).getBlue()[7]) {
+				if (returnBack.getMatchfield(0).getBlue()[7]) {
 					result[i] = 1;
 				} else
 					result[i] = 0;
 				break;
 			case 41:
-				if (testReturn.getMatchfield(0).getBlue()[8]) {
+				if (returnBack.getMatchfield(0).getBlue()[8]) {
 					result[i] = 1;
 				} else
 					result[i] = 0;
 				break;
 			case 42:
-				if (testReturn.getMatchfield(0).getBlue()[9]) {
+				if (returnBack.getMatchfield(0).getBlue()[9]) {
 					result[i] = 1;
 				} else
 					result[i] = 0;
 				break;
 			case 43:
-				if (testReturn.getMatchfield(0).getBlue()[10]) {
+				if (returnBack.getMatchfield(0).getBlue()[10]) {
 					result[i] = 1;
 				} else
 					result[i] = 0;
 				break;
 			case 44:
-				result[i] = testReturn.getMatchfield(0).getGreen();
+				result[i] = returnBack.getMatchfield(0).getGreen();
 				break;
 			case 45:
-				result[i] = testReturn.getMatchfield(0).getOrange()[0];
+				result[i] = returnBack.getMatchfield(0).getOrange()[0];
 				break;
 			case 46:
-				result[i] = testReturn.getMatchfield(0).getOrange()[1];
+				result[i] = returnBack.getMatchfield(0).getOrange()[1];
 				break;
 			case 47:
-				result[i] = testReturn.getMatchfield(0).getOrange()[2];
+				result[i] = returnBack.getMatchfield(0).getOrange()[2];
 				break;
 			case 48:
-				result[i] = testReturn.getMatchfield(0).getOrange()[3];
+				result[i] = returnBack.getMatchfield(0).getOrange()[3];
 				break;
 			case 49:
-				result[i] = testReturn.getMatchfield(0).getOrange()[4];
+				result[i] = returnBack.getMatchfield(0).getOrange()[4];
 				break;
 			case 50:
-				result[i] = testReturn.getMatchfield(0).getOrange()[5];
+				result[i] = returnBack.getMatchfield(0).getOrange()[5];
 				break;
 			case 51:
-				result[i] = testReturn.getMatchfield(0).getOrange()[6];
+				result[i] = returnBack.getMatchfield(0).getOrange()[6];
 				break;
 			case 52:
-				result[i] = testReturn.getMatchfield(0).getOrange()[7];
+				result[i] = returnBack.getMatchfield(0).getOrange()[7];
 				break;
 			case 53:
-				result[i] = testReturn.getMatchfield(0).getOrange()[8];
+				result[i] = returnBack.getMatchfield(0).getOrange()[8];
 				break;
 			case 54:
-				result[i] = testReturn.getMatchfield(0).getOrange()[9];
+				result[i] = returnBack.getMatchfield(0).getOrange()[9];
 				break;
 			case 55:
-				result[i] = testReturn.getMatchfield(0).getOrange()[10];
+				result[i] = returnBack.getMatchfield(0).getOrange()[10];
 				break;
 			case 56:
-				result[i] = testReturn.getMatchfield(0).getPurple()[0];
+				result[i] = returnBack.getMatchfield(0).getPurple()[0];
 				break;
 			case 57:
-				result[i] = testReturn.getMatchfield(0).getPurple()[1];
+				result[i] = returnBack.getMatchfield(0).getPurple()[1];
 				break;
 			case 58:
-				result[i] = testReturn.getMatchfield(0).getPurple()[2];
+				result[i] = returnBack.getMatchfield(0).getPurple()[2];
 				break;
 			case 59:
-				result[i] = testReturn.getMatchfield(0).getPurple()[3];
+				result[i] = returnBack.getMatchfield(0).getPurple()[3];
 				break;
 			case 60:
-				result[i] = testReturn.getMatchfield(0).getPurple()[4];
+				result[i] = returnBack.getMatchfield(0).getPurple()[4];
 				break;
 			case 61:
-				result[i] = testReturn.getMatchfield(0).getPurple()[5];
+				result[i] = returnBack.getMatchfield(0).getPurple()[5];
 				break;
 			case 62:
-				result[i] = testReturn.getMatchfield(0).getPurple()[6];
+				result[i] = returnBack.getMatchfield(0).getPurple()[6];
 				break;
 			case 63:
-				result[i] = testReturn.getMatchfield(0).getPurple()[7];
+				result[i] = returnBack.getMatchfield(0).getPurple()[7];
 				break;
 			case 64:
-				result[i] = testReturn.getMatchfield(0).getPurple()[8];
+				result[i] = returnBack.getMatchfield(0).getPurple()[8];
 				break;
 			case 65:
-				result[i] = testReturn.getMatchfield(0).getPurple()[9];
+				result[i] = returnBack.getMatchfield(0).getPurple()[9];
 				break;
 			case 66:
-				result[i] = testReturn.getMatchfield(0).getPurple()[10];
+				result[i] = returnBack.getMatchfield(0).getPurple()[10];
 				break;
 			case 67:
 				result[i] = 0;
-				if (testReturn.getClickable(0).isDiceRepeat()) {
+				if (returnBack.getClickable(0).isDiceRepeat()) {
 					result[i] = 1;
 				}
 				break;
 			case 68:
 				result[i] = 0;
-				if (testReturn.getClickable(0).isAdditionalDice()) {
+				if (returnBack.getClickable(0).isAdditionalDice()) {
 					result[i] = 1;
 				}
 				break;
 			case 69:
 				result[i] = 0;
-				if (testReturn.getClickable(0).isRollDices()) {
+				if (returnBack.getClickable(0).isRollDices()) {
 					result[i] = 1;
 				}
 				break;
 
 			case 70:
 				result[i] = 0;
-				if (testReturn.getDecisionMaker(0).isColorDiceActive()) {
+				if (returnBack.getDecisionMaker(0).isColorDiceActive()) {
 					result[i] = 1;
 				}
 				break;
 			case 71:
 				result[i] = 0;
-				if (testReturn.getDecisionMaker(0).isWhiteDiceActive()) {
+				if (returnBack.getDecisionMaker(0).isWhiteDiceActive()) {
 					result[i] = 1;
 				}
 				break;
 			case 72:
 				result[i] = 0;
 				if (result[i - 2] == 1) {
-					result[i] = testReturn.getDecisionMaker(0).getColorOfDice().ordinal() + 1;
+					result[i] = returnBack.getDecisionMaker(0).getColorOfDice().ordinal() + 1;
 				}
 				break;
 			case 73:
-				if (testReturn.getClickable(0).getYellow()[0]) {
+				if (returnBack.getClickable(0).getYellow()[0]) {
 					result[i] = 1;
 				} else
 					result[i] = 0;
 				break;
 			case 74:
-				if (testReturn.getClickable(0).getYellow()[1]) {
+				if (returnBack.getClickable(0).getYellow()[1]) {
 					result[i] = 1;
 				} else
 					result[i] = 0;
 				break;
 			case 75:
-				if (testReturn.getClickable(0).getYellow()[2]) {
+				if (returnBack.getClickable(0).getYellow()[2]) {
 					result[i] = 1;
 				} else
 					result[i] = 0;
 				break;
 			case 76:
-				if (testReturn.getClickable(0).getYellow()[3]) {
+				if (returnBack.getClickable(0).getYellow()[3]) {
 					result[i] = 1;
 				} else
 					result[i] = 0;
 				break;
 			case 77:
-				if (testReturn.getClickable(0).getYellow()[4]) {
+				if (returnBack.getClickable(0).getYellow()[4]) {
 					result[i] = 1;
 				} else
 					result[i] = 0;
 				break;
 			case 78:
-				if (testReturn.getClickable(0).getYellow()[5]) {
+				if (returnBack.getClickable(0).getYellow()[5]) {
 					result[i] = 1;
 				} else
 					result[i] = 0;
 				break;
 			case 79:
-				if (testReturn.getClickable(0).getYellow()[6]) {
+				if (returnBack.getClickable(0).getYellow()[6]) {
 					result[i] = 1;
 				} else
 					result[i] = 0;
 				break;
 			case 80:
-				if (testReturn.getClickable(0).getYellow()[7]) {
+				if (returnBack.getClickable(0).getYellow()[7]) {
 					result[i] = 1;
 				} else
 					result[i] = 0;
 				break;
 			case 81:
-				if (testReturn.getClickable(0).getYellow()[8]) {
+				if (returnBack.getClickable(0).getYellow()[8]) {
 					result[i] = 1;
 				} else
 					result[i] = 0;
 				break;
 			case 82:
-				if (testReturn.getClickable(0).getYellow()[9]) {
+				if (returnBack.getClickable(0).getYellow()[9]) {
 					result[i] = 1;
 				} else
 					result[i] = 0;
 				break;
 			case 83:
-				if (testReturn.getClickable(0).getYellow()[10]) {
+				if (returnBack.getClickable(0).getYellow()[10]) {
 					result[i] = 1;
 				} else
 					result[i] = 0;
 				break;
 			case 84:
-				if (testReturn.getClickable(0).getYellow()[11]) {
+				if (returnBack.getClickable(0).getYellow()[11]) {
 					result[i] = 1;
 				} else
 					result[i] = 0;
 				break;
 			case 85:
-				if (testReturn.getClickable(0).getBlue()[0]) {
+				if (returnBack.getClickable(0).getBlue()[0]) {
 					result[i] = 1;
 				} else
 					result[i] = 0;
 				break;
 			case 86:
-				if (testReturn.getClickable(0).getBlue()[1]) {
+				if (returnBack.getClickable(0).getBlue()[1]) {
 					result[i] = 1;
 				} else
 					result[i] = 0;
 				break;
 			case 87:
-				if (testReturn.getClickable(0).getBlue()[2]) {
+				if (returnBack.getClickable(0).getBlue()[2]) {
 					result[i] = 1;
 				} else
 					result[i] = 0;
 				break;
 			case 88:
-				if (testReturn.getClickable(0).getBlue()[3]) {
+				if (returnBack.getClickable(0).getBlue()[3]) {
 					result[i] = 1;
 				} else
 					result[i] = 0;
 				break;
 			case 89:
-				if (testReturn.getClickable(0).getBlue()[4]) {
+				if (returnBack.getClickable(0).getBlue()[4]) {
 					result[i] = 1;
 				} else
 					result[i] = 0;
 				break;
 			case 90:
-				if (testReturn.getClickable(0).getBlue()[5]) {
+				if (returnBack.getClickable(0).getBlue()[5]) {
 					result[i] = 1;
 				} else
 					result[i] = 0;
 				break;
 			case 91:
-				if (testReturn.getClickable(0).getBlue()[6]) {
+				if (returnBack.getClickable(0).getBlue()[6]) {
 					result[i] = 1;
 				} else
 					result[i] = 0;
 				break;
 			case 92:
-				if (testReturn.getClickable(0).getBlue()[7]) {
+				if (returnBack.getClickable(0).getBlue()[7]) {
 					result[i] = 1;
 				} else
 					result[i] = 0;
 				break;
 			case 93:
-				if (testReturn.getClickable(0).getBlue()[8]) {
+				if (returnBack.getClickable(0).getBlue()[8]) {
 					result[i] = 1;
 				} else
 					result[i] = 0;
 				break;
 			case 94:
-				if (testReturn.getClickable(0).getBlue()[9]) {
+				if (returnBack.getClickable(0).getBlue()[9]) {
 					result[i] = 1;
 				} else
 					result[i] = 0;
 				break;
 			case 95:
-				if (testReturn.getClickable(0).getBlue()[10]) {
+				if (returnBack.getClickable(0).getBlue()[10]) {
 					result[i] = 1;
 				} else
 					result[i] = 0;
 				break;
 			case 96:
-				if (testReturn.getClickable(0).getGreen()) {
+				if (returnBack.getClickable(0).getGreen()) {
 					result[i] = 1;
 				} else
 					result[i] = 0;
 				break;
 			case 97:
-				if (testReturn.getClickable(0).getOrange()) {
+				if (returnBack.getClickable(0).getOrange()) {
 					result[i] = 1;
 				} else
 					result[i] = 0;
 				break;
 			case 98:
-				if (testReturn.getClickable(0).getPurple()) {
+				if (returnBack.getClickable(0).getPurple()) {
 					result[i] = 1;
 				} else
 					result[i] = 0;
@@ -952,31 +1120,31 @@ public class gsClever extends Game {
 			case 99:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 1) {
-					result[i] = testReturn.getMatchfield(1).getDiceRepeatCount();
+					result[i] = returnBack.getMatchfield(1).getDiceRepeatCount();
 				}
 				break;
 			case 100:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 1) {
-					result[i] = testReturn.getMatchfield(1).getDiceRepeatUsed();
+					result[i] = returnBack.getMatchfield(1).getDiceRepeatUsed();
 				}
 				break;
 			case 101:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 1) {
-					result[i] = testReturn.getMatchfield(1).getAdditionalDiceCount();
+					result[i] = returnBack.getMatchfield(1).getAdditionalDiceCount();
 				}
 				break;
 			case 102:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 1) {
-					result[i] = testReturn.getMatchfield(1).getAdditionalDiceUsed();
+					result[i] = returnBack.getMatchfield(1).getAdditionalDiceUsed();
 				}
 				break;
 			case 103:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 1) {
-					if (testReturn.getMatchfield(1).getYellow()[0]) {
+					if (returnBack.getMatchfield(1).getYellow()[0]) {
 						result[i] = 1;
 					} else
 						result[i] = 0;
@@ -985,7 +1153,7 @@ public class gsClever extends Game {
 			case 104:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 1) {
-					if (testReturn.getMatchfield(1).getYellow()[1]) {
+					if (returnBack.getMatchfield(1).getYellow()[1]) {
 						result[i] = 1;
 					} else
 						result[i] = 0;
@@ -994,7 +1162,7 @@ public class gsClever extends Game {
 			case 105:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 1) {
-					if (testReturn.getMatchfield(1).getYellow()[2]) {
+					if (returnBack.getMatchfield(1).getYellow()[2]) {
 						result[i] = 1;
 					} else
 						result[i] = 0;
@@ -1003,7 +1171,7 @@ public class gsClever extends Game {
 			case 106:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 1) {
-					if (testReturn.getMatchfield(1).getYellow()[3]) {
+					if (returnBack.getMatchfield(1).getYellow()[3]) {
 						result[i] = 1;
 					} else
 						result[i] = 0;
@@ -1012,7 +1180,7 @@ public class gsClever extends Game {
 			case 107:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 1) {
-					if (testReturn.getMatchfield(1).getYellow()[4]) {
+					if (returnBack.getMatchfield(1).getYellow()[4]) {
 						result[i] = 1;
 					} else
 						result[i] = 0;
@@ -1021,7 +1189,7 @@ public class gsClever extends Game {
 			case 108:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 1) {
-					if (testReturn.getMatchfield(1).getYellow()[5]) {
+					if (returnBack.getMatchfield(1).getYellow()[5]) {
 						result[i] = 1;
 					} else
 						result[i] = 0;
@@ -1030,7 +1198,7 @@ public class gsClever extends Game {
 			case 109:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 1) {
-					if (testReturn.getMatchfield(1).getYellow()[6]) {
+					if (returnBack.getMatchfield(1).getYellow()[6]) {
 						result[i] = 1;
 					} else
 						result[i] = 0;
@@ -1039,7 +1207,7 @@ public class gsClever extends Game {
 			case 110:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 1) {
-					if (testReturn.getMatchfield(1).getYellow()[7]) {
+					if (returnBack.getMatchfield(1).getYellow()[7]) {
 						result[i] = 1;
 					} else
 						result[i] = 0;
@@ -1048,7 +1216,7 @@ public class gsClever extends Game {
 			case 111:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 1) {
-					if (testReturn.getMatchfield(1).getYellow()[8]) {
+					if (returnBack.getMatchfield(1).getYellow()[8]) {
 						result[i] = 1;
 					} else
 						result[i] = 0;
@@ -1057,7 +1225,7 @@ public class gsClever extends Game {
 			case 112:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 1) {
-					if (testReturn.getMatchfield(1).getYellow()[9]) {
+					if (returnBack.getMatchfield(1).getYellow()[9]) {
 						result[i] = 1;
 					} else
 						result[i] = 0;
@@ -1066,7 +1234,7 @@ public class gsClever extends Game {
 			case 113:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 1) {
-					if (testReturn.getMatchfield(1).getYellow()[10]) {
+					if (returnBack.getMatchfield(1).getYellow()[10]) {
 						result[i] = 1;
 					} else
 						result[i] = 0;
@@ -1075,7 +1243,7 @@ public class gsClever extends Game {
 			case 114:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 1) {
-					if (testReturn.getMatchfield(1).getYellow()[11]) {
+					if (returnBack.getMatchfield(1).getYellow()[11]) {
 						result[i] = 1;
 					} else
 						result[i] = 0;
@@ -1084,7 +1252,7 @@ public class gsClever extends Game {
 			case 115:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 1) {
-					if (testReturn.getMatchfield(1).getBlue()[0]) {
+					if (returnBack.getMatchfield(1).getBlue()[0]) {
 						result[i] = 1;
 					} else
 						result[i] = 0;
@@ -1093,7 +1261,7 @@ public class gsClever extends Game {
 			case 116:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 1) {
-					if (testReturn.getMatchfield(1).getBlue()[1]) {
+					if (returnBack.getMatchfield(1).getBlue()[1]) {
 						result[i] = 1;
 					} else
 						result[i] = 0;
@@ -1102,7 +1270,7 @@ public class gsClever extends Game {
 			case 117:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 1) {
-					if (testReturn.getMatchfield(1).getBlue()[2]) {
+					if (returnBack.getMatchfield(1).getBlue()[2]) {
 						result[i] = 1;
 					} else
 						result[i] = 0;
@@ -1111,7 +1279,7 @@ public class gsClever extends Game {
 			case 118:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 1) {
-					if (testReturn.getMatchfield(1).getBlue()[3]) {
+					if (returnBack.getMatchfield(1).getBlue()[3]) {
 						result[i] = 1;
 					} else
 						result[i] = 0;
@@ -1120,7 +1288,7 @@ public class gsClever extends Game {
 			case 119:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 1) {
-					if (testReturn.getMatchfield(1).getBlue()[4]) {
+					if (returnBack.getMatchfield(1).getBlue()[4]) {
 						result[i] = 1;
 					} else
 						result[i] = 0;
@@ -1129,7 +1297,7 @@ public class gsClever extends Game {
 			case 120:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 1) {
-					if (testReturn.getMatchfield(1).getBlue()[5]) {
+					if (returnBack.getMatchfield(1).getBlue()[5]) {
 						result[i] = 1;
 					} else
 						result[i] = 0;
@@ -1138,7 +1306,7 @@ public class gsClever extends Game {
 			case 121:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 1) {
-					if (testReturn.getMatchfield(1).getBlue()[6]) {
+					if (returnBack.getMatchfield(1).getBlue()[6]) {
 						result[i] = 1;
 					} else
 						result[i] = 0;
@@ -1147,7 +1315,7 @@ public class gsClever extends Game {
 			case 122:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 1) {
-					if (testReturn.getMatchfield(1).getBlue()[7]) {
+					if (returnBack.getMatchfield(1).getBlue()[7]) {
 						result[i] = 1;
 					} else
 						result[i] = 0;
@@ -1156,7 +1324,7 @@ public class gsClever extends Game {
 			case 123:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 1) {
-					if (testReturn.getMatchfield(1).getBlue()[8]) {
+					if (returnBack.getMatchfield(1).getBlue()[8]) {
 						result[i] = 1;
 					} else
 						result[i] = 0;
@@ -1165,7 +1333,7 @@ public class gsClever extends Game {
 			case 124:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 1) {
-					if (testReturn.getMatchfield(1).getBlue()[9]) {
+					if (returnBack.getMatchfield(1).getBlue()[9]) {
 						result[i] = 1;
 					} else
 						result[i] = 0;
@@ -1174,7 +1342,7 @@ public class gsClever extends Game {
 			case 125:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 1) {
-					if (testReturn.getMatchfield(1).getBlue()[10]) {
+					if (returnBack.getMatchfield(1).getBlue()[10]) {
 						result[i] = 1;
 					} else
 						result[i] = 0;
@@ -1183,146 +1351,146 @@ public class gsClever extends Game {
 			case 126:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 1) {
-					result[i] = testReturn.getMatchfield(1).getGreen();
+					result[i] = returnBack.getMatchfield(1).getGreen();
 				}
 				break;
 			case 127:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 1) {
-					result[i] = testReturn.getMatchfield(1).getOrange()[0];
+					result[i] = returnBack.getMatchfield(1).getOrange()[0];
 				}
 				break;
 			case 128:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 1) {
-					result[i] = testReturn.getMatchfield(1).getOrange()[1];
+					result[i] = returnBack.getMatchfield(1).getOrange()[1];
 
 				}
 				break;
 			case 129:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 1) {
-					result[i] = testReturn.getMatchfield(1).getOrange()[2];
+					result[i] = returnBack.getMatchfield(1).getOrange()[2];
 				}
 				break;
 			case 130:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 1) {
-					result[i] = testReturn.getMatchfield(1).getOrange()[3];
+					result[i] = returnBack.getMatchfield(1).getOrange()[3];
 				}
 				break;
 			case 131:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 1) {
-					result[i] = testReturn.getMatchfield(1).getOrange()[4];
+					result[i] = returnBack.getMatchfield(1).getOrange()[4];
 				}
 				break;
 			case 132:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 1) {
-					result[i] = testReturn.getMatchfield(1).getOrange()[5];
+					result[i] = returnBack.getMatchfield(1).getOrange()[5];
 				}
 				break;
 			case 133:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 1) {
-					result[i] = testReturn.getMatchfield(1).getOrange()[6];
+					result[i] = returnBack.getMatchfield(1).getOrange()[6];
 				}
 				break;
 			case 134:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 1) {
-					result[i] = testReturn.getMatchfield(1).getOrange()[7];
+					result[i] = returnBack.getMatchfield(1).getOrange()[7];
 				}
 				break;
 			case 135:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 1) {
-					result[i] = testReturn.getMatchfield(1).getOrange()[8];
+					result[i] = returnBack.getMatchfield(1).getOrange()[8];
 				}
 				break;
 			case 136:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 1) {
-					result[i] = testReturn.getMatchfield(1).getOrange()[9];
+					result[i] = returnBack.getMatchfield(1).getOrange()[9];
 				}
 				break;
 			case 137:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 1) {
-					result[i] = testReturn.getMatchfield(1).getOrange()[10];
+					result[i] = returnBack.getMatchfield(1).getOrange()[10];
 				}
 				break;
 			case 138:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 1) {
-					result[i] = testReturn.getMatchfield(1).getPurple()[0];
+					result[i] = returnBack.getMatchfield(1).getPurple()[0];
 				}
 				break;
 			case 139:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 1) {
-					result[i] = testReturn.getMatchfield(1).getPurple()[1];
+					result[i] = returnBack.getMatchfield(1).getPurple()[1];
 				}
 				break;
 			case 140:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 1) {
-					result[i] = testReturn.getMatchfield(1).getPurple()[2];
+					result[i] = returnBack.getMatchfield(1).getPurple()[2];
 				}
 				break;
 			case 141:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 1) {
-					result[i] = testReturn.getMatchfield(1).getPurple()[3];
+					result[i] = returnBack.getMatchfield(1).getPurple()[3];
 				}
 				break;
 			case 142:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 1) {
-					result[i] = testReturn.getMatchfield(1).getPurple()[4];
+					result[i] = returnBack.getMatchfield(1).getPurple()[4];
 				}
 				break;
 			case 143:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 1) {
-					result[i] = testReturn.getMatchfield(1).getPurple()[5];
+					result[i] = returnBack.getMatchfield(1).getPurple()[5];
 				}
 				break;
 			case 144:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 1) {
-					result[i] = testReturn.getMatchfield(1).getPurple()[6];
+					result[i] = returnBack.getMatchfield(1).getPurple()[6];
 				}
 				break;
 			case 145:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 1) {
-					result[i] = testReturn.getMatchfield(1).getPurple()[7];
+					result[i] = returnBack.getMatchfield(1).getPurple()[7];
 				}
 				break;
 			case 146:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 1) {
-					result[i] = testReturn.getMatchfield(1).getPurple()[8];
+					result[i] = returnBack.getMatchfield(1).getPurple()[8];
 				}
 				break;
 			case 147:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 1) {
-					result[i] = testReturn.getMatchfield(1).getPurple()[9];
+					result[i] = returnBack.getMatchfield(1).getPurple()[9];
 				}
 				break;
 			case 148:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 1) {
-					result[i] = testReturn.getMatchfield(1).getPurple()[10];
+					result[i] = returnBack.getMatchfield(1).getPurple()[10];
 				}
 				break;
 			case 149:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 1) {
-					if (testReturn.getClickable(1).isDiceRepeat()) {
+					if (returnBack.getClickable(1).isDiceRepeat()) {
 						result[i] = 1;
 					}
 				}
@@ -1330,7 +1498,7 @@ public class gsClever extends Game {
 			case 150:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 1) {
-					if (testReturn.getClickable(1).isAdditionalDice()) {
+					if (returnBack.getClickable(1).isAdditionalDice()) {
 						result[i] = 1;
 					}
 				}
@@ -1338,18 +1506,17 @@ public class gsClever extends Game {
 			case 151:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 1) {
-					if (testReturn.getClickable(1).isRollDices()) {
+					if (returnBack.getClickable(1).isRollDices()) {
 						result[i] = 1;
 					}
 				}
 				break;
 
-			// TODO
 
 			case 152:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 1) {
-					if (testReturn.getClickable(1)) {
+					if (returnBack.getDecisionMaker(1).isColorDiceActive()) {
 						result[i] = 1;
 					}
 				}
@@ -1357,26 +1524,21 @@ public class gsClever extends Game {
 			case 153:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 1) {
-					if (testReturn.getClickable(1)) {
+					if (returnBack.getDecisionMaker(1).isWhiteDiceActive()) {
 						result[i] = 1;
 					}
 				}
 				break;
 			case 154:
-				result[i] = 0;
-				if (this.getCurrentPlayerAmount() > 1) {
-					if (testReturn.getClickable(1).isRollDices()) {
-						result[i] = 1;
-					}
-				}
+				if (this.getCurrentPlayerAmount() > 1) 
+					result[i] = returnBack.getDecisionMaker(1).getColorOfDice().ordinal(); 					
+			 else result[i] = 0;
 				break;
-
-			// TODO
 
 			case 155:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 1) {
-					if (testReturn.getClickable(1).getYellow()[0]) {
+					if (returnBack.getClickable(1).getYellow()[0]) {
 						result[i] = 1;
 					} else
 						result[i] = 0;
@@ -1385,7 +1547,7 @@ public class gsClever extends Game {
 			case 156:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 1) {
-					if (testReturn.getClickable(1).getYellow()[1]) {
+					if (returnBack.getClickable(1).getYellow()[1]) {
 						result[i] = 1;
 					} else
 						result[i] = 0;
@@ -1394,7 +1556,7 @@ public class gsClever extends Game {
 			case 157:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 1) {
-					if (testReturn.getClickable(1).getYellow()[2]) {
+					if (returnBack.getClickable(1).getYellow()[2]) {
 						result[i] = 1;
 					} else
 						result[i] = 0;
@@ -1403,7 +1565,7 @@ public class gsClever extends Game {
 			case 158:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 1) {
-					if (testReturn.getClickable(1).getYellow()[3]) {
+					if (returnBack.getClickable(1).getYellow()[3]) {
 						result[i] = 1;
 					} else
 						result[i] = 0;
@@ -1412,7 +1574,7 @@ public class gsClever extends Game {
 			case 159:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 1) {
-					if (testReturn.getClickable(1).getYellow()[4]) {
+					if (returnBack.getClickable(1).getYellow()[4]) {
 						result[i] = 1;
 					} else
 						result[i] = 0;
@@ -1421,7 +1583,7 @@ public class gsClever extends Game {
 			case 160:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 1) {
-					if (testReturn.getClickable(1).getYellow()[5]) {
+					if (returnBack.getClickable(1).getYellow()[5]) {
 						result[i] = 1;
 					} else
 						result[i] = 0;
@@ -1430,7 +1592,7 @@ public class gsClever extends Game {
 			case 161:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 1) {
-					if (testReturn.getClickable(1).getYellow()[6]) {
+					if (returnBack.getClickable(1).getYellow()[6]) {
 						result[i] = 1;
 					} else
 						result[i] = 0;
@@ -1439,7 +1601,7 @@ public class gsClever extends Game {
 			case 162:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 1) {
-					if (testReturn.getClickable(1).getYellow()[7]) {
+					if (returnBack.getClickable(1).getYellow()[7]) {
 						result[i] = 1;
 					} else
 						result[i] = 0;
@@ -1448,7 +1610,7 @@ public class gsClever extends Game {
 			case 163:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 1) {
-					if (testReturn.getClickable(1).getYellow()[8]) {
+					if (returnBack.getClickable(1).getYellow()[8]) {
 						result[i] = 1;
 					} else
 						result[i] = 0;
@@ -1457,7 +1619,7 @@ public class gsClever extends Game {
 			case 164:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 1) {
-					if (testReturn.getClickable(1).getYellow()[9]) {
+					if (returnBack.getClickable(1).getYellow()[9]) {
 						result[i] = 1;
 					} else
 						result[i] = 0;
@@ -1466,7 +1628,7 @@ public class gsClever extends Game {
 			case 165:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 1) {
-					if (testReturn.getClickable(1).getYellow()[10]) {
+					if (returnBack.getClickable(1).getYellow()[10]) {
 						result[i] = 1;
 					} else
 						result[i] = 0;
@@ -1475,7 +1637,7 @@ public class gsClever extends Game {
 			case 166:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 1) {
-					if (testReturn.getClickable(1).getYellow()[11]) {
+					if (returnBack.getClickable(1).getYellow()[11]) {
 						result[i] = 1;
 					} else
 						result[i] = 0;
@@ -1484,7 +1646,7 @@ public class gsClever extends Game {
 			case 167:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 1) {
-					if (testReturn.getClickable(1).getBlue()[0]) {
+					if (returnBack.getClickable(1).getBlue()[0]) {
 						result[i] = 1;
 					} else
 						result[i] = 0;
@@ -1493,7 +1655,7 @@ public class gsClever extends Game {
 			case 168:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 1) {
-					if (testReturn.getClickable(1).getBlue()[1]) {
+					if (returnBack.getClickable(1).getBlue()[1]) {
 						result[i] = 1;
 					} else
 						result[i] = 0;
@@ -1502,7 +1664,7 @@ public class gsClever extends Game {
 			case 169:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 1) {
-					if (testReturn.getClickable(1).getBlue()[2]) {
+					if (returnBack.getClickable(1).getBlue()[2]) {
 						result[i] = 1;
 					} else
 						result[i] = 0;
@@ -1511,7 +1673,7 @@ public class gsClever extends Game {
 			case 170:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 1) {
-					if (testReturn.getClickable(1).getBlue()[3]) {
+					if (returnBack.getClickable(1).getBlue()[3]) {
 						result[i] = 1;
 					} else
 						result[i] = 0;
@@ -1520,7 +1682,7 @@ public class gsClever extends Game {
 			case 171:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 1) {
-					if (testReturn.getClickable(1).getBlue()[4]) {
+					if (returnBack.getClickable(1).getBlue()[4]) {
 						result[i] = 1;
 					} else
 						result[i] = 0;
@@ -1529,7 +1691,7 @@ public class gsClever extends Game {
 			case 172:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 1) {
-					if (testReturn.getClickable(1).getBlue()[5]) {
+					if (returnBack.getClickable(1).getBlue()[5]) {
 						result[i] = 1;
 					} else
 						result[i] = 0;
@@ -1538,7 +1700,7 @@ public class gsClever extends Game {
 			case 173:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 1) {
-					if (testReturn.getClickable(1).getBlue()[6]) {
+					if (returnBack.getClickable(1).getBlue()[6]) {
 						result[i] = 1;
 					} else
 						result[i] = 0;
@@ -1547,7 +1709,7 @@ public class gsClever extends Game {
 			case 174:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 1) {
-					if (testReturn.getClickable(1).getBlue()[7]) {
+					if (returnBack.getClickable(1).getBlue()[7]) {
 						result[i] = 1;
 					} else
 						result[i] = 0;
@@ -1556,7 +1718,7 @@ public class gsClever extends Game {
 			case 175:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 1) {
-					if (testReturn.getClickable(1).getBlue()[8]) {
+					if (returnBack.getClickable(1).getBlue()[8]) {
 						result[i] = 1;
 					} else
 						result[i] = 0;
@@ -1565,7 +1727,7 @@ public class gsClever extends Game {
 			case 176:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 1) {
-					if (testReturn.getClickable(1).getBlue()[9]) {
+					if (returnBack.getClickable(1).getBlue()[9]) {
 						result[i] = 1;
 					} else
 						result[i] = 0;
@@ -1574,7 +1736,7 @@ public class gsClever extends Game {
 			case 177:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 1) {
-					if (testReturn.getClickable(1).getBlue()[10]) {
+					if (returnBack.getClickable(1).getBlue()[10]) {
 						result[i] = 1;
 					} else
 						result[i] = 0;
@@ -1583,7 +1745,7 @@ public class gsClever extends Game {
 			case 178:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 1) {
-					if (testReturn.getClickable(1).getGreen()) {
+					if (returnBack.getClickable(1).getGreen()) {
 						result[i] = 1;
 					} else
 						result[i] = 0;
@@ -1592,7 +1754,7 @@ public class gsClever extends Game {
 			case 179:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 1) {
-					if (testReturn.getClickable(1).getOrange()) {
+					if (returnBack.getClickable(1).getOrange()) {
 						result[i] = 1;
 					} else
 						result[i] = 0;
@@ -1601,7 +1763,7 @@ public class gsClever extends Game {
 			case 180:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 1) {
-					if (testReturn.getClickable(1).getPurple()) {
+					if (returnBack.getClickable(1).getPurple()) {
 						result[i] = 1;
 					} else
 						result[i] = 0;
@@ -1611,31 +1773,31 @@ public class gsClever extends Game {
 			case 181:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 2) {
-					result[i] = testReturn.getMatchfield(2).getDiceRepeatCount();
+					result[i] = returnBack.getMatchfield(2).getDiceRepeatCount();
 				}
 				break;
 			case 182:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 2) {
-					result[i] = testReturn.getMatchfield(2).getDiceRepeatUsed();
+					result[i] = returnBack.getMatchfield(2).getDiceRepeatUsed();
 				}
 				break;
 			case 183:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 2) {
-					result[i] = testReturn.getMatchfield(2).getAdditionalDiceCount();
+					result[i] = returnBack.getMatchfield(2).getAdditionalDiceCount();
 				}
 				break;
 			case 184:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 2) {
-					result[i] = testReturn.getMatchfield(2).getAdditionalDiceUsed();
+					result[i] = returnBack.getMatchfield(2).getAdditionalDiceUsed();
 				}
 				break;
 			case 185:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 2) {
-					if (testReturn.getMatchfield(2).getYellow()[0]) {
+					if (returnBack.getMatchfield(2).getYellow()[0]) {
 						result[i] = 1;
 					} else
 						result[i] = 0;
@@ -1644,7 +1806,7 @@ public class gsClever extends Game {
 			case 186:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 2) {
-					if (testReturn.getMatchfield(2).getYellow()[1]) {
+					if (returnBack.getMatchfield(2).getYellow()[1]) {
 						result[i] = 1;
 					} else
 						result[i] = 0;
@@ -1653,7 +1815,7 @@ public class gsClever extends Game {
 			case 187:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 2) {
-					if (testReturn.getMatchfield(2).getYellow()[2]) {
+					if (returnBack.getMatchfield(2).getYellow()[2]) {
 						result[i] = 1;
 					} else
 						result[i] = 0;
@@ -1662,7 +1824,7 @@ public class gsClever extends Game {
 			case 188:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 2) {
-					if (testReturn.getMatchfield(2).getYellow()[3]) {
+					if (returnBack.getMatchfield(2).getYellow()[3]) {
 						result[i] = 1;
 					} else
 						result[i] = 0;
@@ -1671,7 +1833,7 @@ public class gsClever extends Game {
 			case 189:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 2) {
-					if (testReturn.getMatchfield(2).getYellow()[4]) {
+					if (returnBack.getMatchfield(2).getYellow()[4]) {
 						result[i] = 1;
 					} else
 						result[i] = 0;
@@ -1680,7 +1842,7 @@ public class gsClever extends Game {
 			case 190:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 2) {
-					if (testReturn.getMatchfield(2).getYellow()[5]) {
+					if (returnBack.getMatchfield(2).getYellow()[5]) {
 						result[i] = 1;
 					} else
 						result[i] = 0;
@@ -1689,7 +1851,7 @@ public class gsClever extends Game {
 			case 191:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 2) {
-					if (testReturn.getMatchfield(2).getYellow()[6]) {
+					if (returnBack.getMatchfield(2).getYellow()[6]) {
 						result[i] = 1;
 					} else
 						result[i] = 0;
@@ -1698,7 +1860,7 @@ public class gsClever extends Game {
 			case 192:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 2) {
-					if (testReturn.getMatchfield(2).getYellow()[7]) {
+					if (returnBack.getMatchfield(2).getYellow()[7]) {
 						result[i] = 1;
 					} else
 						result[i] = 0;
@@ -1707,7 +1869,7 @@ public class gsClever extends Game {
 			case 193:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 2) {
-					if (testReturn.getMatchfield(2).getYellow()[8]) {
+					if (returnBack.getMatchfield(2).getYellow()[8]) {
 						result[i] = 1;
 					} else
 						result[i] = 0;
@@ -1716,7 +1878,7 @@ public class gsClever extends Game {
 			case 194:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 2) {
-					if (testReturn.getMatchfield(2).getYellow()[9]) {
+					if (returnBack.getMatchfield(2).getYellow()[9]) {
 						result[i] = 1;
 					} else
 						result[i] = 0;
@@ -1725,7 +1887,7 @@ public class gsClever extends Game {
 			case 195:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 2) {
-					if (testReturn.getMatchfield(2).getYellow()[10]) {
+					if (returnBack.getMatchfield(2).getYellow()[10]) {
 						result[i] = 1;
 					} else
 						result[i] = 0;
@@ -1734,7 +1896,7 @@ public class gsClever extends Game {
 			case 196:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 2) {
-					if (testReturn.getMatchfield(2).getYellow()[11]) {
+					if (returnBack.getMatchfield(2).getYellow()[11]) {
 						result[i] = 1;
 					} else
 						result[i] = 0;
@@ -1743,7 +1905,7 @@ public class gsClever extends Game {
 			case 197:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 2) {
-					if (testReturn.getMatchfield(2).getBlue()[0]) {
+					if (returnBack.getMatchfield(2).getBlue()[0]) {
 						result[i] = 1;
 					} else
 						result[i] = 0;
@@ -1752,7 +1914,7 @@ public class gsClever extends Game {
 			case 198:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 2) {
-					if (testReturn.getMatchfield(2).getBlue()[1]) {
+					if (returnBack.getMatchfield(2).getBlue()[1]) {
 						result[i] = 1;
 					} else
 						result[i] = 0;
@@ -1761,7 +1923,7 @@ public class gsClever extends Game {
 			case 199:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 2) {
-					if (testReturn.getMatchfield(2).getBlue()[2]) {
+					if (returnBack.getMatchfield(2).getBlue()[2]) {
 						result[i] = 1;
 					} else
 						result[i] = 0;
@@ -1770,7 +1932,7 @@ public class gsClever extends Game {
 			case 200:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 2) {
-					if (testReturn.getMatchfield(2).getBlue()[3]) {
+					if (returnBack.getMatchfield(2).getBlue()[3]) {
 						result[i] = 1;
 					} else
 						result[i] = 0;
@@ -1779,7 +1941,7 @@ public class gsClever extends Game {
 			case 201:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 2) {
-					if (testReturn.getMatchfield(2).getBlue()[4]) {
+					if (returnBack.getMatchfield(2).getBlue()[4]) {
 						result[i] = 1;
 					} else
 						result[i] = 0;
@@ -1788,7 +1950,7 @@ public class gsClever extends Game {
 			case 202:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 2) {
-					if (testReturn.getMatchfield(2).getBlue()[5]) {
+					if (returnBack.getMatchfield(2).getBlue()[5]) {
 						result[i] = 1;
 					} else
 						result[i] = 0;
@@ -1797,7 +1959,7 @@ public class gsClever extends Game {
 			case 203:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 2) {
-					if (testReturn.getMatchfield(2).getBlue()[6]) {
+					if (returnBack.getMatchfield(2).getBlue()[6]) {
 						result[i] = 1;
 					} else
 						result[i] = 0;
@@ -1806,7 +1968,7 @@ public class gsClever extends Game {
 			case 204:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 2) {
-					if (testReturn.getMatchfield(2).getBlue()[7]) {
+					if (returnBack.getMatchfield(2).getBlue()[7]) {
 						result[i] = 1;
 					} else
 						result[i] = 0;
@@ -1815,7 +1977,7 @@ public class gsClever extends Game {
 			case 205:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 2) {
-					if (testReturn.getMatchfield(2).getBlue()[8]) {
+					if (returnBack.getMatchfield(2).getBlue()[8]) {
 						result[i] = 1;
 					} else
 						result[i] = 0;
@@ -1824,7 +1986,7 @@ public class gsClever extends Game {
 			case 206:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 2) {
-					if (testReturn.getMatchfield(2).getBlue()[9]) {
+					if (returnBack.getMatchfield(2).getBlue()[9]) {
 						result[i] = 1;
 					} else
 						result[i] = 0;
@@ -1833,7 +1995,7 @@ public class gsClever extends Game {
 			case 207:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 2) {
-					if (testReturn.getMatchfield(2).getBlue()[10]) {
+					if (returnBack.getMatchfield(2).getBlue()[10]) {
 						result[i] = 1;
 					} else
 						result[i] = 0;
@@ -1842,146 +2004,146 @@ public class gsClever extends Game {
 			case 208:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 2) {
-					result[i] = testReturn.getMatchfield(2).getGreen();
+					result[i] = returnBack.getMatchfield(2).getGreen();
 				}
 				break;
 			case 209:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 2) {
-					result[i] = testReturn.getMatchfield(2).getOrange()[0];
+					result[i] = returnBack.getMatchfield(2).getOrange()[0];
 				}
 				break;
 			case 210:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 2) {
-					result[i] = testReturn.getMatchfield(2).getOrange()[1];
+					result[i] = returnBack.getMatchfield(2).getOrange()[1];
 				}
 				break;
 			case 211:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 2) {
-					result[i] = testReturn.getMatchfield(2).getOrange()[2];
+					result[i] = returnBack.getMatchfield(2).getOrange()[2];
 
 				}
 				break;
 			case 212:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 2) {
-					result[i] = testReturn.getMatchfield(2).getOrange()[3];
+					result[i] = returnBack.getMatchfield(2).getOrange()[3];
 				}
 				break;
 			case 213:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 2) {
-					result[i] = testReturn.getMatchfield(2).getOrange()[4];
+					result[i] = returnBack.getMatchfield(2).getOrange()[4];
 				}
 				break;
 			case 214:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 2) {
-					result[i] = testReturn.getMatchfield(2).getOrange()[5];
+					result[i] = returnBack.getMatchfield(2).getOrange()[5];
 				}
 				break;
 			case 215:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 2) {
-					result[i] = testReturn.getMatchfield(2).getOrange()[6];
+					result[i] = returnBack.getMatchfield(2).getOrange()[6];
 				}
 				break;
 			case 216:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 2) {
-					result[i] = testReturn.getMatchfield(2).getOrange()[7];
+					result[i] = returnBack.getMatchfield(2).getOrange()[7];
 				}
 				break;
 			case 217:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 2) {
-					result[i] = testReturn.getMatchfield(2).getOrange()[8];
+					result[i] = returnBack.getMatchfield(2).getOrange()[8];
 				}
 				break;
 			case 218:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 2) {
-					result[i] = testReturn.getMatchfield(2).getOrange()[9];
+					result[i] = returnBack.getMatchfield(2).getOrange()[9];
 				}
 				break;
 			case 219:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 2) {
-					result[i] = testReturn.getMatchfield(2).getOrange()[10];
+					result[i] = returnBack.getMatchfield(2).getOrange()[10];
 				}
 				break;
 			case 220:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 2) {
-					result[i] = testReturn.getMatchfield(2).getPurple()[0];
+					result[i] = returnBack.getMatchfield(2).getPurple()[0];
 				}
 				break;
 			case 221:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 2) {
-					result[i] = testReturn.getMatchfield(2).getPurple()[1];
+					result[i] = returnBack.getMatchfield(2).getPurple()[1];
 				}
 				break;
 			case 222:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 2) {
-					result[i] = testReturn.getMatchfield(2).getPurple()[2];
+					result[i] = returnBack.getMatchfield(2).getPurple()[2];
 				}
 				break;
 			case 223:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 2) {
-					result[i] = testReturn.getMatchfield(2).getPurple()[3];
+					result[i] = returnBack.getMatchfield(2).getPurple()[3];
 				}
 				break;
 			case 224:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 2) {
-					result[i] = testReturn.getMatchfield(2).getPurple()[4];
+					result[i] = returnBack.getMatchfield(2).getPurple()[4];
 				}
 				break;
 			case 225:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 2) {
-					result[i] = testReturn.getMatchfield(2).getPurple()[5];
+					result[i] = returnBack.getMatchfield(2).getPurple()[5];
 				}
 				break;
 			case 226:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 2) {
-					result[i] = testReturn.getMatchfield(2).getPurple()[6];
+					result[i] = returnBack.getMatchfield(2).getPurple()[6];
 				}
 				break;
 			case 227:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 2) {
-					result[i] = testReturn.getMatchfield(2).getPurple()[7];
+					result[i] = returnBack.getMatchfield(2).getPurple()[7];
 				}
 				break;
 			case 228:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 2) {
-					result[i] = testReturn.getMatchfield(2).getPurple()[8];
+					result[i] = returnBack.getMatchfield(2).getPurple()[8];
 				}
 				break;
 			case 229:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 2) {
-					result[i] = testReturn.getMatchfield(2).getPurple()[9];
+					result[i] = returnBack.getMatchfield(2).getPurple()[9];
 				}
 				break;
 			case 230:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 2) {
-					result[i] = testReturn.getMatchfield(2).getPurple()[10];
+					result[i] = returnBack.getMatchfield(2).getPurple()[10];
 				}
 				break;
 			case 231:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 2) {
-					if (testReturn.getClickable(2).isDiceRepeat()) {
+					if (returnBack.getClickable(2).isDiceRepeat()) {
 						result[i] = 1;
 					}
 				}
@@ -1989,7 +2151,7 @@ public class gsClever extends Game {
 			case 232:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 2) {
-					if (testReturn.getClickable(2).isAdditionalDice()) {
+					if (returnBack.getClickable(2).isAdditionalDice()) {
 						result[i] = 1;
 					}
 				}
@@ -1998,45 +2160,33 @@ public class gsClever extends Game {
 
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 2) {
-					if (testReturn.getClickable(2).isRollDices()) {
+					if (returnBack.getClickable(2).isRollDices()) {
 						result[i] = 1;
 					}
 				}
 				break;
-			// TODO
 			case 234:
 				result[i] = 0;
-				if (this.getCurrentPlayerAmount() > 2) {
-					if (testReturn.getClickable(2)) {
-
-						result[i] = 1;
-					}
+				if (returnBack.getDecisionMaker(2).isColorDiceActive()) {
+					result[i] = 1;
 				}
 				break;
 			case 235:
 				result[i] = 0;
-				if (this.getCurrentPlayerAmount() > 2) {
-					if (testReturn.getClickable(2)) {
-
-						result[i] = 1;
-					}
+				if (returnBack.getDecisionMaker(2).isWhiteDiceActive()) {
+					result[i] = 1;
 				}
 				break;
 			case 236:
 				result[i] = 0;
-				if (this.getCurrentPlayerAmount() > 2) {
-					if (testReturn.getClickable(2).isRollDices()) {
-
-						result[i] = 1;
-					}
+				if (result[i - 2] == 1) {
+					result[i] = returnBack.getDecisionMaker(2).getColorOfDice().ordinal() + 1;
 				}
 				break;
-
-			// TODO
 			case 237:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 2) {
-					if (testReturn.getClickable(2).getYellow()[0]) {
+					if (returnBack.getClickable(2).getYellow()[0]) {
 						result[i] = 1;
 					} else
 						result[i] = 0;
@@ -2045,7 +2195,7 @@ public class gsClever extends Game {
 			case 238:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 2) {
-					if (testReturn.getClickable(2).getYellow()[1]) {
+					if (returnBack.getClickable(2).getYellow()[1]) {
 						result[i] = 1;
 					} else
 						result[i] = 0;
@@ -2054,7 +2204,7 @@ public class gsClever extends Game {
 			case 239:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 2) {
-					if (testReturn.getClickable(2).getYellow()[2]) {
+					if (returnBack.getClickable(2).getYellow()[2]) {
 						result[i] = 1;
 					} else
 						result[i] = 0;
@@ -2063,7 +2213,7 @@ public class gsClever extends Game {
 			case 240:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 2) {
-					if (testReturn.getClickable(2).getYellow()[3]) {
+					if (returnBack.getClickable(2).getYellow()[3]) {
 						result[i] = 1;
 					} else
 						result[i] = 0;
@@ -2072,7 +2222,7 @@ public class gsClever extends Game {
 			case 241:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 2) {
-					if (testReturn.getClickable(2).getYellow()[4]) {
+					if (returnBack.getClickable(2).getYellow()[4]) {
 
 						result[i] = 1;
 					} else
@@ -2082,7 +2232,7 @@ public class gsClever extends Game {
 			case 242:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 2) {
-					if (testReturn.getClickable(2).getYellow()[5]) {
+					if (returnBack.getClickable(2).getYellow()[5]) {
 						result[i] = 1;
 					} else
 						result[i] = 0;
@@ -2091,7 +2241,7 @@ public class gsClever extends Game {
 			case 243:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 2) {
-					if (testReturn.getClickable(2).getYellow()[6]) {
+					if (returnBack.getClickable(2).getYellow()[6]) {
 
 						result[i] = 1;
 					} else
@@ -2101,7 +2251,7 @@ public class gsClever extends Game {
 			case 244:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 2) {
-					if (testReturn.getClickable(2).getYellow()[7]) {
+					if (returnBack.getClickable(2).getYellow()[7]) {
 						result[i] = 1;
 					} else
 						result[i] = 0;
@@ -2110,7 +2260,7 @@ public class gsClever extends Game {
 			case 245:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 2) {
-					if (testReturn.getClickable(2).getYellow()[8]) {
+					if (returnBack.getClickable(2).getYellow()[8]) {
 						result[i] = 1;
 					} else
 						result[i] = 0;
@@ -2119,7 +2269,7 @@ public class gsClever extends Game {
 			case 246:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 2) {
-					if (testReturn.getClickable(2).getYellow()[9]) {
+					if (returnBack.getClickable(2).getYellow()[9]) {
 						result[i] = 1;
 					} else
 						result[i] = 0;
@@ -2128,7 +2278,7 @@ public class gsClever extends Game {
 			case 247:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 2) {
-					if (testReturn.getClickable(2).getYellow()[10]) {
+					if (returnBack.getClickable(2).getYellow()[10]) {
 						result[i] = 1;
 					} else
 						result[i] = 0;
@@ -2137,7 +2287,7 @@ public class gsClever extends Game {
 			case 248:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 2) {
-					if (testReturn.getClickable(2).getYellow()[11]) {
+					if (returnBack.getClickable(2).getYellow()[11]) {
 						result[i] = 1;
 					} else
 						result[i] = 0;
@@ -2146,7 +2296,7 @@ public class gsClever extends Game {
 			case 249:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 2) {
-					if (testReturn.getClickable(2).getBlue()[0]) {
+					if (returnBack.getClickable(2).getBlue()[0]) {
 						result[i] = 1;
 					} else
 						result[i] = 0;
@@ -2155,7 +2305,7 @@ public class gsClever extends Game {
 			case 250:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 2) {
-					if (testReturn.getClickable(2).getBlue()[1]) {
+					if (returnBack.getClickable(2).getBlue()[1]) {
 						result[i] = 1;
 					} else
 						result[i] = 0;
@@ -2164,7 +2314,7 @@ public class gsClever extends Game {
 			case 251:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 2) {
-					if (testReturn.getClickable(2).getBlue()[2]) {
+					if (returnBack.getClickable(2).getBlue()[2]) {
 						result[i] = 1;
 					} else
 						result[i] = 0;
@@ -2173,7 +2323,7 @@ public class gsClever extends Game {
 			case 252:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 2) {
-					if (testReturn.getClickable(2).getBlue()[3]) {
+					if (returnBack.getClickable(2).getBlue()[3]) {
 						result[i] = 1;
 					} else
 						result[i] = 0;
@@ -2182,7 +2332,7 @@ public class gsClever extends Game {
 			case 253:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 2) {
-					if (testReturn.getClickable(2).getBlue()[4]) {
+					if (returnBack.getClickable(2).getBlue()[4]) {
 						result[i] = 1;
 					} else
 						result[i] = 0;
@@ -2191,7 +2341,7 @@ public class gsClever extends Game {
 			case 254:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 2) {
-					if (testReturn.getClickable(2).getBlue()[5]) {
+					if (returnBack.getClickable(2).getBlue()[5]) {
 						result[i] = 1;
 					} else
 						result[i] = 0;
@@ -2200,7 +2350,7 @@ public class gsClever extends Game {
 			case 255:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 2) {
-					if (testReturn.getClickable(2).getBlue()[6]) {
+					if (returnBack.getClickable(2).getBlue()[6]) {
 						result[i] = 1;
 					} else
 						result[i] = 0;
@@ -2209,7 +2359,7 @@ public class gsClever extends Game {
 			case 256:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 2) {
-					if (testReturn.getClickable(2).getBlue()[7]) {
+					if (returnBack.getClickable(2).getBlue()[7]) {
 						result[i] = 1;
 					} else
 						result[i] = 0;
@@ -2218,7 +2368,7 @@ public class gsClever extends Game {
 			case 257:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 2) {
-					if (testReturn.getClickable(2).getBlue()[8]) {
+					if (returnBack.getClickable(2).getBlue()[8]) {
 						result[i] = 1;
 					} else
 						result[i] = 0;
@@ -2227,7 +2377,7 @@ public class gsClever extends Game {
 			case 258:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 2) {
-					if (testReturn.getClickable(2).getBlue()[9]) {
+					if (returnBack.getClickable(2).getBlue()[9]) {
 						result[i] = 1;
 					} else
 						result[i] = 0;
@@ -2236,7 +2386,7 @@ public class gsClever extends Game {
 			case 259:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 2) {
-					if (testReturn.getClickable(2).getBlue()[10]) {
+					if (returnBack.getClickable(2).getBlue()[10]) {
 						result[i] = 1;
 					} else
 						result[i] = 0;
@@ -2245,7 +2395,7 @@ public class gsClever extends Game {
 			case 260:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 2) {
-					if (testReturn.getClickable(2).getGreen()) {
+					if (returnBack.getClickable(2).getGreen()) {
 						result[i] = 1;
 					} else
 						result[i] = 0;
@@ -2254,7 +2404,7 @@ public class gsClever extends Game {
 			case 261:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 2) {
-					if (testReturn.getClickable(2).getOrange()) {
+					if (returnBack.getClickable(2).getOrange()) {
 						result[i] = 1;
 					} else
 						result[i] = 0;
@@ -2263,7 +2413,7 @@ public class gsClever extends Game {
 			case 262:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 2) {
-					if (testReturn.getClickable(2).getPurple()) {
+					if (returnBack.getClickable(2).getPurple()) {
 						result[i] = 1;
 					} else
 						result[i] = 0;
@@ -2273,31 +2423,31 @@ public class gsClever extends Game {
 			case 263:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 3) {
-					result[i] = testReturn.getMatchfield(3).getDiceRepeatCount();
+					result[i] = returnBack.getMatchfield(3).getDiceRepeatCount();
 				}
 				break;
 			case 264:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 3) {
-					result[i] = testReturn.getMatchfield(3).getDiceRepeatUsed();
+					result[i] = returnBack.getMatchfield(3).getDiceRepeatUsed();
 				}
 				break;
 			case 265:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 3) {
-					result[i] = testReturn.getMatchfield(3).getAdditionalDiceCount();
+					result[i] = returnBack.getMatchfield(3).getAdditionalDiceCount();
 				}
 				break;
 			case 266:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 3) {
-					result[i] = testReturn.getMatchfield(3).getAdditionalDiceUsed();
+					result[i] = returnBack.getMatchfield(3).getAdditionalDiceUsed();
 				}
 				break;
 			case 267:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 3) {
-					if (testReturn.getMatchfield(3).getYellow()[0]) {
+					if (returnBack.getMatchfield(3).getYellow()[0]) {
 						result[i] = 1;
 					} else
 						result[i] = 0;
@@ -2306,7 +2456,7 @@ public class gsClever extends Game {
 			case 268:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 3) {
-					if (testReturn.getMatchfield(3).getYellow()[1]) {
+					if (returnBack.getMatchfield(3).getYellow()[1]) {
 						result[i] = 1;
 					} else
 						result[i] = 0;
@@ -2315,7 +2465,7 @@ public class gsClever extends Game {
 			case 269:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 3) {
-					if (testReturn.getMatchfield(3).getYellow()[2]) {
+					if (returnBack.getMatchfield(3).getYellow()[2]) {
 						result[i] = 1;
 					} else
 						result[i] = 0;
@@ -2324,7 +2474,7 @@ public class gsClever extends Game {
 			case 270:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 3) {
-					if (testReturn.getMatchfield(3).getYellow()[3]) {
+					if (returnBack.getMatchfield(3).getYellow()[3]) {
 						result[i] = 1;
 					} else
 						result[i] = 0;
@@ -2333,7 +2483,7 @@ public class gsClever extends Game {
 			case 271:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 3) {
-					if (testReturn.getMatchfield(3).getYellow()[4]) {
+					if (returnBack.getMatchfield(3).getYellow()[4]) {
 						result[i] = 1;
 					} else
 						result[i] = 0;
@@ -2342,7 +2492,7 @@ public class gsClever extends Game {
 			case 272:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 3) {
-					if (testReturn.getMatchfield(3).getYellow()[5]) {
+					if (returnBack.getMatchfield(3).getYellow()[5]) {
 						result[i] = 1;
 					} else
 						result[i] = 0;
@@ -2351,7 +2501,7 @@ public class gsClever extends Game {
 			case 273:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 3) {
-					if (testReturn.getMatchfield(3).getYellow()[6]) {
+					if (returnBack.getMatchfield(3).getYellow()[6]) {
 						result[i] = 1;
 					} else
 						result[i] = 0;
@@ -2360,7 +2510,7 @@ public class gsClever extends Game {
 			case 274:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 3) {
-					if (testReturn.getMatchfield(3).getYellow()[7]) {
+					if (returnBack.getMatchfield(3).getYellow()[7]) {
 						result[i] = 1;
 					} else
 						result[i] = 0;
@@ -2369,7 +2519,7 @@ public class gsClever extends Game {
 			case 275:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 3) {
-					if (testReturn.getMatchfield(3).getYellow()[8]) {
+					if (returnBack.getMatchfield(3).getYellow()[8]) {
 						result[i] = 1;
 					} else
 						result[i] = 0;
@@ -2378,7 +2528,7 @@ public class gsClever extends Game {
 			case 276:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 3) {
-					if (testReturn.getMatchfield(3).getYellow()[9]) {
+					if (returnBack.getMatchfield(3).getYellow()[9]) {
 						result[i] = 1;
 					} else
 						result[i] = 0;
@@ -2387,7 +2537,7 @@ public class gsClever extends Game {
 			case 277:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 3) {
-					if (testReturn.getMatchfield(3).getYellow()[10]) {
+					if (returnBack.getMatchfield(3).getYellow()[10]) {
 						result[i] = 1;
 					} else
 						result[i] = 0;
@@ -2396,7 +2546,7 @@ public class gsClever extends Game {
 			case 278:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 3) {
-					if (testReturn.getMatchfield(3).getYellow()[11]) {
+					if (returnBack.getMatchfield(3).getYellow()[11]) {
 						result[i] = 1;
 					} else
 						result[i] = 0;
@@ -2405,7 +2555,7 @@ public class gsClever extends Game {
 			case 279:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 3) {
-					if (testReturn.getMatchfield(3).getBlue()[0]) {
+					if (returnBack.getMatchfield(3).getBlue()[0]) {
 						result[i] = 1;
 					} else
 						result[i] = 0;
@@ -2414,7 +2564,7 @@ public class gsClever extends Game {
 			case 280:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 3) {
-					if (testReturn.getMatchfield(3).getBlue()[1]) {
+					if (returnBack.getMatchfield(3).getBlue()[1]) {
 						result[i] = 1;
 					} else
 						result[i] = 0;
@@ -2423,7 +2573,7 @@ public class gsClever extends Game {
 			case 281:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 3) {
-					if (testReturn.getMatchfield(3).getBlue()[2]) {
+					if (returnBack.getMatchfield(3).getBlue()[2]) {
 						result[i] = 1;
 					} else
 						result[i] = 0;
@@ -2432,7 +2582,7 @@ public class gsClever extends Game {
 			case 282:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 3) {
-					if (testReturn.getMatchfield(3).getBlue()[3]) {
+					if (returnBack.getMatchfield(3).getBlue()[3]) {
 						result[i] = 1;
 					} else
 						result[i] = 0;
@@ -2441,7 +2591,7 @@ public class gsClever extends Game {
 			case 283:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 3) {
-					if (testReturn.getMatchfield(3).getBlue()[4]) {
+					if (returnBack.getMatchfield(3).getBlue()[4]) {
 						result[i] = 1;
 					} else
 						result[i] = 0;
@@ -2450,7 +2600,7 @@ public class gsClever extends Game {
 			case 284:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 3) {
-					if (testReturn.getMatchfield(3).getBlue()[5]) {
+					if (returnBack.getMatchfield(3).getBlue()[5]) {
 						result[i] = 1;
 					} else
 						result[i] = 0;
@@ -2459,7 +2609,7 @@ public class gsClever extends Game {
 			case 285:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 3) {
-					if (testReturn.getMatchfield(3).getBlue()[6]) {
+					if (returnBack.getMatchfield(3).getBlue()[6]) {
 						result[i] = 1;
 					} else
 						result[i] = 0;
@@ -2468,7 +2618,7 @@ public class gsClever extends Game {
 			case 286:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 3) {
-					if (testReturn.getMatchfield(3).getBlue()[7]) {
+					if (returnBack.getMatchfield(3).getBlue()[7]) {
 						result[i] = 1;
 					} else
 						result[i] = 0;
@@ -2477,7 +2627,7 @@ public class gsClever extends Game {
 			case 287:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 3) {
-					if (testReturn.getMatchfield(3).getBlue()[8]) {
+					if (returnBack.getMatchfield(3).getBlue()[8]) {
 						result[i] = 1;
 					} else
 						result[i] = 0;
@@ -2486,7 +2636,7 @@ public class gsClever extends Game {
 			case 288:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 3) {
-					if (testReturn.getMatchfield(3).getBlue()[9]) {
+					if (returnBack.getMatchfield(3).getBlue()[9]) {
 						result[i] = 1;
 					} else
 						result[i] = 0;
@@ -2495,7 +2645,7 @@ public class gsClever extends Game {
 			case 289:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 3) {
-					if (testReturn.getMatchfield(3).getBlue()[10]) {
+					if (returnBack.getMatchfield(3).getBlue()[10]) {
 						result[i] = 1;
 					} else
 						result[i] = 0;
@@ -2504,145 +2654,145 @@ public class gsClever extends Game {
 			case 290:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 3) {
-					result[i] = testReturn.getMatchfield(3).getGreen();
+					result[i] = returnBack.getMatchfield(3).getGreen();
 				}
 				break;
 			case 291:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 3) {
-					result[i] = testReturn.getMatchfield(3).getOrange()[0];
+					result[i] = returnBack.getMatchfield(3).getOrange()[0];
 				}
 				break;
 			case 292:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 3) {
-					result[i] = testReturn.getMatchfield(3).getOrange()[1];
+					result[i] = returnBack.getMatchfield(3).getOrange()[1];
 				}
 				break;
 			case 293:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 3) {
-					result[i] = testReturn.getMatchfield(3).getOrange()[2];
+					result[i] = returnBack.getMatchfield(3).getOrange()[2];
 				}
 				break;
 			case 294:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 3) {
-					result[i] = testReturn.getMatchfield(3).getOrange()[3];
+					result[i] = returnBack.getMatchfield(3).getOrange()[3];
 				}
 				break;
 			case 295:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 3) {
-					result[i] = testReturn.getMatchfield(3).getOrange()[4];
+					result[i] = returnBack.getMatchfield(3).getOrange()[4];
 				}
 				break;
 			case 296:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 3) {
-					result[i] = testReturn.getMatchfield(3).getOrange()[5];
+					result[i] = returnBack.getMatchfield(3).getOrange()[5];
 				}
 				break;
 			case 297:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 3) {
-					result[i] = testReturn.getMatchfield(3).getOrange()[6];
+					result[i] = returnBack.getMatchfield(3).getOrange()[6];
 				}
 				break;
 			case 298:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 3) {
-					result[i] = testReturn.getMatchfield(3).getOrange()[7];
+					result[i] = returnBack.getMatchfield(3).getOrange()[7];
 				}
 				break;
 			case 299:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 3) {
-					result[i] = testReturn.getMatchfield(3).getOrange()[8];
+					result[i] = returnBack.getMatchfield(3).getOrange()[8];
 				}
 				break;
 			case 300:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 3) {
-					result[i] = testReturn.getMatchfield(3).getOrange()[8];
+					result[i] = returnBack.getMatchfield(3).getOrange()[8];
 				}
 				break;
 			case 301:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 3) {
-					result[i] = testReturn.getMatchfield(3).getOrange()[10];
+					result[i] = returnBack.getMatchfield(3).getOrange()[10];
 				}
 				break;
 			case 302:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 3) {
-					result[i] = testReturn.getMatchfield(3).getPurple()[0];
+					result[i] = returnBack.getMatchfield(3).getPurple()[0];
 				}
 				break;
 			case 303:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 3) {
-					result[i] = testReturn.getMatchfield(3).getPurple()[1];
+					result[i] = returnBack.getMatchfield(3).getPurple()[1];
 				}
 				break;
 			case 304:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 3) {
-					result[i] = testReturn.getMatchfield(3).getPurple()[2];
+					result[i] = returnBack.getMatchfield(3).getPurple()[2];
 				}
 				break;
 			case 305:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 3) {
-					result[i] = testReturn.getMatchfield(3).getPurple()[3];
+					result[i] = returnBack.getMatchfield(3).getPurple()[3];
 				}
 				break;
 			case 306:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 3) {
-					result[i] = testReturn.getMatchfield(3).getPurple()[4];
+					result[i] = returnBack.getMatchfield(3).getPurple()[4];
 				}
 				break;
 			case 307:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 3) {
-					result[i] = testReturn.getMatchfield(3).getPurple()[5];
+					result[i] = returnBack.getMatchfield(3).getPurple()[5];
 				}
 				break;
 			case 308:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 3) {
-					result[i] = testReturn.getMatchfield(3).getPurple()[6];
+					result[i] = returnBack.getMatchfield(3).getPurple()[6];
 				}
 				break;
 			case 309:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 3) {
-					result[i] = testReturn.getMatchfield(3).getPurple()[7];
+					result[i] = returnBack.getMatchfield(3).getPurple()[7];
 				}
 				break;
 			case 310:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 3) {
-					result[i] = testReturn.getMatchfield(3).getPurple()[8];
+					result[i] = returnBack.getMatchfield(3).getPurple()[8];
 				}
 				break;
 			case 311:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 3) {
-					result[i] = testReturn.getMatchfield(3).getPurple()[9];
+					result[i] = returnBack.getMatchfield(3).getPurple()[9];
 				}
 				break;
 			case 312:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 3) {
-					result[i] = testReturn.getMatchfield(3).getPurple()[10];
+					result[i] = returnBack.getMatchfield(3).getPurple()[10];
 				}
 				break;
 			case 313:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 3) {
-					if (testReturn.getClickable(3).isDiceRepeat()) {
+					if (returnBack.getClickable(3).isDiceRepeat()) {
 						result[i] = 1;
 					}
 				}
@@ -2650,7 +2800,7 @@ public class gsClever extends Game {
 			case 314:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 3) {
-					if (testReturn.getClickable(3).isAdditionalDice()) {
+					if (returnBack.getClickable(3).isAdditionalDice()) {
 						result[i] = 1;
 					}
 				}
@@ -2658,42 +2808,33 @@ public class gsClever extends Game {
 			case 315:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 3) {
-					if (testReturn.getClickable(3).isRollDices()) {
+					if (returnBack.getClickable(3).isRollDices()) {
 						result[i] = 1;
 					}
 				}
 				break;
-			// TODO
-			case 316:
+			case 346:
 				result[i] = 0;
-				if (this.getCurrentPlayerAmount() > 3) {
-					if (testReturn.getClickable(3)) {
-						result[i] = 1;
-					}
+				if (returnBack.getDecisionMaker(3).isColorDiceActive()) {
+					result[i] = 1;
 				}
 				break;
 			case 317:
 				result[i] = 0;
-				if (this.getCurrentPlayerAmount() > 3) {
-					if (testReturn.getClickable(3)) {
-						result[i] = 1;
-					}
+				if (returnBack.getDecisionMaker(3).isWhiteDiceActive()) {
+					result[i] = 1;
 				}
 				break;
 			case 318:
 				result[i] = 0;
-				if (this.getCurrentPlayerAmount() > 3) {
-					if (testReturn.getClickable(3).isRollDices()) {
-						result[i] = 1;
-					}
+				if (result[i - 2] == 1) {
+					result[i] = returnBack.getDecisionMaker(3).getColorOfDice().ordinal() + 1;
 				}
 				break;
-
-			// TODO
 			case 319:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 3) {
-					if (testReturn.getClickable(3).getYellow()[0]) {
+					if (returnBack.getClickable(3).getYellow()[0]) {
 						result[i] = 1;
 					} else
 						result[i] = 0;
@@ -2702,7 +2843,7 @@ public class gsClever extends Game {
 			case 320:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 3) {
-					if (testReturn.getClickable(3).getYellow()[1]) {
+					if (returnBack.getClickable(3).getYellow()[1]) {
 
 						result[i] = 1;
 					} else
@@ -2712,7 +2853,7 @@ public class gsClever extends Game {
 			case 321:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 3) {
-					if (testReturn.getClickable(2).getYellow()[2]) {
+					if (returnBack.getClickable(2).getYellow()[2]) {
 						result[i] = 1;
 					} else
 						result[i] = 0;
@@ -2721,7 +2862,7 @@ public class gsClever extends Game {
 			case 322:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 3) {
-					if (testReturn.getClickable(3).getYellow()[3]) {
+					if (returnBack.getClickable(3).getYellow()[3]) {
 						result[i] = 1;
 					} else
 						result[i] = 0;
@@ -2730,7 +2871,7 @@ public class gsClever extends Game {
 			case 323:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 3) {
-					if (testReturn.getClickable(3).getYellow()[4]) {
+					if (returnBack.getClickable(3).getYellow()[4]) {
 						result[i] = 1;
 					} else
 						result[i] = 0;
@@ -2739,7 +2880,7 @@ public class gsClever extends Game {
 			case 324:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 3) {
-					if (testReturn.getClickable(3).getYellow()[5]) {
+					if (returnBack.getClickable(3).getYellow()[5]) {
 						result[i] = 1;
 					} else
 						result[i] = 0;
@@ -2748,7 +2889,7 @@ public class gsClever extends Game {
 			case 325:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 3) {
-					if (testReturn.getClickable(3).getYellow()[6]) {
+					if (returnBack.getClickable(3).getYellow()[6]) {
 						result[i] = 1;
 					} else
 						result[i] = 0;
@@ -2757,7 +2898,7 @@ public class gsClever extends Game {
 			case 326:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 3) {
-					if (testReturn.getClickable(3).getYellow()[7]) {
+					if (returnBack.getClickable(3).getYellow()[7]) {
 						result[i] = 1;
 					} else
 						result[i] = 0;
@@ -2766,7 +2907,7 @@ public class gsClever extends Game {
 			case 327:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 3) {
-					if (testReturn.getClickable(3).getYellow()[8]) {
+					if (returnBack.getClickable(3).getYellow()[8]) {
 						result[i] = 1;
 					} else
 						result[i] = 0;
@@ -2775,7 +2916,7 @@ public class gsClever extends Game {
 			case 328:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 3) {
-					if (testReturn.getClickable(3).getYellow()[9]) {
+					if (returnBack.getClickable(3).getYellow()[9]) {
 						result[i] = 1;
 					} else
 						result[i] = 0;
@@ -2784,7 +2925,7 @@ public class gsClever extends Game {
 			case 329:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 3) {
-					if (testReturn.getClickable(3).getYellow()[10]) {
+					if (returnBack.getClickable(3).getYellow()[10]) {
 						result[i] = 1;
 					} else
 						result[i] = 0;
@@ -2793,7 +2934,7 @@ public class gsClever extends Game {
 			case 330:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 3) {
-					if (testReturn.getClickable(3).getYellow()[11]) {
+					if (returnBack.getClickable(3).getYellow()[11]) {
 						result[i] = 1;
 					} else
 						result[i] = 0;
@@ -2802,7 +2943,7 @@ public class gsClever extends Game {
 			case 331:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 3) {
-					if (testReturn.getClickable(3).getBlue()[0]) {
+					if (returnBack.getClickable(3).getBlue()[0]) {
 						result[i] = 1;
 					} else
 						result[i] = 0;
@@ -2811,7 +2952,7 @@ public class gsClever extends Game {
 			case 332:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 3) {
-					if (testReturn.getClickable(3).getBlue()[1]) {
+					if (returnBack.getClickable(3).getBlue()[1]) {
 						result[i] = 1;
 					} else
 						result[i] = 0;
@@ -2820,7 +2961,7 @@ public class gsClever extends Game {
 			case 333:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 3) {
-					if (testReturn.getClickable(3).getBlue()[2]) {
+					if (returnBack.getClickable(3).getBlue()[2]) {
 						result[i] = 1;
 					} else
 						result[i] = 0;
@@ -2829,7 +2970,7 @@ public class gsClever extends Game {
 			case 334:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 3) {
-					if (testReturn.getClickable(3).getBlue()[3]) {
+					if (returnBack.getClickable(3).getBlue()[3]) {
 						result[i] = 1;
 					} else
 						result[i] = 0;
@@ -2838,7 +2979,7 @@ public class gsClever extends Game {
 			case 335:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 3) {
-					if (testReturn.getClickable(3).getBlue()[4]) {
+					if (returnBack.getClickable(3).getBlue()[4]) {
 						result[i] = 1;
 					} else
 						result[i] = 0;
@@ -2847,7 +2988,7 @@ public class gsClever extends Game {
 			case 336:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 3) {
-					if (testReturn.getClickable(3).getBlue()[5]) {
+					if (returnBack.getClickable(3).getBlue()[5]) {
 						result[i] = 1;
 					} else
 						result[i] = 0;
@@ -2856,7 +2997,7 @@ public class gsClever extends Game {
 			case 337:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 3) {
-					if (testReturn.getClickable(3).getBlue()[6]) {
+					if (returnBack.getClickable(3).getBlue()[6]) {
 						result[i] = 1;
 					} else
 						result[i] = 0;
@@ -2865,7 +3006,7 @@ public class gsClever extends Game {
 			case 338:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 3) {
-					if (testReturn.getClickable(3).getBlue()[7]) {
+					if (returnBack.getClickable(3).getBlue()[7]) {
 						result[i] = 1;
 					} else
 						result[i] = 0;
@@ -2874,7 +3015,7 @@ public class gsClever extends Game {
 			case 339:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 3) {
-					if (testReturn.getClickable(3).getBlue()[8]) {
+					if (returnBack.getClickable(3).getBlue()[8]) {
 						result[i] = 1;
 					} else
 						result[i] = 0;
@@ -2883,7 +3024,7 @@ public class gsClever extends Game {
 			case 340:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 3) {
-					if (testReturn.getClickable(3).getBlue()[9]) {
+					if (returnBack.getClickable(3).getBlue()[9]) {
 						result[i] = 1;
 					} else
 						result[i] = 0;
@@ -2892,7 +3033,7 @@ public class gsClever extends Game {
 			case 341:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 3) {
-					if (testReturn.getClickable(3).getBlue()[10]) {
+					if (returnBack.getClickable(3).getBlue()[10]) {
 						result[i] = 1;
 					} else
 						result[i] = 0;
@@ -2901,7 +3042,7 @@ public class gsClever extends Game {
 			case 342:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 3) {
-					if (testReturn.getClickable(0).getGreen()) {
+					if (returnBack.getClickable(0).getGreen()) {
 						result[i] = 1;
 					} else
 						result[i] = 0;
@@ -2910,7 +3051,7 @@ public class gsClever extends Game {
 			case 343:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 3) {
-					if (testReturn.getClickable(0).getOrange()) {
+					if (returnBack.getClickable(0).getOrange()) {
 						result[i] = 1;
 					} else
 						result[i] = 0;
@@ -2919,7 +3060,7 @@ public class gsClever extends Game {
 			case 344:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 3) {
-					if (testReturn.getClickable(0).getPurple()) {
+					if (returnBack.getClickable(0).getPurple()) {
 						result[i] = 1;
 					} else
 						result[i] = 0;
@@ -2928,7 +3069,7 @@ public class gsClever extends Game {
 			}
 		}
 
-		setGameStatus(result);
+	setGameStatus(result);
 		return gameStatus;
 	}
 
