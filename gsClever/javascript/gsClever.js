@@ -352,7 +352,7 @@ function showview(x) {
     }
 }
 function skip() {
-    if(document.getElementById("buttonNachwurf").getAttribute('onclick')=="Clicked('NACHWUERFELN')" || document.getElementById("buttonNachwurf")..getAttribute('onclick')=="Clicked('ZUSATZWUERFELN')" )
+    if(document.getElementById("buttonZusatzWuerfel").getAttribute('onclick')=="Clicked('ZUSATZWUERFELN')" )
     sendDataToServer("SKIP");
 }
 function setDice(x) {

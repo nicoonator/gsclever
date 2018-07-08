@@ -61,7 +61,6 @@ public class Yellow extends ColorArea {
 			if (fields[6] == false) {
 				field[6] = true;
 			}
-			return field;
 		}
 		if (valueDiceYellow == 2 || valueDiceWhite == 2) {
 			if (fields[3] == false) {
@@ -70,7 +69,6 @@ public class Yellow extends ColorArea {
 			if (fields[7] == false) {
 				field[7] = true;
 			}
-			return field;
 		}
 		if (valueDiceYellow == 3 || valueDiceWhite == 3) {
 			if (fields[0] == false) {
@@ -79,7 +77,6 @@ public class Yellow extends ColorArea {
 			if (fields[9] == false) {
 				field[9] = true;
 			}
-			return field;
 		}
 		if (valueDiceYellow == 4 || valueDiceWhite == 4) {
 			if (fields[8] == false) {
@@ -88,7 +85,6 @@ public class Yellow extends ColorArea {
 			if (fields[10] == false) {
 				field[10] = true;
 			}
-			return field;
 		}
 		if (valueDiceYellow == 5 || valueDiceWhite == 5) {
 			if (fields[2] == false) {
@@ -97,7 +93,6 @@ public class Yellow extends ColorArea {
 			if (fields[5] == false) {
 				field[5] = true;
 			}
-			return field;
 		}
 		if (valueDiceYellow == 6 || valueDiceWhite == 6) {
 			if (fields[1] == false) {
@@ -106,7 +101,6 @@ public class Yellow extends ColorArea {
 			if (fields[11] == false) {
 				field[11] = true;
 			}
-			return field;
 		}
 
 		return field;
