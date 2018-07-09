@@ -11,7 +11,7 @@ public class Purple extends ColorArea {
 		}
 	}
 
-	public SpecialEvent enterNumbers(int number) {
+	public SpecialEvent enterNumber(int number) {
 		fieldCount++;
 
 		switch (fieldCount - 1) {
