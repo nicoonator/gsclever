@@ -317,14 +317,11 @@ public class MainLogic {
 			if (dice.getField() >= diceField)
 				diceField = dice.getField() + 1;
 		}
+		
+		if(area == null)
+			startRound();
 
 		switch(area) {
-		case null:
-			
-			startRound();
-			
-			break;
-			
 		case decisionMaker:
 
 			dices[fieldId].setField(diceField);
