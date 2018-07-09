@@ -55,6 +55,13 @@ public class Orange extends ColorArea {
 
 	}
 
+	/**
+	 * @return the fields
+	 */
+	public int[] getFields() {
+		return fields;
+	}
+
 	public boolean getFox() {
 		if (fields[7] != 0) {
 			return true;

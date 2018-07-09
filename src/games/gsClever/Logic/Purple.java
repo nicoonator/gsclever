@@ -53,6 +53,13 @@ public class Purple extends ColorArea {
 
 	}
 
+	/**
+	 * @return the fields
+	 */
+	public int[] getFields() {
+		return fields;
+	}
+
 	public boolean getFox() {
 		if (fields[6] != 0) {
 			return true;

@@ -164,6 +164,13 @@ public class Green extends ColorArea {
 		return field;
 	}
 
+	/**
+	 * @return the fields
+	 */
+	public int getFields() {
+		return fields;
+	}
+
 	public boolean[] clickableDices(int valueDiceGreen, int valueDiceWhite, int FieldID) {
 		boolean[] result = new boolean[2];
 		for (int i = 0; i < 2; i++) {
