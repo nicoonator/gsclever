@@ -6,7 +6,7 @@ public class Purple extends ColorArea {
 	private int fieldCount = 0;
 
 	public Purple() {
-		for (int i = 0; i < 12; i++) {
+		for (int i = 0; i < 11; i++) {
 			fields[i] = 0;
 		}
 	}
