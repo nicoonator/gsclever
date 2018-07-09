@@ -540,7 +540,7 @@ public class MainLogic {
 			currentFieldId[playerId] = fieldId;
 			
 			clickableDices = players[playerId].getManagement().getYellow().clickableDices(
-					dices[Color.yellow.ordinal()], dices[Color.white.ordinal()], fieldId);
+					dices[Color.yellow.ordinal()].getValue(), dices[Color.white.ordinal()].getValue(), fieldId);
 			
 			if(dices[Color.yellow.ordinal()].getValue() == dices[Color.white.ordinal()].getValue() && 
 					dices[Color.yellow.ordinal()].getField() == -1 && 
@@ -688,7 +688,7 @@ public class MainLogic {
 			currentFieldId[playerId] = fieldId;
 			
 			clickableDices = players[playerId].getManagement().getGreen().clickableDices(
-					dices[Color.green.ordinal()], this.dices[Color.white.ordinal()]);
+					dices[Color.green.ordinal()].getValue(), this.dices[Color.white.ordinal()].getValue());
 
 			if(clickableDices[0] && clickableDices[1] &&
 					dices[Color.green.ordinal()].getField() == -1 && 
@@ -834,7 +834,7 @@ public class MainLogic {
 			currentFieldId[playerId] = fieldId;
 			
 			clickableDices = players[playerId].getManagement().getPurple().clickableDices(
-					dices[Color.purple.ordinal()], dices[Color.white.ordinal()]);
+					dices[Color.purple.ordinal()].getValue(), dices[Color.white.ordinal()].getValue());
 			
 			if(clickableDices[0] && clickableDices[1] &&
 					dices[Color.purple.ordinal()].getField() == -1 && 
