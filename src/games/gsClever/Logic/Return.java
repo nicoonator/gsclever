@@ -16,6 +16,12 @@ public class Return {
 		this.round = round;
 
 		clickable = new IsClickable[playerCount];
+		for(int i = 0; i < playerCount; i++) {
+			
+			clickable[i] = new IsClickable();
+		}
+		
+		
 		matchfield = new Matchfield[playerCount];
 		decisionMaker = new DecisionMaker[playerCount];
 		
