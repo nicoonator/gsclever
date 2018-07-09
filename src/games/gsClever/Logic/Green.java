@@ -55,7 +55,7 @@ public class Green extends ColorArea {
 
 	public boolean getFox() {
 		if (fields >= 7) {
-			return true;// TODO Auto-generated method stub
+			return true;
 		} else
 			return false;
 	}
@@ -67,39 +67,39 @@ public class Green extends ColorArea {
 
 		case 1:
 			a = 1;
-			return 1;
+			break;
 		case 2:
 			a = 3;
-			return 3;
+			break;
 		case 3:
 			a = 6;
-			return 6;
+			break;
 		case 4:
 			a = 10;
-			return 10;
+			break;
 		case 5:
 			a = 15;
-			return 15;
+			break;
 		case 6:
 			a = 21;
-			return 21;
+			break;
 		case 7:
 			a = 28;
-			return 28;
+			break;
 		case 8:
 			a = 36;
-			return 36;
+			break;
 		case 9:
 			a = 45;
-			return 45;
+			break;
 		case 10:
 			a = 55;
-			return 55;
+			break;
 		case 11:
 			a = 66;
-			return 66;
+			break;
 		}
-		return 0;
+		return a;
 	}
 
 	public boolean[] isClickable(int valueDiceGreen, int valueDiceWhite) {
