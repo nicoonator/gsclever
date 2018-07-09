@@ -1,5 +1,7 @@
 package games.gsClever.Logic;
 
+import java.util.List;
+
 public class Management {
 
 	private int diceRepeatCount;
@@ -115,15 +117,20 @@ public class Management {
 		return points + determinePointsFoxes();
 	}
 
-	public IsClickable isClickable() {
+	public IsClickable isClickable(Dice[] dices) {
 
 		IsClickable clickable = new IsClickable();
 
-		clickable.setYellow(colorAreas[Color.yellow.ordinal()].isClickable());
-		clickable.setBlue(colorAreas[Color.blue.ordinal()].isClickable());
-		clickable.setGreen(colorAreas[Color.green.ordinal()].isClickable());
-		clickable.setOrange(colorAreas[Color.orange.ordinal()].isClickable());
-		clickable.setPurple(colorAreas[Color.purple.ordinal()].isClickable());
+		clickable.setYellow(getYellow().isClickable(dices[Color.yellow.ordinal()].getValue(), 
+				dices[Color.white.ordinal()].getValue()));
+		clickable.setBlue(getBlue().isClickable(dices[Color.blue.ordinal()].getValue(), 
+				dices[Color.white.ordinal()].getValue()));
+		clickable.setGreen(getGreen().isClickable(dices[Color.green.ordinal()].getValue(), 
+				dices[Color.white.ordinal()].getValue()));
+		clickable.setOrange(getOrange().isClickable(dices[Color.orange.ordinal()].getValue(), 
+				dices[Color.white.ordinal()].getValue()));
+		clickable.setPurple(getPurple().isClickable(dices[Color.purple.ordinal()].getValue(), 
+				dices[Color.white.ordinal()].getValue()));
 
 		return clickable;
 	}
