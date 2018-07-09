@@ -99,12 +99,12 @@ public class Purple extends ColorArea {
 
 	}
 
-	public boolean[] clickableDices(int valueDicePurple, int valueDiceWhite, int FieldID) {
+	public boolean[] clickableDices(int valueDicePurple, int valueDiceWhite) {
 		boolean[] result = new boolean[2];
 		for (int i = 0; i < 2; i++) {
 			result[i] = false;
 		}
-		switch (FieldID) {
+		switch (fieldCount) {
 		case 0:
 			if (valueDicePurple >= 1)
 				result[0] = true;
