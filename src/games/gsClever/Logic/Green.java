@@ -100,80 +100,65 @@ public class Green extends ColorArea {
 		return a;
 	}
 
-	public boolean[] isClickable(int valueDiceGreen, int valueDiceWhite) {
+	public boolean isClickable(int valueDiceGreen, int valueDiceWhite) {
 
-		boolean[] field = new boolean[11];
-
-		for (int i = 0; i < 11; i++) {
-			field[i] = false;
-
-			switch (fields) {
-			case 0:
-				if (valueDiceGreen >= 1 || valueDiceWhite >= 1) {
-					field[fields] = true;
-				}
-				return field;
-			case 1:
-				if (valueDiceGreen >= 2 || valueDiceWhite >= 2) {
-					field[fields] = true;
-				}
-				return field;
-
-			case 2:
-				if (valueDiceGreen >= 3 || valueDiceWhite >= 3) {
-					field[fields] = true;
-				}
-				return field;
-
-			case 3:
-				if (valueDiceGreen >= 4 || valueDiceWhite >= 4) {
-					field[fields] = true;
-				}
-				return field;
-			case 4:
-				if (valueDiceGreen >= 5 || valueDiceWhite >= 5) {
-					field[fields] = true;
-				}
-				return field;
-
-			case 5:
-				if (valueDiceGreen >= 1 || valueDiceWhite >= 1) {
-					field[fields] = true;
-				}
-				return field;
-
-			case 6:
-				if (valueDiceGreen >= 2 || valueDiceWhite >= 2) {
-					field[fields] = true;
-				}
-				return field;
-
-			case 7:
-				if (valueDiceGreen >= 3 || valueDiceWhite >= 3) {
-					field[fields] = true;
-				}
-				return field;
-
-			case 8:
-				if (valueDiceGreen >= 4 || valueDiceWhite >= 4) {
-					field[fields] = true;
-				}
-				return field;
-
-			case 9:
-				if (valueDiceGreen >= 5 || valueDiceWhite >= 5) {
-					field[fields] = true;
-				}
-				return field;
-
-			case 10:
-				if (valueDiceGreen >= 6 || valueDiceWhite >= 6) {
-					field[fields] = true;
-				}
-				return field;
-
+		boolean field = false;
+		switch (fields) {
+		case 0:
+			if (valueDiceGreen >= 1 || valueDiceWhite >= 1) {
+				field = true;
 			}
-
+			return field;
+		case 1:
+			if (valueDiceGreen >= 2 || valueDiceWhite >= 2) {
+				field= true;
+			}
+			return field;
+		case 2:
+			if (valueDiceGreen >= 3 || valueDiceWhite >= 3) {
+				field = true;
+			}
+			return field;
+		case 3:
+			if (valueDiceGreen >= 4 || valueDiceWhite >= 4) {
+				field = true;
+			}
+			return field;
+		case 4:
+			if (valueDiceGreen >= 5 || valueDiceWhite >= 5) {
+				field = true;
+			}
+			return field;
+		case 5:
+			if (valueDiceGreen >= 1 || valueDiceWhite >= 1) {
+				field = true;
+			}
+			return field;
+		case 6:
+			if (valueDiceGreen >= 2 || valueDiceWhite >= 2) {
+				field = true;
+			}
+			return field;
+		case 7:
+			if (valueDiceGreen >= 3 || valueDiceWhite >= 3) {
+				field = true;
+			}
+			return field;
+		case 8:
+			if (valueDiceGreen >= 4 || valueDiceWhite >= 4) {
+				field = true;
+			}
+			return field;
+		case 9:
+			if (valueDiceGreen >= 5 || valueDiceWhite >= 5) {
+				field = true;
+			}
+			return field;
+		case 10:
+			if (valueDiceGreen >= 6 || valueDiceWhite >= 6) {
+				field = true;
+			}
+			return field;
 		}
 
 		return field;
