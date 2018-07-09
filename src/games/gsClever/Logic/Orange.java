@@ -73,24 +73,11 @@ public class Orange extends ColorArea {
 		return summe;
 	}
 
-	public boolean[] isClickable(int valueDiceOrange, int valueDiceWhite) {
+	public boolean isClickable(int valueDiceOrange, int valueDiceWhite) {
 
-		boolean[] field = new boolean[11];
-		int p = 0;
-		for (int i = 0; i < 11; i++) {
-			field[i] = false;
-		}
-		for (int m = 0; m < 11; m++) {
-			if (fields[m] == 0) {
-				p = m;
-				break;
-			}
-			break;
-		}
-		// if(fields[valueDiceOrange]==0|| fields[valueDiceWhite]==0) {
-		field[p] = true;
-
-		return field;
+		if (fields[10]!=0) {
+			return true;	
+		} else return false;
 
 	}
 
