@@ -58,11 +58,7 @@ public class MainLogic {
 		return -1; //TODO Exception
 	}
 	
-	public void setPlayerCount(int playerCount) {
-		this.playerCount = playerCount;
-	}
-
-	public boolean nextPlayer() {
+	private boolean nextPlayer() {
 
 		clearTray();
 		clearDiceFields();
@@ -92,7 +88,7 @@ public class MainLogic {
 		}
 	}
 
-	public boolean startRound() {
+	private boolean startRound() {
 
 		round++;
 
@@ -156,7 +152,7 @@ public class MainLogic {
 		}
 	}
 
-	public void rollDices(List<Dice> dices) {
+	private void rollDices(List<Dice> dices) {
 
 		Random random = new Random();
 
@@ -166,7 +162,7 @@ public class MainLogic {
 		}
 	}
 
-	public List<Integer> investigateWinner() {
+	private List<Integer> investigateWinner() {
 
 		int highestPoints = players[0].getManagement().determinePoints();
 
@@ -189,7 +185,7 @@ public class MainLogic {
 		return winners;
 	}
 
-	public void clearTray() {
+	private void clearTray() {
 
 		for (int i = 0; i < 6; i++) {
 
@@ -197,7 +193,7 @@ public class MainLogic {
 		}
 	}
 
-	public void clearDiceFields() {
+	private void clearDiceFields() {
 
 		for (int i = 0; i < 6; i++) {
 
@@ -205,7 +201,7 @@ public class MainLogic {
 		}
 	}
 	
-	public void putSmallerDicesOnTray(int value) {
+	private void putSmallerDicesOnTray(int value) {
 		
 		for(int i = 0; i < 6; i++) {
 
@@ -214,7 +210,7 @@ public class MainLogic {
 		}
 	}
 	
-	public void diceAvailable() {
+	private void diceAvailable() {
 		
 		boolean diceAvailable = false;
 		
@@ -232,7 +228,7 @@ public class MainLogic {
 			additionalDiceTime = true;
 	}
 	
-	public void clickableSpecialEvent(Return returnBack, int playerId) {
+	private void clickableSpecialEvent(Return returnBack, int playerId) {
 		
 		switch(currentSpecialEvent[playerId]) {
 		case enterCrossYellow:
