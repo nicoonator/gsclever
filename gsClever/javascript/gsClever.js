@@ -378,6 +378,15 @@ function setDice(x) {
     }
 }
 
+function clearPlace(){
+    document.getElementById("wuerfelfeldwhite").src = empty;
+    document.getElementById("wuerfelfeldyellow").src = empty;
+    document.getElementById("wuerfelfeldblue").src = empty;
+    document.getElementById("wuerfelfeldorange").src = empty;
+    document.getElementById("wuerfelfeldgreen").src = empty;
+    document.getElementById("wuerfelfeldpurple").src = empty;
+}
+
 function clearTray() {
     // Hier wird das Silberfeld zurueckgesetzt wenn die neuen Wuerfel geladen
     // werden
@@ -409,6 +418,31 @@ function setDiceImg(x) {
 	document.getElementById("wuerfelfeldsilber1").src = getDiceImg(x);
     }
 }
+
+function setDiceOnPlace(x) {
+    if (x=0){
+	document.getElementById("wuerfelfeldblue").src = empty;
+    }
+    if (x=1){
+	document.getElementById("wuerfelfeldblue").src = getDiceImg(BlauWert);
+    }
+    if (x=2) {
+	document.getElementById("wuerfelfeldyellow").src = getDiceImg(GelbWert);
+    }
+    if (x=3) {
+	document.getElementById("wuerfelfeldgreen").src = getDiceImg(GreenWert);
+    }
+    if (x=4) {
+	document.getElementById("wuerfelfeldpurple").src = getDiceImg(LilaWert);
+    }
+    if (x=5) {
+	document.getElementById("wuerfelfeldorange").src = getDiceImg(OrangeWert);
+    }
+    if (x=6) {
+	document.getElementById("wuerfelfeldwhite").src = getDiceImg(WeissWert);
+    }
+}
+
 function setDiceOnTray(x) {
     if (x > 0 && x <= 6) {
 	document.getElementById("wuerfelfeldsilber3").src = getDiceImg(x);
@@ -1367,6 +1401,7 @@ function setPurpleClickable(SpielerNR, value){
 function extractArray(x) {
     // erst die Silberplatte loeschen
     clearTray();
+    clearPlace();
     var limit = 345;
     switch (playerAmount) {
     case 2: {
@@ -1428,27 +1463,51 @@ function extractArray(x) {
 	    break;
 	}
 	case 11: {
-	    if(+x[i]==1) setDiceOnTray(BlauWert);
+	    if(+x[i]==1){ 
+		setDiceOnTray(BlauWert);
+		} else if(+x[8]!=1 && +x[9]!=1 && +x[10]!=1){
+		    setDiceOnPlace(1);
+		}
 	    break;
 	}
 	case 12: {
-	    if(+x[i]==1) setDiceOnTray(GelbWert);
+	    if(+x[i]==1){ 
+		setDiceOnTray(GelbWert);
+		} else if(+x[8]!=2 && +x[9]!=2 && +x[20]!=2){
+		    setDiceOnPlace(2);
+		}
 	    break;
 	}
 	case 13: {
-	    if(+x[i]==1) setDiceOnTray(OrangeWert);
+	    if(+x[i]==1){ 
+		setDiceOnTray(OrangeWert);
+		} else if(+x[8]!=3 && +x[9]!=3 && +x[30]!=3){
+		    setDiceOnPlace(3);
+		}
 	    break;
 	}
 	case 14: {
-	    if(+x[i]==1) setDiceOnTray(LilaWert);
+	    if(+x[i]==1){ 
+		setDiceOnTray(LilaWert);
+		} else if(+x[8]!=4 && +x[9]!=4 && +x[40]!=4){
+		    setDiceOnPlace(4);
+		}
 	    break;
 	}
 	case 15: {
-	    if(+x[i]==1) setDiceOnTray(GreenWert);
+	    if(+x[i]==1){ 
+		setDiceOnTray(GreenWert);
+		} else if(+x[8]!=5 && +x[9]!=5 && +x[50]!=5){
+		    setDiceOnPlace(5);
+		}
 	    break;
 	}
 	case 16: {
-	    if(+x[i]==1) setDiceOnTray(WeissWert);
+	    if(+x[i]==1){ 
+		setDiceOnTray(WeissWert);
+		} else if(+x[8]!=6 && +x[9]!=6 && +x[60]!=6){
+		    setDiceOnPlace(6);
+		}
 	    break;
 	}
 	// START SPIELER1 DATA
