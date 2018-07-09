@@ -91,6 +91,7 @@ public class gsClever extends Game {
 			this.setupGame();
 			sendGameDataToClients("NEWGAME");
 			sendGameDataToClients("STARTARRAY");
+			return;
 		}
 		
 		if (this.gState == GameState.CLOSED)
@@ -1530,8 +1531,11 @@ public class gsClever extends Game {
 				}
 				break;
 			case 154:
-				if (this.getCurrentPlayerAmount() > 1) 
-					result[i] = returnBack.getDecisionMaker(1).getColorOfDice().ordinal(); 					
+				//TODO SPieler 3-4 anpassen
+				if(result[i-2]!=0) {
+					if (this.getCurrentPlayerAmount() > 1) 
+						result[i] = returnBack.getDecisionMaker(1).getColorOfDice().ordinal(); 	
+				}
 			 else result[i] = 0;
 				break;
 
@@ -2167,20 +2171,26 @@ public class gsClever extends Game {
 				break;
 			case 234:
 				result[i] = 0;
-				if (returnBack.getDecisionMaker(2).isColorDiceActive()) {
-					result[i] = 1;
+				if (this.getCurrentPlayerAmount() > 2) {
+					if (returnBack.getDecisionMaker(2).isColorDiceActive()) {
+						result[i] = 1;
+					}
 				}
 				break;
 			case 235:
 				result[i] = 0;
-				if (returnBack.getDecisionMaker(2).isWhiteDiceActive()) {
-					result[i] = 1;
+				if (this.getCurrentPlayerAmount() > 2) {
+					if (returnBack.getDecisionMaker(2).isWhiteDiceActive()) {
+						result[i] = 1;
+					}
 				}
 				break;
 			case 236:
 				result[i] = 0;
-				if (result[i - 2] == 1) {
-					result[i] = returnBack.getDecisionMaker(2).getColorOfDice().ordinal() + 1;
+				if (this.getCurrentPlayerAmount() > 2) {
+					if (result[i - 2] == 1) {
+						result[i] = returnBack.getDecisionMaker(2).getColorOfDice().ordinal() + 1;
+					}
 				}
 				break;
 			case 237:
@@ -2815,20 +2825,26 @@ public class gsClever extends Game {
 				break;
 			case 346:
 				result[i] = 0;
-				if (returnBack.getDecisionMaker(3).isColorDiceActive()) {
-					result[i] = 1;
+				if (this.getCurrentPlayerAmount() > 2) {
+					if (returnBack.getDecisionMaker(3).isColorDiceActive()) {
+						result[i] = 1;
+					}
 				}
 				break;
 			case 317:
 				result[i] = 0;
-				if (returnBack.getDecisionMaker(3).isWhiteDiceActive()) {
-					result[i] = 1;
+				if (this.getCurrentPlayerAmount() > 2) {
+					if (returnBack.getDecisionMaker(3).isWhiteDiceActive()) {
+						result[i] = 1;
+					}
 				}
 				break;
 			case 318:
 				result[i] = 0;
-				if (result[i - 2] == 1) {
-					result[i] = returnBack.getDecisionMaker(3).getColorOfDice().ordinal() + 1;
+				if (this.getCurrentPlayerAmount() > 2) {
+					if (result[i - 2] == 1) {
+						result[i] = returnBack.getDecisionMaker(3).getColorOfDice().ordinal() + 1;
+					}
 				}
 				break;
 			case 319:

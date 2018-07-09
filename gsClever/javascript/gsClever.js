@@ -90,6 +90,19 @@ addListener('TESTWUERFELN', function(event) {
 
     setDice(number);
 });
+addListener('SUBMITGAME', function(event) {
+    var stringFromServer = event.data;
+    var arr = stringFromServer.split(',');
+    console.log(stringFromServer);
+    console.log(arr);
+    for (var i = 0; i < 345; i++) {
+	number[i] = +arr[i];
+    }
+    // var number = Number(stringFromServer);
+    // Hier wird ein Array uebergeben:
+
+    extractArray(arr);
+});
 
 var spieler=new Array(4);
 var playerAmount = 2;
