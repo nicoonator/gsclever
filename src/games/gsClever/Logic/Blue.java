@@ -79,7 +79,6 @@ public class Blue extends ColorArea {
 			}
 		}
 		switch (sum) {
-
 		case 1:
 			return 1;
 		case 2:
@@ -104,7 +103,6 @@ public class Blue extends ColorArea {
 			return 56;
 		}
 		return 0;
-
 	}
 
 }

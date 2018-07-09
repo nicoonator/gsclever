@@ -61,10 +61,8 @@ public class Green extends ColorArea {
 	}
 
 	public int determinePoints() {
-		// TODO Auto-generated method stub
 		int a = 0;
 		switch (fieldCount) {
-
 		case 1:
 			a = 1;
 			break;
@@ -180,4 +178,81 @@ public class Green extends ColorArea {
 
 		return field;
 	}
+
+public boolean[] clickableDices(int valueDiceGreen, int valueDiceWhite, int FieldID) {
+	boolean[] result = new boolean[2];
+	for (int i = 0; i < 2; i++) {
+		result[i] = false;
+	}
+	switch (FieldID) {
+	case 0:
+		if (valueDiceGreen >= 1)
+			result[0] = true;
+		if (valueDiceWhite >= 1)
+			result[1] = true;
+		break;
+	case 1:
+		if (valueDiceGreen >= 2)
+			result[0] = true;
+		if (valueDiceWhite >= 2)
+			result[1] = true;
+		break;
+	case 2:
+		if (valueDiceGreen >= 3)
+			result[0] = true;
+		if (valueDiceWhite >= 3)
+			result[1] = true;
+		break;
+	case 3:
+		if (valueDiceGreen >= 4)
+			result[0] = true;
+		if (valueDiceWhite >= 4)
+			result[1] = true;
+		break;
+	case 4:
+		if (valueDiceGreen >= 5)
+			result[0] = true;
+		if (valueDiceWhite >= 5)
+			result[1] = true;
+		break;
+	case 5:
+		if (valueDiceGreen >= 1)
+			result[0] = true;
+		if (valueDiceWhite >= 1)
+			result[1] = true;
+		break;
+	case 6:
+		if (valueDiceGreen >= 2)
+			result[0] = true;
+		if (valueDiceWhite >= 2)
+			result[1] = true;
+		break;
+	case 7:
+		if (valueDiceGreen >= 3)
+			result[0] = true;
+		if (valueDiceWhite >= 3)
+			result[1] = true;
+		break;
+	case 8:
+		if (valueDiceGreen >= 4)
+			result[0] = true;
+		if (valueDiceWhite >= 4)
+			result[1] = true;
+		break;
+	case 9:
+		if (valueDiceGreen >= 5)
+			result[0] = true;
+		if (valueDiceWhite >= 5)
+			result[1] = true;
+		break;
+	case 10:
+		if (valueDiceGreen >= 6)
+			result[0] = true;
+		if (valueDiceWhite >= 6)
+			result[1] = true;
+		break;
+	}
+	return result;
+}
+
 }
