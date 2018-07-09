@@ -12,7 +12,6 @@ public class Purple extends ColorArea {
 	}
 
 	public SpecialEvent enterNumbers(int number) {
-		//// Switch
 		fieldCount++;
 
 		switch (fieldCount - 1) {
@@ -43,11 +42,9 @@ public class Purple extends ColorArea {
 		case 8:
 			fields[8] = number;
 			return SpecialEvent.enterCrossGreen;
-
 		case 9:
 			fields[9] = number;
 			return SpecialEvent.enterOrange6;
-
 		case 10:
 			fields[10] = number;
 			return SpecialEvent.additionalDice;
@@ -64,13 +61,10 @@ public class Purple extends ColorArea {
 			return false;
 	}
 
-	public boolean[] isClickable(int valueDicePurple, int valueDiceWhite) {
+	public boolean isClickable(int valueDicePurple, int valueDiceWhite) {
 
-		boolean[] field = new boolean[11];
+		boolean field = false;
 		int p = 0;
-		for (int i = 0; i < 11; i++) {
-			field[i] = false;
-		}
 
 		for (int m = 0; m < 11; m++) {
 			if (fields[m] == 0) {
@@ -80,17 +74,16 @@ public class Purple extends ColorArea {
 
 		}
 		if (p == 0 || fields[p - 1] == 6) {
-			field[0] = true;
+			field = true;
 		} else {
 			if (fields[p - 1] < valueDicePurple || fields[p - 1] < valueDiceWhite)
-				field[p] = true;
+				field = true;
 
 		}
 		return field;
 	}
 
 	public int determinePoints() {
-		// TODO Auto-generated method stub
 		int summe = 0;
 		for (int i = 0; i >= fieldCount; i++) {
 			summe = summe + fields[i];
@@ -99,4 +92,79 @@ public class Purple extends ColorArea {
 
 	}
 
+	public boolean[] clickableDices(int valueDicePurple, int valueDiceWhite, int FieldID) {
+		boolean[] result = new boolean[2];
+		for (int i = 0; i < 2; i++) {
+			result[i] = false;
+		}
+		switch (FieldID) {
+		case 0:
+			if (valueDicePurple >= 1)
+				result[0] = true;
+			if (valueDiceWhite >= 1)
+				result[1] = true;
+			break;
+		case 1:
+			if (valueDicePurple >= fields[0] || fields[0] == 6)
+				result[0] = true;
+			if (valueDiceWhite >= fields[0] || fields[0] == 6)
+				result[1] = true;
+			break;
+		case 2:
+			if (valueDicePurple >= fields[1] || fields[1] == 6)
+				result[0] = true;
+			if (valueDiceWhite >= fields[1] || fields[1] == 6)
+				result[1] = true;
+			break;
+		case 3:
+			if (valueDicePurple >= fields[2] || fields[2] == 6)
+				result[0] = true;
+			if (valueDiceWhite >= fields[2] || fields[2] == 6)
+				result[1] = true;
+			break;
+		case 4:
+			if (valueDicePurple >= fields[3] || fields[3] == 6)
+				result[0] = true;
+			if (valueDiceWhite >= fields[3] || fields[3] == 6)
+				result[1] = true;
+			break;
+		case 5:
+			if (valueDicePurple >= fields[4] || fields[4] == 6)
+				result[0] = true;
+			if (valueDiceWhite >= fields[4] || fields[4] == 6)
+				result[1] = true;
+			break;
+		case 6:
+			if (valueDicePurple >= fields[5] || fields[5] == 6)
+				result[0] = true;
+			if (valueDiceWhite >= fields[5] || fields[5] == 6)
+				result[1] = true;
+			break;
+		case 7:
+			if (valueDicePurple >= fields[6] || fields[6] == 6)
+				result[0] = true;
+			if (valueDiceWhite >= fields[6] || fields[6] == 6)
+				result[1] = true;
+			break;
+		case 8:
+			if (valueDicePurple >= fields[7] || fields[7] == 6)
+				result[0] = true;
+			if (valueDiceWhite >= fields[7] || fields[7] == 6)
+				result[1] = true;
+			break;
+		case 9:
+			if (valueDicePurple >= fields[8] || fields[8] == 6)
+				result[0] = true;
+			if (valueDiceWhite >= fields[8] || fields[8] == 6)
+				result[1] = true;
+			break;
+		case 10:
+			if (valueDicePurple >= fields[9] || fields[9] == 6)
+				result[0] = true;
+			if (valueDiceWhite >= fields[9] || fields[9] == 6)
+				result[1] = true;
+			break;
+		}
+		return result;
+	}
 }
