@@ -195,7 +195,7 @@ public class Management {
 
 	public SpecialEvent enterCrossOrNumber(Area area, int fieldId, int number) {
 
-		SpecialEvent specialEvent;
+		SpecialEvent specialEvent = null;
 
 		switch (area) {
 		case yellow:
