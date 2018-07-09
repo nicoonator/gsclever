@@ -3,7 +3,6 @@ package games.gsClever.Logic;
 import java.util.*;
 
 import games.gsClever.Exceptions.*;
-import userManagement.User;
 
 public class MainLogic {
 
@@ -55,7 +54,7 @@ public class MainLogic {
 				return i;
 		}
 		
-		return -1; //TODO Exception
+		return -1;
 	}
 	
 	private boolean nextPlayer() {
