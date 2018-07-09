@@ -408,8 +408,6 @@ public class MainLogic {
 				}
 				else if(currentPlayer == playerId) {
 					
-					returnBack.getClickable(playerId).setRollDices(true);
-					
 					nextArea[playerId] = Area.rollDices;
 				}
 				
@@ -442,8 +440,6 @@ public class MainLogic {
 					players[playerId].getManagement().incrementDiceRepeatUsed();
 				else
 					throw new CannotUseDiceRepeatException();
-	
-				returnBack.getClickable(playerId).setRollDices(true);
 	
 				nextArea[playerId] = Area.rollDices;
 				
@@ -525,8 +521,6 @@ public class MainLogic {
 				}
 				else if(currentPlayer == playerId) {
 					
-					returnBack.getClickable(playerId).setRollDices(true);
-					
 					nextArea[playerId] = Area.rollDices;
 				}
 				
@@ -544,10 +538,6 @@ public class MainLogic {
 						dices[Color.yellow.ordinal()].isOnTray() == false && 
 						dices[Color.white.ordinal()].getField() == -1 && 
 						dices[Color.white.ordinal()].isOnTray() == false) {
-					
-					returnBack.getDecisionMaker(playerId).setColorDiceActive(true);
-					returnBack.getDecisionMaker(playerId).setWhiteDiceActive(true);
-					returnBack.getDecisionMaker(playerId).setColorOfDice(Color.yellow);
 					
 					nextArea[playerId] = Area.decisionMaker;
 				}
@@ -571,8 +561,6 @@ public class MainLogic {
 						nextArea[playerId] = Area.specialEvent;
 					}
 					else if(currentPlayer == playerId) {
-						
-						returnBack.getClickable(playerId).setRollDices(true);
 						
 						nextArea[playerId] = Area.rollDices;
 					}
@@ -598,8 +586,6 @@ public class MainLogic {
 					}
 					else if(currentPlayer == playerId) {
 						
-						returnBack.getClickable(playerId).setRollDices(true);
-						
 						nextArea[playerId] = Area.rollDices;
 					}
 				}
@@ -616,10 +602,6 @@ public class MainLogic {
 						dices[Color.blue.ordinal()].isOnTray() == false && 
 						dices[Color.white.ordinal()].getField() == -1 && 
 						dices[Color.white.ordinal()].isOnTray() == false) {
-					
-					returnBack.getDecisionMaker(playerId).setColorDiceActive(true);
-					returnBack.getDecisionMaker(playerId).setWhiteDiceActive(true);
-					returnBack.getDecisionMaker(playerId).setColorOfDice(Color.blue);
 					
 					nextArea[playerId] = Area.decisionMaker;
 				}
@@ -643,8 +625,6 @@ public class MainLogic {
 						nextArea[playerId] = Area.specialEvent;
 					}
 					else if(currentPlayer == playerId) {
-						
-						returnBack.getClickable(playerId).setRollDices(true);
 						
 						nextArea[playerId] = Area.rollDices;
 					}
@@ -670,8 +650,6 @@ public class MainLogic {
 					}
 					else if(currentPlayer == playerId) {
 						
-						returnBack.getClickable(playerId).setRollDices(true);
-						
 						nextArea[playerId] = Area.rollDices;
 					}
 				}
@@ -692,10 +670,6 @@ public class MainLogic {
 						dices[Color.green.ordinal()].isOnTray() == false && 
 						dices[Color.white.ordinal()].getField() == -1 && 
 						dices[Color.white.ordinal()].isOnTray() == false) {
-					
-					returnBack.getDecisionMaker(playerId).setColorDiceActive(true);
-					returnBack.getDecisionMaker(playerId).setWhiteDiceActive(true);
-					returnBack.getDecisionMaker(playerId).setColorOfDice(Color.green);
 					
 					nextArea[playerId] = Area.decisionMaker;
 				}
@@ -719,8 +693,6 @@ public class MainLogic {
 						nextArea[playerId] = Area.specialEvent;
 					}
 					else if(currentPlayer == playerId) {
-						
-						returnBack.getClickable(playerId).setRollDices(true);
 						
 						nextArea[playerId] = Area.rollDices;
 					}
@@ -746,8 +718,6 @@ public class MainLogic {
 					}
 					else if(currentPlayer == playerId) {
 						
-						returnBack.getClickable(playerId).setRollDices(true);
-						
 						nextArea[playerId] = Area.rollDices;
 					}
 				}
@@ -764,10 +734,6 @@ public class MainLogic {
 						dices[Color.orange.ordinal()].isOnTray() == false && 
 						dices[Color.white.ordinal()].getField() == -1 && 
 						dices[Color.white.ordinal()].isOnTray() == false) {
-					
-					returnBack.getDecisionMaker(playerId).setColorDiceActive(true);
-					returnBack.getDecisionMaker(playerId).setWhiteDiceActive(true);
-					returnBack.getDecisionMaker(playerId).setColorOfDice(Color.orange);
 					
 					nextArea[playerId] = Area.decisionMaker;
 				}
@@ -790,8 +756,6 @@ public class MainLogic {
 						nextArea[playerId] = Area.specialEvent;
 					}
 					else if(currentPlayer == playerId) {
-						
-						returnBack.getClickable(playerId).setRollDices(true);
 						
 						nextArea[playerId] = Area.rollDices;
 					}
@@ -816,8 +780,6 @@ public class MainLogic {
 					}
 					else if(currentPlayer == playerId) {
 						
-						returnBack.getClickable(playerId).setRollDices(true);
-						
 						nextArea[playerId] = Area.rollDices;
 					}
 				}
@@ -838,10 +800,6 @@ public class MainLogic {
 						dices[Color.purple.ordinal()].isOnTray() == false && 
 						dices[Color.white.ordinal()].getField() == -1 && 
 						dices[Color.white.ordinal()].isOnTray() == false) {
-					
-					returnBack.getDecisionMaker(playerId).setColorDiceActive(true);
-					returnBack.getDecisionMaker(playerId).setWhiteDiceActive(true);
-					returnBack.getDecisionMaker(playerId).setColorOfDice(Color.purple);
 					
 					nextArea[playerId] = Area.decisionMaker;
 				}
@@ -866,8 +824,6 @@ public class MainLogic {
 					}
 					else if(currentPlayer == playerId) {
 						
-						returnBack.getClickable(playerId).setRollDices(true);
-						
 						nextArea[playerId] = Area.rollDices;
 					}
 				}
@@ -891,8 +847,6 @@ public class MainLogic {
 						nextArea[playerId] = Area.specialEvent;
 					}
 					else if(currentPlayer == playerId) {
-						
-						returnBack.getClickable(playerId).setRollDices(true);
 						
 						nextArea[playerId] = Area.rollDices;
 					}
@@ -948,8 +902,6 @@ public class MainLogic {
 						}
 					}
 					
-					returnBack.getClickable(currentPlayer).setRollDices(true);
-					
 					nextArea[currentPlayer] = Area.rollDices;
 				}
 			}
@@ -957,6 +909,8 @@ public class MainLogic {
 	
 		for(int i = 0; i < playerCount; i++) {
 			
+			returnBack.getClickable(i).setPlayerId(i);
+				
 			if(currentSpecialEvent[i] == SpecialEvent.round4) {
 				
 				clickableSpecialEvent(returnBack, playerId);
@@ -964,8 +918,59 @@ public class MainLogic {
 				nextArea[i] = Area.specialEvent;
 			}
 			
-			returnBack.getClickable(i).setPlayerId(i);
+			switch(nextArea[i]) {
+			case decisionMaker:
 				
+				returnBack.getDecisionMaker(i).setColorDiceActive(true);
+				returnBack.getDecisionMaker(i).setWhiteDiceActive(true);
+				
+				switch(currentArea[i]) {
+				case yellow:
+					
+					returnBack.getDecisionMaker(i).setColorOfDice(Color.yellow);
+					
+					break;
+					
+				case blue:
+					
+					returnBack.getDecisionMaker(i).setColorOfDice(Color.blue);
+					
+					break;
+					
+				case green:
+					
+					returnBack.getDecisionMaker(i).setColorOfDice(Color.green);
+					
+					break;
+					
+				case orange:
+					
+					returnBack.getDecisionMaker(i).setColorOfDice(Color.orange);
+					
+					break;
+					
+				case purple:
+					
+					returnBack.getDecisionMaker(i).setColorOfDice(Color.purple);
+					
+					break;
+					
+				default:
+					break;
+				}
+				
+				break;
+				
+			case rollDices:
+				
+				if(currentPlayer == i)
+					returnBack.getClickable(i).setRollDices(true);
+				
+				break;
+				
+				//TODO
+			}
+			
 			if(players[i].getManagement().getAdditionalDiceUsed() < 
 					players[i].getManagement().getAdditionalDiceCount() && additionalDiceTime)
 				returnBack.getClickable(i).setAdditionalDice(true);
