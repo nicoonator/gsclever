@@ -84,10 +84,15 @@ public class gsClever extends Game {
 	@Override
 	public void execute(User user, String gsonString) {
 
-		int userID = currentGame.determinePlayerId(user.getName());
-		if (userID == -1)
-			return;
-
+		if (gsonString.equals("STARTGAME") && userList.size() >= 2) {
+			this.gState = GameState.RUNNING;
+			currentGame = new MainLogic(this.userList);
+			gameStatus = this.getNewGame();
+			this.setupGame();
+			sendGameDataToClients("NEWGAME");
+			sendGameDataToClients("STARTARRAY");
+		}
+		
 		if (this.gState == GameState.CLOSED)
 			return;
 
@@ -110,14 +115,9 @@ public class gsClever extends Game {
 			// TODO
 		}
 
-		if (gsonString.equals("STARTGAME") && userList.size() >= 2) {
-			this.gState = GameState.RUNNING;
-			currentGame = new MainLogic(this.userList);
-			gameStatus = this.getNewGame();
-			this.setupGame();
-			sendGameDataToClients("NEWGAME");
-			sendGameDataToClients("STARTARRAY");
-		}
+		int userID = currentGame.determinePlayerId(user.getName());
+		if (userID == -1)
+			return;
 
 		// Bei Bedarf:
 		/*

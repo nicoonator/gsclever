@@ -9,7 +9,7 @@ public class Player extends User {
 	
 	public Player(User user) {
 		super(user.getName(), "none");
-		//management = new Management();
+		management = new Management();
 	}
 
 	
