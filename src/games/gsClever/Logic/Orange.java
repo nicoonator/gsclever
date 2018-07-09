@@ -12,7 +12,6 @@ public class Orange extends ColorArea {
 	}
 
 	public SpecialEvent enterNumbers(int number) {
-		//// Switch
 		fieldCount++;
 
 		switch (fieldCount - 1) {
@@ -65,7 +64,6 @@ public class Orange extends ColorArea {
 	}
 
 	public int determinePoints() {
-		// TODO Auto-generated method stub
 		int summe = 0;
 		for (int i = 0; i >= fieldCount; i++) {
 			summe = summe + fields[i];
