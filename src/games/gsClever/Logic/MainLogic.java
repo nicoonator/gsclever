@@ -970,7 +970,7 @@ public class MainLogic {
 					players[i].getManagement().getAdditionalDiceCount() && additionalDiceTime)
 				returnBack.getClickable(i).setAdditionalDice(true);
 			
-			Matchfield matchfield = new Matchfield();
+			Matchfield matchfield = returnBack.getMatchfield(i);
 			
 			matchfield.setYellow(players[i].getManagement().getYellow().getFields());
 			matchfield.setBlue(players[i].getManagement().getBlue().getFields());
@@ -982,8 +982,6 @@ public class MainLogic {
 			matchfield.setDiceRepeatUsed(players[i].getManagement().getDiceRepeatUsed());
 			matchfield.setAdditionalDiceCount(players[i].getManagement().getAdditionalDiceCount());
 			matchfield.setAdditionalDiceUsed(players[i].getManagement().getAdditionalDiceUsed());
-			
-			returnBack.setMatchfield(matchfield, i);
 		}
 		
 		returnBack.setDices(dices);
