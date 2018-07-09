@@ -108,7 +108,6 @@ public class Yellow extends ColorArea {
 	}
 
 	public int determinePoints() {
-		// TODO Auto-generated method stub
 		if (fields[0] == true && fields[3] == true && fields[6] == true) {
 			return 10;
 		}
@@ -123,13 +122,86 @@ public class Yellow extends ColorArea {
 		}
 		return 0;
 	}
-	
+
 	public boolean[] clickableDices(int valueDiceYellow, int valueDiceWhite, int FieldID) {
 		boolean[] result = new boolean[2];
 		for (int i = 0; i < 2; i++) {
 			result[i] = false;
 		}
-		// TODO: Gibt zurueck ob der gelbe bzw. der weisse wuerfel auf dem jeweiligen feld erlaubt sind
+		switch (FieldID) {
+		case 0:
+			if (valueDiceYellow == 3)
+				result[0] = true;
+			if (valueDiceWhite == 3)
+				result[1] = true;
+			break;
+		case 1:
+			if (valueDiceYellow == 6)
+				result[0] = true;
+			if (valueDiceWhite == 6)
+				result[1] = true;
+			break;
+		case 2:
+			if (valueDiceYellow == 5)
+				result[0] = true;
+			if (valueDiceWhite == 5)
+				result[1] = true;
+			break;
+		case 3:
+			if (valueDiceYellow == 2)
+				result[0] = true;
+			if (valueDiceWhite == 2)
+				result[1] = true;
+			break;
+		case 4:
+			if (valueDiceYellow == 1)
+				result[0] = true;
+			if (valueDiceWhite == 1)
+				result[1] = true;
+			break;
+		case 5:
+			if (valueDiceYellow == 5)
+				result[0] = true;
+			if (valueDiceWhite == 5)
+				result[1] = true;
+			break;
+		case 6:
+			if (valueDiceYellow == 1)
+				result[0] = true;
+			if (valueDiceWhite == 1)
+				result[1] = true;
+			break;
+		case 7:
+			if (valueDiceYellow == 2)
+				result[0] = true;
+			if (valueDiceWhite == 2)
+				result[1] = true;
+			break;
+		case 8:
+			if (valueDiceYellow == 4)
+				result[0] = true;
+			if (valueDiceWhite == 4)
+				result[1] = true;
+			break;
+		case 9:
+			if (valueDiceYellow == 3)
+				result[0] = true;
+			if (valueDiceWhite == 3)
+				result[1] = true;
+			break;
+		case 10:
+			if (valueDiceYellow == 4)
+				result[0] = true;
+			if (valueDiceWhite == 4)
+				result[1] = true;
+			break;
+		case 11:
+			if (valueDiceYellow == 6)
+				result[0] = true;
+			if (valueDiceWhite == 6)
+				result[1] = true;
+			break;
+		}
 		return result;
 	}
 
