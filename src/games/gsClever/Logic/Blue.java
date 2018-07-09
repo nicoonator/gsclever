@@ -69,14 +69,9 @@ public class Blue extends ColorArea {
 		}
 
 		return field;
-
-		// TODO
-
 	}
 
 	public int determinePoints() {
-		// TODO Auto-generated method stub
-
 		int sum = 0;
 		for (int i = 0; i < 11; i++) {
 			if (fields[i] == true) {
