@@ -6,7 +6,7 @@ public class Management {
 	private int diceRepeatUsed;
 	private int additionalDiceCount;
 	private int additionalDiceUsed;
-	ColorArea[] colorAreas;
+	private ColorArea[] colorAreas;
 
 	public Management() {
 
