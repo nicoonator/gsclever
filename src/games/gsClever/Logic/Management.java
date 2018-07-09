@@ -1,7 +1,5 @@
 package games.gsClever.Logic;
 
-import java.util.List;
-
 public class Management {
 
 	private int diceRepeatCount;
