@@ -427,7 +427,7 @@ public class MainLogic {
 			
 			rollDices(dicesToRoll);
 			
-			returnBack.setClickable(players[currentPlayer].getManagement().isClickable(), currentPlayer);
+			returnBack.setClickable(players[currentPlayer].getManagement().isClickable(dices), currentPlayer);
 			
 			if(players[currentPlayer].getManagement().getDiceRepeatUsed() < 
 					players[currentPlayer].getManagement().getDiceRepeatCount())
@@ -457,7 +457,7 @@ public class MainLogic {
 			else
 				throw new CannotUseAdditionalDiceException();
 
-			returnBack.setClickable(players[playerId].getManagement().isClickable(), playerId);
+			returnBack.setClickable(players[playerId].getManagement().isClickable(dices), playerId);
 				
 			break;
 
