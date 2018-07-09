@@ -21,7 +21,7 @@ public class MainLogic {
 	public MainLogic(ArrayList<Player> userList) {
 
 		round = 0;
-		this.playerCount = userList.size();
+		playerCount = userList.size();
 		additionalDiceTime = false;
 		currentPlayer = 0;
 		
@@ -308,6 +308,11 @@ public class MainLogic {
 	public Return click(int playerId, Area area, int fieldId) throws Exception {
 
 		Return returnBack = new Return(currentPlayer, round, playerCount);
+		for(int i = 0; i < playerCount; i++) {
+			
+			returnBack.setClickable(new IsClickable(), i);
+		}
+		
 		boolean[] clickableDices = null;
 		
 		int diceField = 0;
