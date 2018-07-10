@@ -438,6 +438,8 @@ public class MainLogic {
 	
 			case yellow:
 	
+				currentArea[playerId] = null;
+				
 				currentFieldId[playerId] = fieldId;
 				
 				clickableDices = players[playerId].getManagement().getYellow().clickableDices(
@@ -492,12 +494,12 @@ public class MainLogic {
 				
 				diceAvailable();
 				
-				currentArea[playerId] = null;
-				
 				break;
 	
 			case blue:
 	
+				currentArea[playerId] = null;
+				
 				currentFieldId[playerId] = fieldId;
 				
 				if(dices[Color.blue.ordinal()].getField() == -1 && 
@@ -548,11 +550,11 @@ public class MainLogic {
 				
 				diceAvailable();
 				
-				currentArea[playerId] = null;
-				
 				break;
 	
 			case green:
+				
+				currentArea[playerId] = null;
 				
 				currentFieldId[playerId] = fieldId;
 				
@@ -608,11 +610,11 @@ public class MainLogic {
 				
 				diceAvailable();
 				
-				currentArea[playerId] = null;
-				
 				break;
 	
 			case orange:
+				
+				currentArea[playerId] = null;
 				
 				currentFieldId[playerId] = fieldId;
 	
@@ -662,11 +664,11 @@ public class MainLogic {
 				
 				diceAvailable();
 				
-				currentArea[playerId] = null;
-				
 				break;
 	
 			case purple:
+				
+				currentArea[playerId] = null;
 				
 				currentFieldId[playerId] = fieldId;
 				
@@ -722,8 +724,6 @@ public class MainLogic {
 				
 				diceAvailable();
 				
-				currentArea[playerId] = null;
-	
 				break;
 				
 			case ready:
@@ -802,6 +802,9 @@ public class MainLogic {
 					returnBack.setClickable(players[playerId].getManagement().isClickable(dices), playerId);
 					
 					break;
+					
+				default:
+					break;
 				}
 			}
 				
@@ -849,8 +852,6 @@ public class MainLogic {
 						default:
 							break;
 						}
-						
-						currentArea[i] = null;
 					}
 					
 					break;
