@@ -11,6 +11,7 @@ public class IsClickable {
 	private boolean purple;
 	private boolean diceRepeat;
 	private boolean additionalDice;
+	private boolean ready;
 
 	public IsClickable() {
 
@@ -27,6 +28,7 @@ public class IsClickable {
 		purple = false;
 		diceRepeat = false;
 		additionalDice = false;
+		ready = false;
 	}
 
 	public boolean[] getYellow() {
@@ -99,5 +101,13 @@ public class IsClickable {
 
 	public void setAdditionalDice(boolean additionalDice) {
 		this.additionalDice = additionalDice;
+	}
+
+	public boolean isReady() {
+		return ready;
+	}
+
+	public void setReady(boolean ready) {
+		this.ready = ready;
 	}
 }
