@@ -733,6 +733,8 @@ public class MainLogic {
 				
 				currentArea[playerId] = Area.takeDiceFromTray;
 				
+				nextArea[playerId] = null;
+				
 				break;
 				
 			case ready:
@@ -790,13 +792,10 @@ public class MainLogic {
 		
 		for(int i = 0; i < playerCount; i++) {
 			
-			if(additionalDiceTime == true) {
+			if(additionalDiceTime == true && currentArea[i] != Area.takeDiceFromTray && 
+					currentArea[i] != Area.additionalDice && currentArea[i] != Area.decisionMaker) {
 				
 				returnBack.getClickable(i).setReady(true);
-				
-				if(players[playerId].getManagement().getAdditionalDiceUsed() < 
-						players[playerId].getManagement().getAdditionalDiceCount())
-					returnBack.getClickable(i).setAdditionalDice(true);
 			}
 			
 			if(currentArea[i] != null) {
@@ -818,6 +817,14 @@ public class MainLogic {
 				case additionalDice:
 					
 					returnBack.setClickable(players[playerId].getManagement().isClickable(dices), playerId);
+					
+					break;
+					
+				case takeDiceFromTray:
+					
+					if(players[playerId].getManagement().getAdditionalDiceUsed() < 
+							players[playerId].getManagement().getAdditionalDiceCount())
+						returnBack.getClickable(playerId).setAdditionalDice(true);
 					
 					break;
 					
