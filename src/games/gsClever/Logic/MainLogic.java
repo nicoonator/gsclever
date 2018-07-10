@@ -365,7 +365,7 @@ public class MainLogic {
 				else
 					throw new CannotUseAdditionalDiceException();
 	
-				returnBack.setClickable(players[playerId].getManagement().isClickable(dices), playerId);
+				currentArea[playerId] = Area.additionalDice;
 					
 				break;
 	
@@ -753,28 +753,34 @@ public class MainLogic {
 			}
 		}
 		
-		if(currentArea[currentPlayer] == Area.rollDices) {
-			
-			returnBack.setClickable(players[currentPlayer].getManagement().isClickable(dices), currentPlayer);
-			
-			if(players[currentPlayer].getManagement().getDiceRepeatUsed() < 
-					players[currentPlayer].getManagement().getDiceRepeatCount())
-				returnBack.getClickable(currentPlayer).setDiceRepeat(true);
-		}
-	
 		for(int i = 0; i < playerCount; i++) {
 			
 			returnBack.getClickable(i).setPlayerId(i);
 			
 			//TODO
-/*			if(currentArea[i] != null) {
+			if(currentArea[i] != null) {
 				
 				switch(currentArea[i]) {
 				case rollDices:
 					
+					if(i == currentPlayer) {
+						
+						returnBack.setClickable(players[currentPlayer].getManagement().isClickable(dices), currentPlayer);
+						
+						if(players[currentPlayer].getManagement().getDiceRepeatUsed() < 
+								players[currentPlayer].getManagement().getDiceRepeatCount())
+							returnBack.getClickable(currentPlayer).setDiceRepeat(true);
+					}
 					
+					break;
+					
+				case additionalDice:
+					
+					returnBack.setClickable(players[playerId].getManagement().isClickable(dices), playerId);
+					
+					break;
 				}
-			}*/
+			}
 				
 			if(nextArea[i] != null) {
 				
