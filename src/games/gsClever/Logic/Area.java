@@ -12,5 +12,6 @@ public enum Area {
 	green, 
 	orange, 
 	purple,
+	takeDiceFromTray,
 	ready
 }
