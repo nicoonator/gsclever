@@ -227,84 +227,6 @@ public class MainLogic {
 			additionalDiceTime = true;
 	}
 	
-	private void clickableSpecialEvent(Return returnBack, int playerId) {
-		
-		switch(currentSpecialEvent[playerId]) {
-		case enterCrossYellow:
-			
-			boolean[] clickableYellow = players[playerId].getManagement().getYellow().getFields();
-			for(int i = 0; i < clickableYellow.length; i++) {
-				
-				if(clickableYellow[i] == true)
-					clickableYellow[i] = false;
-				else
-					clickableYellow[i] = true;
-			}
-			
-			returnBack.getClickable(playerId).setYellow(clickableYellow);
-			
-			break;
-			
-		case enterCrossBlue:
-			
-			boolean[] clickableBlue = players[playerId].getManagement().getBlue().getFields();
-			for(int i = 0; i < clickableBlue.length; i++) {
-				
-				if(clickableBlue[i] == true)
-					clickableBlue[i] = false;
-				else
-					clickableBlue[i] = true;
-			}
-			
-			returnBack.getClickable(playerId).setBlue(clickableBlue);
-			
-			break;
-			
-		case round4:
-			
-			clickableYellow = players[playerId].getManagement().getYellow().getFields();
-			for(int i = 0; i < clickableYellow.length; i++) {
-				
-				if(clickableYellow[i] == true)
-					clickableYellow[i] = false;
-				else
-					clickableYellow[i] = true;
-			}
-			
-			clickableBlue = players[playerId].getManagement().getBlue().getFields();
-			for(int i = 0; i < clickableBlue.length; i++) {
-				
-				if(clickableBlue[i] == true)
-					clickableBlue[i] = false;
-				else
-					clickableBlue[i] = true;
-			}
-			
-			boolean clickableGreen = false;
-			if(players[playerId].getManagement().getGreen().getFields() < 11)
-				clickableGreen = true;
-			
-			boolean clickableOrange = false;
-			if(players[playerId].getManagement().getOrange().getFields()[10] == 0)
-				clickableOrange = true;
-			
-			boolean clickablePurple = false;
-			if(players[playerId].getManagement().getPurple().getFields()[10] == 0)
-				clickablePurple = true;
-			
-			returnBack.getClickable(playerId).setYellow(clickableYellow);
-			returnBack.getClickable(playerId).setBlue(clickableBlue);
-			returnBack.getClickable(playerId).setGreen(clickableGreen);
-			returnBack.getClickable(playerId).setOrange(clickableOrange);
-			returnBack.getClickable(playerId).setPurple(clickablePurple);
-			
-			break;
-			
-		default:
-			break;
-		}
-	}
-
 	public Return click(int playerId, Area area, int fieldId) throws Exception {
 
 		Return returnBack = new Return(currentPlayer, round, playerCount);
@@ -400,16 +322,10 @@ public class MainLogic {
 				
 				diceAvailable();
 				
-				if(currentSpecialEvent[playerId] != null) {
-					
-					clickableSpecialEvent(returnBack, playerId);
-					
+				if(currentSpecialEvent[playerId] != null)
 					nextArea[playerId] = Area.specialEvent;
-				}
-				else if(currentPlayer == playerId) {
-					
+				else if(currentPlayer == playerId)
 					nextArea[playerId] = Area.rollDices;
-				}
 				
 				break;
 				
@@ -513,16 +429,10 @@ public class MainLogic {
 					break;
 				}
 				
-				if(currentSpecialEvent[playerId] != null) {
-					
-					clickableSpecialEvent(returnBack, playerId);
-					
+				if(currentSpecialEvent[playerId] != null)
 					nextArea[playerId] = Area.specialEvent;
-				}
-				else if(currentPlayer == playerId) {
-					
+				else if(currentPlayer == playerId)
 					nextArea[playerId] = Area.rollDices;
-				}
 				
 				break;
 	
@@ -554,16 +464,10 @@ public class MainLogic {
 					currentSpecialEvent[playerId] = players[playerId].getManagement().enterCrossOrNumber(
 							Area.yellow, currentFieldId[playerId], dices[Color.white.ordinal()].getValue());
 					
-					if(currentSpecialEvent[playerId] != null) {
-						
-						clickableSpecialEvent(returnBack, playerId);
-						
+					if(currentSpecialEvent[playerId] != null)
 						nextArea[playerId] = Area.specialEvent;
-					}
-					else if(currentPlayer == playerId) {
-						
+					else if(currentPlayer == playerId)
 						nextArea[playerId] = Area.rollDices;
-					}
 				}
 				else if(dices[Color.white.ordinal()].getField() != -1 || 
 						dices[Color.white.ordinal()].isOnTray() == true ||
@@ -578,16 +482,10 @@ public class MainLogic {
 					currentSpecialEvent[playerId] = players[playerId].getManagement().enterCrossOrNumber(
 							Area.yellow, currentFieldId[playerId], dices[Color.yellow.ordinal()].getValue());
 					
-					if(currentSpecialEvent[playerId] != null) {
-						
-						clickableSpecialEvent(returnBack, playerId);
-						
+					if(currentSpecialEvent[playerId] != null)
 						nextArea[playerId] = Area.specialEvent;
-					}
-					else if(currentPlayer == playerId) {
-						
+					else if(currentPlayer == playerId)
 						nextArea[playerId] = Area.rollDices;
-					}
 				}
 				
 				diceAvailable();
@@ -618,16 +516,10 @@ public class MainLogic {
 							Area.blue, currentFieldId[playerId], dices[Color.blue.ordinal()].getValue() + 
 							dices[Color.white.ordinal()].getValue());
 					
-					if(currentSpecialEvent[playerId] != null) {
-						
-						clickableSpecialEvent(returnBack, playerId);
-						
+					if(currentSpecialEvent[playerId] != null)
 						nextArea[playerId] = Area.specialEvent;
-					}
-					else if(currentPlayer == playerId) {
-						
+					else if(currentPlayer == playerId)
 						nextArea[playerId] = Area.rollDices;
-					}
 				}
 				else if(dices[Color.white.ordinal()].getField() != -1 || 
 						dices[Color.white.ordinal()].isOnTray() == true) {
@@ -642,16 +534,10 @@ public class MainLogic {
 							Area.blue, currentFieldId[playerId], dices[Color.blue.ordinal()].getValue() + 
 							dices[Color.white.ordinal()].getValue());
 					
-					if(currentSpecialEvent[playerId] != null) {
-						
-						clickableSpecialEvent(returnBack, playerId);
-						
+					if(currentSpecialEvent[playerId] != null)
 						nextArea[playerId] = Area.specialEvent;
-					}
-					else if(currentPlayer == playerId) {
-						
+					else if(currentPlayer == playerId)
 						nextArea[playerId] = Area.rollDices;
-					}
 				}
 				
 				diceAvailable();
@@ -686,16 +572,10 @@ public class MainLogic {
 					currentSpecialEvent[playerId] = players[playerId].getManagement().enterCrossOrNumber(
 							Area.green, currentFieldId[playerId], dices[Color.white.ordinal()].getValue());
 					
-					if(currentSpecialEvent[playerId] != null) {
-						
-						clickableSpecialEvent(returnBack, playerId);
-						
+					if(currentSpecialEvent[playerId] != null)
 						nextArea[playerId] = Area.specialEvent;
-					}
-					else if(currentPlayer == playerId) {
-						
+					else if(currentPlayer == playerId)
 						nextArea[playerId] = Area.rollDices;
-					}
 				}
 				else if(dices[Color.white.ordinal()].getField() != -1 || 
 						dices[Color.white.ordinal()].isOnTray() == true ||
@@ -710,16 +590,10 @@ public class MainLogic {
 					currentSpecialEvent[playerId] = players[playerId].getManagement().enterCrossOrNumber(
 							Area.green, currentFieldId[playerId], dices[Color.green.ordinal()].getValue());
 					
-					if(currentSpecialEvent[playerId] != null) {
-						
-						clickableSpecialEvent(returnBack, playerId);
-						
+					if(currentSpecialEvent[playerId] != null)
 						nextArea[playerId] = Area.specialEvent;
-					}
-					else if(currentPlayer == playerId) {
-						
+					else if(currentPlayer == playerId)
 						nextArea[playerId] = Area.rollDices;
-					}
 				}
 				
 				diceAvailable();
@@ -749,16 +623,10 @@ public class MainLogic {
 					currentSpecialEvent[playerId] = players[playerId].getManagement().enterCrossOrNumber(
 							Area.orange, currentFieldId[playerId], dices[Color.white.ordinal()].getValue());
 					
-					if(currentSpecialEvent[playerId] != null) {
-						
-						clickableSpecialEvent(returnBack, playerId);
-						
+					if(currentSpecialEvent[playerId] != null)
 						nextArea[playerId] = Area.specialEvent;
-					}
-					else if(currentPlayer == playerId) {
-						
+					else if(currentPlayer == playerId)
 						nextArea[playerId] = Area.rollDices;
-					}
 				}
 				else if(dices[Color.white.ordinal()].getField() != -1 || 
 						dices[Color.white.ordinal()].isOnTray() == true) {
@@ -772,16 +640,10 @@ public class MainLogic {
 					currentSpecialEvent[playerId] = players[playerId].getManagement().enterCrossOrNumber(
 							Area.orange, currentFieldId[playerId], dices[Color.orange.ordinal()].getValue());
 					
-					if(currentSpecialEvent[playerId] != null) {
-						
-						clickableSpecialEvent(returnBack, playerId);
-						
+					if(currentSpecialEvent[playerId] != null)
 						nextArea[playerId] = Area.specialEvent;
-					}
-					else if(currentPlayer == playerId) {
-						
+					else if(currentPlayer == playerId)
 						nextArea[playerId] = Area.rollDices;
-					}
 				}
 				
 				diceAvailable();
@@ -816,16 +678,10 @@ public class MainLogic {
 					currentSpecialEvent[playerId] = players[playerId].getManagement().enterCrossOrNumber(
 							Area.purple, currentFieldId[playerId], dices[Color.white.ordinal()].getValue());
 					
-					if(currentSpecialEvent[playerId] != null) {
-						
-						clickableSpecialEvent(returnBack, playerId);
-						
+					if(currentSpecialEvent[playerId] != null)
 						nextArea[playerId] = Area.specialEvent;
-					}
-					else if(currentPlayer == playerId) {
-						
+					else if(currentPlayer == playerId)
 						nextArea[playerId] = Area.rollDices;
-					}
 				}
 				else if(dices[Color.white.ordinal()].getField() != -1 || 
 						dices[Color.white.ordinal()].isOnTray() == true ||
@@ -840,16 +696,10 @@ public class MainLogic {
 					currentSpecialEvent[playerId] = players[playerId].getManagement().enterCrossOrNumber(
 							Area.purple, currentFieldId[playerId], dices[Color.purple.ordinal()].getValue());
 					
-					if(currentSpecialEvent[playerId] != null) {
-						
-						clickableSpecialEvent(returnBack, playerId);
-						
+					if(currentSpecialEvent[playerId] != null)
 						nextArea[playerId] = Area.specialEvent;
-					}
-					else if(currentPlayer == playerId) {
-						
+					else if(currentPlayer == playerId)
 						nextArea[playerId] = Area.rollDices;
-					}
 				}
 				
 				diceAvailable();
@@ -911,13 +761,6 @@ public class MainLogic {
 			
 			returnBack.getClickable(i).setPlayerId(i);
 				
-			if(currentSpecialEvent[i] == SpecialEvent.round4) {
-				
-				clickableSpecialEvent(returnBack, playerId);
-				
-				nextArea[i] = Area.specialEvent;
-			}
-			
 			switch(nextArea[i]) {
 			case decisionMaker:
 				
@@ -968,7 +811,87 @@ public class MainLogic {
 				
 				break;
 				
-				//TODO
+			case specialEvent:
+				
+				switch(currentSpecialEvent[i]) {
+				case enterCrossYellow:
+					
+					boolean[] clickableYellow = players[playerId].getManagement().getYellow().getFields();
+					for(int j = 0; j < clickableYellow.length; j++) {
+						
+						if(clickableYellow[j] == true)
+							clickableYellow[j] = false;
+						else
+							clickableYellow[j] = true;
+					}
+					
+					returnBack.getClickable(playerId).setYellow(clickableYellow);
+					
+					break;
+					
+				case enterCrossBlue:
+					
+					boolean[] clickableBlue = players[playerId].getManagement().getBlue().getFields();
+					for(int j = 0; j < clickableBlue.length; j++) {
+						
+						if(clickableBlue[j] == true)
+							clickableBlue[j] = false;
+						else
+							clickableBlue[j] = true;
+					}
+					
+					returnBack.getClickable(playerId).setBlue(clickableBlue);
+					
+					break;
+					
+				case round4:
+					
+					clickableYellow = players[playerId].getManagement().getYellow().getFields();
+					for(int j = 0; j < clickableYellow.length; j++) {
+						
+						if(clickableYellow[j] == true)
+							clickableYellow[j] = false;
+						else
+							clickableYellow[j] = true;
+					}
+					
+					clickableBlue = players[playerId].getManagement().getBlue().getFields();
+					for(int j = 0; j < clickableBlue.length; j++) {
+						
+						if(clickableBlue[j] == true)
+							clickableBlue[j] = false;
+						else
+							clickableBlue[j] = true;
+					}
+					
+					boolean clickableGreen = false;
+					if(players[playerId].getManagement().getGreen().getFields() < 11)
+						clickableGreen = true;
+					
+					boolean clickableOrange = false;
+					if(players[playerId].getManagement().getOrange().getFields()[10] == 0)
+						clickableOrange = true;
+					
+					boolean clickablePurple = false;
+					if(players[playerId].getManagement().getPurple().getFields()[10] == 0)
+						clickablePurple = true;
+					
+					returnBack.getClickable(playerId).setYellow(clickableYellow);
+					returnBack.getClickable(playerId).setBlue(clickableBlue);
+					returnBack.getClickable(playerId).setGreen(clickableGreen);
+					returnBack.getClickable(playerId).setOrange(clickableOrange);
+					returnBack.getClickable(playerId).setPurple(clickablePurple);
+					
+					break;
+					
+				default:
+					break;
+				}
+				
+				break;
+				
+			default:
+				break;
 			}
 			
 			if(players[i].getManagement().getAdditionalDiceUsed() < 
