@@ -8,7 +8,7 @@ public class MainLogic {
 
 	private int round;
 	private int playerCount;
-	private boolean additionalDiceTime; //TODO weiter einbinden
+	private boolean additionalDiceTime;
 	private int currentPlayer;
 	private int[] currentFieldId;
 	private Area[] currentArea;
@@ -367,6 +367,8 @@ public class MainLogic {
 					players[playerId].getManagement().incrementAdditionalDiceUsed();
 				else
 					throw new CannotUseAdditionalDiceException();
+				
+				//TODO ausführen???
 	
 				currentArea[playerId] = Area.additionalDice;
 					
@@ -729,7 +731,8 @@ public class MainLogic {
 				
 			case takeDiceFromTray:
 				
-				//TODO einbinden
+				//TODO ausführen
+				//switch()
 				
 				currentArea[playerId] = Area.takeDiceFromTray;
 				
