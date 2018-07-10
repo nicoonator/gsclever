@@ -24,6 +24,10 @@ public class Return {
 			clickable[i] = new IsClickable();
 			matchfield[i] = new Matchfield();
 			decisionMaker[i] = new DecisionMaker();
+			
+			clickable[i].setPlayerId(i);
+			matchfield[i].setPlayerId(i);
+			decisionMaker[i].setPlayerId(i);
 		}
 		
 		winner = null;
