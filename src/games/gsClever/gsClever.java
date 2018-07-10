@@ -137,7 +137,7 @@ public class gsClever extends Game {
 		// verschoben werden
 		if (gsonString.equals("WUERFELN")) {
 			try {
-				currentGame.click(userID, Area.rollDices, 0);
+				returnBack = returnBack = currentGame.click(userID, Area.rollDices, 0);
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -148,7 +148,7 @@ public class gsClever extends Game {
 
 		if (gsonString.equals("NACHWUERFELN")) {
 			try {
-				currentGame.click(userID, Area.diceRepeat, 0);
+				returnBack = currentGame.click(userID, Area.diceRepeat, 0);
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -159,7 +159,7 @@ public class gsClever extends Game {
 
 		if (gsonString.equals("ZUSATZWUERFELN")) {
 			try {
-				currentGame.click(userID, Area.additionalDice, 0);
+				returnBack = currentGame.click(userID, Area.additionalDice, 0);
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -170,7 +170,7 @@ public class gsClever extends Game {
 
 		if (gsonString.equals("SKIP")) {
 			try {
-				currentGame.click(userID, Area.ready, 0);
+				returnBack = currentGame.click(userID, Area.ready, 0);
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -180,7 +180,7 @@ public class gsClever extends Game {
 		}
 		if (gsonString.equals("COLORDECIDER")) {
 			try {
-				currentGame.click(userID, Area.decisionMaker,
+				returnBack = currentGame.click(userID, Area.decisionMaker,
 						returnBack.getDecisionMaker(userID).getColorOfDice().ordinal());
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
@@ -191,7 +191,7 @@ public class gsClever extends Game {
 		}
 		if (gsonString.equals("WHITEDECIDER")) {
 			try {
-				currentGame.click(userID, Area.decisionMaker, Color.white.ordinal());
+				returnBack = currentGame.click(userID, Area.decisionMaker, Color.white.ordinal());
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -201,7 +201,7 @@ public class gsClever extends Game {
 		}
 		if (gsonString.equals("CLICKYELLOW0")) {
 			try {
-				currentGame.click(userID, Area.yellow, 0);
+				returnBack = currentGame.click(userID, Area.yellow, 0);
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -211,7 +211,7 @@ public class gsClever extends Game {
 		}
 		if (gsonString.equals("CLICKYELLOW1")) {
 			try {
-				currentGame.click(userID, Area.yellow, 1);
+				returnBack = currentGame.click(userID, Area.yellow, 1);
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -221,7 +221,7 @@ public class gsClever extends Game {
 		}
 		if (gsonString.equals("CLICKYELLOW2")) {
 			try {
-				currentGame.click(userID, Area.yellow, 2);
+				returnBack = currentGame.click(userID, Area.yellow, 2);
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -231,7 +231,7 @@ public class gsClever extends Game {
 		}
 		if (gsonString.equals("CLICKYELLOW3")) {
 			try {
-				currentGame.click(userID, Area.yellow, 3);
+				returnBack = currentGame.click(userID, Area.yellow, 3);
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -241,7 +241,7 @@ public class gsClever extends Game {
 		}
 		if (gsonString.equals("CLICKYELLOW4")) {
 			try {
-				currentGame.click(userID, Area.yellow, 4);
+				returnBack = currentGame.click(userID, Area.yellow, 4);
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -251,7 +251,7 @@ public class gsClever extends Game {
 		}
 		if (gsonString.equals("CLICKYELLOW5")) {
 			try {
-				currentGame.click(userID, Area.yellow, 5);
+				returnBack = currentGame.click(userID, Area.yellow, 5);
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -261,7 +261,7 @@ public class gsClever extends Game {
 		}
 		if (gsonString.equals("CLICKYELLOW6")) {
 			try {
-				currentGame.click(userID, Area.yellow, 3);
+				returnBack = currentGame.click(userID, Area.yellow, 6);
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -271,7 +271,7 @@ public class gsClever extends Game {
 		}
 		if (gsonString.equals("CLICKYELLOW7")) {
 			try {
-				currentGame.click(userID, Area.yellow, 7);
+				returnBack = currentGame.click(userID, Area.yellow, 7);
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -281,7 +281,7 @@ public class gsClever extends Game {
 		}
 		if (gsonString.equals("CLICKYELLOW8")) {
 			try {
-				currentGame.click(userID, Area.yellow, 8);
+				returnBack = currentGame.click(userID, Area.yellow, 8);
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -291,7 +291,7 @@ public class gsClever extends Game {
 		}
 		if (gsonString.equals("CLICKYELLOW9")) {
 			try {
-				currentGame.click(userID, Area.yellow, 9);
+				returnBack = currentGame.click(userID, Area.yellow, 9);
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -301,7 +301,7 @@ public class gsClever extends Game {
 		}
 		if (gsonString.equals("CLICKYELLOW10")) {
 			try {
-				currentGame.click(userID, Area.yellow, 10);
+				returnBack = currentGame.click(userID, Area.yellow, 10);
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -311,7 +311,7 @@ public class gsClever extends Game {
 		}
 		if (gsonString.equals("CLICKYELLOW11")) {
 			try {
-				currentGame.click(userID, Area.yellow, 11);
+				returnBack = currentGame.click(userID, Area.yellow, 11);
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -321,7 +321,7 @@ public class gsClever extends Game {
 		}
 		if (gsonString.equals("CLICKBLUE0")) {
 			try {
-				currentGame.click(userID, Area.blue, 0);
+				returnBack = currentGame.click(userID, Area.blue, 0);
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -331,7 +331,7 @@ public class gsClever extends Game {
 		}
 		if (gsonString.equals("CLICKBLUE1")) {
 			try {
-				currentGame.click(userID, Area.blue, 1);
+				returnBack = currentGame.click(userID, Area.blue, 1);
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -341,7 +341,7 @@ public class gsClever extends Game {
 		}
 		if (gsonString.equals("CLICKBLUE2")) {
 			try {
-				currentGame.click(userID, Area.blue, 2);
+				returnBack = currentGame.click(userID, Area.blue, 2);
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -351,7 +351,7 @@ public class gsClever extends Game {
 		}
 		if (gsonString.equals("CLICKBLUE3")) {
 			try {
-				currentGame.click(userID, Area.blue, 3);
+				returnBack = currentGame.click(userID, Area.blue, 3);
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -361,7 +361,7 @@ public class gsClever extends Game {
 		}
 		if (gsonString.equals("CLICKBLUE4")) {
 			try {
-				currentGame.click(userID, Area.blue, 4);
+				returnBack = currentGame.click(userID, Area.blue, 4);
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -371,7 +371,7 @@ public class gsClever extends Game {
 		}
 		if (gsonString.equals("CLICKBLUE5")) {
 			try {
-				currentGame.click(userID, Area.blue, 5);
+				returnBack = currentGame.click(userID, Area.blue, 5);
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -381,7 +381,7 @@ public class gsClever extends Game {
 		}
 		if (gsonString.equals("CLICKBLUE6")) {
 			try {
-				currentGame.click(userID, Area.blue, 6);
+				returnBack = currentGame.click(userID, Area.blue, 6);
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -391,7 +391,7 @@ public class gsClever extends Game {
 		}
 		if (gsonString.equals("CLICKBLUE7")) {
 			try {
-				currentGame.click(userID, Area.blue, 7);
+				returnBack = currentGame.click(userID, Area.blue, 7);
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -401,7 +401,7 @@ public class gsClever extends Game {
 		}
 		if (gsonString.equals("CLICKBLUE8")) {
 			try {
-				currentGame.click(userID, Area.blue, 8);
+				returnBack = currentGame.click(userID, Area.blue, 8);
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -411,7 +411,7 @@ public class gsClever extends Game {
 		}
 		if (gsonString.equals("CLICKBLUE9")) {
 			try {
-				currentGame.click(userID, Area.blue, 9);
+				returnBack = currentGame.click(userID, Area.blue, 9);
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -421,7 +421,7 @@ public class gsClever extends Game {
 		}
 		if (gsonString.equals("CLICKBLUE10")) {
 			try {
-				currentGame.click(userID, Area.blue, 10);
+				returnBack = currentGame.click(userID, Area.blue, 10);
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -431,7 +431,7 @@ public class gsClever extends Game {
 		}
 		if (gsonString.equals("CLICKGREEN")) {
 			try {
-				currentGame.click(userID, Area.green, 10);
+				returnBack = currentGame.click(userID, Area.green, 0);
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -441,7 +441,7 @@ public class gsClever extends Game {
 		}
 		if (gsonString.equals("CLICKORANGE")) {
 			try {
-				currentGame.click(userID, Area.orange, 10);
+				returnBack = currentGame.click(userID, Area.orange, 0);
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -451,7 +451,7 @@ public class gsClever extends Game {
 		}
 		if (gsonString.equals("CLICKPURPLE")) {
 			try {
-				currentGame.click(userID, Area.purple, 10);
+				returnBack = currentGame.click(userID, Area.purple, 0);
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -638,6 +638,7 @@ public class gsClever extends Game {
 				break;
 			case 6:
 				result[i] = returnBack.getDices()[Color.green.ordinal()].getValue();
+				System.out.println(returnBack.getDices()[Color.green.ordinal()].getValue());
 				break;
 			case 7:
 				result[i] = returnBack.getDices()[Color.white.ordinal()].getValue();
@@ -654,7 +655,7 @@ public class gsClever extends Game {
 			case 9:
 				result[i] = 0;
 				for (Dice dice : returnBack.getDices()) {
-					if (dice.getField() == 0) {
+					if (dice.getField() == 1) {
 						result[i] = dice.getColor().ordinal() + 1;
 						break;
 					}
@@ -663,7 +664,7 @@ public class gsClever extends Game {
 			case 10:
 				result[i] = 0;
 				for (Dice dice : returnBack.getDices()) {
-					if (dice.getField() == 0) {
+					if (dice.getField() == 2) {
 						result[i] = dice.getColor().ordinal() + 1;
 						break;
 					}
@@ -948,6 +949,7 @@ public class gsClever extends Game {
 				result[i] = 0;
 				if (returnBack.getDecisionMaker(0).isColorDiceActive()) {
 					result[i] = 1;
+					System.out.println(result[i]);
 				}
 				break;
 			case 71:
