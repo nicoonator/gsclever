@@ -95,6 +95,8 @@ addListener('SUBMITGAME', function(event) {
     var arr = stringFromServer.split(',');
     console.log(stringFromServer);
     console.log(arr);
+    console.log("Wuerfeld"+arr[2]+","+arr[3]);
+    console.log("Farbiger Entscheider"+arr[70]);
     for (var i = 0; i < 345; i++) {
 	number[i] = +arr[i];
     }
@@ -110,12 +112,12 @@ var userNumber=0;
 // 1 = Host, 2 = Spieler2 usw...
 var number = [ 0, 0, 0, 0, 0, 0 ];
 playerMessage = "";
-var BlauWert = 0;
-var GelbWert = 0;
-var OrangeWert = 0;
-var LilaWert = 0;
-var GreenWert = 0;
-var WeissWert = 0;
+var BlauWert = 1;
+var GelbWert = 1;
+var OrangeWert = 1;
+var LilaWert = 1;
+var GreenWert = 1;
+var WeissWert = 1;
 var Blau1 = "/gsClever/Images/Dice/1BLAU.jpg";
 var Blau2 = "/gsClever/Images/Dice/2BLAU.jpg";
 var Blau3 = "/gsClever/Images/Dice/3BLAU.jpg";
@@ -420,25 +422,24 @@ function setDiceImg(x) {
 }
 
 function setDiceOnPlace(x) {
-    if (x=0){
-	document.getElementById("wuerfelfeldblue").src = empty;
+    if (x==0){
     }
-    if (x=1){
-	document.getElementById("wuerfelfeldblue").src = getDiceImg(BlauWert);
+    if (x==1){
+	document.getElementById("wuerfelfeldblue").src = getDiceImg(GelbWert);
     }
-    if (x=2) {
-	document.getElementById("wuerfelfeldyellow").src = getDiceImg(GelbWert);
+    if (x==2) {
+	document.getElementById("wuerfelfeldyellow").src = getDiceImg(BlauWert);
     }
-    if (x=3) {
+    if (x==3) {
 	document.getElementById("wuerfelfeldgreen").src = getDiceImg(GreenWert);
     }
-    if (x=4) {
-	document.getElementById("wuerfelfeldpurple").src = getDiceImg(LilaWert);
+    if (x==4) {
+	document.getElementById("wuerfelfeldpurple").src = getDiceImg(OrangeWert);
     }
-    if (x=5) {
-	document.getElementById("wuerfelfeldorange").src = getDiceImg(OrangeWert);
+    if (x==5) {
+	document.getElementById("wuerfelfeldorange").src = getDiceImg(LilaWert);
     }
-    if (x=6) {
+    if (x==6) {
 	document.getElementById("wuerfelfeldwhite").src = getDiceImg(WeissWert);
     }
 }
@@ -472,23 +473,23 @@ function setDiceOnField(fieldNR, dice){
  	    if (nodes[i].id == 'Wuerfelfeld1') {
  		switch (dice){
  		case 1:{
- 		    nodes[i].src=getDiceImg(BlauWert);
- 		    break;
- 		}
- 		case 2:{
  		    nodes[i].src=getDiceImg(GelbWert);
  		    break;
  		}
+ 		case 2:{
+ 		    nodes[i].src=getDiceImg(BlauWert);
+ 		    break;
+ 		}
  		case 3:{
- 		    nodes[i].src=getDiceImg(OrangeWert);
+ 		    nodes[i].src=getDiceImg(GreenWert);
  		    break;
  		}
  		case 4:{
- 		    nodes[i].src=getDiceImg(LilaWert);
+ 		    nodes[i].src=getDiceImg(OrangeWert);
  		    break;
  		}
  		case 5:{
- 		    nodes[i].src=getDiceImg(GreenWert);
+ 		    nodes[i].src=getDiceImg(LilaWert);
  		    break;
  		}
  		case 6:{
@@ -505,23 +506,23 @@ function setDiceOnField(fieldNR, dice){
  	    if (nodes[i].id == 'Wuerfelfeld2') {
  		switch (dice){
  		case 1:{
- 		    nodes[i].src=getDiceImg(BlauWert);
- 		    break;
- 		}
- 		case 2:{
  		    nodes[i].src=getDiceImg(GelbWert);
  		    break;
  		}
+ 		case 2:{
+ 		    nodes[i].src=getDiceImg(BlauWert);
+ 		    break;
+ 		}
  		case 3:{
- 		    nodes[i].src=getDiceImg(OrangeWert);
+ 		    nodes[i].src=getDiceImg(GreenWert);
  		    break;
  		}
  		case 4:{
- 		    nodes[i].src=getDiceImg(LilaWert);
+ 		    nodes[i].src=getDiceImg(OrangeWert);
  		    break;
  		}
  		case 5:{
- 		    nodes[i].src=getDiceImg(GreenWert);
+ 		    nodes[i].src=getDiceImg(LilaWert);
  		    break;
  		}
  		case 6:{
@@ -538,23 +539,23 @@ function setDiceOnField(fieldNR, dice){
  	    if (nodes[i].id == 'Wuerfelfeld3') {
  		switch (dice){
  		case 1:{
- 		    nodes[i].src=getDiceImg(BlauWert);
- 		    break;
- 		}
- 		case 2:{
  		    nodes[i].src=getDiceImg(GelbWert);
  		    break;
  		}
+ 		case 2:{
+ 		    nodes[i].src=getDiceImg(BlauWert);
+ 		    break;
+ 		}
  		case 3:{
- 		    nodes[i].src=getDiceImg(OrangeWert);
+ 		    nodes[i].src=getDiceImg(GreenWert);
  		    break;
  		}
  		case 4:{
- 		    nodes[i].src=getDiceImg(LilaWert);
+ 		    nodes[i].src=getDiceImg(OrangeWert);
  		    break;
  		}
  		case 5:{
- 		    nodes[i].src=getDiceImg(GreenWert);
+ 		    nodes[i].src=getDiceImg(LilaWert);
  		    break;
  		}
  		case 6:{
@@ -709,23 +710,23 @@ function setDiceOnField(fieldNR, dice){
 	    if (nodes[i].id == 'Wuerfelfeld1') {
 		switch (dice){
 		case 1:{
-		    nodes[i].src=getDiceImg(BlauWert);
-		    break;
-		}
-		case 2:{
 		    nodes[i].src=getDiceImg(GelbWert);
 		    break;
 		}
+		case 2:{
+		    nodes[i].src=getDiceImg(BlauWert);
+		    break;
+		}
 		case 3:{
-		    nodes[i].src=getDiceImg(OrangeWert);
+		    nodes[i].src=getDiceImg(GreenWert);
 		    break;
 		}
 		case 4:{
-		    nodes[i].src=getDiceImg(LilaWert);
+		    nodes[i].src=getDiceImg(OrangeWert);
 		    break;
 		}
 		case 5:{
-		    nodes[i].src=getDiceImg(GreenWert);
+		    nodes[i].src=getDiceImg(LilaWert);
 		    break;
 		}
 		case 6:{
@@ -1147,23 +1148,23 @@ function setColorDeciderColor(x){
 	break;
     }
     case 1:{
-	document.getElementById("wuerfelfeldEntscheider1").src=getDiceImg(BlauWert);
+	document.getElementById("wuerfelfeldEntscheider1").src=getDiceImg(GelbWert);
     	break;
         }
     case 2:{
-	document.getElementById("wuerfelfeldEntscheider1").src=getDiceImg(GelbWert);
+	document.getElementById("wuerfelfeldEntscheider1").src=getDiceImg(BlauWert);
     	break;
     }
     case 3:{
-	document.getElementById("wuerfelfeldEntscheider1").src=getDiceImg(OrangeWert);
+	document.getElementById("wuerfelfeldEntscheider1").src=getDiceImg(GreenWert);
     	break;
     }
     case 4:{
-	document.getElementById("wuerfelfeldEntscheider1").src=getDiceImg(LilaWert);
+	document.getElementById("wuerfelfeldEntscheider1").src=getDiceImg(OrangeWert);
     	break;
     }
     case 5:{
-	document.getElementById("wuerfelfeldEntscheider1").src=getDiceImg(GreenWert);
+	document.getElementById("wuerfelfeldEntscheider1").src=getDiceImg(LilaWert);
     	break;
     }
     }
@@ -1536,53 +1537,58 @@ function extractArray(x) {
 	}
 	case 8: {
 	    setDiceOnField(1,+x[i]);
+	    //TODO
 	    break;
 	}
 	case 9: {
 	    setDiceOnField(2,+x[i]);
+	  //TODO
 	    break;
 	}
 	case 10: {
 	    setDiceOnField(3,+x[i]);
+	  //TODO
 	    break;
 	}
 	case 11: {
 	    if(+x[i]==1){ 
 		setDiceOnTray(BlauWert);
-		} else if(+x[8]!=1 && +x[9]!=1 && +x[10]!=1){
-		    setDiceOnPlace(1);
+		} else if(+x[8]!=2 && +x[9]!=2 && +x[10]!=2){
+		    setDiceOnPlace(2);
+		} else {
+			clearBluePlace();
 		}
 	    break;
 	}
 	case 12: {
 	    if(+x[i]==1){ 
 		setDiceOnTray(GelbWert);
-		} else if(+x[8]!=2 && +x[9]!=2 && +x[20]!=2){
-		    setDiceOnPlace(2);
+		} else if(+x[8]!=1 && +x[9]!=1 && +x[20]!=1){
+		    setDiceOnPlace(1);
 		}
 	    break;
 	}
 	case 13: {
 	    if(+x[i]==1){ 
 		setDiceOnTray(OrangeWert);
-		} else if(+x[8]!=3 && +x[9]!=3 && +x[30]!=3){
-		    setDiceOnPlace(3);
+		} else if(+x[8]!=4 && +x[9]!=4 && +x[30]!=4){
+		    setDiceOnPlace(4);
 		}
 	    break;
 	}
 	case 14: {
 	    if(+x[i]==1){ 
 		setDiceOnTray(LilaWert);
-		} else if(+x[8]!=4 && +x[9]!=4 && +x[40]!=4){
-		    setDiceOnPlace(4);
+		} else if(+x[8]!=5 && +x[9]!=5 && +x[40]!=5){
+		    setDiceOnPlace(5);
 		}
 	    break;
 	}
 	case 15: {
 	    if(+x[i]==1){ 
 		setDiceOnTray(GreenWert);
-		} else if(+x[8]!=5 && +x[9]!=5 && +x[50]!=5){
-		    setDiceOnPlace(5);
+		} else if(+x[8]!=3 && +x[9]!=3 && +x[50]!=3){
+		    setDiceOnPlace(3);
 		}
 	    break;
 	}
@@ -1863,19 +1869,23 @@ break;
 	    break;
 	    }
 	case 70:{
-	    if(userNumber==1){
+	    console.log("BEGINN ENTSCHEIDER");
+	    console.log(+x[i]);
+		if(userNumber==1){
 		setColorDecider(+x[i]);
 	    }
 	    break;
 	    }
 	case 71:{
-	    if(userNumber==1){
+		console.log(+x[i]);
+		if(userNumber==1){
 		setWhiteDecider(+x[i]);
 	    }
 	    break;
 	    }
 	case 72:{
-	    if(userNumber==1){
+		console.log(+x[i]);
+		if(userNumber==1){
 		setColorDeciderColor(+x[i]);
 	    }
 	    break;
