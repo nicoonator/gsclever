@@ -341,11 +341,7 @@ public class MainLogic {
 				
 				rollDices(dicesToRoll);
 				
-				returnBack.setClickable(players[currentPlayer].getManagement().isClickable(dices), currentPlayer);
-				
-				if(players[currentPlayer].getManagement().getDiceRepeatUsed() < 
-						players[currentPlayer].getManagement().getDiceRepeatCount())
-					returnBack.getClickable(currentPlayer).setDiceRepeat(true);
+				currentArea[currentPlayer] = Area.rollDices;
 				
 				break;
 	
@@ -755,6 +751,15 @@ public class MainLogic {
 					nextArea[currentPlayer] = Area.rollDices;
 				}
 			}
+		}
+		
+		if(currentArea[currentPlayer] == Area.rollDices) {
+			
+			returnBack.setClickable(players[currentPlayer].getManagement().isClickable(dices), currentPlayer);
+			
+			if(players[currentPlayer].getManagement().getDiceRepeatUsed() < 
+					players[currentPlayer].getManagement().getDiceRepeatCount())
+				returnBack.getClickable(currentPlayer).setDiceRepeat(true);
 		}
 	
 		for(int i = 0; i < playerCount; i++) {
