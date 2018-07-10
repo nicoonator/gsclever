@@ -327,6 +327,8 @@ public class MainLogic {
 				else if(currentPlayer == playerId)
 					nextArea[playerId] = Area.rollDices;
 				
+				currentArea[playerId] = null;
+				
 				break;
 				
 			case rollDices:
@@ -354,6 +356,8 @@ public class MainLogic {
 					throw new CannotUseDiceRepeatException();
 	
 				nextArea[playerId] = Area.rollDices;
+				
+				currentArea[playerId] = null;
 				
 				break;
 	
@@ -430,6 +434,8 @@ public class MainLogic {
 				else if(currentPlayer == playerId)
 					nextArea[playerId] = Area.rollDices;
 				
+				currentArea[playerId] = null;
+				
 				break;
 	
 			case yellow:
@@ -446,6 +452,8 @@ public class MainLogic {
 						dices[Color.white.ordinal()].isOnTray() == false) {
 					
 					nextArea[playerId] = Area.decisionMaker;
+					
+					currentArea[playerId] = Area.yellow;
 				}
 				else if(dices[Color.yellow.ordinal()].getField() != -1 || 
 						dices[Color.yellow.ordinal()].isOnTray() == true ||
@@ -486,6 +494,8 @@ public class MainLogic {
 				
 				diceAvailable();
 				
+				currentArea[playerId] = null;
+				
 				break;
 	
 			case blue:
@@ -498,6 +508,8 @@ public class MainLogic {
 						dices[Color.white.ordinal()].isOnTray() == false) {
 					
 					nextArea[playerId] = Area.decisionMaker;
+					
+					currentArea[playerId] = Area.blue;
 				}
 				else if(dices[Color.blue.ordinal()].getField() != -1 || 
 						dices[Color.blue.ordinal()].isOnTray() == true) {
@@ -538,6 +550,8 @@ public class MainLogic {
 				
 				diceAvailable();
 				
+				currentArea[playerId] = null;
+				
 				break;
 	
 			case green:
@@ -554,6 +568,8 @@ public class MainLogic {
 						dices[Color.white.ordinal()].isOnTray() == false) {
 					
 					nextArea[playerId] = Area.decisionMaker;
+					
+					currentArea[playerId] = Area.green;
 				}
 				else if(dices[Color.green.ordinal()].getField() != -1 || 
 						dices[Color.green.ordinal()].isOnTray() == true ||
@@ -594,6 +610,8 @@ public class MainLogic {
 				
 				diceAvailable();
 				
+				currentArea[playerId] = null;
+				
 				break;
 	
 			case orange:
@@ -606,6 +624,8 @@ public class MainLogic {
 						dices[Color.white.ordinal()].isOnTray() == false) {
 					
 					nextArea[playerId] = Area.decisionMaker;
+					
+					currentArea[playerId] = Area.orange;
 				}
 				else if(dices[Color.orange.ordinal()].getField() != -1 || 
 						dices[Color.orange.ordinal()].isOnTray() == true) {
@@ -644,6 +664,8 @@ public class MainLogic {
 				
 				diceAvailable();
 				
+				currentArea[playerId] = null;
+				
 				break;
 	
 			case purple:
@@ -660,6 +682,8 @@ public class MainLogic {
 						dices[Color.white.ordinal()].isOnTray() == false) {
 					
 					nextArea[playerId] = Area.decisionMaker;
+					
+					currentArea[playerId] = Area.purple;
 				}
 				else if(dices[Color.purple.ordinal()].getField() != -1 || 
 						dices[Color.purple.ordinal()].isOnTray() == true ||
@@ -699,6 +723,8 @@ public class MainLogic {
 				}
 				
 				diceAvailable();
+				
+				currentArea[playerId] = null;
 	
 				break;
 				
@@ -749,6 +775,8 @@ public class MainLogic {
 					}
 					
 					nextArea[currentPlayer] = Area.rollDices;
+					
+					currentArea[playerId] = null;
 				}
 			}
 		}
