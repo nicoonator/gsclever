@@ -766,137 +766,140 @@ public class MainLogic {
 			
 			returnBack.getClickable(i).setPlayerId(i);
 				
-			switch(nextArea[i]) {
-			case decisionMaker:
+			if(nextArea[i] != null) {
 				
-				returnBack.getDecisionMaker(i).setColorDiceActive(true);
-				returnBack.getDecisionMaker(i).setWhiteDiceActive(true);
-				
-				switch(currentArea[i]) {
-				case yellow:
+				switch(nextArea[i]) {
+				case decisionMaker:
 					
-					returnBack.getDecisionMaker(i).setColorOfDice(Color.yellow);
+					returnBack.getDecisionMaker(i).setColorDiceActive(true);
+					returnBack.getDecisionMaker(i).setWhiteDiceActive(true);
+					
+					switch(currentArea[i]) {
+					case yellow:
+						
+						returnBack.getDecisionMaker(i).setColorOfDice(Color.yellow);
+						
+						break;
+						
+					case blue:
+						
+						returnBack.getDecisionMaker(i).setColorOfDice(Color.blue);
+						
+						break;
+						
+					case green:
+						
+						returnBack.getDecisionMaker(i).setColorOfDice(Color.green);
+						
+						break;
+						
+					case orange:
+						
+						returnBack.getDecisionMaker(i).setColorOfDice(Color.orange);
+						
+						break;
+						
+					case purple:
+						
+						returnBack.getDecisionMaker(i).setColorOfDice(Color.purple);
+						
+						break;
+						
+					default:
+						break;
+					}
 					
 					break;
 					
-				case blue:
+				case rollDices:
 					
-					returnBack.getDecisionMaker(i).setColorOfDice(Color.blue);
-					
-					break;
-					
-				case green:
-					
-					returnBack.getDecisionMaker(i).setColorOfDice(Color.green);
+					if(currentPlayer == i)
+						returnBack.getClickable(i).setRollDices(true);
 					
 					break;
 					
-				case orange:
+				case specialEvent:
 					
-					returnBack.getDecisionMaker(i).setColorOfDice(Color.orange);
-					
-					break;
-					
-				case purple:
-					
-					returnBack.getDecisionMaker(i).setColorOfDice(Color.purple);
+					switch(currentSpecialEvent[i]) {
+					case enterCrossYellow:
+						
+						boolean[] clickableYellow = players[playerId].getManagement().getYellow().getFields();
+						for(int j = 0; j < clickableYellow.length; j++) {
+							
+							if(clickableYellow[j] == true)
+								clickableYellow[j] = false;
+							else
+								clickableYellow[j] = true;
+						}
+						
+						returnBack.getClickable(playerId).setYellow(clickableYellow);
+						
+						break;
+						
+					case enterCrossBlue:
+						
+						boolean[] clickableBlue = players[playerId].getManagement().getBlue().getFields();
+						for(int j = 0; j < clickableBlue.length; j++) {
+							
+							if(clickableBlue[j] == true)
+								clickableBlue[j] = false;
+							else
+								clickableBlue[j] = true;
+						}
+						
+						returnBack.getClickable(playerId).setBlue(clickableBlue);
+						
+						break;
+						
+					case round4:
+						
+						clickableYellow = players[playerId].getManagement().getYellow().getFields();
+						for(int j = 0; j < clickableYellow.length; j++) {
+							
+							if(clickableYellow[j] == true)
+								clickableYellow[j] = false;
+							else
+								clickableYellow[j] = true;
+						}
+						
+						clickableBlue = players[playerId].getManagement().getBlue().getFields();
+						for(int j = 0; j < clickableBlue.length; j++) {
+							
+							if(clickableBlue[j] == true)
+								clickableBlue[j] = false;
+							else
+								clickableBlue[j] = true;
+						}
+						
+						boolean clickableGreen = false;
+						if(players[playerId].getManagement().getGreen().getFields() < 11)
+							clickableGreen = true;
+						
+						boolean clickableOrange = false;
+						if(players[playerId].getManagement().getOrange().getFields()[10] == 0)
+							clickableOrange = true;
+						
+						boolean clickablePurple = false;
+						if(players[playerId].getManagement().getPurple().getFields()[10] == 0)
+							clickablePurple = true;
+						
+						returnBack.getClickable(playerId).setYellow(clickableYellow);
+						returnBack.getClickable(playerId).setBlue(clickableBlue);
+						returnBack.getClickable(playerId).setGreen(clickableGreen);
+						returnBack.getClickable(playerId).setOrange(clickableOrange);
+						returnBack.getClickable(playerId).setPurple(clickablePurple);
+						
+						break;
+						
+					default:
+						break;
+					}
 					
 					break;
 					
 				default:
 					break;
 				}
-				
-				break;
-				
-			case rollDices:
-				
-				if(currentPlayer == i)
-					returnBack.getClickable(i).setRollDices(true);
-				
-				break;
-				
-			case specialEvent:
-				
-				switch(currentSpecialEvent[i]) {
-				case enterCrossYellow:
-					
-					boolean[] clickableYellow = players[playerId].getManagement().getYellow().getFields();
-					for(int j = 0; j < clickableYellow.length; j++) {
-						
-						if(clickableYellow[j] == true)
-							clickableYellow[j] = false;
-						else
-							clickableYellow[j] = true;
-					}
-					
-					returnBack.getClickable(playerId).setYellow(clickableYellow);
-					
-					break;
-					
-				case enterCrossBlue:
-					
-					boolean[] clickableBlue = players[playerId].getManagement().getBlue().getFields();
-					for(int j = 0; j < clickableBlue.length; j++) {
-						
-						if(clickableBlue[j] == true)
-							clickableBlue[j] = false;
-						else
-							clickableBlue[j] = true;
-					}
-					
-					returnBack.getClickable(playerId).setBlue(clickableBlue);
-					
-					break;
-					
-				case round4:
-					
-					clickableYellow = players[playerId].getManagement().getYellow().getFields();
-					for(int j = 0; j < clickableYellow.length; j++) {
-						
-						if(clickableYellow[j] == true)
-							clickableYellow[j] = false;
-						else
-							clickableYellow[j] = true;
-					}
-					
-					clickableBlue = players[playerId].getManagement().getBlue().getFields();
-					for(int j = 0; j < clickableBlue.length; j++) {
-						
-						if(clickableBlue[j] == true)
-							clickableBlue[j] = false;
-						else
-							clickableBlue[j] = true;
-					}
-					
-					boolean clickableGreen = false;
-					if(players[playerId].getManagement().getGreen().getFields() < 11)
-						clickableGreen = true;
-					
-					boolean clickableOrange = false;
-					if(players[playerId].getManagement().getOrange().getFields()[10] == 0)
-						clickableOrange = true;
-					
-					boolean clickablePurple = false;
-					if(players[playerId].getManagement().getPurple().getFields()[10] == 0)
-						clickablePurple = true;
-					
-					returnBack.getClickable(playerId).setYellow(clickableYellow);
-					returnBack.getClickable(playerId).setBlue(clickableBlue);
-					returnBack.getClickable(playerId).setGreen(clickableGreen);
-					returnBack.getClickable(playerId).setOrange(clickableOrange);
-					returnBack.getClickable(playerId).setPurple(clickablePurple);
-					
-					break;
-					
-				default:
-					break;
-				}
-				
-				break;
-				
-			default:
-				break;
 			}
 			
 			if(players[i].getManagement().getAdditionalDiceUsed() < 
