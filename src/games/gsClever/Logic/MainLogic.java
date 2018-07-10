@@ -765,6 +765,16 @@ public class MainLogic {
 		for(int i = 0; i < playerCount; i++) {
 			
 			returnBack.getClickable(i).setPlayerId(i);
+			
+			//TODO
+/*			if(currentArea[i] != null) {
+				
+				switch(currentArea[i]) {
+				case rollDices:
+					
+					
+				}
+			}*/
 				
 			if(nextArea[i] != null) {
 				
