@@ -815,39 +815,42 @@ public class MainLogic {
 					returnBack.getDecisionMaker(i).setColorDiceActive(true);
 					returnBack.getDecisionMaker(i).setWhiteDiceActive(true);
 					
-					switch(currentArea[i]) {
-					case yellow:
-						
-						returnBack.getDecisionMaker(i).setColorOfDice(Color.yellow);
-						
-						break;
-						
-					case blue:
-						
-						returnBack.getDecisionMaker(i).setColorOfDice(Color.blue);
-						
-						break;
-						
-					case green:
-						
-						returnBack.getDecisionMaker(i).setColorOfDice(Color.green);
-						
-						break;
-						
-					case orange:
-						
-						returnBack.getDecisionMaker(i).setColorOfDice(Color.orange);
-						
-						break;
-						
-					case purple:
-						
-						returnBack.getDecisionMaker(i).setColorOfDice(Color.purple);
-						
-						break;
-						
-					default:
-						break;
+					if(currentArea[i] != null) {
+					
+						switch(currentArea[i]) {
+						case yellow:
+							
+							returnBack.getDecisionMaker(i).setColorOfDice(Color.yellow);
+							
+							break;
+							
+						case blue:
+							
+							returnBack.getDecisionMaker(i).setColorOfDice(Color.blue);
+							
+							break;
+							
+						case green:
+							
+							returnBack.getDecisionMaker(i).setColorOfDice(Color.green);
+							
+							break;
+							
+						case orange:
+							
+							returnBack.getDecisionMaker(i).setColorOfDice(Color.orange);
+							
+							break;
+							
+						case purple:
+							
+							returnBack.getDecisionMaker(i).setColorOfDice(Color.purple);
+							
+							break;
+							
+						default:
+							break;
+						}
 					}
 					
 					break;
