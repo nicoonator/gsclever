@@ -42,53 +42,11 @@ addListener('STARTARRAY',function (event) {
 	extractArray(arr);
     }
 });
-addListener('standardEvent', function(event) {
-    var stringFromServer = event.data;
-    var arr = stringFromServer.split(',');
-    // console.log(arr);
 
-    if (arr.length == 11) {
-	for (var i = 0; i < 9; i++) {
-	    arrFields[i] = +arr[i];
-	}
-	playerMessage = arr[9];
-	var str = arr[10];
-	if (str == "HOST") {
-	    console.log(arr[10]);
-	    setVisible();
-	}
-
-	sentFields = [ 0, 0, 0, 0, 0, 0, 0, 0, 0 ];
-	document.getElementById("Player").innerHTML = playerMessage;
-	redraw();
-    }
-    statusWait = false;
-});
-addListener('START', function(event) {
-    // TODO
-});
 addListener('PLAYERLEFT', function(event) {
     var stringFromServer = event.data;
     playerMessage = stringFromServer;
     document.getElementById("label").innerHTML = "Ein Spieler hat das Spiel verlassen";
-});
-addListener(
-	'CLOSE',
-	function(event) {
-	    document.getElementById("Player").innerHTML = "Spiel wurde vom Host beendet!";
-	});
-addListener('TESTWUERFELN', function(event) {
-    var stringFromServer = event.data;
-    var arr = stringFromServer.split(',');
-    console.log(stringFromServer);
-    console.log(arr);
-    for (var i = 0; i < 6; i++) {
-	number[i] = +arr[i];
-    }
-    // var number = Number(stringFromServer);
-    // Hier wird ein Array uebergeben:
-
-    setDice(number);
 });
 addListener('SUBMITGAME', function(event) {
     var stringFromServer = event.data;
@@ -699,111 +657,6 @@ function getFieldID(SpielerNR){
 			    break;
 			}
     	}
-    }
-}
-
-function setDiceOnField(fieldNR, dice){
-    var nodes = document.getElementById(currentPlayerField()).childNodes;
-    switch (fieldNR){
-    case 1: {
-	for(var i=0; i<nodes.length; i++) {
-	    if (nodes[i].id == 'Wuerfelfeld1') {
-		switch (dice){
-		case 1:{
-		    nodes[i].src=getDiceImg(GelbWert);
-		    break;
-		}
-		case 2:{
-		    nodes[i].src=getDiceImg(BlauWert);
-		    break;
-		}
-		case 3:{
-		    nodes[i].src=getDiceImg(GreenWert);
-		    break;
-		}
-		case 4:{
-		    nodes[i].src=getDiceImg(OrangeWert);
-		    break;
-		}
-		case 5:{
-		    nodes[i].src=getDiceImg(LilaWert);
-		    break;
-		}
-		case 6:{
-		    nodes[i].src=getDiceImg(WeissWert);
-		    break;
-		}
-		}
-	     }
-	}
-	break;
-    }
-    case 2: {
-	for(var i=0; i<nodes.length; i++) {
-	    if (nodes[i].id == 'Wuerfelfeld2') {
-		switch (dice){
-		case 1:{
-		    nodes[i].src=getDiceImg(BlauWert);
-		    break;
-		}
-		case 2:{
-		    nodes[i].src=getDiceImg(GelbWert);
-		    break;
-		}
-		case 3:{
-		    nodes[i].src=getDiceImg(OrangeWert);
-		    break;
-		}
-		case 4:{
-		    nodes[i].src=getDiceImg(LilaWert);
-		    break;
-		}
-		case 5:{
-		    nodes[i].src=getDiceImg(GreenWert);
-		    break;
-		}
-		case 6:{
-		    nodes[i].src=getDiceImg(WeissWert);
-		    break;
-		}
-		}
-	     }
-	}
-	break;
-    }
-    case 3: {
-	for(var i=0; i<nodes.length; i++) {
-	    if (nodes[i].id == 'Wuerfelfeld3') {
-		switch (dice){
-		case 1:{
-		    nodes[i].src=getDiceImg(BlauWert);
-		    break;
-		}
-		case 2:{
-		    nodes[i].src=getDiceImg(GelbWert);
-		    break;
-		}
-		case 3:{
-		    nodes[i].src=getDiceImg(OrangeWert);
-		    break;
-		}
-		case 4:{
-		    nodes[i].src=getDiceImg(LilaWert);
-		    break;
-		}
-		case 5:{
-		    nodes[i].src=getDiceImg(GreenWert);
-		    break;
-		}
-		case 6:{
-		    nodes[i].src=getDiceImg(WeissWert);
-		    break;
-		}
-		}
-	     }
-	}
-	break;
-    }
     }
 }
 
@@ -1553,17 +1406,16 @@ function extractArray(x) {
 	case 11: {
 	    if(+x[i]==1){ 
 		setDiceOnTray(BlauWert);
-		} else if(+x[8]!=2 && +x[9]!=2 && +x[10]!=2){
+		} 
+	    else if(+x[8]!=2 && +x[9]!=2 && +x[10]!=2){
 		    setDiceOnPlace(2);
-		} else {
-			clearBluePlace();
-		}
+	    }
 	    break;
 	}
 	case 12: {
 	    if(+x[i]==1){ 
 		setDiceOnTray(GelbWert);
-		} else if(+x[8]!=1 && +x[9]!=1 && +x[20]!=1){
+		} else if(+x[8]!=1 && +x[9]!=1 && +x[10]!=1){
 		    setDiceOnPlace(1);
 		}
 	    break;
@@ -1571,7 +1423,7 @@ function extractArray(x) {
 	case 13: {
 	    if(+x[i]==1){ 
 		setDiceOnTray(OrangeWert);
-		} else if(+x[8]!=4 && +x[9]!=4 && +x[30]!=4){
+		} else if(+x[8]!=4 && +x[9]!=4 && +x[10]!=4){
 		    setDiceOnPlace(4);
 		}
 	    break;
@@ -1579,7 +1431,7 @@ function extractArray(x) {
 	case 14: {
 	    if(+x[i]==1){ 
 		setDiceOnTray(LilaWert);
-		} else if(+x[8]!=5 && +x[9]!=5 && +x[40]!=5){
+		} else if(+x[8]!=5 && +x[9]!=5 && +x[10]!=5){
 		    setDiceOnPlace(5);
 		}
 	    break;
@@ -1587,7 +1439,7 @@ function extractArray(x) {
 	case 15: {
 	    if(+x[i]==1){ 
 		setDiceOnTray(GreenWert);
-		} else if(+x[8]!=3 && +x[9]!=3 && +x[50]!=3){
+		} else if(+x[8]!=3 && +x[9]!=3 && +x[10]!=3){
 		    setDiceOnPlace(3);
 		}
 	    break;
@@ -1595,7 +1447,7 @@ function extractArray(x) {
 	case 16: {
 	    if(+x[i]==1){ 
 		setDiceOnTray(WeissWert);
-		} else if(+x[8]!=6 && +x[9]!=6 && +x[60]!=6){
+		} else if(+x[8]!=6 && +x[9]!=6 && +x[10]!=6){
 		    setDiceOnPlace(6);
 		}
 	    break;
