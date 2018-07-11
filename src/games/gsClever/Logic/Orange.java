@@ -80,7 +80,7 @@ public class Orange extends ColorArea {
 
 	public boolean isClickable(int valueDiceOrange, int valueDiceWhite) {
 
-		if (fields[10]!=0) {
+		if (fields[10]==0) {
 			return true;	
 		} else return false;
 
