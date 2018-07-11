@@ -32,13 +32,13 @@ public class MainLogic {
 		ready = new boolean[userList.size()];
 
 		dices = new Dice[6];
-		dices[0] = new Dice(Color.yellow);
-		dices[1] = new Dice(Color.blue);
-		dices[2] = new Dice(Color.white);
-		dices[3] = new Dice(Color.green);
-		dices[4] = new Dice(Color.orange);
-		dices[5] = new Dice(Color.purple);
-
+		dices[Color.yellow.ordinal()] = new Dice(Color.yellow);
+		dices[Color.blue.ordinal()] = new Dice(Color.blue);
+		dices[Color.green.ordinal()] = new Dice(Color.green);
+		dices[Color.orange.ordinal()] = new Dice(Color.orange);
+		dices[Color.purple.ordinal()] = new Dice(Color.purple);
+		dices[Color.white.ordinal()] = new Dice(Color.white);
+		
 		players = new Player[userList.size()];
 		for (int id = 0; id < userList.size(); id++) {
 			
