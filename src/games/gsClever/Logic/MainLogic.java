@@ -323,6 +323,8 @@ public class MainLogic {
 				
 				diceAvailable();
 				
+				currentArea[playerId] = null;
+				
 				if(currentSpecialEvent[playerId] != null)
 					nextArea[playerId] = Area.specialEvent;
 				else if(currentPlayer == playerId)
@@ -823,14 +825,6 @@ public class MainLogic {
 					
 					break;
 					
-				case takeDiceFromTray:
-					
-					if(players[playerId].getManagement().getAdditionalDiceUsed() < 
-							players[playerId].getManagement().getAdditionalDiceCount())
-						returnBack.getClickable(playerId).setAdditionalDice(true);
-					
-					break;
-					
 				default:
 					break;
 				}
@@ -1060,7 +1054,9 @@ public class MainLogic {
 			}
 			
 			if(players[i].getManagement().getAdditionalDiceUsed() < 
-					players[i].getManagement().getAdditionalDiceCount() && additionalDiceTime)
+					players[i].getManagement().getAdditionalDiceCount() && 
+					additionalDiceTime && nextArea[i] != Area.takeDiceFromTray &&
+					currentArea[i] != Area.decisionMaker && nextArea[i] != Area.decisionMaker)
 				returnBack.getClickable(i).setAdditionalDice(true);
 			
 			Matchfield matchfield = returnBack.getMatchfield(i);
