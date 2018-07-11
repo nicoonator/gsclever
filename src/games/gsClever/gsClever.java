@@ -482,6 +482,9 @@ public class gsClever extends Game {
 			else
 				result[i] = 0;
 		}
+		for (int i = 2; i < 8; i++) {
+			result[i]=(i-1);
+		}
 		result[69] = 1;
 		result[1] = 1;
 		return result;
@@ -616,6 +619,7 @@ public class gsClever extends Game {
 		// Array aus
 		// der Logic holen
 		int[] result = new int[345];
+		int value = 0;
 		for (int i = 0; i < 345; i++) {
 			switch (i) {
 			case 0:
@@ -625,23 +629,40 @@ public class gsClever extends Game {
 				result[i] = returnBack.getCurrentPlayer()+1;
 				break;
 			case 2:
-				result[i] = returnBack.getDices()[Color.blue.ordinal()].getValue();
+				value = returnBack.getDices()[Color.blue.ordinal()].getValue();
+				if(value>0) {
+					result[i] = returnBack.getDices()[Color.blue.ordinal()].getValue();
+				} else result[i] = 1;
 				break;
 			case 3:
-				result[i] = returnBack.getDices()[Color.yellow.ordinal()].getValue();
+				value = returnBack.getDices()[Color.yellow.ordinal()].getValue();
+				if(value>0) {
+					result[i] = returnBack.getDices()[Color.yellow.ordinal()].getValue();
+				} else result[i] = 2;
 				break;
 			case 4:
+				value = returnBack.getDices()[Color.orange.ordinal()].getValue();
+				if(value>0) {
 				result[i] = returnBack.getDices()[Color.orange.ordinal()].getValue();
+				} else result[i] = 3;
 				break;
 			case 5:
+				value = returnBack.getDices()[Color.purple.ordinal()].getValue();
+				if(value>0) {
 				result[i] = returnBack.getDices()[Color.purple.ordinal()].getValue();
+				} else result[i] = 4;
 				break;
 			case 6:
+				value = returnBack.getDices()[Color.green.ordinal()].getValue();
+				if(value>0) {
 				result[i] = returnBack.getDices()[Color.green.ordinal()].getValue();
-				System.out.println(returnBack.getDices()[Color.green.ordinal()].getValue());
+				} else result[i] = 5;
 				break;
 			case 7:
+				value = returnBack.getDices()[Color.white.ordinal()].getValue();
+				if(value>0) {
 				result[i] = returnBack.getDices()[Color.white.ordinal()].getValue();
+				} else result[i] = 6;
 				break;
 			case 8:
 				result[i] = 0;
