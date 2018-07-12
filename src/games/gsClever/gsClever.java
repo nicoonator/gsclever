@@ -37,6 +37,8 @@ public class gsClever extends Game {
 	private String users = "";
 	private MainLogic currentGame;
 	private Return returnBack;
+	private int currentID =0;
+	private ArrayList<KI> KIList=new ArrayList<KI>();
 
 	@Override
 	public String getSite() {
@@ -83,6 +85,8 @@ public class gsClever extends Game {
 	 */
 	@Override
 	public void execute(User user, String gsonString) {
+		
+		
 
 		if (gsonString.equals("STARTGAME") && userList.size() >= 2) {
 			this.gState = GameState.RUNNING;
@@ -91,6 +95,7 @@ public class gsClever extends Game {
 			this.setupGame();
 			sendGameDataToClients("NEWGAME");
 			sendGameDataToClients("STARTARRAY");
+			checkKITurn();
 			return;
 		}
 		
@@ -113,7 +118,8 @@ public class gsClever extends Game {
 		}
 
 		if (gsonString.equals("ADDKI")) {
-			// TODO
+			this.addKI();
+			//TODO
 		}
 
 		int userID = currentGame.determinePlayerId(user.getName());
@@ -143,6 +149,7 @@ public class gsClever extends Game {
 				e.printStackTrace();
 			}
 			sendGameDataToClients("SUBMITGAME");
+			checkKITurn();
 			return;
 		}
 
@@ -154,6 +161,7 @@ public class gsClever extends Game {
 				e.printStackTrace();
 			}
 			sendGameDataToClients("SUBMITGAME");
+			checkKITurn();
 			return;
 		}
 
@@ -165,6 +173,7 @@ public class gsClever extends Game {
 				e.printStackTrace();
 			}
 			sendGameDataToClients("SUBMITGAME");
+			checkKITurn();
 			return;
 		}
 
@@ -176,6 +185,7 @@ public class gsClever extends Game {
 				e.printStackTrace();
 			}
 			sendGameDataToClients("SUBMITGAME");
+			checkKITurn();
 			return;
 		}
 		if (gsonString.equals("COLORDECIDER")) {
@@ -187,6 +197,7 @@ public class gsClever extends Game {
 				e.printStackTrace();
 			}
 			sendGameDataToClients("SUBMITGAME");
+			checkKITurn();
 			return;
 		}
 		if (gsonString.equals("WHITEDECIDER")) {
@@ -197,6 +208,7 @@ public class gsClever extends Game {
 				e.printStackTrace();
 			}
 			sendGameDataToClients("SUBMITGAME");
+			checkKITurn();
 			return;
 		}
 		if (gsonString.equals("CLICKYELLOW0")) {
@@ -207,6 +219,7 @@ public class gsClever extends Game {
 				e.printStackTrace();
 			}
 			sendGameDataToClients("SUBMITGAME");
+			checkKITurn();
 			return;
 		}
 		if (gsonString.equals("CLICKYELLOW1")) {
@@ -217,6 +230,7 @@ public class gsClever extends Game {
 				e.printStackTrace();
 			}
 			sendGameDataToClients("SUBMITGAME");
+			checkKITurn();
 			return;
 		}
 		if (gsonString.equals("CLICKYELLOW2")) {
@@ -226,7 +240,7 @@ public class gsClever extends Game {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			sendGameDataToClients("SUBMITGAME");
+			sendGameDataToClients("SUBMITGAME"); checkKITurn();
 			return;
 		}
 		if (gsonString.equals("CLICKYELLOW3")) {
@@ -236,7 +250,7 @@ public class gsClever extends Game {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			sendGameDataToClients("SUBMITGAME");
+			sendGameDataToClients("SUBMITGAME"); checkKITurn();
 			return;
 		}
 		if (gsonString.equals("CLICKYELLOW4")) {
@@ -246,7 +260,7 @@ public class gsClever extends Game {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			sendGameDataToClients("SUBMITGAME");
+			sendGameDataToClients("SUBMITGAME"); checkKITurn();
 			return;
 		}
 		if (gsonString.equals("CLICKYELLOW5")) {
@@ -256,7 +270,7 @@ public class gsClever extends Game {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			sendGameDataToClients("SUBMITGAME");
+			sendGameDataToClients("SUBMITGAME"); checkKITurn();
 			return;
 		}
 		if (gsonString.equals("CLICKYELLOW6")) {
@@ -266,7 +280,7 @@ public class gsClever extends Game {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			sendGameDataToClients("SUBMITGAME");
+			sendGameDataToClients("SUBMITGAME"); checkKITurn();
 			return;
 		}
 		if (gsonString.equals("CLICKYELLOW7")) {
@@ -276,7 +290,7 @@ public class gsClever extends Game {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			sendGameDataToClients("SUBMITGAME");
+			sendGameDataToClients("SUBMITGAME"); checkKITurn();
 			return;
 		}
 		if (gsonString.equals("CLICKYELLOW8")) {
@@ -286,7 +300,7 @@ public class gsClever extends Game {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			sendGameDataToClients("SUBMITGAME");
+			sendGameDataToClients("SUBMITGAME"); checkKITurn();
 			return;
 		}
 		if (gsonString.equals("CLICKYELLOW9")) {
@@ -296,7 +310,7 @@ public class gsClever extends Game {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			sendGameDataToClients("SUBMITGAME");
+			sendGameDataToClients("SUBMITGAME"); checkKITurn();
 			return;
 		}
 		if (gsonString.equals("CLICKYELLOW10")) {
@@ -306,7 +320,7 @@ public class gsClever extends Game {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			sendGameDataToClients("SUBMITGAME");
+			sendGameDataToClients("SUBMITGAME"); checkKITurn();
 			return;
 		}
 		if (gsonString.equals("CLICKYELLOW11")) {
@@ -316,7 +330,7 @@ public class gsClever extends Game {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			sendGameDataToClients("SUBMITGAME");
+			sendGameDataToClients("SUBMITGAME"); checkKITurn();
 			return;
 		}
 		if (gsonString.equals("CLICKBLUE0")) {
@@ -326,7 +340,7 @@ public class gsClever extends Game {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			sendGameDataToClients("SUBMITGAME");
+			sendGameDataToClients("SUBMITGAME"); checkKITurn();
 			return;
 		}
 		if (gsonString.equals("CLICKBLUE1")) {
@@ -336,7 +350,7 @@ public class gsClever extends Game {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			sendGameDataToClients("SUBMITGAME");
+			sendGameDataToClients("SUBMITGAME"); checkKITurn();
 			return;
 		}
 		if (gsonString.equals("CLICKBLUE2")) {
@@ -346,7 +360,7 @@ public class gsClever extends Game {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			sendGameDataToClients("SUBMITGAME");
+			sendGameDataToClients("SUBMITGAME"); checkKITurn();
 			return;
 		}
 		if (gsonString.equals("CLICKBLUE3")) {
@@ -356,7 +370,7 @@ public class gsClever extends Game {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			sendGameDataToClients("SUBMITGAME");
+			sendGameDataToClients("SUBMITGAME"); checkKITurn();
 			return;
 		}
 		if (gsonString.equals("CLICKBLUE4")) {
@@ -366,7 +380,7 @@ public class gsClever extends Game {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			sendGameDataToClients("SUBMITGAME");
+			sendGameDataToClients("SUBMITGAME"); checkKITurn();
 			return;
 		}
 		if (gsonString.equals("CLICKBLUE5")) {
@@ -376,7 +390,7 @@ public class gsClever extends Game {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			sendGameDataToClients("SUBMITGAME");
+			sendGameDataToClients("SUBMITGAME"); checkKITurn();
 			return;
 		}
 		if (gsonString.equals("CLICKBLUE6")) {
@@ -386,7 +400,7 @@ public class gsClever extends Game {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			sendGameDataToClients("SUBMITGAME");
+			sendGameDataToClients("SUBMITGAME"); checkKITurn();
 			return;
 		}
 		if (gsonString.equals("CLICKBLUE7")) {
@@ -396,7 +410,7 @@ public class gsClever extends Game {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			sendGameDataToClients("SUBMITGAME");
+			sendGameDataToClients("SUBMITGAME"); checkKITurn();
 			return;
 		}
 		if (gsonString.equals("CLICKBLUE8")) {
@@ -406,7 +420,7 @@ public class gsClever extends Game {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			sendGameDataToClients("SUBMITGAME");
+			sendGameDataToClients("SUBMITGAME"); checkKITurn();
 			return;
 		}
 		if (gsonString.equals("CLICKBLUE9")) {
@@ -416,7 +430,7 @@ public class gsClever extends Game {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			sendGameDataToClients("SUBMITGAME");
+			sendGameDataToClients("SUBMITGAME"); checkKITurn();
 			return;
 		}
 		if (gsonString.equals("CLICKBLUE10")) {
@@ -426,7 +440,7 @@ public class gsClever extends Game {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			sendGameDataToClients("SUBMITGAME");
+			sendGameDataToClients("SUBMITGAME"); checkKITurn();
 			return;
 		}
 		if (gsonString.equals("CLICKGREEN")) {
@@ -436,7 +450,7 @@ public class gsClever extends Game {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			sendGameDataToClients("SUBMITGAME");
+			sendGameDataToClients("SUBMITGAME"); checkKITurn();
 			return;
 		}
 		if (gsonString.equals("CLICKORANGE")) {
@@ -446,7 +460,7 @@ public class gsClever extends Game {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			sendGameDataToClients("SUBMITGAME");
+			sendGameDataToClients("SUBMITGAME"); checkKITurn();
 			return;
 		}
 		if (gsonString.equals("CLICKPURPLE")) {
@@ -456,10 +470,22 @@ public class gsClever extends Game {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			sendGameDataToClients("SUBMITGAME");
+			sendGameDataToClients("SUBMITGAME"); checkKITurn();
 			return;
 		}
 		return;
+	}
+
+	private void checkKITurn() {
+		
+		for (KI ki : KIList) {
+			if(returnBack.getCurrentPlayer()==currentGame.determinePlayerId(ki.getName())){
+				returnBack=ki.doSomething(currentGame,returnBack);
+				sendGameDataToClients("SUBMITGAME");
+				return;
+			}
+		}
+		
 	}
 
 	/**
@@ -573,10 +599,13 @@ public class gsClever extends Game {
 		}
 	}
 
-	public void addKI(KI ki) {
+	public void addKI() {
+		KI ki = new KI(currentID);
+		currentID++;
 		if (playerList.size() < 4 && !playerList.contains(ki)) {
 			this.addUser(ki);
-			;
+			this.KIList.add(ki);
+			
 		}
 	}
 
