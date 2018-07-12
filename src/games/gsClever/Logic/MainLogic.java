@@ -780,21 +780,11 @@ public class MainLogic {
 					
 				case blue:
 					
-					if(dices[Color.blue.ordinal()].isOnTray() && dices[Color.white.ordinal()].isOnTray()) {
-						
-						nextArea[playerId] = Area.decisionMaker;
-					}
-					else if(dices[Color.blue.ordinal()].isOnTray()) {
+					if(dices[Color.blue.ordinal()].isOnTray() || dices[Color.white.ordinal()].isOnTray()) {
 						
 						currentSpecialEvent[playerId] = players[playerId].getManagement().enterCrossOrNumber(
-								currentArea[playerId], fieldId, dices[Color.blue.ordinal()].getValue());
-						
-						nextArea[playerId] = null;
-					}
-					else if(dices[Color.white.ordinal()].isOnTray()) {
-						
-						currentSpecialEvent[playerId] = players[playerId].getManagement().enterCrossOrNumber(
-								currentArea[playerId], fieldId, dices[Color.white.ordinal()].getValue());
+								currentArea[playerId], fieldId, dices[Color.blue.ordinal()].getValue() + 
+								dices[Color.white.ordinal()].getValue());
 						
 						nextArea[playerId] = null;
 					}
