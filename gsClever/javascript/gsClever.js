@@ -263,7 +263,32 @@ function getNumberImg(x) {
 }
 
 function changeButtonNames(){
-	
+		switch(userNumber){
+			case 1:{ 
+				document.getElementById("buttonSpieler2").value=namelist[1];
+				document.getElementById("buttonSpieler3").value=namelist[2];
+				document.getElementById("buttonSpieler4").value=namelist[3];
+		    	break;
+		    }
+		    case 2:{ 
+		    	document.getElementById("buttonSpieler2").value=namelist[0];
+				document.getElementById("buttonSpieler3").value=namelist[2];
+				document.getElementById("buttonSpieler4").value=namelist[3];
+		    	break;
+		    }
+		    case 3:{ 
+		    	document.getElementById("buttonSpieler2").value=namelist[1];
+				document.getElementById("buttonSpieler3").value=namelist[0];
+				document.getElementById("buttonSpieler4").value=namelist[3];
+		    	break;
+		    }
+		    case 4:{ 
+		    	document.getElementById("buttonSpieler2").value=namelist[1];
+				document.getElementById("buttonSpieler3").value=namelist[2];
+				document.getElementById("buttonSpieler4").value=namelist[0];
+		    	break;
+		    }
+	    }
 }
 
 function setupGameByPlayerAmount(){
@@ -337,7 +362,6 @@ function showview(x) {
     }
 }
 function skip() {
-    if(document.getElementById("buttonZusatzWuerfel").getAttribute('onclick')=="Clicked('ZUSATZWUERFELN')" )
     sendDataToServer("SKIP");
 }
 function setDice(x) {
@@ -1390,6 +1414,7 @@ function extractArray(x) {
 	}
 	case 1: {
 	    currentPlayer = +x[i];
+	    showview(+x[i]);
 	    break;
 	}
 	case 2: {

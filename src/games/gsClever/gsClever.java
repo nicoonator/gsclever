@@ -63,8 +63,8 @@ public class gsClever extends Game {
 
 	@Override
 	public String getJavaScript() {
-		return "<script src=\"javascript/gsClever.js\"></script>"
-				+ " <script src=\"https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js\"></script>";
+		return  " <script src=\"https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js\"></script>"
+		+" <script src=\"javascript/gsClever.js\"></script>";
 	}
 
 	@Override
@@ -647,6 +647,7 @@ public class gsClever extends Game {
 		playerList.remove(user);
 		playerLeft = user.getName();
 		sendGameDataToClients("PLAYERLEFT");
+		this.gState = GameState.FINISHED;
 	}
 
 	@Override
@@ -1610,7 +1611,7 @@ public class gsClever extends Game {
 				// TODO SPieler 3-4 anpassen
 				if (result[i - 2] != 0) {
 					if (this.getCurrentPlayerAmount() > 1)
-						result[i] = returnBack.getDecisionMaker(1).getColorOfDice().ordinal();
+						result[i] = returnBack.getDecisionMaker(1).getColorOfDice().ordinal()+1;
 				} else
 					result[i] = 0;
 				break;
