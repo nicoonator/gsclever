@@ -66,7 +66,7 @@ addListener('SUBMITGAME', function(event) {
 
 var spieler=new Array(4);
 var playerAmount = 2;
-var userNumber=0;
+var userNumber=1;
 // 1 = Host, 2 = Spieler2 usw...
 var number = [ 0, 0, 0, 0, 0, 0 ];
 playerMessage = "";
@@ -133,7 +133,7 @@ var statusWait = true;
 
 var arrFields = [ 0, 0, 0, 0, 0, 0, 0, 0, 0 ];
 var sentFields = [ 0, 0, 0, 0, 0, 0, 0, 0, 0 ];
-var currentPlayer = 0;
+var currentPlayer = 1;
 
 function setField(x) {
     sentFields[x] = 1;
@@ -336,6 +336,21 @@ function setDice(x) {
     for (var i = 0; i < 6; i++) {
 	setDiceImg(x[i]);
     }
+}
+
+function clearField(){
+	var nodes = document.getElementById(currentPlayerField()).childNodes;
+	for(var i=0; i<nodes.length; i++) {
+		if (nodes[i].id == 'Wuerfelfeld1') {
+			nodes[i].src= empty;
+		}
+		if (nodes[i].id == 'Wuerfelfeld2') {
+			nodes[i].src= empty;
+		}
+		if (nodes[i].id == 'Wuerfelfeld3') {
+			nodes[i].src= empty;
+		}
+	}
 }
 
 function clearPlace(){
@@ -1324,30 +1339,31 @@ function setOrangeClickable(SpielerNR, value){
 }
 function setPurpleClickable(SpielerNR, value){
     if(userNumber==SpielerNR){
-	var nodes = document.getElementById("spieler1").childNodes;
-	for(var i=0; i<nodes.length; i++) {
-	    if (nodes[i].className == "purpleOnClick") {
-		if(value==1){
-		    nodes[i].setAttribute('onclick','Clicked("CLICKPURPLE")');
-		} else{
-		    nodes[i].setAttribute('onclick','');
+		var nodes = document.getElementById("spieler1").childNodes;
+		for(var i=0; i<nodes.length; i++) {
+		    if (nodes[i].className == "purpleOnClick") {
+				if(value==1){
+				    nodes[i].setAttribute('onclick','Clicked("CLICKPURPLE")');
+				} else{
+				    nodes[i].setAttribute('onclick','');
+				}
+		    }
 		}
-	    }
-	}
     }
 }
 function extractArray(x) {
     // erst die Silberplatte loeschen
     clearTray();
     clearPlace();
+    clearField();
     var limit = 345;
     switch (playerAmount) {
     case 2: {
-	limit = 180;
+	limit = 181;
 	break;
     }
     case 3: {
-	limit = 263
+	limit = 264;
 	break;
     }
     }
