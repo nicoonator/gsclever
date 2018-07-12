@@ -231,6 +231,8 @@ public class MainLogic {
 				
 				if(i != currentPlayer)
 					nextArea[i] = Area.takeDiceFromTray;
+				else
+					nextArea[i] = null;
 			}
 		}
 	}
@@ -338,14 +340,14 @@ public class MainLogic {
 					break;
 				}
 				
-				diceAvailable();
-				
 				currentArea[playerId] = null;
 				
 				if(currentSpecialEvent[playerId] != null)
 					nextArea[playerId] = Area.specialEvent;
 				else if(currentPlayer == playerId)
 					nextArea[playerId] = Area.rollDices;
+				
+				diceAvailable();
 				
 				break;
 				
