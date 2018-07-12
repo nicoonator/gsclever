@@ -767,6 +767,7 @@ public class MainLogic {
 								currentArea[playerId], fieldId, dices[Color.yellow.ordinal()].getValue());
 						
 						nextArea[playerId] = null;
+						currentArea[playerId] = null;
 					}
 					else if(dices[Color.white.ordinal()].isOnTray()) {
 						
@@ -774,6 +775,7 @@ public class MainLogic {
 								currentArea[playerId], fieldId, dices[Color.white.ordinal()].getValue());
 						
 						nextArea[playerId] = null;
+						currentArea[playerId] = null;
 					}
 					
 					break;
@@ -787,6 +789,7 @@ public class MainLogic {
 								dices[Color.white.ordinal()].getValue());
 						
 						nextArea[playerId] = null;
+						currentArea[playerId] = null;
 					}
 					
 					break;
@@ -803,6 +806,7 @@ public class MainLogic {
 								currentArea[playerId], fieldId, dices[Color.green.ordinal()].getValue());
 						
 						nextArea[playerId] = null;
+						currentArea[playerId] = null;
 					}
 					else if(dices[Color.white.ordinal()].isOnTray()) {
 						
@@ -810,6 +814,7 @@ public class MainLogic {
 								currentArea[playerId], fieldId, dices[Color.white.ordinal()].getValue());
 						
 						nextArea[playerId] = null;
+						currentArea[playerId] = null;
 					}
 					
 					break;
@@ -826,6 +831,7 @@ public class MainLogic {
 								currentArea[playerId], fieldId, dices[Color.orange.ordinal()].getValue());
 						
 						nextArea[playerId] = null;
+						currentArea[playerId] = null;
 					}
 					else if(dices[Color.white.ordinal()].isOnTray()) {
 						
@@ -833,6 +839,7 @@ public class MainLogic {
 								currentArea[playerId], fieldId, dices[Color.white.ordinal()].getValue());
 						
 						nextArea[playerId] = null;
+						currentArea[playerId] = null;
 					}
 					
 					break;
@@ -849,6 +856,7 @@ public class MainLogic {
 								currentArea[playerId], fieldId, dices[Color.purple.ordinal()].getValue());
 						
 						nextArea[playerId] = null;
+						currentArea[playerId] = null;
 					}
 					else if(dices[Color.white.ordinal()].isOnTray()) {
 						
@@ -856,6 +864,7 @@ public class MainLogic {
 								currentArea[playerId], fieldId, dices[Color.white.ordinal()].getValue());
 						
 						nextArea[playerId] = null;
+						currentArea[playerId] = null;
 					}
 					
 					break;
