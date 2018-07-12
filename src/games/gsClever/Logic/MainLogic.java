@@ -983,7 +983,7 @@ public class MainLogic {
 								dices[Color.white.ordinal()].getValue(), dices[Color.white.ordinal()].getValue()));
 					}
 					
-					if(dices[Color.blue.ordinal()].isOnTray() || dices[Color.blue.ordinal()].isOnTray()) {
+					if(dices[Color.blue.ordinal()].isOnTray() || dices[Color.white.ordinal()].isOnTray()) {
 						
 						returnBack.getClickable(i).setBlue(players[i].getManagement().getBlue().isClickable(
 								dices[Color.blue.ordinal()].getValue(), dices[Color.white.ordinal()].getValue()));
