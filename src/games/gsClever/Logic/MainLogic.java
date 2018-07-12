@@ -366,6 +366,8 @@ public class MainLogic {
 				rollDices(dicesToRoll);
 				
 				currentArea[currentPlayer] = Area.rollDices;
+				if(false)				//TODO nur für debug (mehrfach würfeln / wenn false dann mehrfach erlaubt)
+					nextArea[currentPlayer] = null;
 				
 				break;
 	
