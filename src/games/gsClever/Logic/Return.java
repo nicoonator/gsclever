@@ -40,6 +40,10 @@ public class Return {
 	public int getRound() {
 		return round;
 	}
+	
+	public void setRound(int round) {
+		this.round = round;
+	}
 
 	public Matchfield getMatchfield(int playerId) {
 		return matchfield[playerId];
