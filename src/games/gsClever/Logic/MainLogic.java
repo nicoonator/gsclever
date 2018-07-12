@@ -985,65 +985,65 @@ public class MainLogic {
 					
 					if(dices[Color.blue.ordinal()].isOnTray() && dices[Color.blue.ordinal()].isOnTray()) {
 						
-						returnBack.getClickable(i).setYellow(players[i].getManagement().getYellow().isClickable(
+						returnBack.getClickable(i).setBlue(players[i].getManagement().getBlue().isClickable(
 								dices[Color.blue.ordinal()].getValue(), dices[Color.white.ordinal()].getValue()));
 					}
 					else if(dices[Color.blue.ordinal()].isOnTray()) {
 						
-						returnBack.getClickable(i).setYellow(players[i].getManagement().getYellow().isClickable(
+						returnBack.getClickable(i).setBlue(players[i].getManagement().getBlue().isClickable(
 								dices[Color.blue.ordinal()].getValue(), dices[Color.blue.ordinal()].getValue()));
 					}
 					else if(dices[Color.white.ordinal()].isOnTray()) {
 						
-						returnBack.getClickable(i).setYellow(players[i].getManagement().getYellow().isClickable(
+						returnBack.getClickable(i).setBlue(players[i].getManagement().getBlue().isClickable(
 								dices[Color.white.ordinal()].getValue(), dices[Color.white.ordinal()].getValue()));
 					}
 
 					if(dices[Color.green.ordinal()].isOnTray() && dices[Color.white.ordinal()].isOnTray()) {
 						
-						returnBack.getClickable(i).setYellow(players[i].getManagement().getYellow().isClickable(
+						returnBack.getClickable(i).setGreen(players[i].getManagement().getGreen().isClickable(
 								dices[Color.green.ordinal()].getValue(), dices[Color.white.ordinal()].getValue()));
 					}
 					else if(dices[Color.green.ordinal()].isOnTray()) {
 						
-						returnBack.getClickable(i).setYellow(players[i].getManagement().getYellow().isClickable(
+						returnBack.getClickable(i).setGreen(players[i].getManagement().getGreen().isClickable(
 								dices[Color.green.ordinal()].getValue(), dices[Color.green.ordinal()].getValue()));
 					}
 					else if(dices[Color.white.ordinal()].isOnTray()) {
 						
-						returnBack.getClickable(i).setYellow(players[i].getManagement().getYellow().isClickable(
+						returnBack.getClickable(i).setGreen(players[i].getManagement().getGreen().isClickable(
 								dices[Color.white.ordinal()].getValue(), dices[Color.white.ordinal()].getValue()));
 					}
 					
 					if(dices[Color.orange.ordinal()].isOnTray() && dices[Color.white.ordinal()].isOnTray()) {
 						
-						returnBack.getClickable(i).setYellow(players[i].getManagement().getYellow().isClickable(
+						returnBack.getClickable(i).setOrange(players[i].getManagement().getOrange().isClickable(
 								dices[Color.orange.ordinal()].getValue(), dices[Color.white.ordinal()].getValue()));
 					}
 					else if(dices[Color.orange.ordinal()].isOnTray()) {
 						
-						returnBack.getClickable(i).setYellow(players[i].getManagement().getYellow().isClickable(
+						returnBack.getClickable(i).setOrange(players[i].getManagement().getOrange().isClickable(
 								dices[Color.orange.ordinal()].getValue(), dices[Color.orange.ordinal()].getValue()));
 					}
 					else if(dices[Color.white.ordinal()].isOnTray()) {
 						
-						returnBack.getClickable(i).setYellow(players[i].getManagement().getYellow().isClickable(
+						returnBack.getClickable(i).setOrange(players[i].getManagement().getOrange().isClickable(
 								dices[Color.white.ordinal()].getValue(), dices[Color.white.ordinal()].getValue()));
 					}
 					
 					if(dices[Color.purple.ordinal()].isOnTray() && dices[Color.white.ordinal()].isOnTray()) {
 						
-						returnBack.getClickable(i).setYellow(players[i].getManagement().getYellow().isClickable(
+						returnBack.getClickable(i).setPurple(players[i].getManagement().getPurple().isClickable(
 								dices[Color.purple.ordinal()].getValue(), dices[Color.white.ordinal()].getValue()));
 					}
 					else if(dices[Color.purple.ordinal()].isOnTray()) {
 						
-						returnBack.getClickable(i).setYellow(players[i].getManagement().getYellow().isClickable(
+						returnBack.getClickable(i).setPurple(players[i].getManagement().getPurple().isClickable(
 								dices[Color.purple.ordinal()].getValue(), dices[Color.purple.ordinal()].getValue()));
 					}
 					else if(dices[Color.white.ordinal()].isOnTray()) {
 						
-						returnBack.getClickable(i).setYellow(players[i].getManagement().getYellow().isClickable(
+						returnBack.getClickable(i).setPurple(players[i].getManagement().getPurple().isClickable(
 								dices[Color.white.ordinal()].getValue(), dices[Color.white.ordinal()].getValue()));
 					}
 						
