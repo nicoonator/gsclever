@@ -229,7 +229,8 @@ public class MainLogic {
 			
 			for(int i = 0; i < playerCount; i++) {
 				
-				nextArea[i] = Area.takeDiceFromTray;
+				if(i != currentPlayer)
+					nextArea[i] = Area.takeDiceFromTray;
 			}
 		}
 	}
