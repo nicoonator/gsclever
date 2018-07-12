@@ -1184,6 +1184,8 @@ public class MainLogic {
 					currentArea[i] != Area.decisionMaker && nextArea[i] != Area.decisionMaker)
 				returnBack.getClickable(i).setAdditionalDice(true);
 			
+			returnBack.setRound(round);
+			
 			Matchfield matchfield = returnBack.getMatchfield(i);
 			
 			matchfield.setYellow(players[i].getManagement().getYellow().getFields());
