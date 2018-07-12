@@ -872,8 +872,6 @@ public class MainLogic {
 					break;
 				}
 				
-				currentArea[playerId] = Area.takeDiceFromTray;
-				
 				break;
 				
 			case ready:
