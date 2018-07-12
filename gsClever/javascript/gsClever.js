@@ -2,6 +2,7 @@ addListener('USERJOINED',function (event) {
     var stringFromServer = event.data;
     // username*4
     var temp=stringFromServer.split(",");
+    namelist=temp;
     // alert(stringFromServer);
     var table='<tr><th class="tg-s6z2">Spielernummer</th><th class="tg-baqh">Name</th><th class="tg-baqh">Status</th></tr>';
     for(var i=0; i<temp.length;i++){
@@ -9,6 +10,9 @@ addListener('USERJOINED',function (event) {
         table+=('<tr><th class="tg-s6z2">'+(i+1)+'</th><th class="tg-baqh">'+temp[i]+'</th><th class="tg-baqh">beigetreten</th></tr>');
     }
     $("#tableBody").html(table); 
+    if(temp.length==4){
+    	document.getElementById("kiButton").setAttribute('onclick','');
+    }
 
 });
 addListener('NEWGAME',function (event) {
@@ -28,7 +32,7 @@ addListener('NEWGAME',function (event) {
     }
     document.getElementById("Lobby").style.visibility ="hidden";
     document.getElementById("spielfeld").style.visibility="visible";
-
+    changeButtonNames();
 });
 addListener('STARTARRAY',function (event) {
     var stringFromServer = event.data;
@@ -130,6 +134,7 @@ var ximg = "/gsClever/Images/X.png";
 var circleimg = "/gsClever/Images/circle.png";
 var circleximg = "/gsClever/Images/circlex.png";
 var statusWait = true;
+var namelist;
 
 var arrFields = [ 0, 0, 0, 0, 0, 0, 0, 0, 0 ];
 var sentFields = [ 0, 0, 0, 0, 0, 0, 0, 0, 0 ];
@@ -257,6 +262,9 @@ function getNumberImg(x) {
     }
 }
 
+function changeButtonNames(){
+	
+}
 
 function setupGameByPlayerAmount(){
     switch(playerAmount){
@@ -279,6 +287,10 @@ function setupGameByPlayerAmount(){
 function updateGameState() {
     statusWait = true;
     sendDataToServer(sentFields);
+}
+
+function addKI(){
+	sendDataToServer("ADDKI");
 }
 
 function restart() {
@@ -1717,6 +1729,7 @@ break;
 	
 	case 66:{
 		setPurple(1,10, +x[i]);
+		break;
 	}
 	case 67:{
 	    if(userNumber==1){
