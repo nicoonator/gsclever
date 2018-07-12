@@ -236,6 +236,19 @@ public class MainLogic {
 	}
 	
 	public Return click(int playerId, Area area, int fieldId) throws Exception {
+
+		if(additionalDiceTime && (area == Area.yellow || area == Area.blue || 
+				area == Area.green || area == Area.orange || area == Area.purple)) {
+			
+			currentArea[playerId] = area;
+				
+			if(nextArea[playerId] == Area.takeDiceFromTray)
+				area = Area.takeDiceFromTray;
+			else if(nextArea[playerId] == Area.additionalDice)
+				area = Area.additionalDice;
+			
+			nextArea[playerId] = null;
+		}
 		
 		Return returnBack = new Return(currentPlayer, round, playerCount);
 		boolean[] clickableDices = null;
@@ -254,9 +267,12 @@ public class MainLogic {
 			switch(area) {
 			case decisionMaker:
 	
-				dices[fieldId].setField(diceField);
-				if(diceField >= 2)
-					putSmallerDicesOnTray(7);
+				if(!additionalDiceTime ) {
+					
+					dices[fieldId].setField(diceField);
+					if(diceField >= 2)
+						putSmallerDicesOnTray(7);
+				}
 	
 				switch(dices[fieldId].getColor()) {
 				case yellow:
@@ -465,47 +481,37 @@ public class MainLogic {
 						dices[Color.yellow.ordinal()].isOnTray() == true ||
 						clickableDices[0] == false) {
 					
-					if(!additionalDiceTime) {
+					dices[Color.white.ordinal()].setField(diceField);
+					if(diceField >= 2)
+						putSmallerDicesOnTray(7);
 					
-						dices[Color.white.ordinal()].setField(diceField);
-						if(diceField >= 2)
-							putSmallerDicesOnTray(7);
-						
-						putSmallerDicesOnTray(dices[Color.white.ordinal()].getValue());
-					}
+					putSmallerDicesOnTray(dices[Color.white.ordinal()].getValue());
 					
 					currentSpecialEvent[playerId] = players[playerId].getManagement().enterCrossOrNumber(
 							Area.yellow, currentFieldId[playerId], dices[Color.white.ordinal()].getValue());
 					
 					if(currentSpecialEvent[playerId] != null)
 						nextArea[playerId] = Area.specialEvent;
-					else if(currentPlayer == playerId && additionalDiceTime == false)
+					else if(currentPlayer == playerId)
 						nextArea[playerId] = Area.rollDices;
-					else
-						nextArea[playerId] = null;
 				}
 				else if(dices[Color.white.ordinal()].getField() != -1 || 
 						dices[Color.white.ordinal()].isOnTray() == true ||
 						clickableDices[1] == false) {
 					
-					if(!additionalDiceTime) {
+					dices[Color.yellow.ordinal()].setField(diceField);
+					if(diceField >= 2)
+						putSmallerDicesOnTray(7);
 					
-						dices[Color.yellow.ordinal()].setField(diceField);
-						if(diceField >= 2)
-							putSmallerDicesOnTray(7);
-						
-						putSmallerDicesOnTray(dices[Color.yellow.ordinal()].getValue());
-					}
+					putSmallerDicesOnTray(dices[Color.yellow.ordinal()].getValue());
 					
 					currentSpecialEvent[playerId] = players[playerId].getManagement().enterCrossOrNumber(
 							Area.yellow, currentFieldId[playerId], dices[Color.yellow.ordinal()].getValue());
 					
 					if(currentSpecialEvent[playerId] != null)
 						nextArea[playerId] = Area.specialEvent;
-					else if(currentPlayer == playerId && additionalDiceTime == false)
+					else if(currentPlayer == playerId)
 						nextArea[playerId] = Area.rollDices;
-					else
-						nextArea[playerId] = null;
 				}
 				
 				diceAvailable();
@@ -530,14 +536,11 @@ public class MainLogic {
 				else if(dices[Color.blue.ordinal()].getField() != -1 || 
 						dices[Color.blue.ordinal()].isOnTray() == true) {
 					
-					if(!additionalDiceTime) {
+					dices[Color.white.ordinal()].setField(diceField);
+					if(diceField >= 2)
+						putSmallerDicesOnTray(7);
 					
-						dices[Color.white.ordinal()].setField(diceField);
-						if(diceField >= 2)
-							putSmallerDicesOnTray(7);
-						
-						putSmallerDicesOnTray(dices[Color.white.ordinal()].getValue());
-					}
+					putSmallerDicesOnTray(dices[Color.white.ordinal()].getValue());
 					
 					currentSpecialEvent[playerId] = players[playerId].getManagement().enterCrossOrNumber(
 							Area.blue, currentFieldId[playerId], dices[Color.blue.ordinal()].getValue() + 
@@ -545,22 +548,17 @@ public class MainLogic {
 					
 					if(currentSpecialEvent[playerId] != null)
 						nextArea[playerId] = Area.specialEvent;
-					else if(currentPlayer == playerId && additionalDiceTime == false)
+					else if(currentPlayer == playerId)
 						nextArea[playerId] = Area.rollDices;
-					else
-						nextArea[playerId] = null;
 				}
 				else if(dices[Color.white.ordinal()].getField() != -1 || 
 						dices[Color.white.ordinal()].isOnTray() == true) {
 					
-					if(!additionalDiceTime) {
+					dices[Color.blue.ordinal()].setField(diceField);
+					if(diceField >= 2)
+						putSmallerDicesOnTray(7);
 					
-						dices[Color.blue.ordinal()].setField(diceField);
-						if(diceField >= 2)
-							putSmallerDicesOnTray(7);
-						
-						putSmallerDicesOnTray(dices[Color.blue.ordinal()].getValue());
-					}
+					putSmallerDicesOnTray(dices[Color.blue.ordinal()].getValue());
 					
 					currentSpecialEvent[playerId] = players[playerId].getManagement().enterCrossOrNumber(
 							Area.blue, currentFieldId[playerId], dices[Color.blue.ordinal()].getValue() + 
@@ -568,10 +566,8 @@ public class MainLogic {
 					
 					if(currentSpecialEvent[playerId] != null)
 						nextArea[playerId] = Area.specialEvent;
-					else if(currentPlayer == playerId && additionalDiceTime == false)
+					else if(currentPlayer == playerId)
 						nextArea[playerId] = Area.rollDices;
-					else
-						nextArea[playerId] = null;
 				}
 				
 				diceAvailable();
@@ -601,47 +597,37 @@ public class MainLogic {
 						dices[Color.green.ordinal()].isOnTray() == true ||
 						clickableDices[0] == false) {
 					
-					if(!additionalDiceTime) {
+					dices[Color.white.ordinal()].setField(diceField);
+					if(diceField >= 2)
+						putSmallerDicesOnTray(7);
 					
-						dices[Color.white.ordinal()].setField(diceField);
-						if(diceField >= 2)
-							putSmallerDicesOnTray(7);
-						
-						putSmallerDicesOnTray(dices[Color.white.ordinal()].getValue());
-					}
+					putSmallerDicesOnTray(dices[Color.white.ordinal()].getValue());
 					
 					currentSpecialEvent[playerId] = players[playerId].getManagement().enterCrossOrNumber(
 							Area.green, currentFieldId[playerId], dices[Color.white.ordinal()].getValue());
 					
 					if(currentSpecialEvent[playerId] != null)
 						nextArea[playerId] = Area.specialEvent;
-					else if(currentPlayer == playerId && additionalDiceTime == false)
+					else if(currentPlayer == playerId)
 						nextArea[playerId] = Area.rollDices;
-					else
-						nextArea[playerId] = null;
 				}
 				else if(dices[Color.white.ordinal()].getField() != -1 || 
 						dices[Color.white.ordinal()].isOnTray() == true ||
 						clickableDices[1] == false) {
 		
-					if(!additionalDiceTime) {
+					dices[Color.green.ordinal()].setField(diceField);
+					if(diceField >= 2)
+						putSmallerDicesOnTray(7);
 					
-						dices[Color.green.ordinal()].setField(diceField);
-						if(diceField >= 2)
-							putSmallerDicesOnTray(7);
-						
-						putSmallerDicesOnTray(dices[Color.green.ordinal()].getValue());
-					}
+					putSmallerDicesOnTray(dices[Color.green.ordinal()].getValue());
 					
 					currentSpecialEvent[playerId] = players[playerId].getManagement().enterCrossOrNumber(
 							Area.green, currentFieldId[playerId], dices[Color.green.ordinal()].getValue());
 					
 					if(currentSpecialEvent[playerId] != null)
 						nextArea[playerId] = Area.specialEvent;
-					else if(currentPlayer == playerId && additionalDiceTime == false)
+					else if(currentPlayer == playerId)
 						nextArea[playerId] = Area.rollDices;
-					else
-						nextArea[playerId] = null;
 				}
 				
 				diceAvailable();
@@ -666,46 +652,36 @@ public class MainLogic {
 				else if(dices[Color.orange.ordinal()].getField() != -1 || 
 						dices[Color.orange.ordinal()].isOnTray() == true) {
 					
-					if(!additionalDiceTime) {
+					dices[Color.white.ordinal()].setField(diceField);
+					if(diceField >= 2)
+						putSmallerDicesOnTray(7);
 					
-						dices[Color.white.ordinal()].setField(diceField);
-						if(diceField >= 2)
-							putSmallerDicesOnTray(7);
-						
-						putSmallerDicesOnTray(dices[Color.white.ordinal()].getValue());
-					}
+					putSmallerDicesOnTray(dices[Color.white.ordinal()].getValue());
 					
 					currentSpecialEvent[playerId] = players[playerId].getManagement().enterCrossOrNumber(
 							Area.orange, currentFieldId[playerId], dices[Color.white.ordinal()].getValue());
 					
 					if(currentSpecialEvent[playerId] != null)
 						nextArea[playerId] = Area.specialEvent;
-					else if(currentPlayer == playerId && additionalDiceTime == false)
+					else if(currentPlayer == playerId)
 						nextArea[playerId] = Area.rollDices;
-					else
-						nextArea[playerId] = null;
 				}
 				else if(dices[Color.white.ordinal()].getField() != -1 || 
 						dices[Color.white.ordinal()].isOnTray() == true) {
 		
-					if(!additionalDiceTime) {
+					dices[Color.orange.ordinal()].setField(diceField);
+					if(diceField >= 2)
+						putSmallerDicesOnTray(7);
 					
-						dices[Color.orange.ordinal()].setField(diceField);
-						if(diceField >= 2)
-							putSmallerDicesOnTray(7);
-						
-						putSmallerDicesOnTray(dices[Color.orange.ordinal()].getValue());
-					}
+					putSmallerDicesOnTray(dices[Color.orange.ordinal()].getValue());
 					
 					currentSpecialEvent[playerId] = players[playerId].getManagement().enterCrossOrNumber(
 							Area.orange, currentFieldId[playerId], dices[Color.orange.ordinal()].getValue());
 					
 					if(currentSpecialEvent[playerId] != null)
 						nextArea[playerId] = Area.specialEvent;
-					else if(currentPlayer == playerId && additionalDiceTime == false)
+					else if(currentPlayer == playerId)
 						nextArea[playerId] = Area.rollDices;
-					else
-						nextArea[playerId] = null;
 				}
 				
 				diceAvailable();
@@ -735,47 +711,37 @@ public class MainLogic {
 						dices[Color.purple.ordinal()].isOnTray() == true ||
 						clickableDices[0] == false) {
 					
-					if(!additionalDiceTime) {
+					dices[Color.white.ordinal()].setField(diceField);
+					if(diceField >= 2)
+						putSmallerDicesOnTray(7);
 					
-						dices[Color.white.ordinal()].setField(diceField);
-						if(diceField >= 2)
-							putSmallerDicesOnTray(7);
-						
-						putSmallerDicesOnTray(dices[Color.white.ordinal()].getValue());
-					}
+					putSmallerDicesOnTray(dices[Color.white.ordinal()].getValue());
 					
 					currentSpecialEvent[playerId] = players[playerId].getManagement().enterCrossOrNumber(
 							Area.purple, currentFieldId[playerId], dices[Color.white.ordinal()].getValue());
 					
 					if(currentSpecialEvent[playerId] != null)
 						nextArea[playerId] = Area.specialEvent;
-					else if(currentPlayer == playerId && additionalDiceTime == false)
+					else if(currentPlayer == playerId)
 						nextArea[playerId] = Area.rollDices;
-					else
-						nextArea[playerId] = null;
 				}
 				else if(dices[Color.white.ordinal()].getField() != -1 || 
 						dices[Color.white.ordinal()].isOnTray() == true ||
 						clickableDices[1] == false) {
 		
-					if(!additionalDiceTime) {
+					dices[Color.purple.ordinal()].setField(diceField);
+					if(diceField >= 2)
+						putSmallerDicesOnTray(7);
 					
-						dices[Color.purple.ordinal()].setField(diceField);
-						if(diceField >= 2)
-							putSmallerDicesOnTray(7);
-						
-						putSmallerDicesOnTray(dices[Color.purple.ordinal()].getValue());
-					}
+					putSmallerDicesOnTray(dices[Color.purple.ordinal()].getValue());
 					
 					currentSpecialEvent[playerId] = players[playerId].getManagement().enterCrossOrNumber(
 							Area.purple, currentFieldId[playerId], dices[Color.purple.ordinal()].getValue());
 					
 					if(currentSpecialEvent[playerId] != null)
 						nextArea[playerId] = Area.specialEvent;
-					else if(currentPlayer == playerId && additionalDiceTime == false)
+					else if(currentPlayer == playerId)
 						nextArea[playerId] = Area.rollDices;
-					else
-						nextArea[playerId] = null;
 				}
 				
 				diceAvailable();
@@ -784,8 +750,127 @@ public class MainLogic {
 				
 			case takeDiceFromTray:
 				
-				//TODO ausführen
+				currentFieldId[playerId] = fieldId;
 				
+				switch(currentArea[playerId]) {
+				case yellow:
+					
+					if(dices[Color.yellow.ordinal()].isOnTray() && dices[Color.white.ordinal()].isOnTray()) {
+						
+						nextArea[playerId] = Area.decisionMaker;
+					}
+					else if(dices[Color.yellow.ordinal()].isOnTray()) {
+						
+						currentSpecialEvent[playerId] = players[playerId].getManagement().enterCrossOrNumber(
+								currentArea[playerId], fieldId, dices[Color.yellow.ordinal()].getValue());
+						
+						nextArea[playerId] = null;
+					}
+					else if(dices[Color.white.ordinal()].isOnTray()) {
+						
+						currentSpecialEvent[playerId] = players[playerId].getManagement().enterCrossOrNumber(
+								currentArea[playerId], fieldId, dices[Color.white.ordinal()].getValue());
+						
+						nextArea[playerId] = null;
+					}
+					
+					break;
+					
+				case blue:
+					
+					if(dices[Color.blue.ordinal()].isOnTray() && dices[Color.white.ordinal()].isOnTray()) {
+						
+						nextArea[playerId] = Area.decisionMaker;
+					}
+					else if(dices[Color.blue.ordinal()].isOnTray()) {
+						
+						currentSpecialEvent[playerId] = players[playerId].getManagement().enterCrossOrNumber(
+								currentArea[playerId], fieldId, dices[Color.blue.ordinal()].getValue());
+						
+						nextArea[playerId] = null;
+					}
+					else if(dices[Color.white.ordinal()].isOnTray()) {
+						
+						currentSpecialEvent[playerId] = players[playerId].getManagement().enterCrossOrNumber(
+								currentArea[playerId], fieldId, dices[Color.white.ordinal()].getValue());
+						
+						nextArea[playerId] = null;
+					}
+					
+					break;
+					
+				case green:
+					
+					if(dices[Color.green.ordinal()].isOnTray() && dices[Color.white.ordinal()].isOnTray()) {
+						
+						nextArea[playerId] = Area.decisionMaker;
+					}
+					else if(dices[Color.green.ordinal()].isOnTray()) {
+						
+						currentSpecialEvent[playerId] = players[playerId].getManagement().enterCrossOrNumber(
+								currentArea[playerId], fieldId, dices[Color.green.ordinal()].getValue());
+						
+						nextArea[playerId] = null;
+					}
+					else if(dices[Color.white.ordinal()].isOnTray()) {
+						
+						currentSpecialEvent[playerId] = players[playerId].getManagement().enterCrossOrNumber(
+								currentArea[playerId], fieldId, dices[Color.white.ordinal()].getValue());
+						
+						nextArea[playerId] = null;
+					}
+					
+					break;
+					
+				case orange:
+					
+					if(dices[Color.orange.ordinal()].isOnTray() && dices[Color.white.ordinal()].isOnTray()) {
+						
+						nextArea[playerId] = Area.decisionMaker;
+					}
+					else if(dices[Color.orange.ordinal()].isOnTray()) {
+						
+						currentSpecialEvent[playerId] = players[playerId].getManagement().enterCrossOrNumber(
+								currentArea[playerId], fieldId, dices[Color.orange.ordinal()].getValue());
+						
+						nextArea[playerId] = null;
+					}
+					else if(dices[Color.white.ordinal()].isOnTray()) {
+						
+						currentSpecialEvent[playerId] = players[playerId].getManagement().enterCrossOrNumber(
+								currentArea[playerId], fieldId, dices[Color.white.ordinal()].getValue());
+						
+						nextArea[playerId] = null;
+					}
+					
+					break;
+					
+				case purple:
+					
+					if(dices[Color.purple.ordinal()].isOnTray() && dices[Color.white.ordinal()].isOnTray()) {
+						
+						nextArea[playerId] = Area.decisionMaker;
+					}
+					else if(dices[Color.purple.ordinal()].isOnTray()) {
+						
+						currentSpecialEvent[playerId] = players[playerId].getManagement().enterCrossOrNumber(
+								currentArea[playerId], fieldId, dices[Color.purple.ordinal()].getValue());
+						
+						nextArea[playerId] = null;
+					}
+					else if(dices[Color.white.ordinal()].isOnTray()) {
+						
+						currentSpecialEvent[playerId] = players[playerId].getManagement().enterCrossOrNumber(
+								currentArea[playerId], fieldId, dices[Color.white.ordinal()].getValue());
+						
+						nextArea[playerId] = null;
+					}
+					
+					break;
+					
+				default:
+					break;
+				}
 				
 				currentArea[playerId] = Area.takeDiceFromTray;
 				
