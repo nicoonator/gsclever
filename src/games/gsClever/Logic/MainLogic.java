@@ -245,7 +245,7 @@ public class MainLogic {
 		case yellow:
 			
 			if(dices[Color.yellow.ordinal()].isOnTray() || dices[Color.white.ordinal()].isOnTray() || 
-					actualArea == Area.additionalDice) {
+					actualArea == Area.additionalDiceExecute) {
 				
 				currentSpecialEvent[playerId] = players[playerId].getManagement().enterCrossOrNumber(
 						currentArea[playerId], fieldId, 0);
@@ -259,7 +259,7 @@ public class MainLogic {
 		case blue:
 			
 			if(dices[Color.blue.ordinal()].isOnTray() || dices[Color.white.ordinal()].isOnTray() || 
-					actualArea == Area.additionalDice) {
+					actualArea == Area.additionalDiceExecute) {
 				
 				currentSpecialEvent[playerId] = players[playerId].getManagement().enterCrossOrNumber(
 						currentArea[playerId], fieldId, dices[Color.blue.ordinal()].getValue() + 
@@ -274,7 +274,7 @@ public class MainLogic {
 		case green:
 			
 			if(dices[Color.green.ordinal()].isOnTray() || dices[Color.white.ordinal()].isOnTray() || 
-					actualArea == Area.additionalDice) {
+					actualArea == Area.additionalDiceExecute) {
 				
 				Color color = null;
 				if(dices[Color.green.ordinal()].getValue() < dices[Color.white.ordinal()].getValue())
@@ -294,12 +294,12 @@ public class MainLogic {
 		case orange:
 			
 			if(((dices[Color.orange.ordinal()].isOnTray() && dices[Color.white.ordinal()].isOnTray()) || 
-					actualArea == Area.additionalDice) && 
+					actualArea == Area.additionalDiceExecute) && 
 					dices[Color.orange.ordinal()].getValue() != dices[Color.white.ordinal()].getValue()) {
 				
 				nextArea[playerId] = Area.decisionMaker;
 			}
-			else if(actualArea == Area.additionalDice && 
+			else if(actualArea == Area.additionalDiceExecute && 
 					dices[Color.orange.ordinal()].getValue() != dices[Color.white.ordinal()].getValue()) {
 				
 				currentSpecialEvent[playerId] = players[playerId].getManagement().enterCrossOrNumber(
@@ -332,12 +332,12 @@ public class MainLogic {
 			boolean[] clickableDices = players[playerId].getManagement().getPurple().clickableDices(
 					dices[Color.purple.ordinal()].getValue(), dices[Color.white.ordinal()].getValue());
 			
-			if(clickableDices[0] && clickableDices[1] && (actualArea == Area.additionalDice ||
+			if(clickableDices[0] && clickableDices[1] && (actualArea == Area.additionalDiceExecute ||
 					dices[Color.purple.ordinal()].isOnTray() && dices[Color.white.ordinal()].isOnTray())) {
 				
 				nextArea[playerId] = Area.decisionMaker;
 			}
-			else if(clickableDices[0] && (actualArea == Area.additionalDice || 
+			else if(clickableDices[0] && (actualArea == Area.additionalDiceExecute || 
 					dices[Color.purple.ordinal()].isOnTray())) {
 				
 				currentSpecialEvent[playerId] = players[playerId].getManagement().enterCrossOrNumber(
@@ -346,7 +346,7 @@ public class MainLogic {
 				nextArea[playerId] = null;
 				currentArea[playerId] = null;
 			}
-			else if(clickableDices[0] && (actualArea == Area.additionalDice || 
+			else if(clickableDices[0] && (actualArea == Area.additionalDiceExecute || 
 					dices[Color.white.ordinal()].isOnTray())) {
 				
 				currentSpecialEvent[playerId] = players[playerId].getManagement().enterCrossOrNumber(
@@ -372,8 +372,8 @@ public class MainLogic {
 				
 			if(nextArea[playerId] == Area.takeDiceFromTray)
 				area = Area.takeDiceFromTray;
-			else if(nextArea[playerId] == Area.additionalDice)
-				area = Area.additionalDice;
+			else if(nextArea[playerId] == Area.additionalDiceExecute)
+				area = Area.additionalDiceExecute;
 			
 			nextArea[playerId] = null;
 		}
@@ -386,16 +386,6 @@ public class MainLogic {
 
 			if (dice.getField() >= diceField)
 				diceField = dice.getField() + 1;
-		}
-		
-		if(currentArea[playerId] == Area.additionalDice) {
-			
-			currentArea[playerId] = nextArea[playerId];
-			
-			stealDice(playerId, fieldId, Area.additionalDice);
-			
-			currentArea[playerId] = null;
-			nextArea[playerId] = null;
 		}
 		
 		if(area == null)
@@ -528,10 +518,21 @@ public class MainLogic {
 				else
 					throw new CannotUseAdditionalDiceException();
 				
-				nextArea[playerId] = currentArea[playerId];
+				nextArea[playerId] = Area.additionalDiceExecute;
 				
 				currentArea[playerId] = Area.additionalDice;
 					
+				break;
+				
+			case additionalDiceExecute:
+				
+				currentArea[playerId] = nextArea[playerId];
+				
+				stealDice(playerId, fieldId, Area.additionalDiceExecute);
+				
+				currentArea[playerId] = null;
+				nextArea[playerId] = null;
+				
 				break;
 	
 			case specialEvent:
