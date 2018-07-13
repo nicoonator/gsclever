@@ -278,14 +278,8 @@ public class MainLogic {
 				if(dices[Color.green.ordinal()].isOnTray() || dices[Color.white.ordinal()].isOnTray() || 
 						actualArea == Area.additionalDiceExecute) {
 					
-					Color color = null;
-					if(dices[Color.green.ordinal()].getValue() < dices[Color.white.ordinal()].getValue())
-						color = Color.white;
-					else
-						color = Color.green;
-					
 					currentSpecialEvent[playerId] = players[playerId].getManagement().enterCrossOrNumber(
-							currentArea[playerId], fieldId, dices[color.ordinal()].getValue());
+							currentArea[playerId], fieldId, 0);
 					
 					nextArea[playerId] = null;
 					currentArea[playerId] = null;
@@ -302,7 +296,7 @@ public class MainLogic {
 					nextArea[playerId] = Area.decisionMaker;
 				}
 				else if(actualArea == Area.additionalDiceExecute && 
-						dices[Color.orange.ordinal()].getValue() != dices[Color.white.ordinal()].getValue()) {
+						dices[Color.orange.ordinal()].getValue() == dices[Color.white.ordinal()].getValue()) {
 					
 					currentSpecialEvent[playerId] = players[playerId].getManagement().enterCrossOrNumber(
 							currentArea[playerId], fieldId, dices[Color.orange.ordinal()].getValue());
@@ -348,7 +342,7 @@ public class MainLogic {
 					nextArea[playerId] = null;
 					currentArea[playerId] = null;
 				}
-				else if(clickableDices[0] && (actualArea == Area.additionalDiceExecute || 
+				else if(clickableDices[1] && (actualArea == Area.additionalDiceExecute || 
 						dices[Color.white.ordinal()].isOnTray())) {
 					
 					currentSpecialEvent[playerId] = players[playerId].getManagement().enterCrossOrNumber(
@@ -947,7 +941,7 @@ public class MainLogic {
 					currentArea[playerId] = null;
 				}
 			}
-		}//TODO
+		}
 		
 		for(int i = 0; i < playerCount; i++) {
 			
