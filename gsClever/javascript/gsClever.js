@@ -1408,7 +1408,6 @@ function extractArray(x) {
 	case 0: {
 	    setRound(+x[i]);
 	    if(+x[i]!=0){
-		showview(+x[i]);
 	    }
 	    break;
 	}
@@ -3007,7 +3006,7 @@ case 323:{
     break;
 }
 case 324:{
-	setYellowClickable(3, 5,+x[i]);
+	setYellowClickable(4, 5,+x[i]);
     break;
 }
 case 325:{
