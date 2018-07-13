@@ -1,5 +1,8 @@
 package games.gsClever.Logic;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Management {
 
 	private int diceRepeatCount;
@@ -192,6 +195,8 @@ public class Management {
 			break;
 		}
 
+		//TODO auswerten
+		
 		if (specialEvent != null)
 			specialEvent = specialEventRecursive(specialEvent);
 		
@@ -200,18 +205,19 @@ public class Management {
 
 	public SpecialEvent enterCrossOrNumber(Area area, int fieldId, int number) {
 
+		List<SpecialEvent> specialEvents = null; //TODO mehrere SpecialEvent gleichzeitig in gelb oder blau
 		SpecialEvent specialEvent = null;
 
 		switch (area) {
 		case yellow:
 
-			specialEvent = getYellow().enterCross(fieldId);
+			specialEvents = getYellow().enterCross(fieldId);
 
 			break;
 
 		case blue:
 
-			specialEvent = getBlue().enterCross(fieldId);
+			specialEvents = getBlue().enterCross(fieldId);
 
 			break;
 
@@ -236,10 +242,26 @@ public class Management {
 		default:
 			break;
 		}
+		
+		if(specialEvent != null) {
+			
+			specialEvents = new ArrayList<SpecialEvent>();	
+			specialEvents.add(specialEvent);
+		}
+		
+		SpecialEvent result = null;
 
-		if (specialEvent != null)
-			specialEvent = specialEventRecursive(specialEvent);
+		if(specialEvents != null) {
+		
+			for(SpecialEvent se : specialEvents) {
+			
+				specialEvent = specialEventRecursive(se);
+				
+				if(specialEvent != null)
+					result = specialEvent;
+			}
+		}
 
-		return specialEvent;
+		return result;
 	}
 }
