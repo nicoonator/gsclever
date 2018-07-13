@@ -4,11 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Blue extends ColorArea {
-	private boolean[] fields = new boolean[12];
+	private boolean[] fields = new boolean[11];
 
 	public Blue() {
 
-		for (int i = 0; i < 12; i++) {
+		for (int i = 0; i < 11; i++) {
 
 			fields[i] = false;
 
@@ -16,7 +16,13 @@ public class Blue extends ColorArea {
 	}
 
 	public boolean[] getFields() {
-		return fields;
+		boolean[] result = new boolean[11];
+		for (int i = 0; i < 11; i++) {
+
+			result[i] = fields[i];
+
+		}
+		return result;
 
 	}
 

@@ -15,8 +15,13 @@ public class Yellow extends ColorArea {
 	}
 
 	public boolean[] getFields() {
-		return fields;
+		boolean[] result = new boolean[12];
+		for (int i = 0; i < 12; i++) {
 
+			result[i] = fields[i];
+
+		}
+		return result;
 	}
 
 	public List<SpecialEvent> enterCross(int fieldId) {
