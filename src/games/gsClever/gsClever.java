@@ -2900,9 +2900,9 @@ public class gsClever extends Game {
 					}
 				}
 				break;
-			case 346:
+			case 316:
 				result[i] = 0;
-				if (this.getCurrentPlayerAmount() > 2) {
+				if (this.getCurrentPlayerAmount() > 3) {
 					if (returnBack.getDecisionMaker(3).isColorDiceActive()) {
 						result[i] = 1;
 					}
@@ -2910,7 +2910,7 @@ public class gsClever extends Game {
 				break;
 			case 317:
 				result[i] = 0;
-				if (this.getCurrentPlayerAmount() > 2) {
+				if (this.getCurrentPlayerAmount() > 3) {
 					if (returnBack.getDecisionMaker(3).isWhiteDiceActive()) {
 						result[i] = 1;
 					}
@@ -2918,7 +2918,7 @@ public class gsClever extends Game {
 				break;
 			case 318:
 				result[i] = 0;
-				if (this.getCurrentPlayerAmount() > 2) {
+				if (this.getCurrentPlayerAmount() > 3) {
 					if (result[i - 2] == 1) {
 						result[i] = returnBack.getDecisionMaker(3).getColorOfDice().ordinal() + 1;
 					}
@@ -2946,7 +2946,7 @@ public class gsClever extends Game {
 			case 321:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 3) {
-					if (returnBack.getClickable(2).getYellow()[2]) {
+					if (returnBack.getClickable(3).getYellow()[2]) {
 						result[i] = 1;
 					} else
 						result[i] = 0;
@@ -3135,7 +3135,7 @@ public class gsClever extends Game {
 			case 342:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 3) {
-					if (returnBack.getClickable(0).getGreen()) {
+					if (returnBack.getClickable(3).getGreen()) {
 						result[i] = 1;
 					} else
 						result[i] = 0;
@@ -3144,7 +3144,7 @@ public class gsClever extends Game {
 			case 343:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 3) {
-					if (returnBack.getClickable(0).getOrange()) {
+					if (returnBack.getClickable(3).getOrange()) {
 						result[i] = 1;
 					} else
 						result[i] = 0;
@@ -3153,7 +3153,7 @@ public class gsClever extends Game {
 			case 344:
 				result[i] = 0;
 				if (this.getCurrentPlayerAmount() > 3) {
-					if (returnBack.getClickable(0).getPurple()) {
+					if (returnBack.getClickable(3).getPurple()) {
 						result[i] = 1;
 					} else
 						result[i] = 0;
