@@ -237,7 +237,7 @@ public class MainLogic {
 		}
 	}
 	
-	private void stealDice(int playerId, int fieldId) {
+	private void stealDice(int playerId, int fieldId, Area actualArea) {
 		
 		currentFieldId[playerId] = fieldId;
 		
@@ -518,10 +518,10 @@ public class MainLogic {
 				else
 					throw new CannotUseAdditionalDiceException();
 				
+				stealDice(playerId, fieldId, Area.additionalDice);
+				
 				currentArea[playerId] = Area.additionalDice;
 					
-				stealDice(playerId, fieldId);
-				
 				break;
 	
 			case specialEvent:
@@ -881,9 +881,9 @@ public class MainLogic {
 				
 			case takeDiceFromTray:
 				
-				currentArea[playerId] = Area.takeDiceFromTray;
+				stealDice(playerId, fieldId, Area.takeDiceFromTray);
 				
-				stealDice(playerId, fieldId);
+				currentArea[playerId] = Area.takeDiceFromTray;
 				
 				break;
 				
