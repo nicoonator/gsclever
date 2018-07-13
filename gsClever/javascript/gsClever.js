@@ -1771,6 +1771,11 @@ break;
 	case 69:{
 	    if(userNumber==1){
 		setWuerfelnClickable(+x[i]);
+		if(x[i]==1){
+			document.getElementById("label").innerHTML = "Du darfst jetzt Wuerfeln!";
+		} else{
+			document.getElementById("label").innerHTML = "";
+		}
 	    }
 	    break;
 	    }
@@ -2168,6 +2173,11 @@ case 150:{
 case 151:{
     if(userNumber==2){
 	setWuerfelnClickable(+x[i]);
+	if(x[i]==1){
+		document.getElementById("label").innerHTML = "Du darfst jetzt Wuerfeln!";
+	} else{
+		document.getElementById("label").innerHTML = "";
+	}
     }
     break;
     }
@@ -2557,6 +2567,11 @@ case 232:{
 case 233:{
     if(userNumber==3){
 	setWuerfelnClickable(+x[i]);
+	if(x[i]==1){
+		document.getElementById("label").innerHTML = "Du darfst jetzt Wuerfeln!";
+	} else{
+		document.getElementById("label").innerHTML = "";
+	}
     }
     break;
     }
@@ -2945,6 +2960,11 @@ case 314:{
 case 315:{
     if(userNumber==4){
 	setWuerfelnClickable(+x[i]);
+	if(x[i]==1){
+		document.getElementById("label").innerHTML = "Du darfst jetzt Wuerfeln!";
+	} else{
+		document.getElementById("label").innerHTML = "";
+	}
     }
     break;
     }
@@ -3080,7 +3100,7 @@ case 344:{
 function closeLobby(){
     
     	sendDataToServer("STARTGAME");
-	 //Das darf hier eigentlich erst passieren wenn>2 spieler da sind
+
 	 
 
 
