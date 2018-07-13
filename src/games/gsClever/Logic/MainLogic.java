@@ -388,6 +388,16 @@ public class MainLogic {
 				diceField = dice.getField() + 1;
 		}
 		
+		if(currentArea[playerId] == Area.additionalDice) {
+			
+			currentArea[playerId] = nextArea[playerId];
+			
+			stealDice(playerId, fieldId, Area.additionalDice);
+			
+			currentArea[playerId] = null;
+			nextArea[playerId] = null;
+		}
+		
 		if(area == null)
 			startRound();
 		else {
@@ -518,7 +528,7 @@ public class MainLogic {
 				else
 					throw new CannotUseAdditionalDiceException();
 				
-				stealDice(playerId, fieldId, Area.additionalDice);
+				nextArea[playerId] = currentArea[playerId];
 				
 				currentArea[playerId] = Area.additionalDice;
 					
