@@ -1,5 +1,8 @@
 package games.gsClever.Logic;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Blue extends ColorArea {
 	private boolean[] fields = new boolean[12];
 
@@ -17,34 +20,36 @@ public class Blue extends ColorArea {
 
 	}
 
-	public SpecialEvent enterCross(int fieldId) {
+	public List<SpecialEvent> enterCross(int fieldId) {
 
+		List<SpecialEvent> result= new ArrayList<SpecialEvent>();
+		
 		fields[fieldId] = true;
 
 		if ((fields[0] == true && fields[1] == true && fields[2] == true)
 				&& (fieldId == 0 || fieldId == 1 || fieldId == 2)) {
-			return SpecialEvent.enterOrange5;
+			result.add(SpecialEvent.enterOrange5);
 		}
 		if ((fields[3] == true && fields[4] == true && fields[5] == true && fields[6] == true)
 				&& (fieldId == 3 || fieldId == 4 || fieldId == 5 || fieldId == 6)) {
-			return SpecialEvent.enterCrossYellow;
+			result.add(SpecialEvent.enterCrossYellow);
 		}
 		if ((fields[3] == true && fields[7] == true) && (fieldId == 3 || fieldId == 7)) {
-			return SpecialEvent.diceRepeat;
+			result.add(SpecialEvent.diceRepeat);
 		}
 		if ((fields[0] == true && fields[4] == true && fields[8] == true)
 				&& (fieldId == 0 || fieldId == 4 || fieldId == 8)) {
-			return SpecialEvent.enterCrossGreen;
+			result.add(SpecialEvent.enterCrossGreen);
 		}
 		if ((fields[1] == true && fields[5] == true && fields[9] == true)
 				&& (fieldId == 1 || fieldId == 5 || fieldId == 9)) {
-			return SpecialEvent.enterPurple6;
+			result.add(SpecialEvent.enterPurple6);
 		}
 		if ((fields[2] == true && fields[6] == true && fields[10] == true)
 				&& (fieldId == 2 || fieldId == 6 || fieldId == 10)) {
-			return SpecialEvent.additionalDice;
+			result.add(SpecialEvent.additionalDice);
 		}
-		return null;
+		return result;
 
 	}
 
