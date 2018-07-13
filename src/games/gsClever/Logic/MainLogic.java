@@ -245,7 +245,7 @@ public class MainLogic {
 		case yellow:
 			
 			if(dices[Color.yellow.ordinal()].isOnTray() || dices[Color.white.ordinal()].isOnTray() || 
-					currentArea[playerId] == Area.additionalDice) {
+					actualArea == Area.additionalDice) {
 				
 				currentSpecialEvent[playerId] = players[playerId].getManagement().enterCrossOrNumber(
 						currentArea[playerId], fieldId, 0);
@@ -259,7 +259,7 @@ public class MainLogic {
 		case blue:
 			
 			if(dices[Color.blue.ordinal()].isOnTray() || dices[Color.white.ordinal()].isOnTray() || 
-					currentArea[playerId] == Area.additionalDice) {
+					actualArea == Area.additionalDice) {
 				
 				currentSpecialEvent[playerId] = players[playerId].getManagement().enterCrossOrNumber(
 						currentArea[playerId], fieldId, dices[Color.blue.ordinal()].getValue() + 
@@ -274,7 +274,7 @@ public class MainLogic {
 		case green:
 			
 			if(dices[Color.green.ordinal()].isOnTray() || dices[Color.white.ordinal()].isOnTray() || 
-					currentArea[playerId] == Area.additionalDice) {
+					actualArea == Area.additionalDice) {
 				
 				Color color = null;
 				if(dices[Color.green.ordinal()].getValue() < dices[Color.white.ordinal()].getValue())
@@ -294,12 +294,12 @@ public class MainLogic {
 		case orange:
 			
 			if(((dices[Color.orange.ordinal()].isOnTray() && dices[Color.white.ordinal()].isOnTray()) || 
-					currentArea[playerId] == Area.additionalDice) && 
+					actualArea == Area.additionalDice) && 
 					dices[Color.orange.ordinal()].getValue() != dices[Color.white.ordinal()].getValue()) {
 				
 				nextArea[playerId] = Area.decisionMaker;
 			}
-			else if(currentArea[playerId] == Area.additionalDice && 
+			else if(actualArea == Area.additionalDice && 
 					dices[Color.orange.ordinal()].getValue() != dices[Color.white.ordinal()].getValue()) {
 				
 				currentSpecialEvent[playerId] = players[playerId].getManagement().enterCrossOrNumber(
@@ -332,12 +332,12 @@ public class MainLogic {
 			boolean[] clickableDices = players[playerId].getManagement().getPurple().clickableDices(
 					dices[Color.purple.ordinal()].getValue(), dices[Color.white.ordinal()].getValue());
 			
-			if(clickableDices[0] && clickableDices[1] && (currentArea[playerId] == Area.additionalDice ||
+			if(clickableDices[0] && clickableDices[1] && (actualArea == Area.additionalDice ||
 					dices[Color.purple.ordinal()].isOnTray() && dices[Color.white.ordinal()].isOnTray())) {
 				
 				nextArea[playerId] = Area.decisionMaker;
 			}
-			else if(clickableDices[0] && (currentArea[playerId] == Area.additionalDice || 
+			else if(clickableDices[0] && (actualArea == Area.additionalDice || 
 					dices[Color.purple.ordinal()].isOnTray())) {
 				
 				currentSpecialEvent[playerId] = players[playerId].getManagement().enterCrossOrNumber(
@@ -346,7 +346,7 @@ public class MainLogic {
 				nextArea[playerId] = null;
 				currentArea[playerId] = null;
 			}
-			else if(clickableDices[0] && (currentArea[playerId] == Area.additionalDice || 
+			else if(clickableDices[0] && (actualArea == Area.additionalDice || 
 					dices[Color.white.ordinal()].isOnTray())) {
 				
 				currentSpecialEvent[playerId] = players[playerId].getManagement().enterCrossOrNumber(
@@ -405,7 +405,7 @@ public class MainLogic {
 			switch(area) {
 			case decisionMaker:
 	
-				if(!additionalDiceTime ) {
+				if(!additionalDiceTime) {
 					
 					dices[fieldId].setField(diceField);
 					if(diceField >= 2)
