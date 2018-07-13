@@ -347,7 +347,7 @@ public class MainLogic {
 				else if(currentPlayer == playerId)
 					nextArea[playerId] = Area.rollDices;
 				else
-					nextArea = null;
+					nextArea[playerId] = null;
 				
 				diceAvailable();
 				
