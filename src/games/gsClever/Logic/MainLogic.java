@@ -632,6 +632,8 @@ public class MainLogic {
 					nextArea[playerId] = Area.specialEvent;
 				else if(currentPlayer == playerId && !additionalDiceTime)
 					nextArea[playerId] = Area.rollDices;
+				else
+					nextArea[playerId] = null;
 				
 				currentArea[playerId] = null;
 				
