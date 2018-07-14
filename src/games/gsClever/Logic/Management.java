@@ -118,7 +118,7 @@ public class Management {
 		return points + determinePointsFoxes();
 	}
 	
-	public IsClickable isClickable(Dice[] dices, Area area) {
+	public IsClickable isClickable(Dice[] dices, Area area, SpecialEvent specialEvent) {
 
 		IsClickable clickable = new IsClickable();
 		
@@ -186,6 +186,85 @@ public class Management {
 			
 			break;
 			
+		case specialEvent:
+			
+			switch(specialEvent) {
+			case enterCrossYellow:
+				
+				boolean[] clickableYellow = getYellow().getFields();
+				for(int j = 0; j < clickableYellow.length; j++) {
+					
+					if(clickableYellow[j] == true)
+						clickableYellow[j] = false;
+					else
+						clickableYellow[j] = true;
+				}
+				
+				clickable.setYellow(clickableYellow);
+				
+				break;
+				
+			case enterCrossBlue:
+				
+				boolean[] clickableBlue = getBlue().getFields();
+				for(int j = 0; j < clickableBlue.length; j++) {
+					
+					if(clickableBlue[j] == true)
+						clickableBlue[j] = false;
+					else
+						clickableBlue[j] = true;
+				}
+				
+				clickable.setBlue(clickableBlue);
+				
+				break;
+				
+			case round4:
+				
+				clickableYellow = getYellow().getFields();
+				for(int j = 0; j < clickableYellow.length; j++) {
+					
+					if(clickableYellow[j] == true)
+						clickableYellow[j] = false;
+					else
+						clickableYellow[j] = true;
+				}
+				
+				clickableBlue = getBlue().getFields();
+				for(int j = 0; j < clickableBlue.length; j++) {
+					
+					if(clickableBlue[j] == true)
+						clickableBlue[j] = false;
+					else
+						clickableBlue[j] = true;
+				}
+				
+				boolean clickableGreen = false;
+				if(getGreen().getFields() < 11)
+					clickableGreen = true;
+				
+				boolean clickableOrange = false;
+				if(getOrange().getFields()[10] == 0)
+					clickableOrange = true;
+				
+				boolean clickablePurple = false;
+				if(getPurple().getFields()[10] == 0)
+					clickablePurple = true;
+				
+				clickable.setYellow(clickableYellow);
+				clickable.setBlue(clickableBlue);
+				clickable.setGreen(clickableGreen);
+				clickable.setOrange(clickableOrange);
+				clickable.setPurple(clickablePurple);
+			
+				break;
+				
+			default:
+				break;
+			}
+			
+			break;
+				
 		case rollDices:
 			
 			if(dices[Color.yellow.ordinal()].isOnTray() == false && dices[Color.yellow.ordinal()].getField() == -1 && 

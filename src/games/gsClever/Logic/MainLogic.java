@@ -385,6 +385,97 @@ public class MainLogic {
 		}
 	}
 	
+	private void coloredAreaAfterRollDices(int playerId, int fieldId, int diceField, Color color, Area area) {
+		
+		currentArea[playerId] = null;
+		
+		currentFieldId[playerId] = fieldId;
+		
+		boolean[] clickableDices = null;
+		switch(area) {
+		case yellow:
+			
+			clickableDices = players[playerId].getManagement().getYellow().clickableDices(
+					dices[color.ordinal()].getValue(), dices[Color.white.ordinal()].getValue(), fieldId);
+			
+			break;
+
+		case green:
+			
+			clickableDices = players[playerId].getManagement().getGreen().clickableDices(
+					dices[color.ordinal()].getValue(), dices[Color.white.ordinal()].getValue());
+			
+			break;
+			
+		case purple:
+					
+			clickableDices = players[playerId].getManagement().getPurple().clickableDices(
+					dices[color.ordinal()].getValue(), dices[Color.white.ordinal()].getValue());
+			
+			break;
+					
+		default:
+			break;
+		}
+		
+		if((clickableDices == null || (clickableDices[0] && clickableDices[1])) &&
+				dices[color.ordinal()].getField() == -1 && 
+				dices[color.ordinal()].isOnTray() == false && 
+				dices[Color.white.ordinal()].getField() == -1 && 
+				dices[Color.white.ordinal()].isOnTray() == false) {
+			
+			nextArea[playerId] = Area.decisionMaker;
+			
+			currentArea[playerId] = area;
+		}
+		else if(dices[color.ordinal()].getField() != -1 || dices[color.ordinal()].isOnTray() ||
+				(clickableDices != null && !clickableDices[0])) {
+			
+			dices[Color.white.ordinal()].setField(diceField);
+			if(diceField >= 2)
+				putSmallerDicesOnTray(7);
+			
+			putSmallerDicesOnTray(dices[Color.white.ordinal()].getValue());
+			
+			if(area == Area.blue)
+				currentSpecialEvent[playerId] = players[playerId].getManagement().enterCrossOrNumber(
+						area, currentFieldId[playerId], dices[color.ordinal()].getValue() + 
+						dices[Color.white.ordinal()].getValue());
+			else
+				currentSpecialEvent[playerId] = players[playerId].getManagement().enterCrossOrNumber(
+						area, currentFieldId[playerId], dices[Color.white.ordinal()].getValue());
+			
+			if(currentSpecialEvent[playerId] != null)
+				nextArea[playerId] = Area.specialEvent;
+			else if(currentPlayer == playerId)
+				nextArea[playerId] = Area.rollDices;
+		}
+		else if(dices[Color.white.ordinal()].getField() != -1 || dices[Color.white.ordinal()].isOnTray() ||
+				(clickableDices != null && !clickableDices[1])) {
+			
+			dices[color.ordinal()].setField(diceField);
+			if(diceField >= 2)
+				putSmallerDicesOnTray(7);
+			
+			putSmallerDicesOnTray(dices[color.ordinal()].getValue());
+			
+			if(area == Area.blue)
+				currentSpecialEvent[playerId] = players[playerId].getManagement().enterCrossOrNumber(
+						area, currentFieldId[playerId], dices[color.ordinal()].getValue() + 
+						dices[Color.white.ordinal()].getValue());
+			else
+				currentSpecialEvent[playerId] = players[playerId].getManagement().enterCrossOrNumber(
+						area, currentFieldId[playerId], dices[color.ordinal()].getValue());
+			
+			if(currentSpecialEvent[playerId] != null)
+				nextArea[playerId] = Area.specialEvent;
+			else if(currentPlayer == playerId)
+				nextArea[playerId] = Area.rollDices;
+		}
+		
+		diceAvailable();
+	}
+	
 	public Return click(int playerId, Area area, int fieldId) throws Exception {
 
 		if(nextArea[playerId] == Area.specialEvent) {
@@ -640,292 +731,32 @@ public class MainLogic {
 				break;
 	
 			case yellow:
-	
-				currentArea[playerId] = null;
 				
-				currentFieldId[playerId] = fieldId;
-				
-				clickableDices = players[playerId].getManagement().getYellow().clickableDices(
-						dices[Color.yellow.ordinal()].getValue(), dices[Color.white.ordinal()].getValue(), fieldId);
-				
-				if(dices[Color.yellow.ordinal()].getValue() == dices[Color.white.ordinal()].getValue() && 
-						dices[Color.yellow.ordinal()].getField() == -1 && 
-						dices[Color.yellow.ordinal()].isOnTray() == false && 
-						dices[Color.white.ordinal()].getField() == -1 && 
-						dices[Color.white.ordinal()].isOnTray() == false) {
-					
-					nextArea[playerId] = Area.decisionMaker;
-					
-					currentArea[playerId] = Area.yellow;
-				}
-				else if(dices[Color.yellow.ordinal()].getField() != -1 || 
-						dices[Color.yellow.ordinal()].isOnTray() == true ||
-						clickableDices[0] == false) {
-					
-					dices[Color.white.ordinal()].setField(diceField);
-					if(diceField >= 2)
-						putSmallerDicesOnTray(7);
-					
-					putSmallerDicesOnTray(dices[Color.white.ordinal()].getValue());
-					
-					currentSpecialEvent[playerId] = players[playerId].getManagement().enterCrossOrNumber(
-							Area.yellow, currentFieldId[playerId], dices[Color.white.ordinal()].getValue());
-					
-					if(currentSpecialEvent[playerId] != null)
-						nextArea[playerId] = Area.specialEvent;
-					else if(currentPlayer == playerId)
-						nextArea[playerId] = Area.rollDices;
-				}
-				else if(dices[Color.white.ordinal()].getField() != -1 || 
-						dices[Color.white.ordinal()].isOnTray() == true ||
-						clickableDices[1] == false) {
-					
-					dices[Color.yellow.ordinal()].setField(diceField);
-					if(diceField >= 2)
-						putSmallerDicesOnTray(7);
-					
-					putSmallerDicesOnTray(dices[Color.yellow.ordinal()].getValue());
-					
-					currentSpecialEvent[playerId] = players[playerId].getManagement().enterCrossOrNumber(
-							Area.yellow, currentFieldId[playerId], dices[Color.yellow.ordinal()].getValue());
-					
-					if(currentSpecialEvent[playerId] != null)
-						nextArea[playerId] = Area.specialEvent;
-					else if(currentPlayer == playerId)
-						nextArea[playerId] = Area.rollDices;
-				}
-				
-				diceAvailable();
+				coloredAreaAfterRollDices(playerId, fieldId, diceField, Color.yellow, Area.yellow);
 				
 				break;
 	
 			case blue:
 	
-				currentArea[playerId] = null;
-				
-				currentFieldId[playerId] = fieldId;
-				
-				if(dices[Color.blue.ordinal()].getField() == -1 && 
-						dices[Color.blue.ordinal()].isOnTray() == false && 
-						dices[Color.white.ordinal()].getField() == -1 && 
-						dices[Color.white.ordinal()].isOnTray() == false) {
-					
-					nextArea[playerId] = Area.decisionMaker;
-					
-					currentArea[playerId] = Area.blue;
-				}
-				else if(dices[Color.blue.ordinal()].getField() != -1 || 
-						dices[Color.blue.ordinal()].isOnTray() == true) {
-					
-					dices[Color.white.ordinal()].setField(diceField);
-					if(diceField >= 2)
-						putSmallerDicesOnTray(7);
-					
-					putSmallerDicesOnTray(dices[Color.white.ordinal()].getValue());
-					
-					currentSpecialEvent[playerId] = players[playerId].getManagement().enterCrossOrNumber(
-							Area.blue, currentFieldId[playerId], dices[Color.blue.ordinal()].getValue() + 
-							dices[Color.white.ordinal()].getValue());
-					
-					if(currentSpecialEvent[playerId] != null)
-						nextArea[playerId] = Area.specialEvent;
-					else if(currentPlayer == playerId)
-						nextArea[playerId] = Area.rollDices;
-				}
-				else if(dices[Color.white.ordinal()].getField() != -1 || 
-						dices[Color.white.ordinal()].isOnTray() == true) {
-					
-					dices[Color.blue.ordinal()].setField(diceField);
-					if(diceField >= 2)
-						putSmallerDicesOnTray(7);
-					
-					putSmallerDicesOnTray(dices[Color.blue.ordinal()].getValue());
-					
-					currentSpecialEvent[playerId] = players[playerId].getManagement().enterCrossOrNumber(
-							Area.blue, currentFieldId[playerId], dices[Color.blue.ordinal()].getValue() + 
-							dices[Color.white.ordinal()].getValue());
-					
-					if(currentSpecialEvent[playerId] != null)
-						nextArea[playerId] = Area.specialEvent;
-					else if(currentPlayer == playerId)
-						nextArea[playerId] = Area.rollDices;
-				}
-				
-				diceAvailable();
+				coloredAreaAfterRollDices(playerId, fieldId, diceField, Color.blue, Area.blue);
 				
 				break;
 	
 			case green:
 				
-				currentArea[playerId] = null;
-				
-				currentFieldId[playerId] = fieldId;
-				
-				clickableDices = players[playerId].getManagement().getGreen().clickableDices(
-						dices[Color.green.ordinal()].getValue(), this.dices[Color.white.ordinal()].getValue());
-	
-				if(clickableDices[0] && clickableDices[1] &&
-						dices[Color.green.ordinal()].getField() == -1 && 
-						dices[Color.green.ordinal()].isOnTray() == false && 
-						dices[Color.white.ordinal()].getField() == -1 && 
-						dices[Color.white.ordinal()].isOnTray() == false) {
-					
-					nextArea[playerId] = Area.decisionMaker;
-					
-					currentArea[playerId] = Area.green;
-				}
-				else if(dices[Color.green.ordinal()].getField() != -1 || 
-						dices[Color.green.ordinal()].isOnTray() == true ||
-						clickableDices[0] == false) {
-					
-					dices[Color.white.ordinal()].setField(diceField);
-					if(diceField >= 2)
-						putSmallerDicesOnTray(7);
-					
-					putSmallerDicesOnTray(dices[Color.white.ordinal()].getValue());
-					
-					currentSpecialEvent[playerId] = players[playerId].getManagement().enterCrossOrNumber(
-							Area.green, currentFieldId[playerId], dices[Color.white.ordinal()].getValue());
-					
-					if(currentSpecialEvent[playerId] != null)
-						nextArea[playerId] = Area.specialEvent;
-					else if(currentPlayer == playerId)
-						nextArea[playerId] = Area.rollDices;
-				}
-				else if(dices[Color.white.ordinal()].getField() != -1 || 
-						dices[Color.white.ordinal()].isOnTray() == true ||
-						clickableDices[1] == false) {
-		
-					dices[Color.green.ordinal()].setField(diceField);
-					if(diceField >= 2)
-						putSmallerDicesOnTray(7);
-					
-					putSmallerDicesOnTray(dices[Color.green.ordinal()].getValue());
-					
-					currentSpecialEvent[playerId] = players[playerId].getManagement().enterCrossOrNumber(
-							Area.green, currentFieldId[playerId], dices[Color.green.ordinal()].getValue());
-					
-					if(currentSpecialEvent[playerId] != null)
-						nextArea[playerId] = Area.specialEvent;
-					else if(currentPlayer == playerId)
-						nextArea[playerId] = Area.rollDices;
-				}
-				
-				diceAvailable();
+				coloredAreaAfterRollDices(playerId, fieldId, diceField, Color.green, Area.green);
 				
 				break;
 	
 			case orange:
 				
-				currentArea[playerId] = null;
-				
-				currentFieldId[playerId] = fieldId;
-	
-				if(dices[Color.orange.ordinal()].getField() == -1 && 
-						dices[Color.orange.ordinal()].isOnTray() == false && 
-						dices[Color.white.ordinal()].getField() == -1 && 
-						dices[Color.white.ordinal()].isOnTray() == false) {
-					
-					nextArea[playerId] = Area.decisionMaker;
-					
-					currentArea[playerId] = Area.orange;
-				}
-				else if(dices[Color.orange.ordinal()].getField() != -1 || 
-						dices[Color.orange.ordinal()].isOnTray() == true) {
-					
-					dices[Color.white.ordinal()].setField(diceField);
-					if(diceField >= 2)
-						putSmallerDicesOnTray(7);
-					
-					putSmallerDicesOnTray(dices[Color.white.ordinal()].getValue());
-					
-					currentSpecialEvent[playerId] = players[playerId].getManagement().enterCrossOrNumber(
-							Area.orange, currentFieldId[playerId], dices[Color.white.ordinal()].getValue());
-					
-					if(currentSpecialEvent[playerId] != null)
-						nextArea[playerId] = Area.specialEvent;
-					else if(currentPlayer == playerId)
-						nextArea[playerId] = Area.rollDices;
-				}
-				else if(dices[Color.white.ordinal()].getField() != -1 || 
-						dices[Color.white.ordinal()].isOnTray() == true) {
-		
-					dices[Color.orange.ordinal()].setField(diceField);
-					if(diceField >= 2)
-						putSmallerDicesOnTray(7);
-					
-					putSmallerDicesOnTray(dices[Color.orange.ordinal()].getValue());
-					
-					currentSpecialEvent[playerId] = players[playerId].getManagement().enterCrossOrNumber(
-							Area.orange, currentFieldId[playerId], dices[Color.orange.ordinal()].getValue());
-					
-					if(currentSpecialEvent[playerId] != null)
-						nextArea[playerId] = Area.specialEvent;
-					else if(currentPlayer == playerId)
-						nextArea[playerId] = Area.rollDices;
-				}
-				
-				diceAvailable();
+				coloredAreaAfterRollDices(playerId, fieldId, diceField, Color.orange, Area.orange);
 				
 				break;
 	
 			case purple:
 				
-				currentArea[playerId] = null;
-				
-				currentFieldId[playerId] = fieldId;
-				
-				clickableDices = players[playerId].getManagement().getPurple().clickableDices(
-						dices[Color.purple.ordinal()].getValue(), dices[Color.white.ordinal()].getValue());
-				
-				if(clickableDices[0] && clickableDices[1] &&
-						dices[Color.purple.ordinal()].getField() == -1 && 
-						dices[Color.purple.ordinal()].isOnTray() == false && 
-						dices[Color.white.ordinal()].getField() == -1 && 
-						dices[Color.white.ordinal()].isOnTray() == false) {
-					
-					nextArea[playerId] = Area.decisionMaker;
-					
-					currentArea[playerId] = Area.purple;
-				}
-				else if(dices[Color.purple.ordinal()].getField() != -1 || 
-						dices[Color.purple.ordinal()].isOnTray() == true ||
-						clickableDices[0] == false) {
-					
-					dices[Color.white.ordinal()].setField(diceField);
-					if(diceField >= 2)
-						putSmallerDicesOnTray(7);
-					
-					putSmallerDicesOnTray(dices[Color.white.ordinal()].getValue());
-					
-					currentSpecialEvent[playerId] = players[playerId].getManagement().enterCrossOrNumber(
-							Area.purple, currentFieldId[playerId], dices[Color.white.ordinal()].getValue());
-					
-					if(currentSpecialEvent[playerId] != null)
-						nextArea[playerId] = Area.specialEvent;
-					else if(currentPlayer == playerId)
-						nextArea[playerId] = Area.rollDices;
-				}
-				else if(dices[Color.white.ordinal()].getField() != -1 || 
-						dices[Color.white.ordinal()].isOnTray() == true ||
-						clickableDices[1] == false) {
-		
-					dices[Color.purple.ordinal()].setField(diceField);
-					if(diceField >= 2)
-						putSmallerDicesOnTray(7);
-					
-					putSmallerDicesOnTray(dices[Color.purple.ordinal()].getValue());
-					
-					currentSpecialEvent[playerId] = players[playerId].getManagement().enterCrossOrNumber(
-							Area.purple, currentFieldId[playerId], dices[Color.purple.ordinal()].getValue());
-					
-					if(currentSpecialEvent[playerId] != null)
-						nextArea[playerId] = Area.specialEvent;
-					else if(currentPlayer == playerId)
-						nextArea[playerId] = Area.rollDices;
-				}
-				
-				diceAvailable();
+				coloredAreaAfterRollDices(playerId, fieldId, diceField, Color.purple, Area.purple);
 				
 				break;
 				
@@ -990,6 +821,7 @@ public class MainLogic {
 			}
 		}
 		
+		//from here fill returnBack (except winner)
 		for(int i = 0; i < playerCount; i++) {
 			
 			if(additionalDiceTime && nextArea[i] != Area.takeDiceFromTray && 
@@ -1005,8 +837,8 @@ public class MainLogic {
 					
 					if(i == currentPlayer) {
 						
-						returnBack.setClickable(players[currentPlayer].getManagement().isClickable(dices, 
-								Area.rollDices), currentPlayer);
+						returnBack.setClickable(players[currentPlayer].getManagement().isClickable(
+								dices, Area.rollDices, null), currentPlayer);
 						
 						if(players[currentPlayer].getManagement().getDiceRepeatUsed() < 
 								players[currentPlayer].getManagement().getDiceRepeatCount())
@@ -1017,8 +849,8 @@ public class MainLogic {
 					
 				case additionalDice:
 					
-					returnBack.setClickable(players[playerId].getManagement().isClickable(dices, Area.additionalDice), 
-							playerId);
+					returnBack.setClickable(players[playerId].getManagement().isClickable(
+							dices, Area.additionalDice, null), playerId);
 					
 					break;
 					
@@ -1084,86 +916,14 @@ public class MainLogic {
 					
 				case specialEvent:
 					
-					switch(currentSpecialEvent[i]) {
-					case enterCrossYellow:
-						
-						boolean[] clickableYellow = players[playerId].getManagement().getYellow().getFields();
-						for(int j = 0; j < clickableYellow.length; j++) {
-							
-							if(clickableYellow[j] == true)
-								clickableYellow[j] = false;
-							else
-								clickableYellow[j] = true;
-						}
-						
-						returnBack.getClickable(playerId).setYellow(clickableYellow);
-						
-						break;
-						
-					case enterCrossBlue:
-						
-						boolean[] clickableBlue = players[playerId].getManagement().getBlue().getFields();
-						for(int j = 0; j < clickableBlue.length; j++) {
-							
-							if(clickableBlue[j] == true)
-								clickableBlue[j] = false;
-							else
-								clickableBlue[j] = true;
-						}
-						
-						returnBack.getClickable(playerId).setBlue(clickableBlue);
-						
-						break;
-						
-					case round4:
-						
-						clickableYellow = players[playerId].getManagement().getYellow().getFields();
-						for(int j = 0; j < clickableYellow.length; j++) {
-							
-							if(clickableYellow[j] == true)
-								clickableYellow[j] = false;
-							else
-								clickableYellow[j] = true;
-						}
-						
-						clickableBlue = players[playerId].getManagement().getBlue().getFields();
-						for(int j = 0; j < clickableBlue.length; j++) {
-							
-							if(clickableBlue[j] == true)
-								clickableBlue[j] = false;
-							else
-								clickableBlue[j] = true;
-						}
-						
-						boolean clickableGreen = false;
-						if(players[playerId].getManagement().getGreen().getFields() < 11)
-							clickableGreen = true;
-						
-						boolean clickableOrange = false;
-						if(players[playerId].getManagement().getOrange().getFields()[10] == 0)
-							clickableOrange = true;
-						
-						boolean clickablePurple = false;
-						if(players[playerId].getManagement().getPurple().getFields()[10] == 0)
-							clickablePurple = true;
-						
-						returnBack.getClickable(playerId).setYellow(clickableYellow);
-						returnBack.getClickable(playerId).setBlue(clickableBlue);
-						returnBack.getClickable(playerId).setGreen(clickableGreen);
-						returnBack.getClickable(playerId).setOrange(clickableOrange);
-						returnBack.getClickable(playerId).setPurple(clickablePurple);
-						
-						break;
-						
-					default:
-						break;
-					}
+					returnBack.setClickable(players[playerId].getManagement().isClickable(
+							dices, Area.specialEvent, currentSpecialEvent[i]), playerId);
 					
 					break;
 					
 				case takeDiceFromTray:
 					
-					returnBack.setClickable(players[playerId].getManagement().isClickable(dices, Area.takeDiceFromTray), 
+					returnBack.setClickable(players[playerId].getManagement().isClickable(dices, Area.takeDiceFromTray, null), 
 							playerId);
 					
 				default:
