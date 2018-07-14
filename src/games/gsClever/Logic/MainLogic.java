@@ -364,6 +364,7 @@ public class MainLogic {
 
 		if(nextArea[playerId] == Area.specialEvent) {
 		
+			currentArea[playerId] = area;
 			area = Area.specialEvent;
 		}
 		else if(additionalDiceTime && (area == Area.yellow || area == Area.blue || 
@@ -550,35 +551,44 @@ public class MainLogic {
 					
 				case round4:
 					
-					//"fieldId" = fieldId + Color * 100
-					if(fieldId >= Color.yellow.ordinal() * 100 && fieldId < Color.yellow.ordinal() * 100 + 100) {
+					switch(currentArea[playerId]) {
+					case yellow:
 						
 						currentSpecialEvent[playerId] = players[playerId].getManagement().enterCrossOrNumber(
-								Area.yellow, fieldId - Color.yellow.ordinal() * 100, 6);
-					}
-					
-					if(fieldId >= Color.blue.ordinal() * 100 && fieldId < Color.blue.ordinal() * 100 + 100) {
+								Area.yellow, fieldId, 6);
+						
+						break;
+						
+					case blue:
 						
 						currentSpecialEvent[playerId] = players[playerId].getManagement().enterCrossOrNumber(
-								Area.blue, fieldId - Color.blue.ordinal() * 100, 6);
-					}
-					
-					if(fieldId >= Color.green.ordinal() * 100 && fieldId < Color.green.ordinal() * 100 + 100) {
+								Area.blue, fieldId, 6);
+						
+						break;
+						
+					case green:
+	
+						currentSpecialEvent[playerId] = players[playerId].getManagement().enterCrossOrNumber(
+								Area.green, fieldId, 6);
+	
+						break;
+	
+					case orange:
+	
+						currentSpecialEvent[playerId] = players[playerId].getManagement().enterCrossOrNumber(
+								Area.orange, fieldId, 6);
+						
+						break;
+						
+					case purple:
 						
 						currentSpecialEvent[playerId] = players[playerId].getManagement().enterCrossOrNumber(
-								Area.green, fieldId - Color.green.ordinal() * 100, 6);
-					}
-					
-					if(fieldId >= Color.orange.ordinal() * 100 && fieldId < Color.orange.ordinal() * 100 + 100) {
+								Area.purple, fieldId, 6);
 						
-						currentSpecialEvent[playerId] = players[playerId].getManagement().enterCrossOrNumber(
-								Area.orange, fieldId - Color.orange.ordinal() * 100, 6);
-					}
-					
-					if(fieldId >= Color.purple.ordinal() * 100 && fieldId < Color.purple.ordinal() * 100 + 100) {
+						break;
 						
-						currentSpecialEvent[playerId] = players[playerId].getManagement().enterCrossOrNumber(
-								Area.purple, fieldId - Color.purple.ordinal() * 100, 6);
+					default:
+						break;
 					}
 					
 					break;
