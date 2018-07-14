@@ -89,9 +89,9 @@ public class MainLogic {
 
 	private boolean startRound() {
 
-		round++;
-
-		switch (round) {
+		boolean result = false;
+		
+		switch (round + 1) {
 		case 1:
 
 			for (int i = 0; i < playerCount; i++) {
@@ -99,7 +99,7 @@ public class MainLogic {
 				players[i].getManagement().incrementDiceRepeatCount();
 			}
 
-			return true;
+			result = true;
 
 		case 2:
 
@@ -108,7 +108,7 @@ public class MainLogic {
 				players[i].getManagement().incrementAdditionalDiceCount();
 			}
 
-			return true;
+			result = true;
 
 		case 3:
 
@@ -117,7 +117,7 @@ public class MainLogic {
 				players[i].getManagement().incrementDiceRepeatCount();
 			}
 
-			return true;
+			result = true;
 			
 		case 4:
 			
@@ -128,27 +128,31 @@ public class MainLogic {
 				nextArea[i] = Area.specialEvent;
 			}
 			
-			return true;
+			result = true;
 			
 		case 5:
 			
 			if(playerCount <= 3)
-				return true;
+				result = true;
 			else
-				return false;
+				result = false;
 			
 		case 6:
 			
 			if(playerCount <= 2)
-				return true;
+				result = true;
 			else
-				return false;
+				result = false;
 			
 		default:
 			
-			return false;
-
+			result = false;
 		}
+		
+		if(result)
+			round++;
+		
+		return result;
 	}
 
 	private void rollDices(List<Dice> dices) {
