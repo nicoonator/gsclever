@@ -821,14 +821,14 @@ public class MainLogic {
 		}
 		
 		//from here fill returnBack (except winner)
-		for(int i = 0; i < playerCount; i++) {
+		for(int player = 0; player < playerCount; player++) {
 			
-			if(currentArea[i] != null) {
+			if(currentArea[player] != null) {
 				
-				switch(currentArea[i]) {
+				switch(currentArea[player]) {
 				case rollDices:
 					
-					if(i == currentPlayer) {
+					if(player == currentPlayer) {
 						
 						returnBack.setClickable(players[currentPlayer].getManagement().isClickable(
 								dices, Area.rollDices, null), currentPlayer);
@@ -842,8 +842,8 @@ public class MainLogic {
 					
 				case additionalDice:
 					
-					returnBack.setClickable(players[playerId].getManagement().isClickable(
-							dices, Area.additionalDice, null), playerId);
+					returnBack.setClickable(players[player].getManagement().isClickable(
+							dices, Area.additionalDice, null), player);
 					
 					break;
 					
@@ -852,44 +852,44 @@ public class MainLogic {
 				}
 			}
 				
-			if(nextArea[i] != null) {
+			if(nextArea[player] != null) {
 				
-				switch(nextArea[i]) {
+				switch(nextArea[player]) {
 				case decisionMaker:
 					
-					returnBack.getDecisionMaker(i).setColorDiceActive(true);
-					returnBack.getDecisionMaker(i).setWhiteDiceActive(true);
+					returnBack.getDecisionMaker(player).setColorDiceActive(true);
+					returnBack.getDecisionMaker(player).setWhiteDiceActive(true);
 					
-					if(currentArea[i] != null) {
+					if(currentArea[player] != null) {
 					
-						switch(currentArea[i]) {
+						switch(currentArea[player]) {
 						case yellow:
 							
-							returnBack.getDecisionMaker(i).setColorOfDice(Color.yellow);
+							returnBack.getDecisionMaker(player).setColorOfDice(Color.yellow);
 							
 							break;
 							
 						case blue:
 							
-							returnBack.getDecisionMaker(i).setColorOfDice(Color.blue);
+							returnBack.getDecisionMaker(player).setColorOfDice(Color.blue);
 							
 							break;
 							
 						case green:
 							
-							returnBack.getDecisionMaker(i).setColorOfDice(Color.green);
+							returnBack.getDecisionMaker(player).setColorOfDice(Color.green);
 							
 							break;
 							
 						case orange:
 							
-							returnBack.getDecisionMaker(i).setColorOfDice(Color.orange);
+							returnBack.getDecisionMaker(player).setColorOfDice(Color.orange);
 							
 							break;
 							
 						case purple:
 							
-							returnBack.getDecisionMaker(i).setColorOfDice(Color.purple);
+							returnBack.getDecisionMaker(player).setColorOfDice(Color.purple);
 							
 							break;
 							
@@ -902,50 +902,50 @@ public class MainLogic {
 					
 				case rollDices:
 					
-					if(currentPlayer == i)
-						returnBack.getClickable(i).setRollDices(true);
+					if(currentPlayer == player)
+						returnBack.getClickable(player).setRollDices(true);
 					
 					break;
 					
 				case specialEvent:
 					
-					returnBack.setClickable(players[playerId].getManagement().isClickable(
-							dices, Area.specialEvent, currentSpecialEvent[i]), playerId);
+					returnBack.setClickable(players[player].getManagement().isClickable(
+							dices, Area.specialEvent, currentSpecialEvent[player]), player);
 					
 					break;
 					
 				case takeDiceFromTray:
 					
-					returnBack.setClickable(players[playerId].getManagement().isClickable(dices, Area.takeDiceFromTray, null), 
-							playerId);
+					returnBack.setClickable(players[player].getManagement().isClickable(
+							dices, Area.takeDiceFromTray, null), player);
 					
 				default:
 					break;
 				}
 			}
 			
-			if(additionalDiceTime && nextArea[i] != Area.takeDiceFromTray &&
-					currentArea[i] != Area.decisionMaker && nextArea[i] != Area.decisionMaker) {
+			if(additionalDiceTime && nextArea[player] != Area.takeDiceFromTray &&
+					currentArea[player] != Area.decisionMaker && nextArea[player] != Area.decisionMaker) {
 				
-				returnBack.getClickable(i).setReady(true);
+				returnBack.getClickable(player).setReady(true);
 				
-				if(players[i].getManagement().getAdditionalDiceUsed() < 
-						players[i].getManagement().getAdditionalDiceCount())
-					returnBack.getClickable(i).setAdditionalDice(true);
+				if(players[player].getManagement().getAdditionalDiceUsed() < 
+						players[player].getManagement().getAdditionalDiceCount())
+					returnBack.getClickable(player).setAdditionalDice(true);
 			}
 			
-			Matchfield matchfield = returnBack.getMatchfield(i);
+			Matchfield matchfield = returnBack.getMatchfield(player);
 			
-			matchfield.setYellow(players[i].getManagement().getYellow().getFields());
-			matchfield.setBlue(players[i].getManagement().getBlue().getFields());
-			matchfield.setGreen(players[i].getManagement().getGreen().getFields());
-			matchfield.setOrange(players[i].getManagement().getOrange().getFields());
-			matchfield.setPurple(players[i].getManagement().getPurple().getFields());
+			matchfield.setYellow(players[player].getManagement().getYellow().getFields());
+			matchfield.setBlue(players[player].getManagement().getBlue().getFields());
+			matchfield.setGreen(players[player].getManagement().getGreen().getFields());
+			matchfield.setOrange(players[player].getManagement().getOrange().getFields());
+			matchfield.setPurple(players[player].getManagement().getPurple().getFields());
 			
-			matchfield.setDiceRepeatCount(players[i].getManagement().getDiceRepeatCount());
-			matchfield.setDiceRepeatUsed(players[i].getManagement().getDiceRepeatUsed());
-			matchfield.setAdditionalDiceCount(players[i].getManagement().getAdditionalDiceCount());
-			matchfield.setAdditionalDiceUsed(players[i].getManagement().getAdditionalDiceUsed());
+			matchfield.setDiceRepeatCount(players[player].getManagement().getDiceRepeatCount());
+			matchfield.setDiceRepeatUsed(players[player].getManagement().getDiceRepeatUsed());
+			matchfield.setAdditionalDiceCount(players[player].getManagement().getAdditionalDiceCount());
+			matchfield.setAdditionalDiceUsed(players[player].getManagement().getAdditionalDiceUsed());
 		}
 		
 		returnBack.setRound(round);
