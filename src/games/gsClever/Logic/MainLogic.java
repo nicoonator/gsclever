@@ -100,6 +100,8 @@ public class MainLogic {
 			}
 
 			result = true;
+			
+			break;
 
 		case 2:
 
@@ -109,6 +111,8 @@ public class MainLogic {
 			}
 
 			result = true;
+			
+			break;
 
 		case 3:
 
@@ -118,6 +122,8 @@ public class MainLogic {
 			}
 
 			result = true;
+			
+			break;
 			
 		case 4:
 			
@@ -130,12 +136,16 @@ public class MainLogic {
 			
 			result = true;
 			
+			break;
+			
 		case 5:
 			
 			if(playerCount <= 3)
 				result = true;
 			else
 				result = false;
+			
+			break;
 			
 		case 6:
 			
@@ -144,9 +154,13 @@ public class MainLogic {
 			else
 				result = false;
 			
+			break;
+			
 		default:
 			
 			result = false;
+			
+			break;
 		}
 		
 		if(result)
@@ -931,7 +945,7 @@ public class MainLogic {
 						
 						for(int i = 0; i < playerCount; i++) {
 							
-							returnBack.getWinner().getPoints(i).setPlayerId(i);
+							returnBack.getWinner().getPoints(i).setPlayerId(i);//TODO nullpointer
 							returnBack.getWinner().getPoints(i).setPoints(
 									players[i].getManagement().getYellow().determinePoints(), 
 									Color.yellow.ordinal());
