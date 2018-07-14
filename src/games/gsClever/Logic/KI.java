@@ -114,8 +114,7 @@ public class KI extends User {
 			if (data[180] == 1) {
 				return "CLICKPURPLE";
 			}
-			
-			break;
+			return"SKIP";
 		}
 		case 2: {
 
