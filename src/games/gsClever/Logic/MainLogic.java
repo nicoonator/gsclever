@@ -362,7 +362,11 @@ public class MainLogic {
 	
 	public Return click(int playerId, Area area, int fieldId) throws Exception {
 
-		if(additionalDiceTime && (area == Area.yellow || area == Area.blue || 
+		if(nextArea[playerId] == Area.specialEvent) {
+		
+			area = Area.specialEvent;
+		}
+		else if(additionalDiceTime && (area == Area.yellow || area == Area.blue || 
 				area == Area.green || area == Area.orange || area == Area.purple)) {
 			
 			currentArea[playerId] = area;
