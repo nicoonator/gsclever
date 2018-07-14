@@ -125,6 +125,7 @@ var img5 = "/gsClever/Images/Numbers/5.png";
 var img6 = "/gsClever/Images/Numbers/6.png";
 var img8 = "/gsClever/Images/Numbers/8.png";
 var img9 = "/gsClever/Images/Numbers/9.png";
+var img10 ="/gsClever/Images/Numbers/10.png";
 var img12 = "/gsClever/Images/Numbers/12.png";
 var img15 = "/gsClever/Images/Numbers/15.png";
 var img18 = "/gsClever/Images/Numbers/18.png";
@@ -253,6 +254,8 @@ function getNumberImg(x) {
 	return img8
     case 9:
 	return img9
+    case 10:
+    return img9
     case 12:
 	return img12
     case 15:
@@ -1345,6 +1348,14 @@ function setBlueClickable(SpielerNR, FieldID, value){
 	}
 }
 }
+function showCurrentPlayer(){
+	if (namelist.lenght!=0){
+		$("labelCurrentPlayer").innerHTML = "Aktiver Spieler: "+namelist[currentPlayer-1];
+	}
+	
+}
+
+
 function setGreenClickable(SpielerNR, value){
     if(userNumber==SpielerNR){
 	var nodes = document.getElementById("spieler1").childNodes;
@@ -1414,6 +1425,7 @@ function extractArray(x) {
 	case 1: {
 	    currentPlayer = +x[i];
 	    showview(+x[i]);
+	    showCurrentPlayer();
 	    break;
 	}
 	case 2: {
