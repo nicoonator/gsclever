@@ -478,6 +478,8 @@ public class MainLogic {
 	
 	public Return click(int playerId, Area area, int fieldId) throws Exception {
 
+		Return returnBack = new Return(currentPlayer, round, playerCount);
+		
 		if(nextArea[playerId] == Area.specialEvent) {
 		
 			currentArea[playerId] = area;
@@ -495,9 +497,6 @@ public class MainLogic {
 			
 			nextArea[playerId] = null;
 		}
-		
-		Return returnBack = new Return(currentPlayer, round, playerCount);
-		boolean[] clickableDices = null;
 		
 		int diceField = 0;
 		for (Dice dice : dices) {
@@ -824,12 +823,6 @@ public class MainLogic {
 		//from here fill returnBack (except winner)
 		for(int i = 0; i < playerCount; i++) {
 			
-			if(additionalDiceTime && nextArea[i] != Area.takeDiceFromTray && 
-					currentArea[i] != Area.additionalDice && nextArea[i] != Area.decisionMaker) {
-				
-				returnBack.getClickable(i).setReady(true);
-			}
-			
 			if(currentArea[i] != null) {
 				
 				switch(currentArea[i]) {
@@ -931,13 +924,15 @@ public class MainLogic {
 				}
 			}
 			
-			if(players[i].getManagement().getAdditionalDiceUsed() < 
-					players[i].getManagement().getAdditionalDiceCount() && 
-					additionalDiceTime && nextArea[i] != Area.takeDiceFromTray &&
-					currentArea[i] != Area.decisionMaker && nextArea[i] != Area.decisionMaker)
-				returnBack.getClickable(i).setAdditionalDice(true);
-			
-			returnBack.setRound(round);
+			if(additionalDiceTime && nextArea[i] != Area.takeDiceFromTray &&
+					currentArea[i] != Area.decisionMaker && nextArea[i] != Area.decisionMaker) {
+				
+				returnBack.getClickable(i).setReady(true);
+				
+				if(players[i].getManagement().getAdditionalDiceUsed() < 
+						players[i].getManagement().getAdditionalDiceCount())
+					returnBack.getClickable(i).setAdditionalDice(true);
+			}
 			
 			Matchfield matchfield = returnBack.getMatchfield(i);
 			
@@ -953,6 +948,7 @@ public class MainLogic {
 			matchfield.setAdditionalDiceUsed(players[i].getManagement().getAdditionalDiceUsed());
 		}
 		
+		returnBack.setRound(round);
 		returnBack.setDices(dices);
 
 		return returnBack;
