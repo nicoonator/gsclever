@@ -516,11 +516,9 @@ public class gsClever extends Game {
 	private void checkKITurn() {
 
 		for (KI ki : KIList) {
-			if (returnBack.getCurrentPlayer() == currentGame.determinePlayerId(ki.getName())) {
-				this.execute(ki, ki.doSomething(currentGame,this.getGameStatus()));
-				sendGameDataToClients("SUBMITGAME");
-				return;
-			}
+			this.execute(ki, ki.doSomething(currentGame,this.getGameStatus()));
+			sendGameDataToClients("SUBMITGAME");
+			return;
 		}
 
 	}
@@ -645,6 +643,7 @@ public class gsClever extends Game {
 		if (playerList.size() < 4) {
 			KI ki = new KI(currentID);
 			currentID++;
+			KIList.add(ki);
 			this.addUser(ki);
 		}
 	}
