@@ -354,7 +354,7 @@ public class MainLogic {
 						dices[Color.purple.ordinal()].getValue(), dices[Color.white.ordinal()].getValue());
 				
 				if(clickableDices[0] && clickableDices[1] && (actualArea == Area.additionalDiceExecute ||
-						dices[Color.purple.ordinal()].isOnTray() && dices[Color.white.ordinal()].isOnTray())) {
+						(dices[Color.purple.ordinal()].isOnTray() && dices[Color.white.ordinal()].isOnTray()))) {
 					
 					nextArea[playerId] = Area.decisionMaker;
 				}
@@ -762,8 +762,6 @@ public class MainLogic {
 			case takeDiceFromTray:
 				
 				stealDice(playerId, fieldId, Area.takeDiceFromTray);
-				
-				currentArea[playerId] = Area.takeDiceFromTray;
 				
 				break;
 				
