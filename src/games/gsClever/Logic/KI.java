@@ -115,6 +115,7 @@ public class KI extends User {
 				return "CLICKPURPLE";
 			}
 			return"SKIP";
+		
 		}
 		case 2: {
 
