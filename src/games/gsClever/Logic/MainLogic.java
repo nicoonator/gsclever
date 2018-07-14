@@ -1005,7 +1005,8 @@ public class MainLogic {
 					
 					if(i == currentPlayer) {
 						
-						returnBack.setClickable(players[currentPlayer].getManagement().isClickable(dices, currentArea[playerId]), currentPlayer);
+						returnBack.setClickable(players[currentPlayer].getManagement().isClickable(dices, 
+								Area.rollDices), currentPlayer);
 						
 						if(players[currentPlayer].getManagement().getDiceRepeatUsed() < 
 								players[currentPlayer].getManagement().getDiceRepeatCount())
@@ -1016,7 +1017,8 @@ public class MainLogic {
 					
 				case additionalDice:
 					
-					returnBack.setClickable(players[playerId].getManagement().isClickable(dices, currentArea[playerId]), playerId);
+					returnBack.setClickable(players[playerId].getManagement().isClickable(dices, Area.additionalDice), 
+							playerId);
 					
 					break;
 					
@@ -1161,77 +1163,8 @@ public class MainLogic {
 					
 				case takeDiceFromTray:
 					
-					if(dices[Color.yellow.ordinal()].isOnTray() && dices[Color.white.ordinal()].isOnTray()) {
-						
-						returnBack.getClickable(i).setYellow(players[i].getManagement().getYellow().isClickable(
-								dices[Color.yellow.ordinal()].getValue(), dices[Color.white.ordinal()].getValue()));
-					}
-					else if(dices[Color.yellow.ordinal()].isOnTray()) {
-						
-						returnBack.getClickable(i).setYellow(players[i].getManagement().getYellow().isClickable(
-								dices[Color.yellow.ordinal()].getValue(), dices[Color.yellow.ordinal()].getValue()));
-					}
-					else if(dices[Color.white.ordinal()].isOnTray()) {
-						
-						returnBack.getClickable(i).setYellow(players[i].getManagement().getYellow().isClickable(
-								dices[Color.white.ordinal()].getValue(), dices[Color.white.ordinal()].getValue()));
-					}
-					
-					if(dices[Color.blue.ordinal()].isOnTray() || dices[Color.white.ordinal()].isOnTray()) {
-						
-						returnBack.getClickable(i).setBlue(players[i].getManagement().getBlue().isClickable(
-								dices[Color.blue.ordinal()].getValue(), dices[Color.white.ordinal()].getValue()));
-					}
-
-					if(dices[Color.green.ordinal()].isOnTray() && dices[Color.white.ordinal()].isOnTray()) {
-						
-						returnBack.getClickable(i).setGreen(players[i].getManagement().getGreen().isClickable(
-								dices[Color.green.ordinal()].getValue(), dices[Color.white.ordinal()].getValue()));
-					}
-					else if(dices[Color.green.ordinal()].isOnTray()) {
-						
-						returnBack.getClickable(i).setGreen(players[i].getManagement().getGreen().isClickable(
-								dices[Color.green.ordinal()].getValue(), dices[Color.green.ordinal()].getValue()));
-					}
-					else if(dices[Color.white.ordinal()].isOnTray()) {
-						
-						returnBack.getClickable(i).setGreen(players[i].getManagement().getGreen().isClickable(
-								dices[Color.white.ordinal()].getValue(), dices[Color.white.ordinal()].getValue()));
-					}
-					
-					if(dices[Color.orange.ordinal()].isOnTray() && dices[Color.white.ordinal()].isOnTray()) {
-						
-						returnBack.getClickable(i).setOrange(players[i].getManagement().getOrange().isClickable(
-								dices[Color.orange.ordinal()].getValue(), dices[Color.white.ordinal()].getValue()));
-					}
-					else if(dices[Color.orange.ordinal()].isOnTray()) {
-						
-						returnBack.getClickable(i).setOrange(players[i].getManagement().getOrange().isClickable(
-								dices[Color.orange.ordinal()].getValue(), dices[Color.orange.ordinal()].getValue()));
-					}
-					else if(dices[Color.white.ordinal()].isOnTray()) {
-						
-						returnBack.getClickable(i).setOrange(players[i].getManagement().getOrange().isClickable(
-								dices[Color.white.ordinal()].getValue(), dices[Color.white.ordinal()].getValue()));
-					}
-					
-					if(dices[Color.purple.ordinal()].isOnTray() && dices[Color.white.ordinal()].isOnTray()) {
-						
-						returnBack.getClickable(i).setPurple(players[i].getManagement().getPurple().isClickable(
-								dices[Color.purple.ordinal()].getValue(), dices[Color.white.ordinal()].getValue()));
-					}
-					else if(dices[Color.purple.ordinal()].isOnTray()) {
-						
-						returnBack.getClickable(i).setPurple(players[i].getManagement().getPurple().isClickable(
-								dices[Color.purple.ordinal()].getValue(), dices[Color.purple.ordinal()].getValue()));
-					}
-					else if(dices[Color.white.ordinal()].isOnTray()) {
-						
-						returnBack.getClickable(i).setPurple(players[i].getManagement().getPurple().isClickable(
-								dices[Color.white.ordinal()].getValue(), dices[Color.white.ordinal()].getValue()));
-					}
-						
-					break;
+					returnBack.setClickable(players[playerId].getManagement().isClickable(dices, Area.takeDiceFromTray), 
+							playerId);
 					
 				default:
 					break;
