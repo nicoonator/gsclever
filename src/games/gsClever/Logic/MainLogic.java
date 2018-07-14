@@ -843,7 +843,8 @@ public class MainLogic {
 						}
 					}
 					
-					nextArea[currentPlayer] = Area.rollDices;
+					if(currentSpecialEvent[currentPlayer] != SpecialEvent.round4)
+						nextArea[currentPlayer] = Area.rollDices;
 					
 					currentArea[playerId] = null;
 				}
