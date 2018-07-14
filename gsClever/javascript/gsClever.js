@@ -15,6 +15,14 @@ addListener('USERJOINED',function (event) {
     }
 
 });
+
+addListener('WINNER',function (event) { 
+	var stringFromServer = event.data;
+    var arr = stringFromServer.split(',');
+    console.log(arr);
+    console.log(stringFromServer);
+    document.getElementById("label").innerHTML = arr[0] + " hat das Spiel gewonnen";
+});
 addListener('NEWGAME',function (event) {
     // INPUT: Spielerzahl, UserNumber
     var stringFromServer = event.data;
@@ -255,7 +263,7 @@ function getNumberImg(x) {
     case 9:
 	return img9
     case 10:
-    return img9
+    return img10
     case 12:
 	return img12
     case 15:
@@ -1350,7 +1358,7 @@ function setBlueClickable(SpielerNR, FieldID, value){
 }
 function showCurrentPlayer(){
 	if (namelist.lenght!=0){
-		$("labelCurrentPlayer").innerHTML = "Aktiver Spieler: "+namelist[currentPlayer-1];
+		document.getElementById("labelCurrentPlayer").innerHTML = "Aktiver Spieler: " + namelist[currentPlayer-1];
 	}
 	
 }

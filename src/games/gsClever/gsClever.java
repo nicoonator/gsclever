@@ -2,6 +2,8 @@ package games.gsClever;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
+
 import gameClasses.Game;
 import gameClasses.GameState;
 import games.gsClever.Logic.Area;
@@ -81,11 +83,19 @@ public class gsClever extends Game {
 		this.gameStatus = gameStatus;
 	}
 
+	public void checkWinner(){
+		if(returnBack.getWinner()!=null){
+			sendGameDataToClients("WINNER");
+			this.gState = GameState.CLOSED;
+		}
+	}
+	
 	/*
 	 * Verarbeitet die sendDataToServer() methoden aus JS
 	 */
 	@Override
 	public void execute(User user, String gsonString) {
+		
 
 		if (gsonString.equals("STARTGAME") && userList.size() >= 2) {
 			this.gState = GameState.RUNNING;
@@ -142,9 +152,11 @@ public class gsClever extends Game {
 		// Die Folgen Methoden sind Templates, die k�nnen im COde auch weiter
 		// runter
 		// verschoben werden
+
+		
 		if (gsonString.equals("WUERFELN")) {
 			try {
-				returnBack = returnBack = currentGame.click(userID, Area.rollDices, 0);
+				returnBack = currentGame.click(userID, Area.rollDices, 0);
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -505,7 +517,7 @@ public class gsClever extends Game {
 
 		for (KI ki : KIList) {
 			if (returnBack.getCurrentPlayer() == currentGame.determinePlayerId(ki.getName())) {
-				returnBack = ki.doSomething(currentGame, returnBack);
+				this.execute(ki, ki.doSomething(currentGame,this.getGameStatus()));
 				sendGameDataToClients("SUBMITGAME");
 				return;
 			}
@@ -564,6 +576,15 @@ public class gsClever extends Game {
 		}
 		if (eventName.equals("CLOSE")) {
 			return "CLOSE";
+		}
+		
+		if (eventName.equals("WINNER")) {
+			List<Integer> winnerlist = returnBack.getWinner().getWinners();
+			if(winnerlist.size()>1){
+				//TODO Mehrere Gewinner
+			} else{
+				gameData+=playerList.get(winnerlist.get(0)).getName();
+			}
 		}
 
 		if (eventName.equals("USERJOINED")) {
@@ -3163,6 +3184,7 @@ public class gsClever extends Game {
 		}
 
 		setGameStatus(result);
+		checkWinner();
 		return gameStatus;
 	}
 

@@ -106,69 +106,69 @@ public class Purple extends ColorArea {
 		}
 		switch (fieldCount) {
 		case 0:
-			if (valueDicePurple >= 1)
+			if (valueDicePurple > 1)
 				result[0] = true;
-			if (valueDiceWhite >= 1)
+			if (valueDiceWhite > 1)
 				result[1] = true;
 			break;
 		case 1:
-			if (valueDicePurple >= fields[0] || fields[0] == 6)
+			if (valueDicePurple > fields[0] || fields[0] == 6)
 				result[0] = true;
-			if (valueDiceWhite >= fields[0] || fields[0] == 6)
+			if (valueDiceWhite > fields[0] || fields[0] == 6)
 				result[1] = true;
 			break;
 		case 2:
-			if (valueDicePurple >= fields[1] || fields[1] == 6)
+			if (valueDicePurple > fields[1] || fields[1] == 6)
 				result[0] = true;
-			if (valueDiceWhite >= fields[1] || fields[1] == 6)
+			if (valueDiceWhite > fields[1] || fields[1] == 6)
 				result[1] = true;
 			break;
 		case 3:
-			if (valueDicePurple >= fields[2] || fields[2] == 6)
+			if (valueDicePurple > fields[2] || fields[2] == 6)
 				result[0] = true;
-			if (valueDiceWhite >= fields[2] || fields[2] == 6)
+			if (valueDiceWhite > fields[2] || fields[2] == 6)
 				result[1] = true;
 			break;
 		case 4:
-			if (valueDicePurple >= fields[3] || fields[3] == 6)
+			if (valueDicePurple > fields[3] || fields[3] == 6)
 				result[0] = true;
-			if (valueDiceWhite >= fields[3] || fields[3] == 6)
+			if (valueDiceWhite > fields[3] || fields[3] == 6)
 				result[1] = true;
 			break;
 		case 5:
-			if (valueDicePurple >= fields[4] || fields[4] == 6)
+			if (valueDicePurple > fields[4] || fields[4] == 6)
 				result[0] = true;
-			if (valueDiceWhite >= fields[4] || fields[4] == 6)
+			if (valueDiceWhite > fields[4] || fields[4] == 6)
 				result[1] = true;
 			break;
 		case 6:
-			if (valueDicePurple >= fields[5] || fields[5] == 6)
+			if (valueDicePurple > fields[5] || fields[5] == 6)
 				result[0] = true;
-			if (valueDiceWhite >= fields[5] || fields[5] == 6)
+			if (valueDiceWhite > fields[5] || fields[5] == 6)
 				result[1] = true;
 			break;
 		case 7:
-			if (valueDicePurple >= fields[6] || fields[6] == 6)
+			if (valueDicePurple > fields[6] || fields[6] == 6)
 				result[0] = true;
-			if (valueDiceWhite >= fields[6] || fields[6] == 6)
+			if (valueDiceWhite > fields[6] || fields[6] == 6)
 				result[1] = true;
 			break;
 		case 8:
-			if (valueDicePurple >= fields[7] || fields[7] == 6)
+			if (valueDicePurple > fields[7] || fields[7] == 6)
 				result[0] = true;
-			if (valueDiceWhite >= fields[7] || fields[7] == 6)
+			if (valueDiceWhite > fields[7] || fields[7] == 6)
 				result[1] = true;
 			break;
 		case 9:
-			if (valueDicePurple >= fields[8] || fields[8] == 6)
+			if (valueDicePurple > fields[8] || fields[8] == 6)
 				result[0] = true;
-			if (valueDiceWhite >= fields[8] || fields[8] == 6)
+			if (valueDiceWhite > fields[8] || fields[8] == 6)
 				result[1] = true;
 			break;
 		case 10:
-			if (valueDicePurple >= fields[9] || fields[9] == 6)
+			if (valueDicePurple > fields[9] || fields[9] == 6)
 				result[0] = true;
-			if (valueDiceWhite >= fields[9] || fields[9] == 6)
+			if (valueDiceWhite > fields[9] || fields[9] == 6)
 				result[1] = true;
 			break;
 		}
