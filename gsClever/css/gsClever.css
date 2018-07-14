@@ -989,6 +989,22 @@ min-width:392px;
 	color:black;
 }
 
+#labelCurrentPlayer {
+	top: 200px;
+	left: 100px;
+	height: 44px;
+	position: absolute;
+	min-width: 275px;
+	background: white;
+	color:black;
+}
+
+
+
+
+
+
+
 #spieler2 {
 	visibility: hidden;
 }
