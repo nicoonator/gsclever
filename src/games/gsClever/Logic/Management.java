@@ -118,18 +118,45 @@ public class Management {
 		return points + determinePointsFoxes();
 	}
 
-	public IsClickable isClickable(Dice[] dices) {
+	public IsClickable isClickable(Dice[] dices, Area currentArea) {
 
 		IsClickable clickable = new IsClickable();
 
-		clickable.setYellow(getYellow().isClickable(dices[Color.yellow.ordinal()].getValue(), 
-				dices[Color.white.ordinal()].getValue()));
-		clickable.setBlue(getBlue().isClickable(dices[Color.blue.ordinal()].getValue(), 
-				dices[Color.white.ordinal()].getValue()));
+		if((dices[Color.yellow.ordinal()].isOnTray() == false && dices[Color.yellow.ordinal()].getField() == -1 && 
+				dices[Color.white.ordinal()].isOnTray() == false && dices[Color.white.ordinal()].getField() == -1) || 
+				currentArea == Area.additionalDice)
+			clickable.setYellow(getYellow().isClickable(dices[Color.yellow.ordinal()].getValue(), 
+					dices[Color.white.ordinal()].getValue()));
+		else if(dices[Color.yellow.ordinal()].isOnTray() == true || 
+				dices[Color.yellow.ordinal()].getField() != -1)
+			clickable.setYellow(getYellow().isClickable(dices[Color.white.ordinal()].getValue(), 
+					dices[Color.white.ordinal()].getValue()));
+		else if(dices[Color.white.ordinal()].isOnTray() == true || 
+				dices[Color.white.ordinal()].getField() != -1)
+			clickable.setYellow(getYellow().isClickable(dices[Color.yellow.ordinal()].getValue(), 
+					dices[Color.yellow.ordinal()].getValue()));
+		
+		if((dices[Color.blue.ordinal()].isOnTray() == false && dices[Color.blue.ordinal()].getField() == -1) || 
+				(dices[Color.white.ordinal()].isOnTray() == false && dices[Color.white.ordinal()].getField() == -1) || 
+				currentArea == Area.additionalDice)
+			clickable.setBlue(getBlue().isClickable(dices[Color.blue.ordinal()].getValue(), 
+					dices[Color.white.ordinal()].getValue()));
+		
+		if((dices[Color.green.ordinal()].isOnTray() == false && dices[Color.green.ordinal()].getField() == -1) || 
+				(dices[Color.white.ordinal()].isOnTray() == false && dices[Color.white.ordinal()].getField() == -1) || 
+				currentArea == Area.additionalDice)
 		clickable.setGreen(getGreen().isClickable(dices[Color.green.ordinal()].getValue(), 
 				dices[Color.white.ordinal()].getValue()));
+		
+		if((dices[Color.orange.ordinal()].isOnTray() == false && dices[Color.orange.ordinal()].getField() == -1) || 
+				(dices[Color.white.ordinal()].isOnTray() == false && dices[Color.white.ordinal()].getField() == -1) || 
+				currentArea == Area.additionalDice)
 		clickable.setOrange(getOrange().isClickable(dices[Color.orange.ordinal()].getValue(), 
 				dices[Color.white.ordinal()].getValue()));
+		
+		if((dices[Color.purple.ordinal()].isOnTray() == false && dices[Color.purple.ordinal()].getField() == -1) || 
+				(dices[Color.white.ordinal()].isOnTray() == false && dices[Color.white.ordinal()].getField() == -1) || 
+				currentArea == Area.additionalDice)
 		clickable.setPurple(getPurple().isClickable(dices[Color.purple.ordinal()].getValue(), 
 				dices[Color.white.ordinal()].getValue()));
 

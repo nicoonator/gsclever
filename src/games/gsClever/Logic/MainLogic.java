@@ -1005,7 +1005,7 @@ public class MainLogic {
 					
 					if(i == currentPlayer) {
 						
-						returnBack.setClickable(players[currentPlayer].getManagement().isClickable(dices), currentPlayer);
+						returnBack.setClickable(players[currentPlayer].getManagement().isClickable(dices, currentArea[playerId]), currentPlayer);
 						
 						if(players[currentPlayer].getManagement().getDiceRepeatUsed() < 
 								players[currentPlayer].getManagement().getDiceRepeatCount())
@@ -1016,7 +1016,7 @@ public class MainLogic {
 					
 				case additionalDice:
 					
-					returnBack.setClickable(players[playerId].getManagement().isClickable(dices), playerId);
+					returnBack.setClickable(players[playerId].getManagement().isClickable(dices, currentArea[playerId]), playerId);
 					
 					break;
 					
