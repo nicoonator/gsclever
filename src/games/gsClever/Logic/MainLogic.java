@@ -241,7 +241,14 @@ public class MainLogic {
 			}
 		}
 		
-		if(diceAvailable == false) {
+		boolean specialEvent = false;
+		for(int i = 0; i < playerCount; i++) {
+			
+			if(nextArea[i] == Area.specialEvent)
+				specialEvent = true;
+		}
+		
+		if(diceAvailable == false && specialEvent == false) {
 			
 			additionalDiceTime = true;
 			
@@ -558,12 +565,18 @@ public class MainLogic {
 					currentSpecialEvent[playerId] = players[playerId].getManagement().enterCrossOrNumber(
 							Area.yellow, fieldId, 0);
 					
+					if(!additionalDiceTime)
+						diceAvailable();
+					
 					break;
 					
 				case enterCrossBlue:
 					
 					currentSpecialEvent[playerId] = players[playerId].getManagement().enterCrossOrNumber(
 							Area.blue, fieldId, 0);
+					
+					if(!additionalDiceTime)
+						diceAvailable();
 					
 					break;
 					
@@ -945,7 +958,7 @@ public class MainLogic {
 						
 						for(int i = 0; i < playerCount; i++) {
 							
-							returnBack.getWinner().getPoints(i).setPlayerId(i);//TODO nullpointer
+							returnBack.getWinner().getPoints(i).setPlayerId(i);
 							returnBack.getWinner().getPoints(i).setPoints(
 									players[i].getManagement().getYellow().determinePoints(), 
 									Color.yellow.ordinal());
