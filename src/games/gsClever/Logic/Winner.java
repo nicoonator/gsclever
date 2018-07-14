@@ -11,6 +11,9 @@ public class Winner {
 		
 		winners = null;
 		points = new Points[playerCount];
+		for(int i = 0; i < playerCount; i++) {
+			points[i] = new Points();
+		}
 	}
 	
 	public List<Integer> getWinners() {
