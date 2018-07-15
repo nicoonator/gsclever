@@ -111,6 +111,12 @@ public class IsClickable {
 		this.ready = ready;
 	}
 	
+	/**
+	 * This method checks anything is clickable.
+	 * 
+	 * @author Joel Wolf
+	 * @return true when anything is clickable
+	 */
 	public boolean anythingClickable() {
 		
 		boolean clickable = false;
