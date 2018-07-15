@@ -110,4 +110,34 @@ public class IsClickable {
 	public void setReady(boolean ready) {
 		this.ready = ready;
 	}
+	
+	public boolean anythingClickable() {
+		
+		boolean clickable = false;
+		
+		if(rollDices)
+			clickable = true;
+		for(int i = 0; i < 12; i++) {
+			if(yellow[i])
+				clickable = true;
+		}
+		for(int i = 0; i < 11; i++) {
+			if(blue[i])
+				clickable = true;
+		}
+		if(green)
+			clickable = true;
+		if(orange)
+			clickable = true;
+		if(purple)
+			clickable = true;
+		if(diceRepeat)
+			clickable = true;
+		if(additionalDice)
+			clickable = true;
+		if(ready)
+			clickable = true;
+		
+		return clickable;
+	}
 }
