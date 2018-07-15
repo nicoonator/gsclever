@@ -229,6 +229,9 @@ public class MainLogic {
 	
 	private void diceAvailable() {
 		
+		if(additionalDiceTime)
+			return;
+		
 		boolean diceAvailable = false;
 		
 		for(int i = 0; i < 6; i++) {
@@ -629,7 +632,7 @@ public class MainLogic {
 			currentArea[playerId] = area;
 			area = Area.specialEvent;
 			
-			nextArea[playerId] = null;//TODO
+			nextArea[playerId] = null;
 		}
 		else if(additionalDiceTime && (area == Area.yellow || area == Area.blue || 
 				area == Area.green || area == Area.orange || area == Area.purple)) {
@@ -801,8 +804,7 @@ public class MainLogic {
 					currentSpecialEvent[playerId] = players[playerId].getManagement().enterCrossOrNumber(
 							Area.yellow, fieldId, 0);
 					
-					if(!additionalDiceTime)
-						diceAvailable();
+					diceAvailable();
 					
 					break;
 					
@@ -811,8 +813,7 @@ public class MainLogic {
 					currentSpecialEvent[playerId] = players[playerId].getManagement().enterCrossOrNumber(
 							Area.blue, fieldId, 0);
 					
-					if(!additionalDiceTime)
-						diceAvailable();
+					diceAvailable();
 					
 					break;
 					
@@ -972,7 +973,8 @@ public class MainLogic {
 			
 			//when nothing is clickable
 			if((additionalDiceTime || player == currentPlayer) && 
-					returnBack.getClickable(player).anythingClickable() == false) {
+					returnBack.getClickable(player).anythingClickable() == false &&
+					returnBack.getDecisionMaker(player).getColorOfDice() == null) {
 				
 				if(additionalDiceTime) {
 					
