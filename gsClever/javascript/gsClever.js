@@ -1433,7 +1433,7 @@ function extractArray(x) {
 	case 1: {
 	    currentPlayer = +x[i];
 	    showview(+x[i]);
-	    //showCurrentPlayer();
+	    showCurrentPlayer();
 	    break;
 	}
 	case 2: {

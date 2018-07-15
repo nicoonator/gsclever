@@ -9,10 +9,9 @@ import userManagement.User;
  * @author Nico Rychlik
  *
  */
+@SuppressWarnings("serial")
 public class KI extends User {
 
-	private Player player;
-	private Return returnback;
 	private int playerID;
 
 	/**
@@ -28,11 +27,10 @@ public class KI extends User {
 		String result = "";
 		playerID = game.determinePlayerId(this.getName());
 
+
 		switch (playerID) {
 		case 1: {
-			if (data[151] == 1) {
-				return "WUERFELN";
-			}
+			
 			if (data[152] == 1) {
 				return "COLORDECIDER";
 			}
@@ -113,6 +111,9 @@ public class KI extends User {
 			}
 			if (data[180] == 1) {
 				return "CLICKPURPLE";
+			}
+			if (data[151] == 1) {
+				return "WUERFELN";
 			}
 			return "SKIP";
 		}
@@ -293,5 +294,29 @@ public class KI extends User {
 		}
 
 		return result;
+	}
+
+	/**
+	 * @param data 
+	 * @return 
+	 * 
+	 */
+	public boolean checkRollDice(int[] data) {
+		switch (playerID) {
+		case 1:
+			if (data[151] == 1) {
+				return true;
+			} else return false;
+
+		case 2:
+			if (data[233] == 1) {
+				return true;
+			} else return false;
+		case 3:
+			if (data[315] == 1) {
+				return true;
+			} else return false;
+		}
+		return false;
 	}
 }

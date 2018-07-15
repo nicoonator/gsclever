@@ -2,6 +2,7 @@ package games.gsClever.Logic;
 
 import userManagement.User;
 
+@SuppressWarnings("serial")
 public class Player extends User {
 
 	
