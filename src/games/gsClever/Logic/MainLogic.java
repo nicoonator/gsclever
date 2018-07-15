@@ -839,7 +839,7 @@ public class MainLogic {
 				rollDices(dicesToRoll);
 				
 				currentArea[currentPlayer] = Area.rollDices;
-//TODO			nextArea[currentPlayer] = null;
+//				nextArea[currentPlayer] = null; 						//TODO für debug
 				
 				break;
 	
