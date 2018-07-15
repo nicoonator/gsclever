@@ -41,7 +41,9 @@ public class gsClever extends Game {
 	private MainLogic currentGame;
 	private Return returnBack;
 	private int currentID = 0;
+	private boolean kiSkip=false;
 	private ArrayList<KI> KIList = new ArrayList<KI>();
+	private KI currentKI=null;
 
 	@Override
 	public String getSite() {
@@ -90,6 +92,15 @@ public class gsClever extends Game {
 		}
 	}
 	
+	public boolean checkKI(User user){
+		for (int i = 0; i < KIList.size(); i++) {
+			if (KIList.get(i).getName().equals(user.getName())) {
+				return true;
+			}		
+		}
+		return false;
+	}
+	
 	/*
 	 * Verarbeitet die sendDataToServer() methoden aus JS
 	 */
@@ -104,7 +115,7 @@ public class gsClever extends Game {
 			this.setupGame();
 			sendGameDataToClients("NEWGAME");
 			sendGameDataToClients("STARTARRAY");
-			checkKITurn();
+//			checkKITurn();
 			return;
 		}
 
@@ -161,8 +172,11 @@ public class gsClever extends Game {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+			if(checkKI(user)) {
+				kiSkip=false;
+			}
 			sendGameDataToClients("SUBMITGAME");
-			checkKITurn();
+			if(checkKI(user)) checkKITurn();
 			return;
 		}
 
@@ -174,7 +188,7 @@ public class gsClever extends Game {
 				e.printStackTrace();
 			}
 			sendGameDataToClients("SUBMITGAME");
-			checkKITurn();
+//			checkKITurn();
 			return;
 		}
 
@@ -186,7 +200,7 @@ public class gsClever extends Game {
 				e.printStackTrace();
 			}
 			sendGameDataToClients("SUBMITGAME");
-			checkKITurn();
+//			checkKITurn();
 			return;
 		}
 
@@ -198,7 +212,12 @@ public class gsClever extends Game {
 				e.printStackTrace();
 			}
 			sendGameDataToClients("SUBMITGAME");
-			checkKITurn();
+			if(!checkKI(user)) {
+			checkKITurn();	
+			} else if(currentKI.checkRollDice(this.getGameStatus())) {
+				this.execute(user, "WUERFELN");
+			}
+			
 			return;
 		}
 		if (gsonString.equals("COLORDECIDER")) {
@@ -514,10 +533,23 @@ public class gsClever extends Game {
 	}
 
 	private void checkKITurn() {
-
+		String command="";
+		int testresult=0;
+		for (int i = 67; i < 99; i++) {
+			if(this.getGameStatus()[i]!=0) testresult++;
+		}
 		for (KI ki : KIList) {
-			this.execute(ki, ki.doSomething(currentGame,this.getGameStatus()));
-			sendGameDataToClients("SUBMITGAME");
+			currentKI=ki;
+			command=ki.doSomething(currentGame, this.getGameStatus());
+			if (command.equals("")==false&&command.equals("SKIP")==false) {
+				this.execute(ki, command);
+				sendGameDataToClients("SUBMITGAME");
+				return;
+			}
+			if(command.equals("SKIP")&&testresult==0) {
+				kiSkip=true;
+				this.execute(ki, "SKIP");
+			}
 			return;
 		}
 
