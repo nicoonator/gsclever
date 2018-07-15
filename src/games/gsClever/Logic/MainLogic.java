@@ -1,7 +1,6 @@
 package games.gsClever.Logic;
 
 import java.util.*;
-
 import games.gsClever.Exceptions.*;
 
 public class MainLogic {
@@ -46,6 +45,13 @@ public class MainLogic {
 		}
 	}
 
+	/**
+	 * This method determines the ID of a player by his name.
+	 * 
+	 * @author Joel Wolf
+	 * @param userName
+	 * @return the ID of the player
+	 */
 	public int determinePlayerId(String userName) {
 		
 		for(int i = 0; i < playerCount; i++) {
@@ -57,6 +63,12 @@ public class MainLogic {
 		return -1;
 	}
 	
+	/**
+	 * This method prepares the game for the next player.
+	 * 
+	 * @author Joel Wolf
+	 * @return false when the game is over
+	 */
 	private boolean nextPlayer() {
 
 		clearTray();
@@ -87,6 +99,12 @@ public class MainLogic {
 		}
 	}
 
+	/**
+	 * This method prepares the game for the next round and checks the end.
+	 * 
+	 * @author Joel Wolf
+	 * @return false when the game is over
+	 */
 	private boolean startRound() {
 
 		boolean result = false;
@@ -169,6 +187,12 @@ public class MainLogic {
 		return result;
 	}
 
+	/**
+	 * This method rolls the dices.
+	 * 
+	 * @author Joel Wolf
+	 * @param dices
+	 */
 	private void rollDices(List<Dice> dices) {
 
 		Random random = new Random();
@@ -178,7 +202,13 @@ public class MainLogic {
 			dice.setValue(random.nextInt(6) + 1);
 		}
 	}
-
+	
+	/**
+	 * This method investigates the winners.
+	 * 
+	 * @author Joel Wolf
+	 * @return list of IDs from the winners
+	 */
 	private List<Integer> investigateWinner() {
 
 		int highestPoints = players[0].getManagement().determinePoints();
@@ -202,6 +232,11 @@ public class MainLogic {
 		return winners;
 	}
 
+	/**
+	 * This method clears the tray.
+	 * 
+	 * @author Joel Wolf
+	 */
 	private void clearTray() {
 
 		for (int i = 0; i < 6; i++) {
@@ -210,6 +245,11 @@ public class MainLogic {
 		}
 	}
 
+	/**
+	 * This method clears the dice fields.
+	 * 
+	 * @author Joel Wolf
+	 */
 	private void clearDiceFields() {
 
 		for (int i = 0; i < 6; i++) {
@@ -218,6 +258,12 @@ public class MainLogic {
 		}
 	}
 	
+	/**
+	 * This method puts dices with smaller value on tray.
+	 * 
+	 * @author Joel Wolf
+	 * @param value
+	 */
 	private void putSmallerDicesOnTray(int value) {
 		
 		for(int i = 0; i < 6; i++) {
@@ -227,6 +273,11 @@ public class MainLogic {
 		}
 	}
 	
+	/**
+	 * This method starts the "additional dice time" when no dices are available to roll.
+	 * 
+	 * @author Joel Wolf
+	 */
 	private void diceAvailable() {
 		
 		if(additionalDiceTime)
@@ -263,6 +314,14 @@ public class MainLogic {
 		}
 	}
 	
+	/**
+	 * This method sets numbers and crosses into the colored areas while "additional dice time".
+	 * 
+	 * @author Joel Wolf
+	 * @param playerId
+	 * @param fieldId
+	 * @param actualArea
+	 */
 	private void stealDice(int playerId, int fieldId, Area actualArea) {
 		
 		currentFieldId[playerId] = fieldId;
@@ -418,6 +477,16 @@ public class MainLogic {
 		}
 	}
 	
+	/**
+	 * This method sets numbers and crosses into the colored areas after roll dices.
+	 * 
+	 * @author Joel Wolf
+	 * @param playerId
+	 * @param fieldId
+	 * @param diceField
+	 * @param color
+	 * @param area
+	 */
 	private void coloredAreaAfterRollDices(int playerId, int fieldId, int diceField, Color color, Area area) {
 		
 		currentArea[playerId] = null;
@@ -509,6 +578,13 @@ public class MainLogic {
 		diceAvailable();
 	}
 	
+	/**
+	 * This method fills the object "clickable" in "Return".
+	 * 
+	 * @author Joel Wolf
+	 * @param returnBack
+	 * @param player
+	 */
 	private void fillClickable(Return returnBack, int player) {
 		
 		if(currentArea[player] != null) {
@@ -623,6 +699,16 @@ public class MainLogic {
 		}
 	}
 	
+	/**
+	 * This method is the core of the logic of the game. Every interaction comes here and goes from here.
+	 * 
+	 * @author Joel Wolf
+	 * @param playerId
+	 * @param area
+	 * @param fieldId
+	 * @return an object of "Return"
+	 * @throws Exception
+	 */
 	public Return click(int playerId, Area area, int fieldId) throws Exception {
 
 		Return returnBack = new Return(currentPlayer, round, playerCount);
