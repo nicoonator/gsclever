@@ -62,26 +62,52 @@ public class Management {
 		return additionalDiceUsed;
 	}
 
+	/**
+	 * This method increments "dice repeat count".
+	 * 
+	 * @author Joel Wolf
+	 */
 	public void incrementDiceRepeatCount() {
 
 		diceRepeatCount++;
 	}
 
+	/**
+	 * This method increments "additional dice count".
+	 * 
+	 * @author Joel Wolf
+	 */
 	public void incrementAdditionalDiceCount() {
 
 		additionalDiceCount++;
 	}
 
+	/**
+	 * This method increments "dice repeat used".
+	 * 
+	 * @author Joel Wolf
+	 */
 	public void incrementDiceRepeatUsed() {
 
 		diceRepeatUsed++;
 	}
 
+	/**
+	 * This method increments "additional dice used".
+	 * 
+	 * @author Joel Wolf
+	 */
 	public void incrementAdditionalDiceUsed() {
 
 		additionalDiceUsed++;
 	}
 	
+	/**
+	 * This method determines the points by foxes from the player.
+	 * 
+	 * @author Joel Wolf
+	 * @return the points by foxes
+	 */
 	public int determinePointsFoxes() {
 		
 		int[] points = new int[5];
@@ -107,6 +133,12 @@ public class Management {
 		return foxes * lowestPoints;
 	}
 
+	/**
+	 * This method determines the total points from the player.
+	 * 
+	 * @author Joel Wolf
+	 * @return the total points
+	 */
 	public int determinePoints() {
 
 		int points = 0;
@@ -118,6 +150,15 @@ public class Management {
 		return points + determinePointsFoxes();
 	}
 	
+	/**
+	 * This method puts together the object of clickable from colored areas.
+	 * 
+	 * @author Joel Wolf
+	 * @param dices
+	 * @param area
+	 * @param specialEvent
+	 * @return the object of clickable from colored areas
+	 */
 	public IsClickable isClickable(Dice[] dices, Area area, SpecialEvent specialEvent) {
 
 		IsClickable clickable = new IsClickable();
@@ -313,6 +354,13 @@ public class Management {
 		return clickable;
 	}
 
+	/**
+	 * This method is the recursive method to handle "special events".
+	 * 
+	 * @author Joel Wolf
+	 * @param specialEvent
+	 * @return a "special event"
+	 */
 	public SpecialEvent specialEventRecursive(SpecialEvent specialEvent) {
 
 		switch (specialEvent) {
@@ -378,6 +426,15 @@ public class Management {
 		return specialEvent;
 	}
 
+	/**
+	 * This method forwards to enter crosses and numbers and handles "special events" recursively.
+	 * 
+	 * @author Joel Wolf
+	 * @param area
+	 * @param fieldId
+	 * @param number
+	 * @return a "special event"
+	 */
 	public SpecialEvent enterCrossOrNumber(Area area, int fieldId, int number) {
 
 		List<SpecialEvent> specialEvents = null;
