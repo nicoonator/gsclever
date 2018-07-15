@@ -307,11 +307,6 @@ public class MainLogic {
 					nextArea[i] = null;
 			}
 		}
-		else if(nextArea[currentPlayer] != Area.specialEvent && 
-				nextArea[currentPlayer] != Area.decisionMaker) {
-			
-			nextArea[currentPlayer] = Area.rollDices;
-		}
 	}
 	
 	/**
@@ -1068,6 +1063,10 @@ public class MainLogic {
 					nextArea[player] = null;
 				}
 				else {
+					
+					if(players[playerId].getManagement().getDiceRepeatUsed() >= 
+							players[playerId].getManagement().getDiceRepeatCount())
+						putSmallerDicesOnTray(7);
 					
 					diceAvailable();
 				}
