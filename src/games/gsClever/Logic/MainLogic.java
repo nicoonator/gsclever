@@ -337,7 +337,7 @@ public class MainLogic {
 					else
 						nextArea[playerId] = null;
 					
-					currentArea[playerId] = null;
+					currentArea[playerId] = actualArea;
 				}
 				
 				break;
@@ -433,7 +433,8 @@ public class MainLogic {
 						dices[Color.purple.ordinal()].getValue(), dices[Color.white.ordinal()].getValue());
 				
 				if(clickableDices[0] && clickableDices[1] && (actualArea == Area.additionalDiceExecute ||
-						(dices[Color.purple.ordinal()].isOnTray() && dices[Color.white.ordinal()].isOnTray()))) {
+						(dices[Color.purple.ordinal()].isOnTray() && dices[Color.white.ordinal()].isOnTray())) && 
+						dices[Color.purple.ordinal()].getValue() != dices[Color.white.ordinal()].getValue()) {
 					
 					nextArea[playerId] = Area.decisionMaker;
 				}
@@ -724,8 +725,6 @@ public class MainLogic {
 				area = Area.takeDiceFromTray;
 			else if(nextArea[playerId] == Area.additionalDiceExecute)
 				area = Area.additionalDiceExecute;
-			
-			nextArea[playerId] = null;
 		}
 		
 		int diceField = 0;
@@ -839,7 +838,7 @@ public class MainLogic {
 				rollDices(dicesToRoll);
 				
 				currentArea[currentPlayer] = Area.rollDices;
-//				nextArea[currentPlayer] = null; 						//TODO für debug
+				nextArea[currentPlayer] = null; 						//TODO für debug
 				
 				break;
 	
@@ -995,54 +994,63 @@ public class MainLogic {
 				
 			case ready:
 				
-				ready[playerId] = true;
-				
-				boolean allReady = true;
-				for(int i = 0; i < playerCount; i++) {
+				if(!additionalDiceTime && playerId == currentPlayer) {
 					
-					if(ready[i] == false) {
-						
-						allReady = false;
-						break;
-					}
+					putSmallerDicesOnTray(7);
+					
+					diceAvailable();
 				}
+				else {
 				
-				if(allReady == true) {
+					ready[playerId] = true;
 					
-					if(nextPlayer() == false) {
-					
-						returnBack.setWinner(new Winner(playerCount));
-						returnBack.getWinner().setWinners(investigateWinner());
+					boolean allReady = true;
+					for(int i = 0; i < playerCount; i++) {
 						
-						for(int i = 0; i < playerCount; i++) {
+						if(ready[i] == false) {
 							
-							returnBack.getWinner().getPoints(i).setPlayerId(i);
-							returnBack.getWinner().getPoints(i).setPoints(
-									players[i].getManagement().getYellow().determinePoints(), 
-									Color.yellow.ordinal());
-							returnBack.getWinner().getPoints(i).setPoints(
-									players[i].getManagement().getBlue().determinePoints(), 
-									Color.blue.ordinal());
-							returnBack.getWinner().getPoints(i).setPoints(
-									players[i].getManagement().getGreen().determinePoints(), 
-									Color.green.ordinal());
-							returnBack.getWinner().getPoints(i).setPoints(
-									players[i].getManagement().getOrange().determinePoints(), 
-									Color.orange.ordinal());
-							returnBack.getWinner().getPoints(i).setPoints(
-									players[i].getManagement().getPurple().determinePoints(), 
-									Color.purple.ordinal());
-							returnBack.getWinner().getPoints(i).setPoints(
-									players[i].getManagement().determinePointsFoxes(), 5);
-							returnBack.getWinner().getPoints(i).setPoints(
-									players[i].getManagement().determinePoints(), 6);
+							allReady = false;
+							break;
 						}
 					}
 					
-					if(currentSpecialEvent[currentPlayer] != SpecialEvent.round4)
-						nextArea[currentPlayer] = Area.rollDices;
-					
-					currentArea[playerId] = null;
+					if(allReady == true) {
+						
+						if(nextPlayer() == false) {
+						
+							returnBack.setWinner(new Winner(playerCount));
+							returnBack.getWinner().setWinners(investigateWinner());
+							
+							for(int i = 0; i < playerCount; i++) {
+								
+								returnBack.getWinner().getPoints(i).setPlayerId(i);
+								returnBack.getWinner().getPoints(i).setPoints(
+										players[i].getManagement().getYellow().determinePoints(), 
+										Color.yellow.ordinal());
+								returnBack.getWinner().getPoints(i).setPoints(
+										players[i].getManagement().getBlue().determinePoints(), 
+										Color.blue.ordinal());
+								returnBack.getWinner().getPoints(i).setPoints(
+										players[i].getManagement().getGreen().determinePoints(), 
+										Color.green.ordinal());
+								returnBack.getWinner().getPoints(i).setPoints(
+										players[i].getManagement().getOrange().determinePoints(), 
+										Color.orange.ordinal());
+								returnBack.getWinner().getPoints(i).setPoints(
+										players[i].getManagement().getPurple().determinePoints(), 
+										Color.purple.ordinal());
+								returnBack.getWinner().getPoints(i).setPoints(
+										players[i].getManagement().determinePointsFoxes(), 5);
+								returnBack.getWinner().getPoints(i).setPoints(
+										players[i].getManagement().determinePoints(), 6);
+							}
+						}
+						
+						if(currentSpecialEvent[currentPlayer] != SpecialEvent.round4)
+							nextArea[currentPlayer] = Area.rollDices;
+						
+						currentArea[playerId] = null;
+					}
 				}
 			}
 		}
@@ -1059,13 +1067,21 @@ public class MainLogic {
 				
 				if(additionalDiceTime) {
 					
-					currentArea[player] = null;
-					nextArea[player] = null;
+					if(nextArea[playerId] == Area.takeDiceFromTray) {
+						
+						nextArea[playerId] = Area.additionalDiceExecute;
+						
+						stealDice(playerId, fieldId, Area.additionalDiceExecute);
+					}
+					else
+						nextArea[player] = null;
 				}
 				else {
 					
-					if(players[playerId].getManagement().getDiceRepeatUsed() >= 
+					if(players[playerId].getManagement().getDiceRepeatUsed() < 
 							players[playerId].getManagement().getDiceRepeatCount())
+						returnBack.getClickable(playerId).setReady(true);
+					else
 						putSmallerDicesOnTray(7);
 					
 					diceAvailable();
