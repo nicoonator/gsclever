@@ -628,6 +628,8 @@ public class MainLogic {
 		
 			currentArea[playerId] = area;
 			area = Area.specialEvent;
+			
+			nextArea[playerId] = null;//TODO
 		}
 		else if(additionalDiceTime && (area == Area.yellow || area == Area.blue || 
 				area == Area.green || area == Area.orange || area == Area.purple)) {
