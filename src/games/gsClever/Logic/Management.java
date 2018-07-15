@@ -368,8 +368,6 @@ public class Management {
 			break;
 		}
 
-		//TODO auswerten
-		
 		if (specialEvent != null)
 			specialEvent = specialEventRecursive(specialEvent);
 		
@@ -378,7 +376,7 @@ public class Management {
 
 	public SpecialEvent enterCrossOrNumber(Area area, int fieldId, int number) {
 
-		List<SpecialEvent> specialEvents = null; //TODO mehrere SpecialEvent gleichzeitig in gelb oder blau
+		List<SpecialEvent> specialEvents = null;
 		SpecialEvent specialEvent = null;
 
 		switch (area) {
