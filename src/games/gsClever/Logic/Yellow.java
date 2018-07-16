@@ -118,19 +118,20 @@ public class Yellow extends ColorArea {
 	}
 
 	public int determinePoints() {
+		int points =0;
 		if (fields[0] == true && fields[3] == true && fields[6] == true) {
-			return 10;
+			points+= 10;
 		}
 		if (fields[1] == true && fields[4] == true && fields[9] == true) {
-			return 14;
+			points+= 14;
 		}
 		if (fields[2] == true && fields[7] == true && fields[10] == true) {
-			return 16;
+			points+= 16;
 		}
 		if (fields[5] == true && fields[8] == true && fields[11] == true) {
-			return 20;
+			points+= 20;
 		}
-		return 0;
+		return points;
 	}
 
 	public boolean[] clickableDices(int valueDiceYellow, int valueDiceWhite, int FieldID) {
