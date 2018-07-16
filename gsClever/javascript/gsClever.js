@@ -21,7 +21,12 @@ addListener('WINNER',function (event) {
     var arr = stringFromServer.split(',');
     console.log(arr);
     console.log(stringFromServer);
-    document.getElementById("label").innerHTML = arr[0] + " hat das Spiel gewonnen";
+    var winnerString="";
+    for (var i; i<arr.lenght;i++){
+    	winnerString += arr[i] + " hat das Spiel gewonnen";
+    	winnerString +="/br";
+    }
+    document.getElementById("label").innerHTML = winnerString;;
 });
 addListener('NEWGAME',function (event) {
     // INPUT: Spielerzahl, UserNumber

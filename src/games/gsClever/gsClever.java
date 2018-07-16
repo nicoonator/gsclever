@@ -611,7 +611,12 @@ public class gsClever extends Game {
 		if (eventName.equals("WINNER")) {
 			List<Integer> winnerlist = returnBack.getWinner().getWinners();
 			if(winnerlist.size()>1){
-				//TODO Mehrere Gewinner
+				for (int i = 0; i < winnerlist.size(); i++) {
+					gameData += playerList.get(i).getName();
+					if (i < winnerlist.size()-1) {
+						gameData += ",";
+					}
+				}
 			} else{
 				gameData+=playerList.get(winnerlist.get(0)).getName();
 			}
