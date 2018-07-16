@@ -115,7 +115,6 @@ public class gsClever extends Game {
 			this.setupGame();
 			sendGameDataToClients("NEWGAME");
 			sendGameDataToClients("STARTARRAY");
-			sagbduhzgasbh
 //			checkKITurn();
 			return;
 		}
@@ -139,7 +138,6 @@ public class gsClever extends Game {
 		}
 
 		if (gsonString.equals("ADDKI")) {
-			BJBGHJBGS
 			this.addKI();
 			return;
 
