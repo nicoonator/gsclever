@@ -55,7 +55,7 @@ addListener('STARTARRAY',function (event) {
     console.log(+arr[1]);
     console.log(typeof(+arr[0]));
     console.log(typeof(+arr[1]));
-    if (arr.length == 345) {
+    if (arr.length == 349) {
 	extractArray(arr);
     }
 });
@@ -72,7 +72,7 @@ addListener('SUBMITGAME', function(event) {
     console.log(arr);
     console.log("Wuerfeld"+arr[2]+","+arr[3]);
     console.log("Farbiger Entscheider"+arr[70]);
-    for (var i = 0; i < 345; i++) {
+    for (var i = 0; i < 349; i++) {
 	number[i] = +arr[i];
     }
     // var number = Number(stringFromServer);
@@ -3114,10 +3114,42 @@ case 344:{
     setPurpleClickable(4, +x[i]);
     break;
 }
-
-
-
-	}
+}
+	
+    }
+    switch (userNumber){
+    case 1: {
+    		if(+x[345]==1){
+    			document.getElementById("buttonUeberspringen").setAttribute('onclick','skip()');
+    		} else{
+    			document.getElementById("buttonUeberspringen").setAttribute('onclick','');
+    		}
+    	break;
+    }
+    case 2:{
+    	    if(+x[346]==1){
+    	    	document.getElementById("buttonUeberspringen").setAttribute('onclick','skip()');
+    		} else{
+    			document.getElementById("buttonUeberspringen").setAttribute('onclick','');;
+    		}
+    	break;
+    }
+    case 3: {
+    	    if(+x[347]==1){
+    	    	document.getElementById("buttonUeberspringen").setAttribute('onclick','skip()');
+    		} else{
+    			document.getElementById("buttonUeberspringen").setAttribute('onclick','');
+    		}
+    	break;
+    }
+    case 4:{
+    	    if(+x[348]==1){
+    	    	document.getElementById("buttonUeberspringen").setAttribute('onclick','skip()');
+    		} else{
+    			document.getElementById("buttonUeberspringen").setAttribute('onclick','');
+    		}
+    	break;
+    }
     }
 }
 

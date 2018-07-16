@@ -32,7 +32,7 @@ public class gsClever extends Game {
 	 * 0-36 ([Blau, Gelb, Gruen, Lila, Orange, Weiss] 1: 1blau 7: 1Gelb 30:
 	 * 6Weiss
 	 */
-	private int[] gameStatus = new int[345];
+	private int[] gameStatus = new int[349];
 	private ArrayList<User> playerList = new ArrayList<User>();
 	private ArrayList<Player> userList = new ArrayList<Player>();
 	private ArrayList<User> spectatorList = new ArrayList<User>();
@@ -171,9 +171,6 @@ public class gsClever extends Game {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			if(checkKI(user)) {
-				kiSkip=false;
-			}
 			sendGameDataToClients("SUBMITGAME");
 			if(checkKI(user)) checkKITurn();
 			return;
@@ -211,11 +208,11 @@ public class gsClever extends Game {
 				e.printStackTrace();
 			}
 			sendGameDataToClients("SUBMITGAME");
-			if(!checkKI(user)) {
+			//if(!checkKI(user)) {
 			checkKITurn();	
-			} else if(currentKI.checkRollDice(this.getGameStatus())) {
-				this.execute(user, "WUERFELN");
-			}
+			//} else if(currentKI.checkRollDice(this.getGameStatus())) {
+			//	this.execute(user, "WUERFELN");
+			//}
 			
 			return;
 		}
@@ -534,11 +531,55 @@ public class gsClever extends Game {
 	private void checkKITurn() {
 		String command="";
 		int testresult=0;
-		for (int i = 67; i < 99; i++) {
+		int currentID =0;
+		for (int i = 69; i < 99; i++) {
 			if(this.getGameStatus()[i]!=0) testresult++;
 		}
+		
 		for (KI ki : KIList) {
 			currentKI=ki;
+			currentID = currentGame.determinePlayerId(ki.getName());
+			switch (currentID){
+			case 1:{
+				if(this.getCurrentPlayerAmount()>2){
+					for (int i = 233; i < 263; i++) {
+						if(this.getGameStatus()[i]!=0) testresult++;
+					}
+				}
+				if(this.getCurrentPlayerAmount()>3){
+					for (int i = 315; i < 345; i++) {
+						if(this.getGameStatus()[i]!=0) testresult++;
+					}
+				}
+				break;
+			}
+			case 2:{
+				if(this.getCurrentPlayerAmount()>2){
+					for (int i = 151; i < 181; i++) {
+						if(this.getGameStatus()[i]!=0) testresult++;
+					}
+				}
+				if(this.getCurrentPlayerAmount()>3){
+					for (int i = 315; i < 345; i++) {
+						if(this.getGameStatus()[i]!=0) testresult++;
+					}
+				}
+				break;
+			}
+			case 3:{
+				if(this.getCurrentPlayerAmount()>2){
+					for (int i = 151; i < 181; i++) {
+						if(this.getGameStatus()[i]!=0) testresult++;
+					}
+				}
+				if(this.getCurrentPlayerAmount()>3){
+					for (int i = 233; i < 263; i++) {
+						if(this.getGameStatus()[i]!=0) testresult++;
+					}
+				}
+				break;
+			}
+			}
 			command=ki.doSomething(currentGame, this.getGameStatus());
 			if (command.equals("")==false&&command.equals("SKIP")==false) {
 				this.execute(ki, command);
@@ -549,9 +590,9 @@ public class gsClever extends Game {
 				kiSkip=true;
 				this.execute(ki, "SKIP");
 			}
-			return;
+			
 		}
-
+		return;
 	}
 
 	/**
@@ -566,8 +607,8 @@ public class gsClever extends Game {
 	}
 
 	private int[] getNewGame() {
-		int[] result = new int[345];
-		for (int i = 0; i < 345; i++) {
+		int[] result = new int[349];
+		for (int i = 0; i < 349; i++) {
 			if (i == 0)
 				result[i] = 1;
 
@@ -635,9 +676,9 @@ public class gsClever extends Game {
 			return gameData;
 		}
 		if (eventName.equals("STARTARRAY")) {
-			for (int i = 0; i < 345; i++) {
+			for (int i = 0; i < 349; i++) {
 				gameData += getNewGame()[i];
-				if (i < 344) {
+				if (i < 348) {
 					gameData += ",";
 				}
 			}
@@ -646,9 +687,9 @@ public class gsClever extends Game {
 
 		if (eventName.equals("SUBMITGAME")) {
 			int[] temp = this.getGameStatus();
-			for (int i = 0; i < 345; i++) {
+			for (int i = 0; i < 349; i++) {
 				gameData += temp[i];
-				if (i < 344) {
+				if (i < 348) {
 					gameData += ",";
 				}
 			}
@@ -3216,19 +3257,37 @@ public class gsClever extends Game {
 				}
 				break;
 			case 345:
-				result[i] =0;
+				if (returnBack.getClickable(0).isReady()) {
+					result[i] = 1;
+				} else
+					result[i] = 0;
 				
 				break;
 			case 346:
-				result[i] =0;
+				if (this.getCurrentPlayerAmount() > 1) {
+					if (returnBack.getClickable(1).isReady()) {
+						result[i] = 1;
+					} else
+						result[i] = 0;
+				 }
 				
 				break;
 			case 347:
-				result[i] =0;
+				if (this.getCurrentPlayerAmount() > 2) {
+					if (returnBack.getClickable(2).isReady()) {
+						result[i] = 1;
+					} else
+						result[i] = 0;
+				}
 				
 				break;
 			case 348:
-				result[i] =0;
+				if (this.getCurrentPlayerAmount() > 3) {
+					if (returnBack.getClickable(3).isReady()) {
+						result[i] = 1;
+					} else
+						result[i] = 0;
+				}
 				
 				break;
 			
