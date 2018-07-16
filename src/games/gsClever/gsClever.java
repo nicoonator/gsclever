@@ -138,7 +138,7 @@ public class gsClever extends Game {
 		}
 
 		if (gsonString.equals("ADDKI")) {
-
+			BJBGHJBGS
 			this.addKI();
 			return;
 
