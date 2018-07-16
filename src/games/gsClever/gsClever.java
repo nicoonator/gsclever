@@ -115,6 +115,7 @@ public class gsClever extends Game {
 			this.setupGame();
 			sendGameDataToClients("NEWGAME");
 			sendGameDataToClients("STARTARRAY");
+			sagbduhzgasbh
 //			checkKITurn();
 			return;
 		}
