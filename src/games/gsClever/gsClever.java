@@ -719,9 +719,9 @@ public class gsClever extends Game {
 		// Hier muessen wir jedes mal wenn die Methode aufgerufen wird, das
 		// Array aus
 		// der Logic holen
-		int[] result = new int[345];
+		int[] result = new int[349];
 		int value = 0;
-		for (int i = 0; i < 345; i++) {
+		for (int i = 0; i < 349; i++) {
 			switch (i) {
 			case 0:
 				result[i] = returnBack.getRound();
@@ -3211,6 +3211,23 @@ public class gsClever extends Game {
 						result[i] = 0;
 				}
 				break;
+			case 345:
+				result[i] =0;
+				
+				break;
+			case 346:
+				result[i] =0;
+				
+				break;
+			case 347:
+				result[i] =0;
+				
+				break;
+			case 348:
+				result[i] =0;
+				
+				break;
+			
 			}
 		}
 
