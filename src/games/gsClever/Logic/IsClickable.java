@@ -112,10 +112,10 @@ public class IsClickable {
 	}
 	
 	/**
-	 * This method checks anything is clickable.
+	 * This method checks anything is clickable without diceRepeat.
 	 * 
 	 * @author Joel Wolf
-	 * @return true when anything is clickable
+	 * @return true when anything is clickable without diceRepeat
 	 */
 	public boolean anythingClickable() {
 		
@@ -136,8 +136,6 @@ public class IsClickable {
 		if(orange)
 			clickable = true;
 		if(purple)
-			clickable = true;
-		if(diceRepeat)
 			clickable = true;
 		if(additionalDice)
 			clickable = true;
