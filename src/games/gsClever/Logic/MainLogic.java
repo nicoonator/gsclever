@@ -471,6 +471,9 @@ public class MainLogic {
 				break;
 			}
 		}
+		
+		if(nextArea[playerId] == actualArea)
+			nextArea[playerId] = null;
 	}
 	
 	/**
@@ -685,7 +688,9 @@ public class MainLogic {
 		}
 		
 		if(additionalDiceTime && nextArea[player] != Area.takeDiceFromTray &&
-				currentArea[player] != Area.decisionMaker && nextArea[player] != Area.decisionMaker) {
+				nextArea[player] != Area.decisionMaker && nextArea[player] != Area.specialEvent && 
+				nextArea[player] != Area.additionalDice && nextArea[player] != Area.additionalDiceExecute &&
+				ready[player] == false) {
 			
 			returnBack.getClickable(player).setReady(true);
 			
@@ -1061,7 +1066,8 @@ public class MainLogic {
 			fillClickable(returnBack, player);
 			
 			//when nothing is clickable
-			if((additionalDiceTime || player == currentPlayer) && 
+			if(((additionalDiceTime && returnBack.getClickable(player).isDiceRepeat() == false) || 
+					player == currentPlayer) && 
 					returnBack.getClickable(player).anythingClickable() == false &&
 					returnBack.getDecisionMaker(player).getColorOfDice() == null) {
 				
