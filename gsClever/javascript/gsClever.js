@@ -23,8 +23,7 @@ addListener('WINNER',function (event) {
     console.log(stringFromServer);
     var winnerString="";
     for (var i=0; i<arr.lenght;i++){
-    	winnerString += arr[i] + " hat das Spiel gewonnen";
-    	winnerString +="/br";
+    	winnerString += arr[i] + " hat das Spiel gewonnen" ;
     }
     console.log(winnerString);
     document.getElementById("label").innerHTML = winnerString;;
