@@ -41,9 +41,8 @@ public class gsClever extends Game {
 	private MainLogic currentGame;
 	private Return returnBack;
 	private int currentID = 0;
-	private boolean kiSkip = false;
 	private ArrayList<KI> KIList = new ArrayList<KI>();
-	private KI currentKI = null;
+	private String[] namelist = {"Trump","Erdogan","Kim-jong-Un"};
 
 	@Override
 	public String getSite() {
@@ -590,7 +589,6 @@ public class gsClever extends Game {
 		String command = "";
 
 		for (KI ki : KIList) {
-			currentKI = ki;
 			currentID = currentGame.determinePlayerId(ki.getName());
 
 			command = ki.doSomething(currentGame, this.getGameStatus());
@@ -600,7 +598,6 @@ public class gsClever extends Game {
 				return;
 			}
 			if (command.equals("SKIP") && checkOthersTurn(ki)) {
-				kiSkip = true;
 				this.execute(ki, "SKIP");
 				this.checkKITurn();
 			}
@@ -670,13 +667,17 @@ public class gsClever extends Game {
 					System.out.println(playerList.get(i).getName());
 					for (int j = 0; j < 7; j++) {
 						System.out.println(returnBack.getWinner().getPoints(i).getPoints(0));
-					}
-					if (i < winnerlist.size() - 1) {
-						gameData += ",";
+						if (i < winnerlist.size() - 1) {
+							gameData += ",";
+						}
 					}
 				}
 			} else {
 				gameData += playerList.get(winnerlist.get(0)).getName();
+			}
+			System.out.println(playerList.get(0).getName());
+			for (int j = 0; j < 7; j++) {
+				System.out.println(returnBack.getWinner().getPoints(0).getPoints(0));
 			}
 			return gameData;
 		}
@@ -721,7 +722,7 @@ public class gsClever extends Game {
 	@Override
 	public void addUser(User user) {
 
-		if (this.gState == gState.SETUP) {
+		if (this.gState == GameState.SETUP) {
 			if (playerList.size() < 4 && !playerList.contains(user)) {
 
 				playerList.add(user);
@@ -739,7 +740,7 @@ public class gsClever extends Game {
 
 	public void addKI() {
 		if (playerList.size() < 4) {
-			KI ki = new KI(currentID);
+			KI ki = new KI(namelist[currentID]);
 			currentID++;
 			KIList.add(ki);
 			this.addUser(ki);
