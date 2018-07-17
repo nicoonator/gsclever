@@ -1088,15 +1088,16 @@ public class MainLogic {
 				}
 				else {
 					
-					if(returnBack.getClickable(player).isDiceRepeat())
-						returnBack.getClickable(player).setReady(true);
-					else
+					if(returnBack.getClickable(player).isDiceRepeat() == false)
 						putSmallerDicesOnTray(7);
 					
 					diceAvailable();
 				}
 				
 				fillClickable(returnBack, player);
+				
+				if(!additionalDiceTime && returnBack.getClickable(player).isDiceRepeat())
+					returnBack.getClickable(player).setReady(true);
 			}
 			
 			Matchfield matchfield = returnBack.getMatchfield(player);
