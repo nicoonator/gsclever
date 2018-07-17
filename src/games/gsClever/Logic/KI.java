@@ -14,20 +14,22 @@ public class KI extends User {
 
 	private int userID;
 	private int skipZaehler=0;
+	private String name;
+	
 
 	/**
 	 * @param name
 	 * @param pw
 	 */
-	public KI(int id) {
-		super(Integer.toString(id), "none");
+	public KI(String name) {
+		super(name, "none");
 
 	}
 
 	public String doSomething(MainLogic game, int[] data) {
 		String result = "";
 		userID = game.determinePlayerId(this.getName());
-
+		
 
 		switch (userID) {
 		case 1: {
