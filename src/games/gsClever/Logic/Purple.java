@@ -106,9 +106,7 @@ public class Purple extends ColorArea {
 		}
 		switch (fieldCount) {
 		case 0:
-			if (valueDicePurple > 1)
 				result[0] = true;
-			if (valueDiceWhite > 1)
 				result[1] = true;
 			break;
 		case 1:

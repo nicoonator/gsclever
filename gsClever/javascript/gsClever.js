@@ -22,10 +22,11 @@ addListener('WINNER',function (event) {
     console.log(arr);
     console.log(stringFromServer);
     var winnerString="";
-    for (var i; i<arr.lenght;i++){
+    for (var i=0; i<arr.lenght;i++){
     	winnerString += arr[i] + " hat das Spiel gewonnen";
     	winnerString +="/br";
     }
+    console.log(winnerString);
     document.getElementById("label").innerHTML = winnerString;;
 });
 addListener('NEWGAME',function (event) {
