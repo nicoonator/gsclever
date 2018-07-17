@@ -121,7 +121,7 @@ public class KI extends User {
 			}
 			if (data[346] == 1) {
 				if(skipZaehler<1){
-					skipZaehler++;
+					//skipZaehler++;
 					return "SKIP";
 				}
 				
@@ -217,7 +217,7 @@ public class KI extends User {
 			}
 			if (data[347] == 1) {
 				if(skipZaehler<1){
-					skipZaehler++;
+					//skipZaehler++;
 					return "SKIP";
 				}
 			}
@@ -311,7 +311,7 @@ public class KI extends User {
 			}
 			if (data[348] == 1) {
 				if(skipZaehler<1){
-					skipZaehler++;
+					//skipZaehler++;
 					return "SKIP";
 				}
 			}
