@@ -580,9 +580,10 @@ public class gsClever extends Game {
 			break;
 		}
 		}
-		if (testresult!=0) {
+		if (testresult != 0) {
 			return false;
-		} else return true;
+		} else
+			return true;
 	}
 
 	private void checkKITurn() {
@@ -592,20 +593,19 @@ public class gsClever extends Game {
 			currentKI = ki;
 			currentID = currentGame.determinePlayerId(ki.getName());
 
-		
-		command = ki.doSomething(currentGame, this.getGameStatus());
-		if (command.equals("") == false && command.equals("SKIP") == false) {
-			this.execute(ki, command);
-			sendGameDataToClients("SUBMITGAME");
-			return;
+			command = ki.doSomething(currentGame, this.getGameStatus());
+			if (command.equals("") == false && command.equals("SKIP") == false) {
+				this.execute(ki, command);
+				sendGameDataToClients("SUBMITGAME");
+				return;
+			}
+			if (command.equals("SKIP") && checkOthersTurn(ki)) {
+				kiSkip = true;
+				this.execute(ki, "SKIP");
+				this.checkKITurn();
+			}
 		}
-		if (command.equals("SKIP") && checkOthersTurn(ki)) {
-			kiSkip = true;
-			this.execute(ki, "SKIP");
-			this.checkKITurn();
-		}
-		}
-	return;
+		return;
 
 	}
 
@@ -667,6 +667,10 @@ public class gsClever extends Game {
 			if (winnerlist.size() > 1) {
 				for (int i = 0; i < winnerlist.size(); i++) {
 					gameData += playerList.get(i).getName();
+					System.out.println(playerList.get(i).getName());
+					for (int j = 0; j < 7; j++) {
+						System.out.println(returnBack.getWinner().getPoints(i).getPoints(0));
+					}
 					if (i < winnerlist.size() - 1) {
 						gameData += ",";
 					}
@@ -674,6 +678,7 @@ public class gsClever extends Game {
 			} else {
 				gameData += playerList.get(winnerlist.get(0)).getName();
 			}
+			return gameData;
 		}
 
 		if (eventName.equals("USERJOINED")) {

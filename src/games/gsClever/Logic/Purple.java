@@ -92,7 +92,7 @@ public class Purple extends ColorArea {
 
 	public int determinePoints() {
 		int summe = 0;
-		for (int i = 0; i > fieldCount; i++) {
+		for (int i = 0; i > fields.length; i++) {
 			summe = summe + fields[i];
 		}
 		return summe;
