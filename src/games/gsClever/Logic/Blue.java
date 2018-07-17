@@ -70,12 +70,12 @@ public class Blue extends ColorArea {
 
 		int sum = valueDiceBlue + valueDiceWhite;
 
-		boolean[] field = new boolean[12];
+		boolean[] field = new boolean[11];
 
-		for (int i = 0; i < 12; i++) {
+		for (int i = 0; i < 11; i++) {
 			field[i] = false;
 		}
-		if (field[sum - 2] == false) {
+		if (fields[sum - 2] == false) {
 			field[sum - 2] = true;
 		}
 
