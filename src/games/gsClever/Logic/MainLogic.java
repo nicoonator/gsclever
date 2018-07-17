@@ -1063,10 +1063,11 @@ public class MainLogic {
 		//from here fill returnBack (except winner)
 		for(int player = 0; player < playerCount; player++) {
 			
-			fillClickable(returnBack, player);
+			if(ready[player] == false)
+				fillClickable(returnBack, player);
 			
 			//when nothing is clickable
-			if((additionalDiceTime || player == currentPlayer) && 
+			if((additionalDiceTime || player == currentPlayer) && ready[player] == false &&
 					returnBack.getClickable(player).anythingClickable() == false &&
 					returnBack.getDecisionMaker(player).getColorOfDice() == null) {
 				
