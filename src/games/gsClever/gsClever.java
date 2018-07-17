@@ -41,9 +41,9 @@ public class gsClever extends Game {
 	private MainLogic currentGame;
 	private Return returnBack;
 	private int currentID = 0;
-	private boolean kiSkip=false;
+	private boolean kiSkip = false;
 	private ArrayList<KI> KIList = new ArrayList<KI>();
-	private KI currentKI=null;
+	private KI currentKI = null;
 
 	@Override
 	public String getSite() {
@@ -67,8 +67,8 @@ public class gsClever extends Game {
 
 	@Override
 	public String getJavaScript() {
-		return  " <script src=\"https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js\"></script>"
-		+" <script src=\"javascript/gsClever.js\"></script>";
+		return " <script src=\"https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js\"></script>"
+				+ " <script src=\"javascript/gsClever.js\"></script>";
 	}
 
 	@Override
@@ -85,28 +85,27 @@ public class gsClever extends Game {
 		this.gameStatus = gameStatus;
 	}
 
-	public void checkWinner(){
-		if(returnBack.getWinner()!=null){
+	public void checkWinner() {
+		if (returnBack.getWinner() != null) {
 			sendGameDataToClients("WINNER");
 			this.gState = GameState.CLOSED;
 		}
 	}
-	
-	public boolean checkKI(User user){
+
+	public boolean checkKI(User user) {
 		for (int i = 0; i < KIList.size(); i++) {
 			if (KIList.get(i).getName().equals(user.getName())) {
 				return true;
-			}		
+			}
 		}
 		return false;
 	}
-	
+
 	/*
 	 * Verarbeitet die sendDataToServer() methoden aus JS
 	 */
 	@Override
 	public void execute(User user, String gsonString) {
-		
 
 		if (gsonString.equals("STARTGAME") && userList.size() >= 2) {
 			this.gState = GameState.RUNNING;
@@ -115,7 +114,7 @@ public class gsClever extends Game {
 			this.setupGame();
 			sendGameDataToClients("NEWGAME");
 			sendGameDataToClients("STARTARRAY");
-//			checkKITurn();
+			// checkKITurn();
 			return;
 		}
 
@@ -163,7 +162,6 @@ public class gsClever extends Game {
 		// runter
 		// verschoben werden
 
-		
 		if (gsonString.equals("WUERFELN")) {
 			try {
 				returnBack = currentGame.click(userID, Area.rollDices, 0);
@@ -172,7 +170,8 @@ public class gsClever extends Game {
 				e.printStackTrace();
 			}
 			sendGameDataToClients("SUBMITGAME");
-			if(checkKI(user)) checkKITurn();
+			if (checkKI(user))
+				checkKITurn();
 			return;
 		}
 
@@ -184,7 +183,7 @@ public class gsClever extends Game {
 				e.printStackTrace();
 			}
 			sendGameDataToClients("SUBMITGAME");
-//			checkKITurn();
+			// checkKITurn();
 			return;
 		}
 
@@ -196,7 +195,7 @@ public class gsClever extends Game {
 				e.printStackTrace();
 			}
 			sendGameDataToClients("SUBMITGAME");
-//			checkKITurn();
+			// checkKITurn();
 			return;
 		}
 
@@ -208,12 +207,12 @@ public class gsClever extends Game {
 				e.printStackTrace();
 			}
 			sendGameDataToClients("SUBMITGAME");
-			//if(!checkKI(user)) {
-			checkKITurn();	
-			//} else if(currentKI.checkRollDice(this.getGameStatus())) {
-			//	this.execute(user, "WUERFELN");
-			//}
-			
+			// if(!checkKI(user)) {
+			checkKITurn();
+			// } else if(currentKI.checkRollDice(this.getGameStatus())) {
+			// this.execute(user, "WUERFELN");
+			// }
+
 			return;
 		}
 		if (gsonString.equals("COLORDECIDER")) {
@@ -528,71 +527,86 @@ public class gsClever extends Game {
 		return;
 	}
 
-	private void checkKITurn() {
-		String command="";
-		int testresult=0;
-		int currentID =0;
+	public boolean checkOthersTurn(KI ki) {
+		int testresult = 0;
 		for (int i = 69; i < 99; i++) {
-			if(this.getGameStatus()[i]!=0) testresult++;
+			if (this.getGameStatus()[i] != 0)
+				testresult++;
 		}
-		
+		switch (currentGame.determinePlayerId(ki.getName())) {
+		case 1: {
+			if (this.getCurrentPlayerAmount() > 2) {
+				for (int i = 233; i < 263; i++) {
+					if (this.getGameStatus()[i] != 0)
+						testresult++;
+				}
+			}
+			if (this.getCurrentPlayerAmount() > 3) {
+				for (int i = 315; i < 345; i++) {
+					if (this.getGameStatus()[i] != 0)
+						testresult++;
+				}
+			}
+			break;
+		}
+		case 2: {
+			if (this.getCurrentPlayerAmount() > 2) {
+				for (int i = 151; i < 181; i++) {
+					if (this.getGameStatus()[i] != 0)
+						testresult++;
+				}
+			}
+			if (this.getCurrentPlayerAmount() > 3) {
+				for (int i = 315; i < 345; i++) {
+					if (this.getGameStatus()[i] != 0)
+						testresult++;
+				}
+			}
+			break;
+		}
+		case 3: {
+			if (this.getCurrentPlayerAmount() > 2) {
+				for (int i = 151; i < 181; i++) {
+					if (this.getGameStatus()[i] != 0)
+						testresult++;
+				}
+			}
+			if (this.getCurrentPlayerAmount() > 3) {
+				for (int i = 233; i < 263; i++) {
+					if (this.getGameStatus()[i] != 0)
+						testresult++;
+				}
+			}
+			break;
+		}
+		}
+		if (testresult!=0) {
+			return false;
+		} else return true;
+	}
+
+	private void checkKITurn() {
+		String command = "";
+
 		for (KI ki : KIList) {
-			currentKI=ki;
+			currentKI = ki;
 			currentID = currentGame.determinePlayerId(ki.getName());
-			switch (currentID){
-			case 1:{
-				if(this.getCurrentPlayerAmount()>2){
-					for (int i = 233; i < 263; i++) {
-						if(this.getGameStatus()[i]!=0) testresult++;
-					}
-				}
-				if(this.getCurrentPlayerAmount()>3){
-					for (int i = 315; i < 345; i++) {
-						if(this.getGameStatus()[i]!=0) testresult++;
-					}
-				}
-				break;
-			}
-			case 2:{
-				if(this.getCurrentPlayerAmount()>2){
-					for (int i = 151; i < 181; i++) {
-						if(this.getGameStatus()[i]!=0) testresult++;
-					}
-				}
-				if(this.getCurrentPlayerAmount()>3){
-					for (int i = 315; i < 345; i++) {
-						if(this.getGameStatus()[i]!=0) testresult++;
-					}
-				}
-				break;
-			}
-			case 3:{
-				if(this.getCurrentPlayerAmount()>2){
-					for (int i = 151; i < 181; i++) {
-						if(this.getGameStatus()[i]!=0) testresult++;
-					}
-				}
-				if(this.getCurrentPlayerAmount()>3){
-					for (int i = 233; i < 263; i++) {
-						if(this.getGameStatus()[i]!=0) testresult++;
-					}
-				}
-				break;
-			}
-			}
-			command=ki.doSomething(currentGame, this.getGameStatus());
-			if (command.equals("")==false&&command.equals("SKIP")==false) {
-				this.execute(ki, command);
-				sendGameDataToClients("SUBMITGAME");
-				return;
-			}
-			if(command.equals("SKIP")&&testresult==0) {
-				kiSkip=true;
-				this.execute(ki, "SKIP");
-			}
-			
+
+		
+		command = ki.doSomething(currentGame, this.getGameStatus());
+		if (command.equals("") == false && command.equals("SKIP") == false) {
+			this.execute(ki, command);
+			sendGameDataToClients("SUBMITGAME");
+			return;
 		}
-		return;
+		if (command.equals("SKIP") && checkOthersTurn(ki)) {
+			kiSkip = true;
+			this.execute(ki, "SKIP");
+			this.checkKITurn();
+		}
+		}
+	return;
+
 	}
 
 	/**
@@ -647,18 +661,18 @@ public class gsClever extends Game {
 		if (eventName.equals("CLOSE")) {
 			return "CLOSE";
 		}
-		
+
 		if (eventName.equals("WINNER")) {
 			List<Integer> winnerlist = returnBack.getWinner().getWinners();
-			if(winnerlist.size()>1){
+			if (winnerlist.size() > 1) {
 				for (int i = 0; i < winnerlist.size(); i++) {
 					gameData += playerList.get(i).getName();
-					if (i < winnerlist.size()-1) {
+					if (i < winnerlist.size() - 1) {
 						gameData += ",";
 					}
 				}
-			} else{
-				gameData+=playerList.get(winnerlist.get(0)).getName();
+			} else {
+				gameData += playerList.get(winnerlist.get(0)).getName();
 			}
 		}
 
@@ -702,17 +716,19 @@ public class gsClever extends Game {
 	@Override
 	public void addUser(User user) {
 
-		if (playerList.size() < 4 && !playerList.contains(user)) {
+		if (this.gState == gState.SETUP) {
+			if (playerList.size() < 4 && !playerList.contains(user)) {
 
-			playerList.add(user);
-			Player p = new Player(user);
-			userList.add(p);
-			if (users.equals("")) {
-				users = user.getName();
-			} else {
-				users = users + "," + user.getName();
+				playerList.add(user);
+				Player p = new Player(user);
+				userList.add(p);
+				if (users.equals("")) {
+					users = user.getName();
+				} else {
+					users = users + "," + user.getName();
+				}
+				sendGameDataToClients("USERJOINED");
 			}
-			sendGameDataToClients("USERJOINED");
 		}
 	}
 
@@ -1708,7 +1724,7 @@ public class gsClever extends Game {
 				// TODO SPieler 3-4 anpassen
 				if (result[i - 2] != 0) {
 					if (this.getCurrentPlayerAmount() > 1)
-						result[i] = returnBack.getDecisionMaker(1).getColorOfDice().ordinal()+1;
+						result[i] = returnBack.getDecisionMaker(1).getColorOfDice().ordinal() + 1;
 				} else
 					result[i] = 0;
 				break;
@@ -3261,7 +3277,7 @@ public class gsClever extends Game {
 					result[i] = 1;
 				} else
 					result[i] = 0;
-				
+
 				break;
 			case 346:
 				if (this.getCurrentPlayerAmount() > 1) {
@@ -3269,8 +3285,8 @@ public class gsClever extends Game {
 						result[i] = 1;
 					} else
 						result[i] = 0;
-				 }
-				
+				}
+
 				break;
 			case 347:
 				if (this.getCurrentPlayerAmount() > 2) {
@@ -3279,7 +3295,7 @@ public class gsClever extends Game {
 					} else
 						result[i] = 0;
 				}
-				
+
 				break;
 			case 348:
 				if (this.getCurrentPlayerAmount() > 3) {
@@ -3288,9 +3304,9 @@ public class gsClever extends Game {
 					} else
 						result[i] = 0;
 				}
-				
+
 				break;
-			
+
 			}
 		}
 
