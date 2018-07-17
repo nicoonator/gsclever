@@ -714,7 +714,7 @@ public class MainLogic {
 
 		Return returnBack = new Return(currentPlayer, round, playerCount);
 		
-		if(nextArea[playerId] == Area.specialEvent) {
+		if(nextArea[playerId] == Area.specialEvent) {returnBack.getClickable(0).setRollDices(true);//TODO
 		
 			currentArea[playerId] = area;
 			area = Area.specialEvent;
@@ -739,8 +739,12 @@ public class MainLogic {
 				diceField = dice.getField() + 1;
 		}
 		
-		if(area == null)
+		if(area == null) {
+			
 			startRound();
+			
+			nextArea[currentPlayer] = Area.rollDices;
+		}
 		else {
 			
 			switch(area) {
