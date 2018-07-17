@@ -1066,8 +1066,7 @@ public class MainLogic {
 			fillClickable(returnBack, player);
 			
 			//when nothing is clickable
-			if((additionalDiceTime || 
-					(player == currentPlayer && returnBack.getClickable(player).isDiceRepeat() == false)) && 
+			if((additionalDiceTime || player == currentPlayer) && 
 					returnBack.getClickable(player).anythingClickable() == false &&
 					returnBack.getDecisionMaker(player).getColorOfDice() == null) {
 				
@@ -1084,8 +1083,7 @@ public class MainLogic {
 				}
 				else {
 					
-					if(players[playerId].getManagement().getDiceRepeatUsed() < 
-							players[playerId].getManagement().getDiceRepeatCount())
+					if(returnBack.getClickable(player).isDiceRepeat() == false)
 						returnBack.getClickable(playerId).setReady(true);
 					else
 						putSmallerDicesOnTray(7);
