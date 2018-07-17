@@ -1066,8 +1066,7 @@ public class MainLogic {
 			fillClickable(returnBack, player);
 			
 			//when nothing is clickable
-			if(((additionalDiceTime && returnBack.getClickable(player).isDiceRepeat() == false) || 
-					player == currentPlayer) && 
+			if((additionalDiceTime || player == currentPlayer) && 
 					returnBack.getClickable(player).anythingClickable() == false &&
 					returnBack.getDecisionMaker(player).getColorOfDice() == null) {
 				
