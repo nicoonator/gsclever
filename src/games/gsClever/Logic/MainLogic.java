@@ -1089,7 +1089,7 @@ public class MainLogic {
 				else {
 					
 					if(returnBack.getClickable(player).isDiceRepeat())
-						returnBack.getClickable(playerId).setReady(true);
+						returnBack.getClickable(player).setReady(true);
 					else
 						putSmallerDicesOnTray(7);
 					
