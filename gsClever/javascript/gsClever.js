@@ -18,13 +18,14 @@ addListener('USERJOINED',function (event) {
 
 addListener('WINNER',function (event) { 
 	var stringFromServer = event.data;
-    var arr = stringFromServer.split(',');
+    const arr = stringFromServer.split(',');
+    var breakpoint = arr.lenght;
     console.log(arr);
     console.log(stringFromServer);
     var winnerString="";
-    for (var i=0; i<arr.lenght;i++){
-    	winnerString += String(arr[i]) + " hat das Spiel gewonnen. " ;
-    }
+    arr.forEach(function(entry) {
+    	winnerString += String(entry) + " hat das Spiel gewonnen. <br>" ;
+    });
     console.log(winnerString);
     document.getElementById("label").innerHTML = winnerString;;
 });
@@ -1796,7 +1797,7 @@ break;
 	    if(userNumber==1){
 		setWuerfelnClickable(+x[i]);
 		if(x[i]==1){
-			document.getElementById("label").innerHTML = "Du darfst jetzt Wuerfeln!";
+			document.getElementById("label").innerHTML = "Du darfst jetzt W\u00fcrfeln!";
 		} else{
 			document.getElementById("label").innerHTML = "";
 		}
@@ -2198,7 +2199,7 @@ case 151:{
     if(userNumber==2){
 	setWuerfelnClickable(+x[i]);
 	if(x[i]==1){
-		document.getElementById("label").innerHTML = "Du darfst jetzt Wuerfeln!";
+		document.getElementById("label").innerHTML = "Du darfst jetzt W\u00fcrfeln!";
 	} else{
 		document.getElementById("label").innerHTML = "";
 	}
@@ -2592,7 +2593,7 @@ case 233:{
     if(userNumber==3){
 	setWuerfelnClickable(+x[i]);
 	if(x[i]==1){
-		document.getElementById("label").innerHTML = "Du darfst jetzt Wuerfeln!";
+		document.getElementById("label").innerHTML = "Du darfst jetzt W\u00fcrfeln!";
 	} else{
 		document.getElementById("label").innerHTML = "";
 	}
@@ -2985,7 +2986,7 @@ case 315:{
     if(userNumber==4){
 	setWuerfelnClickable(+x[i]);
 	if(x[i]==1){
-		document.getElementById("label").innerHTML = "Du darfst jetzt Wuerfeln!";
+		document.getElementById("label").innerHTML = "Du darfst jetzt W\u00fcrfeln!";
 	} else{
 		document.getElementById("label").innerHTML = "";
 	}
@@ -3121,6 +3122,7 @@ case 344:{
     case 1: {
     		if(+x[345]==1){
     			document.getElementById("buttonUeberspringen").setAttribute('onclick','skip()');
+    			document.getElementById("label").innerHTML = "Beende deinen Zug, indem du \"Fertig\" dr\u00fcckst!";
     		} else{
     			document.getElementById("buttonUeberspringen").setAttribute('onclick','');
     		}
@@ -3128,25 +3130,28 @@ case 344:{
     }
     case 2:{
     	    if(+x[346]==1){
-    	    	document.getElementById("buttonUeberspringen").setAttribute('onclick','skip()');
-    		} else{
-    			document.getElementById("buttonUeberspringen").setAttribute('onclick','');;
+    			document.getElementById("buttonUeberspringen").setAttribute('onclick','skip()');
+			document.getElementById("label").innerHTML = "Beende deinen Zug, indem du \"Fertig\" dr\u00fcckst!";
+		} else{
+			document.getElementById("buttonUeberspringen").setAttribute('onclick','');
     		}
     	break;
     }
     case 3: {
     	    if(+x[347]==1){
-    	    	document.getElementById("buttonUeberspringen").setAttribute('onclick','skip()');
-    		} else{
-    			document.getElementById("buttonUeberspringen").setAttribute('onclick','');
+    			document.getElementById("buttonUeberspringen").setAttribute('onclick','skip()');
+			document.getElementById("label").innerHTML = "Beende deinen Zug, indem du \"Fertig\" dr\u00fcckst!";
+		} else{
+			document.getElementById("buttonUeberspringen").setAttribute('onclick','');
     		}
     	break;
     }
     case 4:{
     	    if(+x[348]==1){
-    	    	document.getElementById("buttonUeberspringen").setAttribute('onclick','skip()');
-    		} else{
-    			document.getElementById("buttonUeberspringen").setAttribute('onclick','');
+    			document.getElementById("buttonUeberspringen").setAttribute('onclick','skip()');
+			document.getElementById("label").innerHTML = "Beende deinen Zug, indem du \"Fertig\" dr\u00fcckst!";
+		} else{
+			document.getElementById("buttonUeberspringen").setAttribute('onclick','');
     		}
     	break;
     }
