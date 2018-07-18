@@ -666,7 +666,7 @@ public class gsClever extends Game {
 					gameData += playerList.get(i).getName();
 					System.out.println(playerList.get(i).getName());
 					for (int j = 0; j < 7; j++) {
-						System.out.println(returnBack.getWinner().getPoints(i).getPoints(0));
+						System.out.println(returnBack.getWinner().getPoints(i).getPoints(j));
 						if (i < winnerlist.size() - 1) {
 							gameData += ",";
 						}
@@ -677,7 +677,7 @@ public class gsClever extends Game {
 			}
 			System.out.println(playerList.get(0).getName());
 			for (int j = 0; j < 7; j++) {
-				System.out.println(returnBack.getWinner().getPoints(0).getPoints(0));
+				System.out.println(returnBack.getWinner().getPoints(0).getPoints(j));
 			}
 			return gameData;
 		}
